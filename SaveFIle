@@ -80,3 +80,15 @@ for i in range(a, b + 1):
 for j in range(c, d+1): 
   print('\t', j, end='\t') 
 print()
+
+#i for range 
+
+a, b = (int(i) for i in input().split())
+s = 0
+n = 0
+for i in range(a, b + 1):
+  if i % 3 == 0:
+    s += i
+    n += 1
+s = s / n
+print(s)
