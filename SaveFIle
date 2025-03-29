@@ -1,0 +1,73 @@
+#Calculator 
+
+a = float(input())
+b = float(input())
+act = input()
+
+if (act=="/" or act=="mod" or act=="div") and b==0:
+    c = "Деление на 0!"
+elif act=="+":    c = a + b
+elif act=="-":    c = a - b
+elif act=="/":    c = a / b
+elif act=="*":    c = a * b
+elif act=="mod":  c = a % b
+elif act=="pow":  c = a ** b
+elif act=="div":  c = a // b
+
+print (c) 
+
+#Labeling 
+
+n = int(input()) 
+
+if n % 10 in [1] and not ( n % 100 == 11 ) : 
+  print(n, "программист")
+
+elif n % 10 in [2, 3, 4] and not ( 12 <= n % 100 <= 14 ) :
+  print(n, "программиста") 
+
+else : 
+  print(n, "программистов") 
+
+
+#Lucky Ticket 
+
+n = int(input()) 
+
+a = n // 100000 % 10 
+b = n // 10000 % 10 
+c = n // 1000 % 10 
+d = n // 100 % 10 
+e = n // 10 % 10 
+f = n % 10 
+
+if a + b + c == d + e + f: 
+    print('Счастливый')
+elif a + b + c != d + e + f : 
+    print('Обычный')
+
+#Sum 
+
+a = int(input()) 
+s = a
+while not a == 0 :
+  a = int(input()) 
+  s += a 
+print(s)
+
+#НОД 
+
+a = int(input())
+b = int(input())
+
+d = 2  # начинаем с первого возможного делителя > 1
+
+while d <= a and d <= b:
+    if a % d == 0 and b % d == 0:
+        print("Наименьший общий делитель:", d)
+        break
+    d += 1
+else:
+  print("Нет общих делителей кроме 1") 
+
+#Идеальный торт 
