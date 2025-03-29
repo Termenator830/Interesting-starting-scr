@@ -109,3 +109,9 @@ or
 genome = 'ATGG'
 for i in genome:
   print(i)
+
+genome = 'ATSGD'
+print(genome.count('C')) 
+
+if 'TG' in s: 
+s.upper().count('gt'.upper())
