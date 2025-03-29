@@ -92,3 +92,20 @@ for i in range(a, b + 1):
     n += 1
 s = s / n
 print(s)
+
+#indexing 
+
+genome = 'ATGG'
+
+genome[0] = 'A'
+genome[-4] = 'A'
+
+=> genome = 'ATGG'
+for i in range(4):
+  print(genome[i]) 
+
+or
+
+genome = 'ATGG'
+for i in genome:
+  print(i)
