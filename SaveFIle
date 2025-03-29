@@ -71,3 +71,8 @@ else:
   print("Нет общих делителей кроме 1") 
 
 #Идеальный торт 
+a = int(input())
+b = int(input())
+
+for i in range(a, b + 1):
+  print('', i, end="\n\n")
