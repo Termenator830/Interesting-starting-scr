@@ -193,3 +193,28 @@ for i in range(n):
         print(a[-2] + a[0], end=' ')
     else:
         print(a[i - 1] + a[i + 1], end=' ')
+
+#Return same values
+
+a = [int(i) for i in input().split()]
+a.sort()
+n = len(a)
+
+i = 0
+while i < n - 1:
+    if a[i] == a[i + 1]:
+        print(a[i], end=' ')
+        while i < n - 1 and a[i] == a[i + 1]:
+            i += 1
+    i += 1 
+
+    ДВУМЕРНЫЕ СПИСКИ 
+
+a = [[1,2,3],[4,5,6],[7,8,9]] - matrix 3x3
+a[1][1] - stroke number, field number 
+a = [[0]*n]*n
+a[0][0] = 5 - changes all lists as in original stroke
+
+Generators: 
+a = [[0] * n for i in range(n)]
+a = [[0 for j in range(n)] for i in range(n)]
