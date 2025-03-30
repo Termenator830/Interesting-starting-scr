@@ -121,3 +121,13 @@ s.upper().count('gt'.upper())
 dna = 'ATTCGGAGCT'
 dna[1:4:2] 
 dna[::-1] = TCGAGGCTTA
+
+genom = input()
+n = len(genom)
+
+#Save Memory 
+for i in range(n): 
+  if i > 0 and genom[i] == genom[i - 1]:
+    continue
+  print(genom[i] + str(genom.count(genom[i])))
+print('end')
