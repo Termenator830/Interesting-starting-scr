@@ -147,6 +147,6 @@ print(students[1:3])
 List1 + List2 = List1, List2
 List * 2 = List, List
 * List elements are CHANGABLE 
-* List.append['Olga'] - add 'Olga' to list
-* List += ['Boris'] - add 'Boris' to list
+* List.append['Olga'] - add 1 item to the box
+* List += ['Boris'] - expand by range 
 * List.insert(1, 'Olga') - add on place 
