@@ -180,3 +180,16 @@ s = 0
 for i in a:
     s += i
 print(s)
+
+#Alg
+
+a = [int(i) for i in input().split()]
+n = len(a)
+
+for i in range(n):
+    if i == 0:
+        print(a[1] + a[-1], end=' ')
+    elif i == n - 1:
+        print(a[-2] + a[0], end=' ')
+    else:
+        print(a[i - 1] + a[i + 1], end=' ')
