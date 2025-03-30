@@ -165,3 +165,10 @@ List * 2 = List, List
 
 * students.reserse() - change List's state
 * reversed(students) <=> students[::-1] - use as reversed 
+
+                    ГЕНЕРАЦИЯ СПИСКОВ 
+
+a = [0]*5 
+a = [0 for i in range(5)]
+a = [i*i for i in range(5)]
+a = [int(i) for i in input().split()]
