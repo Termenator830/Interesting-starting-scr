@@ -156,3 +156,12 @@ List * 2 = List, List
 
 * if ... (not) in List
 * ind = students.index('Sasha')
+
+* ordered_students = sorted(students)
+* students.sort
+
+* min(students) 
+* max(students) 
+
+* students.reserse() - change List's state
+* reversed(students) <=> students[::-1] - use as reversed 
