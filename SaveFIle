@@ -115,3 +115,9 @@ print(genome.count('C'))
 
 if 'TG' in s: 
 s.upper().count('gt'.upper())
+
+#Slicing
+
+dna = 'ATTCGGAGCT'
+dna[1:4:2] 
+dna[::-1] = TCGAGGCTTA
