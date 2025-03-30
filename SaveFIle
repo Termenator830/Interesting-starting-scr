@@ -218,3 +218,13 @@ a[0][0] = 5 - changes all lists as in original stroke
 Generators: 
 a = [[0] * n for i in range(n)]
 a = [[0 for j in range(n)] for i in range(n)]
+
+#Count Matrix 
+n = 3
+count = 1
+a = [[0 for j in range(n)] for i in range(n)]
+
+for i in range(n):
+    for j in range(n):
+        a[i][j] = count
+        count += 1
