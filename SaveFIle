@@ -285,3 +285,18 @@ while d != 0 or first_cycle:
     s += k ** 2
     d += k
 print(s)
+
+#Lists setting
+
+a = int(input())
+res = []
+n = 1
+
+while len(res) < a:
+    for i in range(n):
+        if len(res) >= a:
+            break
+        res.append(n)
+    n += 1
+
+print(*res)
