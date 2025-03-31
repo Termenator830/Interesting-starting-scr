@@ -244,7 +244,7 @@ for i in range(n):
         print(a[i][j], end='\t')
     print() 
 
-#Water Fight
+#Mine FIeld
 
 n, m, k = (int(i) for i in input().split())
 a = [[0 for i in range(m)] for j in range(n)]
@@ -269,3 +269,19 @@ for i in range(n):
         else:
             print(a[i][j], end='')
     print()
+
+#Run first loop with no req 
+
+s = 0
+d = 0
+first_cycle = True
+
+while d != 0 or first_cycle:
+    first_cycle = False
+    try:
+        k = int(input())
+    except EOFError:
+        break
+    s += k ** 2
+    d += k
+print(s)
