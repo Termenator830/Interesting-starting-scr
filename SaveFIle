@@ -352,3 +352,5 @@ for row in result:  # fix here — no need for k+1
         print(j, end=' ')
     print()
 
+#Add Sublist 
+b.append(list(range(k, n + 1)))
