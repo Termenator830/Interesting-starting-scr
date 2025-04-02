@@ -320,3 +320,34 @@ for i in range(k):  # fix here — no need for k+1
     for j in a[i]:
         print(j, end=' ')
     print()
+
+#Edit Matrix
+
+a = []
+k = 0
+
+while True:
+    s = input()
+    if s == 'end':
+        break
+    b = [int(i) for i in s.split()]
+    a.append(b)
+    k += 1
+n = len(a[0])
+
+result = []
+
+for i in range(k):
+    row = []
+    for j in range(n):
+        up = a[i - 1][j] if i > 0 else 0
+        down = a[i + 1][j] if i < k - 1 else 0
+        left = a[i][j - 1] if j > 0 else 0
+        right = a[i][j + 1] if j < n - 1 else 0
+        row.append(up + down + left + right)
+    result.append(row)
+    
+for row in result:  # fix here — no need for k+1
+    for j in row:
+        print(j, end=' ')
+    print()
