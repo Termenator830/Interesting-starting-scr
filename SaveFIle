@@ -354,3 +354,21 @@ for row in result:  # fix here — no need for k+1
 
 #Add Sublist 
 b.append(list(range(k, n + 1)))
+
+#NxN Matrix
+
+n = int(input())
+a = []
+k = 1  # first number
+
+for i in range(n):
+    b = []
+    for j in range(n):
+        b.append(k)
+        k += 1
+    a.append(b)
+
+for row in a:
+    for j in row:
+        print(j, end=' ')
+    print()
