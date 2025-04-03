@@ -484,3 +484,27 @@ def modify_list(l):
 a = [1, 2, 3, 4, 5, 6]
 modify_list(a)
 print(a)
+
+#In-place assignment
+
+def modify_list(l):
+    l[:] = [i//2 for i in l if i % 2 == 0]1] 
+
+                        МНОЖЕСТВА 
+
+* s = set() 
+* basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+- print(basket) - {'orange', 'banana', 'pear', 'apple'}
+* 'orange' in basket
+* s.add(element)
+* s.remove(element) - error if none
+* s.discard(element) - no error if none
+* s.clear() - clear set
+
+#Example
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+for x in basket:
+  print(x) - outputs banana, apple, orange, pear 
+
+
+
