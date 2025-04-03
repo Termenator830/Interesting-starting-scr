@@ -561,7 +561,7 @@ for key in d:
     print(key, d[key])
 
 #Build keys 
-ddef update_dictionary(d, key, value):
+def update_dictionary(d, key, value):
     try:
         for i in d:
             if not isinstance(d[i], list):
@@ -574,3 +574,11 @@ ddef update_dictionary(d, key, value):
             d[2 * key] = [value]
     except TypeError:
         pass
+
+#Put to dictionary 
+a = [str(i) for i in input().split()]
+key = 1
+d = {key: a}
+for a in d[key]:
+    print(a) 
+
