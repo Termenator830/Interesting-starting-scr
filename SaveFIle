@@ -559,3 +559,18 @@ print(d[10]) -- prints 100
 #Loop example
 for key in d:
     print(key, d[key])
+
+#Build keys 
+ddef update_dictionary(d, key, value):
+    try:
+        for i in d:
+            if not isinstance(d[i], list):
+                d[i] = [d[i]]
+        if key in d:
+            d[key].append(value)
+        elif 2 * key in d:
+            d[2 * key].append(value)
+        else:
+            d[2 * key] = [value]
+    except TypeError:
+        pass
