@@ -431,6 +431,19 @@ for row in a:
 
 * def - определить функцию
 * return - закончить и вернуть значение
+• what starts in function stays in function
+•  Списки, словари, множества - это изменяемые объекты
+• Числа, строки, кортежи - это неизменяемые объекты
+
+#example
+a = 0
+
+def init_values(a):
+    a = 100
+    return(a)
+print(init_values(a))
+
+#min
 
 a = [0, 1, 3, 4, -1, -100]
 
@@ -444,13 +457,30 @@ print(my_min(*a))
 
 #range in list
 
-a = [0, 1, 3, 4, -1, -100]
+def my_range(start, stop, step=1):
+    res = []
+    if step > 0:
+        x = start
+        while x < stop:
+            res += [x]
+            x += step
+    elif step < 0:
+        x = start
+        while x > stop:
+            res += [x]
+            x += step
+    return(res)
+print(my_range(stop = 20, start = 5))
 
-def my_min(*args):
-    m = args[0]
-    for x in args:
-        if m > x:
-            m = x
-    return m
+#Modify list + safe cycle
 
-print(my_min(*a))
+def modify_list(l):
+    for i in range(len(l) - 1, -1, -1):
+        if l[i] % 2 != 0:
+            del l[i]
+        else:
+            l[i] //= 2
+
+a = [1, 2, 3, 4, 5, 6]
+modify_list(a)
+print(a)
