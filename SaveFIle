@@ -1,3 +1,19 @@
+#Size coimparison
+type - <class 'dict'>, len - 100, size - 2620         #   {i:i for i in range(100)}
+type - <class 'set'>, len - 100, size - 4212          #   {i for i in range(100)}
+type - <class 'list'>, len - 100, size - 460            #   [i for i in range(100)]
+type - <class 'tuple'>, len - 100, size - 428         #   tuple((i for i in range(100)))
+type - <class 'generator'>, len - 100, size - 48   #   (i for i in range(100))
+
+| Use case                        | Use this     |
+|----------------------------------|--------------|
+| Ordered simple items             | `list`       |
+| Unique unordered items           | `set`        |
+| Key → Value mapping              | `dict`       |
+| Need fast lookup                 | `set` / `dict` |
+| Tiny memory budget               | `list`       |
+
+
 #Calculator 
 
 a = float(input())
@@ -492,7 +508,7 @@ def modify_list(l):
 
                         МНОЖЕСТВА 
 
-* s = set() 
+* s = set() - empty set
 * basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 - print(basket) - {'orange', 'banana', 'pear', 'apple'}
 * 'orange' in basket
@@ -506,5 +522,40 @@ basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 for x in basket:
   print(x) - outputs banana, apple, orange, pear 
 
+                        СЛОВАРИ 
 
+* d = dict() or d = {} - empty dictionary 
+* d = {'a': 239,10:100}, a - key, 239 - value
+* key in dictionary
+* dictionary[key] = value
+* dictionary[key] - might give error
+* dictionary.get[key] - stable
+* del dictionary[key] 
+• Dictionaries or changable
+• Keys are unchangable 
 
+* Перебрать словарь
+d = {'C':14, 'A':12}
+for key in d:
+    print(key, end=' ') -- C A 
+for key in d.keys():
+    print(key, end=' ') -- C A 
+for value in d.values():
+    print(value, end=' ') -- 14 12
+for key, value in d.items():
+    print(key, value, end=' ') -- C 14; A 12;
+
+#Example of list in dictionary
+example = {'A': [22, 33, 44], 'B': [10, 20]}
+
+print(example['A'][1])
+
+#Example 
+d = {}
+d = {'a': 239,10:100}, a - key, 239 - value
+print(d['a']) -- prints 239
+print(d[10]) -- prints 100
+
+#Loop example
+for key in d:
+    print(key, d[key])
