@@ -675,3 +675,33 @@ with open('текст.txt', 'w') as inf:
             inf.write(letter * int(number_str))
     else:
         i += 1
+
+#Count words
+
+a = input().lower().split()
+n = len(a)
+
+b = []
+c = []
+for i in range(n):
+  if a[i] in b:
+    continue
+  elif a[i] not in b:
+    k = a.count(a[i])
+    if k == 1:
+      print(a[i], k, end = ' ')
+      b.append(a[i])
+      c.append(k)
+    elif k > 1:
+      print(a[i], k, end = ' ')
+      b.append(a[i])
+      c.append(k)
+n = len(c)
+d = 0
+for i in range(n):
+  if i + 1 < n and int(c[i + 1]) > int(c[i]):
+    d = c.index(c[i + 1])
+  else:
+    continue
+print(d)
+print(b[d], c[d], sep = ' ')
