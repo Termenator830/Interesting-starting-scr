@@ -647,3 +647,25 @@ print("Linux-style path:", path_linux)
 
 path_windows = build_path("Windows", "C:", "Users", "Mikhail", "Desktop", "file.txt")
 print("Windows-style path:", path_windows)
+
+#identify digit/alpha
+
+genom = input("Enter the genome sequence: ")
+n = len(genom)
+i = 0
+
+while i < n:
+  if genom[i].isalpha():
+      letter = genom[i]
+      i += 1
+      number_str = ""
+      while i < n and genom[i].isdigit():
+          number_str += genom[i]
+          i += 1
+
+      if number_str == "":
+          print(letter, end='')
+      else:
+          print(letter * int(number_str), end='')
+  else:
+      i += 1 
