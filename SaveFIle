@@ -582,3 +582,45 @@ d = {key: a}
 for a in d[key]:
     print(a) 
 
+#Optimized functioning 
+d = {}
+n = int(input())
+
+for _ in range(n):
+    x = int(input())
+    if x in d:
+        print(d[x])
+    else:
+        d[x] = f(x)
+        print(d[x])
+
+                    ФАЙЛЫ/FILES
+ИЗ:
+* inf = open('текст.txt', 'r') - open file
+* s1 = inf.readline() - read 1 line
+* inf.close() - close file
+* s = inf.readline().strip()
+* os.path.join('.', 'dirname', 'filename.txt') -- Вывод зависит от ОС
+
+В:
+* ouf = open('file.txt', 'w')
+* ouf.write('Some text\n')
+* ouf.write(str(25))
+* ouf.close() 
+
+* Auto-close: 
+with open('текст.txt', 'r') as inf: -- with _ as _ конструкция
+  s2 = inf.readline()
+print(s2)
+
+* Построчное чтение файла
+with open('input.txt') as inf:
+    for line in inf:
+        line = line.strip()
+        print(line)
+
+#Example 
+with open('text.txt', 'w') as ouf:
+    ouf.write('Some text\n')
+    ouf.write(str(25))
+
