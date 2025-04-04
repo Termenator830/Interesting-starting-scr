@@ -626,6 +626,12 @@ with open('text.txt', 'w') as ouf:
     ouf.write('Some text\n')
     ouf.write(str(25))
 
+#Overwriting example
+with open("log.txt", "w") as f:
+    f.write("Log started\n")
+    f.write("User joined\n")
+    f.write("End.\n")
+
 #Format for OS
 
 import os
