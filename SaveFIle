@@ -600,7 +600,9 @@ for _ in range(n):
 * s1 = inf.readline() - read 1 line
 * inf.close() - close file
 * s = inf.readline().strip()
-* os.path.join('.', 'dirname', 'filename.txt') -- Вывод зависит от ОС
+* import os
+    os.path.join('.', 'dirname', 'filename.txt') -- Вывод зависит от используемой ОС
+* "\\".join(parts)
 
 В:
 * ouf = open('file.txt', 'w')
@@ -624,3 +626,18 @@ with open('text.txt', 'w') as ouf:
     ouf.write('Some text\n')
     ouf.write(str(25))
 
+#Format for OS
+
+import os
+
+def build_path(system, *parts):
+    if system.lower() == "windows":
+        return "\\".join(parts)
+    else:
+        return "/".join(parts)
+        
+path_linux = build_path("Linux", "home", "mikhail", "projects", "script.py")
+print("Linux-style path:", path_linux)
+
+path_windows = build_path("Windows", "C:", "Users", "Mikhail", "Desktop", "file.txt")
+print("Windows-style path:", path_windows)
