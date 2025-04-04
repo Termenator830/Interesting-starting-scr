@@ -679,7 +679,7 @@ with open('текст.txt', 'w') as inf:
 #Count words
 
 with open("текст.txt", "r") as f:
-  a = f.readline().lower().split()
+  a = f.read().lower().split()
 
 n = len(a)
 
@@ -690,26 +690,19 @@ for i in range(n):
     continue
   elif a[i] not in b:
     k = a.count(a[i])
-    if k == 1:
-      b.append(a[i])
-      c.append(k)
-    elif k > 1:
-      b.append(a[i])
-      c.append(k)
+    b.append(a[i])
+    c.append(k)
 
 n = len(c)
 
-# Safety check BEFORE using b[d] and c[d]
 if not b or not c:
   print("Файл пуст или не содержит слов.")
 else:
   d = 0
   for i in range(n):
-    if i + 1 < n and int(c[i + 1]) > int(c[i]):
-      d = c.index(c[i + 1])
-    else:
-      continue
-  print(b[d], c[d], sep = ' ')
-
-  with open('текст.txt', 'w') as ouf:
-    ouf.write(str(b[d]) + ' ' + str(c[d]))
+    if c[i] > c[d]:
+      d = i
+    elif c[i] == c[d]:
+      if b[i] > b[d]:
+        d = i
+  print(b[d], c[d], sep=' ')
