@@ -676,9 +676,9 @@ with open('текст.txt', 'w') as inf:
     else:
         i += 1
 
-#Count words
+#Count words(Вариант 1 - неэф.)
 
-with open("текст.txt", "r") as f:
+with open("dataset_3363_3 3.txt", "r") as f:
   a = f.read().lower().split()
 
 n = len(a)
@@ -703,6 +703,21 @@ else:
     if c[i] > c[d]:
       d = i
     elif c[i] == c[d]:
-      if b[i] > b[d]:
+      if b[i] < b[d]:
         d = i
   print(b[d], c[d], sep=' ')
+
+#Count words(OPTIMIZED)
+s, d, m, w = str(), dict(), 0, str()
+with open("dataset_3363_3.txt", "r") as f:
+    s = f.read().lower().strip().split()
+s.sort()
+for word in s:
+    if word in d:
+        d[word] += 1
+    else:
+        d[word] = 1
+for word in d:
+    if d[word] > m:
+        m = d[word]
+        w = word
