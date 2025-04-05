@@ -793,3 +793,10 @@ result = subprocess.run(["python", "-h"], capture_output=True, text=True)
 print("\nOutput captured using run():")
 print(result.stdout)
 
+*Math function
+import math
+pi = math.pi
+r = float(input())
+def circle(r):
+  return pi * r * 2
+print(circle(r))
