@@ -764,3 +764,32 @@ with open("dataset_3363_5.txt", "w") as file:
   for val in n:
     file.write(f"{val}\n")
   file.write(f"{mat} {pys} {rus}")
+
+                            МОДУЛИ
+• Модуль - файл с функциями
+• Имя файла = имя модуля + .py
+* import my_module
+    my_module.foo()
+* from my_module import foo -- specific function
+    foo()
+* from my_module import * -- all functions
+    foo()
+* from my_module import foo as my_foo -- name
+    my_foo() 
+
+        ПРИМЕРЫ МОДУЛЕЙ
+• sys
+    * sys.argv -- list of arguments of command line
+- Example:
+import sys
+print(len(sys.argv))
+
+• subprocess
+    * subprocess.call(args, *,stdin=None,stdout=None,stderr=None,shell=False,timeout=None)
+- Example:
+import subprocess
+subprocess.call(["python", "-h"])
+result = subprocess.run(["python", "-h"], capture_output=True, text=True)
+print("\nOutput captured using run():")
+print(result.stdout)
+
