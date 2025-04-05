@@ -188,6 +188,8 @@ a = [0]*5
 a = [0 for i in range(5)]
 a = [i*i for i in range(5)]
 a = [int(i) for i in input().split()] 
+* for i, fruit in enumerate(fruits):
+    print(i, fruit) -- use index and value.
 
 #Сумма
 a = [int(i) for i in input().split()] 
@@ -721,3 +723,34 @@ for word in d:
     if d[word] > m:
         m = d[word]
         w = word
+
+#sets usage
+
+data = input("Enter name and scores separated by semicolons: ").split(';') 
+print(';'.join(data))
+
+#Find mid-valu ( and read numbers in lines )
+with open("текст.txt", "r") as file:
+  b = 0
+  mat = 0
+  pys = 0
+  rus = 0
+
+  for line in file:
+      parts = line.strip().split(';')
+      name = parts[0]
+      scores = parts[1:]
+      c = 0
+      for i, val in enumerate(scores):
+          if val.isdigit():
+              valf = float(val)
+              c += valf
+              if i == 0:
+                  mat += valf
+              elif i == 1:
+                  pys += valf
+              elif i == 2:
+                  rus += valf
+      print(c/3)
+
+  print(mat/3, pys/3, rus/3)
