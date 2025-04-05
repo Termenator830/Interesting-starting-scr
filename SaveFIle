@@ -781,8 +781,13 @@ with open("dataset_3363_5.txt", "w") as file:
 • sys
     * sys.argv -- list of arguments of command line
 - Example:
+* import sys
+* print(len(sys.argv))
+
+#Example
 import sys
-print(len(sys.argv))
+print("Full list:", sys.argv)
+print(*sys.argv[1:])
 
 • subprocess
     * subprocess.call(args, *,stdin=None,stdout=None,stderr=None,shell=False,timeout=None)
