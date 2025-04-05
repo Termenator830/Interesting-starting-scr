@@ -828,3 +828,22 @@ print(r.text)
 print(r.cookies['example_cookie_name'])
 
 ------------------------------------------------------
+
+#Матрёшка файлов
+
+import requests
+
+with open('dataset_3378_3.txt', 'r') as file:
+    a = file.read().strip()
+
+headers = {'User-Agent': 'Mozilla/5.0'}
+r = requests.get(a, headers=headers)
+
+while True:
+    if r.text.startswith('We'):
+        break
+    else:
+      next_url = 'https://stepik.org/media/attachments/course67/3.6.3/' + r.text.strip()
+      r = requests.get(next_url, headers=headers)
+
+print(r.text)
