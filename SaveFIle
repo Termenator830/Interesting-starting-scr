@@ -726,15 +726,12 @@ for word in d:
 
 #sets usage
 
-data = input("Enter name and scores separated by semicolons: ").split(';') 
-print(';'.join(data))
-
-#Find mid-valu ( and read numbers in lines )
-with open("текст.txt", "r") as file:
-  b = 0
-  mat = 0
-  pys = 0
-  rus = 0
+with open("dataset_3363_4 3.txt", "r") as file:
+  mat = pys = rus = 0
+  k = []
+  l = []
+  m = []
+  n = []
 
   for line in file:
       parts = line.strip().split(';')
@@ -747,10 +744,23 @@ with open("текст.txt", "r") as file:
               c += valf
               if i == 0:
                   mat += valf
+                  k.append(valf)
               elif i == 1:
                   pys += valf
+                  l.append(valf)
               elif i == 2:
                   rus += valf
-      print(c/3)
+                  m.append(valf)
+      avg = c / 3
+      n.append(avg)
 
-  print(mat/3, pys/3, rus/3)
+# Print subject averages
+print(mat / 3, pys / 3, rus / 3)
+print(type(mat/3), type(pys/3), type(rus/3))
+print(repr(f"{mat} {pys} {rus}"))
+
+# Write everything in one go
+with open("dataset_3363_5.txt", "w") as file:
+  for val in n:
+    file.write(f"{val}\n")
+  file.write(f"{mat} {pys} {rus}")
