@@ -847,3 +847,19 @@ while True:
       r = requests.get(next_url, headers=headers)
 
 print(r.text)
+
+#Football counting 
+n = int(input())
+d = {}
+
+for i in range(n):
+    a = input().split(';')
+    for j in range(len(a)):
+        if a[j].isalpha():
+            if a[j] not in d:
+                d[a[j]] = []
+        elif a[j].isdigit():
+            name = a[j - 1]
+            d[name].append(int(a[j]))
+
+print(d) 
