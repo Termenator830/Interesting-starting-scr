@@ -931,3 +931,36 @@ for i in range(o):
       l.append(b[j].lower())
 for i in range(len(l)):
   print(l[i])
+
+#Root for snake
+NS = 0
+WE = 0
+n = int(input())
+for i in range(n):
+  a = [x.lower() if not x.isdigit() else int(x) for x in input().split()]
+  if a[0] == 'север':
+    NS += a[1]
+  elif a[0] == 'юг':
+    NS -= a[1]
+  elif a[0] == 'запад':
+    WE -= a[1]
+  else:
+    WE += a[1] 
+print(WE, NS)
+
+#Analize table
+heights = {i: [] for i in range(1, 12)}  # классы от 1 до 11 включительно
+
+with open('dataset_3380_5 3.txt', 'r') as file:
+    for line in file:
+        cls, name, height = line.strip().split()
+        cls = int(cls)
+        height = int(height)
+        heights[cls].append(height)
+
+for cls in range(1, 12):
+    if heights[cls]:
+        avg = sum(heights[cls]) / len(heights[cls])
+        print(f"{cls} {avg}")
+    else:
+        print(f"{cls} -")
