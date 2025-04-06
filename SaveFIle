@@ -13,6 +13,7 @@ type - <class 'generator'>, len - 100, size - 48   #   (i for i in range(100))
 | Need fast lookup                 | `set` / `dict` |
 | Tiny memory budget               | `list`       |
 
+import this
 
 #Calculator 
 
