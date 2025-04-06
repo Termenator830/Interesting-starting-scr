@@ -971,5 +971,20 @@ for cls in range(1, 12):
 * a = random.randrange(0, 101, 10) -- random value in range[a, b)
 * a = random.random() -- возвращает число от 0.0 до 1.0 ( не 1.0 )
 * a = random.uniform(1.5, 17.3) -- случайное float [1.5, 17.3] 
-* random.seed(17) -- будет генерировать одинаково
+* random.seed(a=None, version=2) -- будет генерировать одинаково
 * from random import * -- теперь не нужно писать random.
+* random.shuffle(list) -- перетрести список
+* random.choice(list or str) -- выбрать случайный элемент 
+* random.sample(numbers, 4) -- 4 случайных элемента
+* random.getstate()
+* random.setstate()
+
+#Example
+import random
+
+for _ in range(10):
+    num = random.randint(0, 1)
+    if num == 0:
+        print('Орел')
+    else:
+        print('Решка')
