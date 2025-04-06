@@ -882,3 +882,30 @@ for key in d:
   for i in range(len(d[key])):
     print(d[key][i], end=' ')
   print()
+
+#Code/decode using given key
+a = input()
+b = input()
+letters = list(a) -- write by letters
+symbols = list(b)
+
+text = list(input())
+n = len(text)
+g = []
+for i in range(n):
+  if text[i] in letters:
+    g.append(symbols[letters.index(text[i])])
+
+retext = list(input())
+n = len(retext)
+h = []
+for i in range(n):
+  if retext[i] in symbols:
+    h.append(letters[symbols.index(retext[i])])
+
+for val in g:
+  print(val, end='')
+print()
+for val in h:
+  print(val, end='')
+
