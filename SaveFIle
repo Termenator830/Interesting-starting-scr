@@ -854,12 +854,37 @@ d = {}
 
 for i in range(n):
     a = input().split(';')
+    team1, score1, team2, score2 = a[0], int(a[1]), a[2], int(a[3])
     for j in range(len(a)):
-        if a[j].isalpha():
-            if a[j] not in d:
-                d[a[j]] = []
-        elif a[j].isdigit():
-            name = a[j - 1]
-            d[name].append(int(a[j]))
+      if a[j].isalpha():
+          if a[j] not in d:
+            d[a[j]] = [0, 0, 0, 0, 0]
+    if score1 < score2:
+      d[team2][0] += 1
+      d[team2][1] += 1
+      d[team2][4] += 3
+      d[team1][0] += 1
+      d[team1][3] += 1
+    elif score1 > score2:
+      d[team1][0] += 1
+      d[team1][1] += 1
+      d[team1][4] += 3
+      d[team2][0] += 1
+      d[team2][3] += 1
+    else:
+      d[team1][0] += 1
+      d[team2][0] += 1
+      d[team1][2] += 1
+      d[team2][2] += 1
+      d[team1][4] += 1
+      d[team2][4] += 1
+for key in d:
+  print (key, end=':')
+  for i in range(len(d[key])):
+    print(d[key][i], end=' ')
+  print()
 
-print(d) 
+
+
+
+
