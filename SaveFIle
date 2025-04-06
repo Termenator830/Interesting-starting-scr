@@ -855,10 +855,9 @@ d = {}
 for i in range(n):
     a = input().split(';')
     team1, score1, team2, score2 = a[0], int(a[1]), a[2], int(a[3])
-    for j in range(len(a)):
-      if a[j].isalpha():
-          if a[j] not in d:
-            d[a[j]] = [0, 0, 0, 0, 0]
+    for team in [team1, team2]:
+      if team not in d:
+          d[team] = [0, 0, 0, 0, 0]
     if score1 < score2:
       d[team2][0] += 1
       d[team2][1] += 1
@@ -883,8 +882,3 @@ for key in d:
   for i in range(len(d[key])):
     print(d[key][i], end=' ')
   print()
-
-
-
-
-
