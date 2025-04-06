@@ -909,3 +909,25 @@ print()
 for val in h:
   print(val, end='')
 
+#OR
+
+a,b,c,d=input(),input(),input(),input()
+print(''.join(b[a.index(i)] for i in c))
+print(''.join(a[b.index(i)] for i in d))
+
+#Find unused words
+n = int(input())
+k = []
+l = []
+for i in range(n):
+  a = input().lower()
+  k.append(a)
+
+o = int(input())
+for i in range(o):
+  b = input().split()
+  for j in range(len(b)):
+    if b[j].lower() not in k and b[j].lower() not in l:
+      l.append(b[j].lower())
+for i in range(len(l)):
+  print(l[i])
