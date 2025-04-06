@@ -965,3 +965,11 @@ for cls in range(1, 12):
         print(f"{cls} {avg}")
     else:
         print(f"{cls} -")
+
+                        RANDOM MODULE
+* a = random.randint(0, 17) -- random values in range[a, b] 
+* a = random.randrange(0, 101, 10) -- random value in range[a, b)
+* a = random.random() -- возвращает число от 0.0 до 1.0 ( не 1.0 )
+* a = random.uniform(1.5, 17.3) -- случайное float [1.5, 17.3] 
+* random.seed(17) -- будет генерировать одинаково
+* from random import * -- теперь не нужно писать random.
