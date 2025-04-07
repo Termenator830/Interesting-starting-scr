@@ -1119,3 +1119,18 @@ def fib(n):
 
 math.comb(9,2) <=> n! / (k! * (n - k!))
 math.perm(9, 2) -- same but count different orders too 
+* namespaces - абстракция для работы с областями видимости 
+• Область видимоти определяет, какие переменные и функции доступны в данном контексте (scope).
+Области видимости статичны, области действия соответствует её неймспейс.
+Пример:
+def b(): 
+    x = 31
+    def a(): 
+        print(x) -- a scope in b scope in global scope
+    a()
+b() 
+
+
+* builtins > global namespace:
+    int, str, float, bool, max, min, abs, id... 
+  namespace main - верхний, глобальный namespace. Something in function - local namespace 
