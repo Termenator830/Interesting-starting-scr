@@ -764,7 +764,7 @@ print(repr(f"{mat} {pys} {rus}"))
 with open("dataset_3363_5.txt", "w") as file:
   for val in n:
     file.write(f"{val}\n")
-  file.write(f"{mat} {pys} {rus}")
+  file.write(f"{mat/s} {pys/s} {rus/s}")
 
                             МОДУЛИ
 • Модуль - файл с функциями
@@ -1054,4 +1054,11 @@ for i in range(n + 1):
   for j in range(len(a)): 
     print(a[j], end='')
   print()
-  
+
+* x = [1, 2, 3]
+  print(id(x))
+  print(id([1, 2, 3])) -- different ids 
+* print(type(id(x))) -- Возвращает тип объекта 
+
+* lambda
+* fib
