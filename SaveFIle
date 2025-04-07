@@ -1120,15 +1120,47 @@ def fib(n):
 math.comb(9,2) <=> n! / (k! * (n - k!))
 math.perm(9, 2) -- same but count different orders too 
 * namespaces - абстракция для работы с областями видимости 
-• Область видимоти определяет, какие переменные и функции доступны в данном контексте (scope).
+• Область видимоти определяет, какие переменные и функции доступны в данном контексте (scope) - кусок кода
 Области видимости статичны, области действия соответствует её неймспейс.
 Пример:
 def b(): 
     x = 31
     def a(): 
-        print(x) -- a scope in b scope in global scope
+        print(x) -- a scope in b scope in global scope, but exist in namespace 
     a()
 b() 
+
+Пример:
+def a():
+    print(x)
+def b():
+    x = 31
+    a() -- name error, bc a scope not in b scope
+x = 11 -- no error, found in global scope - taken from global namespace
+
+Difference:
+def outer():
+    a = 'outer'
+    
+    def inner():
+        b = 'inner'
+        print(a)
+        print(b)
+    inner()
+Типы:
+Local
+    Enclosing
+        Global
+            Builtins 
+
+Namespaces:
+	•	a is in the namespace of outer().
+	•	b is in the namespace of inner().
+
+Scopes:
+	•	Inside inner(), the scope includes:
+	•	b (local)
+	•	a (enclosing scope from outer())
 
 
 * builtins > global namespace:
