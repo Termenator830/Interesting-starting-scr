@@ -1058,7 +1058,8 @@ for i in range(n + 1):
 * x = [1, 2, 3]
   print(id(x))
   print(id([1, 2, 3])) -- different ids 
-* print(type(id(x))) -- Возвращает тип объекта 
+* print(type(id(x))) -- Возвращает тип объекта, ТИП ПОСТОЯНЕН, как и Tuple 
+--frozenset -- Неизменяемый тип 
 
 * lambda
 * fib
