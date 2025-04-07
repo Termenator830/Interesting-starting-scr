@@ -1166,3 +1166,44 @@ Scopes:
 * builtins > global namespace:
     int, str, float, bool, max, min, abs, id... 
   namespace main - верхний, глобальный namespace. Something in function - local namespace 
+
+Для условных операторов local namespace не создаётся 
+for i in range(5):
+	x = i -- попадает в global namespace
+
+* global variable -- take and edit something global using local namespace
+#Example
+ok_status = True
+vowels = ["a", "e", "i", "o", "u"]
+
+def check(word):
+  global ok_status
+  for vowel in vowels:
+    if vowel in word:
+      return True
+  ok_status = False
+  return False
+print(check("hello"))
+print(ok_status)
+print(check('www'))
+print(ok_status)
+
+* nonlocal variable -- take and edit enclosing variable 
+#Example 
+def f():
+  ok_status = True
+  vowels = ['a', 'u', 'i', 'e', 'o']
+  
+  def check(word):
+    nonlocal ok_status
+    for vowel in vowels:
+	if vowel in word:
+        return True
+    ok_status = False
+    return False
+    
+  print(check('abacaba'))
+  print(ok_status)
+  print(check('www'))
+  print(ok_status)
+f()
