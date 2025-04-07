@@ -1059,7 +1059,31 @@ for i in range(n + 1):
   print(id(x))
   print(id([1, 2, 3])) -- different ids 
 * print(type(id(x))) -- Возвращает тип объекта, ТИП ПОСТОЯНЕН, как и Tuple 
---frozenset -- Неизменяемый тип 
+--frozenset -- Неизменяемый set 
 
-* lambda
-* fib
+#Unique Ids 
+ans = 0
+unique_ids = []
+
+for obj in objects:
+    if not any(obj is other for other in unique_ids):
+        unique_ids.append(obj)
+        ans += 1
+# OR:
+objects = [1, 1, 1, 2, 2, 3, 3]
+print(len(set(map(id, objects)))) 
+
+print(ans)
+
+* list(map(функция, итерируемый_объект)) -- применить функцию к списку и вернуть как объект 
+* lambda x: x**x -- функция без def
+# Example:
+    students = [('Ivan', 90), ('Masha', 85), ('Sasha', 95)]
+    students.sort(key=lambda x: x[1])
+    print(students)
+# Example:
+    lst = [1, 2, 3]
+    z = lambda s: sum(s) -- create a function 
+    print(z(lst))
+
+* fib 
