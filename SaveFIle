@@ -1207,3 +1207,38 @@ def f():
   print(check('www'))
   print(ok_status)
 f()
+
+n = int(input())
+d = {
+    'add': {},
+    'create': {},
+    'get': {}
+}
+
+for i in range(n):
+    a = input().split()
+    command = a[0]
+
+    if command == 'add':
+        key, value = a[1], a[2]
+        if key not in d['add']:
+            d['add'][key] = []
+        d['add'][key].append(value)
+
+    elif command == 'create':
+        key, value = a[2], a[1]
+        if key not in d['create']:
+            d['create'][key] = []
+        d['create'][key].append(value)
+
+    elif command == 'get':
+        key, value = a[1], a[2]
+        if key not in d['get']:
+            d['get'][key] = []
+        d['get'][key].append(value)
+
+    else:
+        print("error")
+
+print(d)
+
