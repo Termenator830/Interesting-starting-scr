@@ -1242,6 +1242,5 @@ for i in range(n):
 
 print(d)
 
-1) sets in list ( using for )
-2)def functions
-3) locate functions using cycles 
+{«Пространство»: [«Родитель», «Множество зависимых пространств»]}
+{«Пространство»: «Множество переменных»}.
