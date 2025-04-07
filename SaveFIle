@@ -1055,6 +1055,8 @@ for i in range(n + 1):
     print(a[j], end='')
   print()
 
+РАЗНЫЕ ФУНКЦИИ  
+
 * x = [1, 2, 3]
   print(id(x))
   print(id([1, 2, 3])) -- different ids 
@@ -1096,6 +1098,9 @@ while tasks:
     print(f'Doing task: {current}')
 
 * print(10, b=20) -- Сначала передаём позиционные значения 
+* printab(**args) == printab(key1=args[key1],key2=args[key2])
+* def printab(a, b=10) -- Еси ничего, то используем 10, иначе - введённое значение 
+* sort() - по возрастанию, sorted(reverse = true) - по убыванию
 
 • СТЕК ВЫЗОВОВ хранит функции, которые мы вызвали. Функция началась - кладём на стек,
 функция закончилась - снимаем со стека.
