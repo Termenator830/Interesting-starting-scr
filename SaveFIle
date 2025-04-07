@@ -1101,8 +1101,21 @@ while tasks:
 * printab(**args) == printab(key1=args[key1],key2=args[key2])
 * def printab(a, b=10) -- Еси ничего, то используем 10, иначе - введённое значение 
 * sort() - по возрастанию, sorted(reverse = true) - по убыванию
+* def function_name(
+    positional_args, positional_args_with_default=default, *args, keyword_only, 
+    keyword_only_with_default=default, **kwargs)
 
 • СТЕК ВЫЗОВОВ хранит функции, которые мы вызвали. Функция началась - кладём на стек,
 функция закончилась - снимаем со стека.
 
 * fib 
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+math.comb(9,2) <=> n! / (k! * (n - k!))
+math.perm(9, 2) -- same but count different orders too 
