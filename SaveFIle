@@ -1218,7 +1218,7 @@ f()
 #Functions Through Input
 n = int(input())
 
-# parent[child] = parent_namespace
+-- parent[child] = parent_namespace
 parent = {'global': None}
 
 # vars[namespace] = set of variable names
@@ -1248,3 +1248,18 @@ for _ in range(n):
 {«Пространство»: [«Родитель», «Множество зависимых пространств»]}
 {«Пространство»: «Множество переменных»}.
 
+# Palindromic Check
+s = list(input())
+d = {}
+for i, val in enumerate(s):
+   if val.count() > 1:
+        if val not in d:
+            d[val] = []
+            k = i + 1
+            while k < len(s):
+                arg = s[k]
+                if arg == val:
+                    d[val].append(arg)
+                    break
+                d[val].append(arg)
+                k += 1
