@@ -1261,4 +1261,17 @@ for _ in range(n):
 * if h and h not in d[val]: -- checks if h is not empty ( is True ) at first 
 *  d[val].append(h.copy()) -- without using copy it would change if we would have changed h 
 
+			КЛАССЫ
 
+• Classes let you make YOUR OWN commands, syntax.
+class MyClass:
+  #class body -- used only in the moment of defining class
+• names defined in classe's namespace get ANCHORED to the name of CLASS 
+• After class done - object 'MyClass' is created 
+Example of usage:
+class MyClass:
+  a = 10
+  def func(self):
+    print('Hello')
+print(MyClass, a)
+print(MyClass.func)
