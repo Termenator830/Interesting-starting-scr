@@ -1252,14 +1252,20 @@ for _ in range(n):
 *  d[val].append(h.copy()) -- without using copy it would change if we would have changed h 
 
 # Palindromic Check
-s = list(input())
+a = input().split()
+s = []
+for word in a:
+    for char in word:
+        if char.isalpha() or char.isdigit():
+            s.append(char)
+print(s)
 d = {}
 for i, val in enumerate(s):
    if s.count(val) > 1:
     if val in s[i+1:]:
         if val not in d:
             d[val] = []
-    
+
         k = i + 1
         h = [val]
         while k < len(s):
@@ -1274,8 +1280,17 @@ for i, val in enumerate(s):
             else:
                 h.append(arg)
             k += 1
-    
+
         if h and h not in d[val]:
             d[val].append(h)
-print(d) 
+print(d)
 
+def pal_check(s):
+    global d
+    p = []
+    for key in d:
+        for lst in d[key]:
+            if lst == lst[::-1] and len(lst) > len(p):
+                p = lst.copy()
+    return p
+print('"', pal_check(s), '"', sep='')  
