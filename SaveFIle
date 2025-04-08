@@ -1248,41 +1248,34 @@ for _ in range(n):
 {«Пространство»: [«Родитель», «Множество зависимых пространств»]}
 {«Пространство»: «Множество переменных»}.
 
+* if h and h not in d[val]: -- checks if h is not empty ( is True ) at first 
+*  d[val].append(h.copy()) -- without using copy it would change if we would have changed h 
+
 # Palindromic Check
 s = list(input())
 d = {}
 for i, val in enumerate(s):
-   if val.count() > 1:
-        if val.count() == 2:
-            f val not in d:
-                d[val] = []
-
-            k = i + 1
-            h = []
-            while k < len(s):
-                arg = s[k]
-                h.append(arg)
-                if arg == val:
-                    break
-                k += 1
-            if h not in d[val]:
-                d[val].append(h)
-            else:
-                continue
-                
-        else:
-            if val in s[i+1:]:
-                if val not in d:
-                    d[val] = []
+   if s.count(val) > 1:
+    if val in s[i+1:]:
+        if val not in d:
+            d[val] = []
     
-                k = i + 1
-                h = []
-                while k < len(s):
-                    arg = s[k]
-                    h.append(arg)
-                    if arg == val and not val in s[k+1:]:
-                        break
-                    k += 1
-                if h not in d[val]:
-                    d[val].append(h)
+        k = i + 1
+        h = [val]
+        while k < len(s):
+            arg = s[k]
+            if arg == val:
+                h.append(val)
+                if val in s[k+1:]:
+                    if h and h not in d[val]:
+                        d[val].append(h.copy())
+                else:
+                    break
+            else:
+                h.append(arg)
+            k += 1
+    
+        if h and h not in d[val]:
+            d[val].append(h)
+print(d) 
 
