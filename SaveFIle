@@ -978,6 +978,16 @@ for cls in range(1, 12):
 * population = ['a', 'b', 'c']
     random.sample(population, 3, counts=[2, 1, 3) -- 3 случайных элемента из 6
 * random.triangular(1, 200, 50) -- most likely 50
+			COUNTER MODULE
+• Counter creates a DICTIONARY, where e.j. a is key and 5 is value
+* Counter('abracadabra') -- letters as keys
+* Counter(sentence.split()) -- words as keys
+* Counter('abracadabra').most_common(n) -- returns n most common letters and their
+amounts in a list, e.j. [(a, 5), (b, 2)] 
+* You can correspond to c[i] -- bc its a dictionary 
+* c.update("banana") -- add new keys
+* c.substract("band") -- substract some keys ( negative result possible ) 
+
 
 #Example
 import random
@@ -1251,46 +1261,4 @@ for _ in range(n):
 * if h and h not in d[val]: -- checks if h is not empty ( is True ) at first 
 *  d[val].append(h.copy()) -- without using copy it would change if we would have changed h 
 
-# Palindromic Check
-a = input().split()
-s = []
-for word in a:
-    for char in word:
-        if char.isalpha() or char.isdigit():
-            s.append(char)
-print(s)
-d = {}
-for i, val in enumerate(s):
-   if s.count(val) > 1:
-    if val in s[i+1:]:
-        if val not in d:
-            d[val] = []
 
-        k = i + 1
-        h = [val]
-        while k < len(s):
-            arg = s[k]
-            if arg == val:
-                h.append(val)
-                if val in s[k+1:]:
-                    if h and h not in d[val]:
-                        d[val].append(h.copy())
-                else:
-                    break
-            else:
-                h.append(arg)
-            k += 1
-
-        if h and h not in d[val]:
-            d[val].append(h)
-print(d)
-
-def pal_check(s):
-    global d
-    p = []
-    for key in d:
-        for lst in d[key]:
-            if lst == lst[::-1] and len(lst) > len(p):
-                p = lst.copy()
-    return p
-print('"', pal_check(s), '"', sep='')  
