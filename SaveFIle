@@ -1217,35 +1217,33 @@ f()
 
 #Functions Through Input
 n = int(input())
-d = {'Пространство': []}
-p = {'Пространство': []}
-t = []
-for i in range(n):
-    a = input().split()
-    t.append(a)
-    if a[0] == 'create':
-        if a[2] not in d['Пространство']:
-            d['Пространство'].append(a[2])
-        if a[1] not in d['Пространство']:
-            d['Пространство'].append(a[1])
 
-    elif a[0] == 'add':
-        if a[1] not in d['Пространство']:
-            d['Пространство'].append(a[1])
-        if a[2] not in p['Пространство']:
-            p['Пространство'].append(a[2])
+# parent[child] = parent_namespace
+parent = {'global': None}
 
-print(d)
-print(p)
-print(t)
+# vars[namespace] = set of variable names
+vars = {'global': set()}
 
-for i in range(len(t)):
-    if t[i][0] == 'add':
-        if t[i][1] == 'global':
-            v = t[i][2]
-            globals()[v] = i
-        else:
-            pass
+def get(ns, var):
+    if var in vars.get(ns, set()):
+        return ns
+    elif parent[ns] is None:
+        return 'None'
+    else:
+        return get(parent[ns], var)
+
+for _ in range(n):
+    cmd = input().split()
+    if cmd[0] == 'create':
+        namespace, parent_name = cmd[1], cmd[2]
+        parent[namespace] = parent_name
+        vars[namespace] = set()
+    elif cmd[0] == 'add':
+        namespace, var = cmd[1], cmd[2]
+        vars[namespace].add(var)
+    elif cmd[0] == 'get':
+        namespace, var = cmd[1], cmd[2]
+        print(get(namespace, var))
 
 {«Пространство»: [«Родитель», «Множество зависимых пространств»]}
 {«Пространство»: «Множество переменных»}.
