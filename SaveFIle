@@ -1263,19 +1263,45 @@ for _ in range(n):
 
 			КЛАССЫ
 
-• Classes let you make YOUR OWN commands, syntax. list - class. 
+• Classes let you make YOUR OWN commands, syntax. list, dict, tuple  - class. 
 class MyClass:
   #class body -- used only in the moment of defining class
 • names defined in classe's namespace get ANCHORED to the name of CLASS 
 • After class done - object 'MyClass' is created 
-Example of usage:
+#Example of usage 1:
 class MyClass:
   a = 10
   def func(self):
     print('Hello')
 print(MyClass, a)
 print(MyClass.func) -- a и func - атрибуты объекта MyClass 
-• У классов всегда можно вызвать конструктор 
 
-Конструктор есть у КАЖДОГО объекта в python, и это единственный механизм, в котором 
-создаются объекты.
+#Example of usage 2:
+class Counter:
+   pass
+Counter -- class object
+x = Counter() -- x is instance object ( экземпяр класса ) - can only use attributes
+x.count = 0 -- new attribute
+x.count += 1
+
+
+• У классов всегда можно вызвать конструктор 
+* Констрнуктор нужен для того, чтобы создавать объекты класса
+* Конструктор есть у КАЖДОГО объекта в python, и это единственный механизм, в котором 
+  создаются объекты.
+# class Counter:
+   def __init__(self): -- 1. create empty attribute 2. give it to self - so init sets attributes
+	self.count = 0
+Counter
+x = Counter()
+print(x.count) -- 0
+x.count += 1
+
+# class Counter:
+   def __init__(self, start=0): -- inicialisation starts AFTER SELF, other do that BY ARGUMENTS
+	self.count = start		we gve into constructor.
+Counter
+x1 = Counter(10)
+x = Counter()
+print(x.count)
+x.count += 1
