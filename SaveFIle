@@ -1336,3 +1336,38 @@ for i in range(int(input())):
   author = f"Author {chr(65 + (i%26))}"
   book = LibraryBook(title,author)
   library.append(book)
+
+#Example
+class Counter:
+  def __init__(self):
+    self.count = 0
+  def inc(self):
+    self.count += 1
+  def reset(self):
+    self.count = 0
+
+x = Counter()
+* x.inc() -- Bound Method - find function and link it to an object 
+print(x.count)
+* Counter.inc(x) -- same as x.inc() 
+
+def add(self, v):
+    if self.can_add(v): -- you can call other functions inside of a class 
+      self.a += self.v
+
+#Save in lists
+class Buffer:
+  def __init__(self):
+    self.b = []
+    self.c = []
+
+  def add(self, *a):
+    self.b.extend(a)
+    while len(self.b) >= 5:
+      chunk = self.b[:5]
+      self.c.append(chunk)
+      self.b = self.b[5:]
+
+  def get_current_part(self):
+    print(self.b)
+    return self.b
