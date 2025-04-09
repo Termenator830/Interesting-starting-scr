@@ -1444,7 +1444,7 @@ class E(B, C, D):
 
 E().foo()
 
-What MRO first gets:
+• What MRO first gets:
 [B, A, object]
 [C, A, object]
 [D, object]
@@ -1453,3 +1453,18 @@ What MRO first gets:
 
 Python picks the first class (head) from these lists 
 that is not present later in any other list.
+
+• ERROR ( rule )
+class A: pass
+class B(A): pass
+class C: pass
+class D(C): pass
+class E(B, C, D): pass  # ← Error happens here
+
+	it cycles, bc builds this:
+	[B, A, object]
+	[C, object]
+	[D, C, object]
+	and [B, C, D] (the direct bases)
+
+
