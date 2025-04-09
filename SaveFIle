@@ -1263,7 +1263,7 @@ for _ in range(n):
 
 			КЛАССЫ
 
-• Classes let you make YOUR OWN commands, syntax.
+• Classes let you make YOUR OWN commands, syntax. list - class. 
 class MyClass:
   #class body -- used only in the moment of defining class
 • names defined in classe's namespace get ANCHORED to the name of CLASS 
@@ -1274,4 +1274,8 @@ class MyClass:
   def func(self):
     print('Hello')
 print(MyClass, a)
-print(MyClass.func)
+print(MyClass.func) -- a и func - атрибуты объекта MyClass 
+• У классов всегда можно вызвать конструктор 
+
+Конструктор есть у КАЖДОГО объекта в python, и это единственный механизм, в котором 
+создаются объекты.
