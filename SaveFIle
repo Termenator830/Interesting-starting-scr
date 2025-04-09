@@ -1270,8 +1270,8 @@ class MyClass:
 • After class done - object 'MyClass' is created 
 #Example of usage 1:
 class MyClass:
-  a = 10
-  def func(self):
+  a = 10 -- field, property.        
+  def func(self): -- method
     print('Hello')
 print(MyClass, a)
 print(MyClass.func) -- a и func - атрибуты объекта MyClass 
@@ -1299,9 +1299,40 @@ x.count += 1
 
 # class Counter:
    def __init__(self, start=0): -- inicialisation starts AFTER SELF, other do that BY ARGUMENTS
-	self.count = start		we gve into constructor.
-Counter
+	self.count = start		we gve into constructor. self makes it work for word in 
+Counter							THE WHOLE class.
 x1 = Counter(10)
 x = Counter()
 print(x.count)
 x.count += 1
+
+#Example
+class LibraryBook:
+  def __init__(self, title, author):
+    self.title = title
+    self.author = author
+    self.status = 'available'
+    
+  def borrow(self):
+    if self.status == 'available':
+      print(f'borrowing {self.title}')
+      self.status = 'borrowed'
+    else:
+      print(f'Already borrowed')
+    
+  def return_book(self):
+    if self.status == 'borrowed':
+        print(f"Returned {self.title}")
+        self.status = 'available'
+  else:
+      print(f"{self.title} wasn't borrowed")
+    
+  def display_status(self):
+    print(f'{self.title} by {self.author} is {self.status}')
+
+library = []
+for i in range(int(input())):
+  title = f"book #{i+1}"
+  author = f"Author {chr(65 + (i%26))}"
+  book = LibraryBook(title,author)
+  library.append(book)
