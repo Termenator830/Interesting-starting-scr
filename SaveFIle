@@ -1650,3 +1650,29 @@ for _ in range(int(input())):
     if checkdup(c):
         print(c)
     cls[c] = None
+
+				ИСПОРТИРОВАНИЕ МОДУЛЕЙ
+• Ищется в sys.modules ( dict )
+
+• Not to run the ENTIRE thing but to use a wanted part 
+def fib(k):
+  if k == 0 or k == 1:
+    return 1
+  else:
+    return fib(k - 1) + fib(k - 2)
+
+print(__name__)
+if __name__ == "Main": 		--check file's name
+  print(fib(31))
+
+• Повторное импортирование НЕВОЗМОЖНО 
+
+• Module is searched 
+import sys 
+import numpy
+print(sys.modules)
+print(type(check))a
+• Shows the way it was found ( searches in libraries(in packets - many modules packed))
+import sys
+for i in sys.path:
+  print(i)
