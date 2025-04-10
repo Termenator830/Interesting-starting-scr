@@ -606,6 +606,8 @@ for _ in range(n):
 * import os
     os.path.join('.', 'dirname', 'filename.txt') -- Вывод зависит от используемой ОС
 * "\\".join(parts)
+* import exceptions 			-- import file as a module
+  print(exceptions.greet("Students')	-- call function from module
 
 В:
 * ouf = open('file.txt', 'w')
