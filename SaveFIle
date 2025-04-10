@@ -1666,6 +1666,17 @@ if __name__ == "Main": 		--check file's name
   print(fib(31))
 
 • Повторное импортирование НЕВОЗМОЖНО 
+• redefine function locally
+from exceptions import BadName, greet as exc_greet
+import exceptions as exc 
+
+def greet():
+  print("Greetings!")
+greet()
+print(exc_greet("Student")) 
+
+• To import using * add ( to an exporting file ) __all__ = ["BadName", "greet"] - e.j. 
+	o
 
 • Module is searched 
 import sys 
@@ -1676,3 +1687,14 @@ print(type(check))a
 import sys
 for i in sys.path:
   print(i)
+• you can donload many libraries from PyPI - Python Package Index (pypi.python.org) 
+ * pip install numpy -- to install using shell
+
+
+
+* Datetime module example - count date
+from datetime import date, timedelta
+a = date(*map(int, input().split())) -- unpack a tuple 
+b = timedelta(int(input()))
+c = a + b
+print(c.year, c.month, c.day)
