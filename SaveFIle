@@ -1570,3 +1570,8 @@ def divide(x, y):
     print("result is", result)
   finally:			-- no matter what
     print("finally")
+
+* assert x > 0 -- if False, then stops the code 
+
+except ZeroDivisionError as e:
+  print(type(e).__name__) -- print NAME OF A CLASS 
