@@ -1574,4 +1574,77 @@ def divide(x, y):
 * assert x > 0 -- if False, then stops the code 
 
 except ZeroDivisionError as e:
-  print(type(e).__name__) -- print NAME OF A CLASS 
+  print(type(e).__name__)	 -- print NAME OF A CLASS 
+
+* Make error where we want
+def greet(name):
+  if name[0].isupper():
+    return "Hello, " + name
+  else:
+    raise ValueError(name + " is inapproptiate name") -- create error
+
+while True:
+  try
+    name = input("Please enter your name")
+    greeting = greet(name)
+    print(greeting)
+  except ValueError:
+    print("Please try again")
+  else:
+    break
+
+* Make new exception classes
+class BadName(Exception):
+  pass
+def greet(name):
+  if name[0].isupper():
+    return "Hello, " + name
+  else:
+    raise BadName(name + " is inapproptiate name") -- returns BadName ERROR!
+
+#Recursion example
+n = int(input())
+parents = {}
+lst = []
+
+for _ in range(n):
+  a = input().split()
+  if a[0] not in parents:
+    parents[a[0]] = []
+  for j in range(2, len(a)):
+    if a[j] not in parents[a[0]]:
+      parents[a[0]].append(a[j])
+
+def collect_ancestors(cls, visited=None):
+  if visited is None:
+    visited = set()
+  if cls not in parents or cls in visited:
+    return set()
+  visited.add(cls)
+  result = set(parents[cls])
+  for parent in parents[cls]:
+    result.update(collect_ancestors(parent, visited))
+  return result
+
+m = int(input())
+for _ in range(m):
+  lst.append(input().strip())
+
+seen = set()
+for cls in lst:
+  ancestors = collect_ancestors(cls)
+  if seen & ancestors:
+    print(cls)
+  seen.add(cls)
+
+#OP RECURSION
+def checkdup(d):
+    return cls[d] is None or any(map(checkdup, cls[d])) -- if any of _ is True,
+								'any' returns true
+cls = {d: set(b[1:]) for _ in range(int(input())) for d, *b in [input().split()]}
+
+for _ in range(int(input())):
+    c = input()
+    if checkdup(c):
+        print(c)
+    cls[c] = None
