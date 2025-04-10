@@ -1021,6 +1021,10 @@ formatted = time.strftime(
 time.strptime(date_string, format_string)
 #example: t = time.strptime(s, "%Y-%m-%d %H:%M:%S")
 •Most info about time: https://docs.python.org/3/library/time.html
+* time.ctime() -- readable time, local if seconds not given. 
+ts = 1765400000  # A future timestamp
+print(time.ctime(ts)) -- convert time.time() into readable
+
 #Example
 import random
 
