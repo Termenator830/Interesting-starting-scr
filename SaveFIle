@@ -990,9 +990,37 @@ amounts in a list, e.j. [(a, 5), (b, 2)]
 			TIME MODULE 
 • Предисловие: tuple - кортёж - упорядоченная коллекция элементов
 				как список, но неизменяемая. Заметка: one = (1,)
-•
+• Time module gets time, counting from time which depends on a used function(low-level structures)
+* time.gmtime(0) -- starts counting from epoch time ( January 1, 1970, 00:00:00(UTC) )
+			,returns struct_time(tm_year=2025, tm_mon=4, tm_mday=10, tm_hour=0, 
+				tm_min=13, tm_sec=42, tm_wday=3, tm_yday=100, tm_isdst=0)
+		#Display Method
+		t = time.gmtime()
+		print("Year:", t.tm_year)
+		print("Minute:", t.tm_min)
+		print("Second:", t.tm_sec)
+* time.time() -- gives time passed since epoch time(in seconds)
+* time.localtime() -- check local time (t.tm_isdst )
+* time.sleep() -- freeze cycle, function, program for some time(delay) 
+	#Example
+	print("Loading", end='')
+	for _ in range(3):
+	  time.sleep(0.5)
+	  print('.', end='')
+* time.strftime(format_string, time_struct) -- in (), format string is a string 
+						with special codes like %Y, %m, etc,
+						if 2nd arg is None - checks localtime. 
+#Example of all
+now = time.localtime()
 
-
+formatted = time.strftime(
+  "%A, %d %B %Y | %I:%M:%S %p | Weekday: %w | Day of year: %j | Time zone: %Z | DST: %z",now)
+	returns: Monday, 08 April 2025 | 02:43:21 PM | Weekday: 1 | Day of year: 098 | 
+								Time zone: MSK | DST: +0300
+* strptime() -- "parse string" into time
+time.strptime(date_string, format_string)
+#example: t = time.strptime(s, "%Y-%m-%d %H:%M:%S")
+•Most info about time: https://docs.python.org/3/library/time.html
 #Example
 import random
 
