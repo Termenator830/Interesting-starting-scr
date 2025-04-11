@@ -1699,6 +1699,8 @@ b = timedelta(int(input()))
 c = a + b
 print(c.year, c.month, c.day)
 
+
+				ИТЕРАТОРЫ, ГЕНЕРАТОРЫ
 • iterator - определяет порядок обхода элементов коллекции
   iterable - объект, который может быть передан в функцию iter()
 lst = [1, 2, 3, 4, 5, 6]
@@ -1755,3 +1757,28 @@ class MyList(list):
 
 for pair in MyList([1, 2, 3, 4]):
   print(pair)
+
+• Generator returns from function multiple times. if 'Yield' is seen in a function -
+						- its counted as a generator
+class RandomIterator:
+  def __iter__(self):
+    return self
+
+  def __init__(self, k):
+    self.k = k
+    self.i = 0
+
+  def __next__(self):
+    if self.i < self.k:
+      self.i += 1 
+      return random()
+    else:
+      raise StopIteration
+
+def random_generator(k):
+  for i in range(k):
+    yield random()        --when we ask generator for the next element, it RERUNS function body,
+gen = random_generator(3)			after yield it RETURNS a value and REMEMBERS
+print(type(gen))				current state of a funsction, so we start from
+							this point when doing again, 
+							afterall 'StopEterationError'. 
