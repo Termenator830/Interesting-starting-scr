@@ -602,12 +602,13 @@ for _ in range(n):
 * inf = open('текст.txt', 'r') - open file
 * s1 = inf.readline() - read 1 line
 * inf.close() - close file
-* s = inf.readline().strip()
+* s = inf.readline().strip() -- removes \n and etc from start and end
 * import os
     os.path.join('.', 'dirname', 'filename.txt') -- Вывод зависит от используемой ОС
 * "\\".join(parts)
 * import exceptions 			-- import file as a module
-  print(exceptions.greet("Students')	-- call function from module
+  print(exceptions.greet("Students'))	-- call function from module
+* s = inf.read.striplines() -- put into a list after removing \n and etc everywhere 
 
 В:
 * ouf = open('file.txt', 'w')
@@ -1823,3 +1824,12 @@ def primes():
     x += 1
 
 print(list(itertools.takewhile(lambda x : x <= 31, primes()))) --takes from yield while condition. 
+
+• list comprehension:
+z = [(x, y) for x in range(3) for y in range(3) if y >= x][1:] -- check x in y in range(3),
+								   don't take first pare
+• Can be used as generator onject.
+z = ((x, y) for x in range(3) for. y in range(3) if y >= x)
+print(z)
+print(next(z))
+print(next(z))
