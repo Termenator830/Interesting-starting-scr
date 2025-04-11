@@ -1782,3 +1782,44 @@ gen = random_generator(3)			after yield it RETURNS a value and REMEMBERS
 print(type(gen))				current state of a funsction, so we start from
 							this point when doing again, 
 							afterall 'StopEterationError'. 
+#Example of iteration 
+class multifilter:
+    def judge_half(pos, neg):
+        return pos >= neg
+
+    def judge_any(pos, neg):
+        return pos >= 1
+
+    def judge_all(pos, neg):
+        return neg == 0
+
+    def __init__(self, iterable, *funcs, judge=judge_any):
+        self.iterable = iterable
+        self.funcs = funcs
+        self.judge = judge
+
+    def __iter__(self):
+        for item in self.iterable:
+            pos = 0
+            neg = 0
+            for f in self.funcs:
+                if f(item):
+                    pos += 1
+                else:
+                    neg += 1
+            if self.judge(pos, neg):
+                yield item
+
+#Check if a prime number, also do a range inside lambda
+
+def primes():
+  x = 2
+  while True:
+    for i in range(2, int(x ** 0.5) + 1): -- if has divisors later - has divisors before 
+      if x % i == 0:
+        break
+    else:
+      yield x  -- give x back to a function
+    x += 1
+
+print(list(itertools.takewhile(lambda x : x <= 31, primes()))) --takes from yield while condition. 
