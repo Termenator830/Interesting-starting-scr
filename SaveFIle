@@ -655,6 +655,33 @@ print("Linux-style path:", path_linux)
 path_windows = build_path("Windows", "C:", "Users", "Mikhail", "Desktop", "file.txt")
 print("Windows-style path:", path_windows)
 
+				ПАПКИ/DIRECTORIES 
+import os
+* import os.path
+
+* print(os.getcwd()) -- путь к папке
+* print(os.listdir(".cache"))
+* print(os.path.abspath("main.py")) -- путь и имя папки
+* os.chdir(".cache") -- подняться выше по дирректориям, или по нужному пути
+* print(os.getcwd())
+
+* print(os.path.exists("files.py"))
+* print(os.path.isfile("files.py")) -- проверить существование
+* print(os.path.isdir("files.py"))
+
+* for current_dir, dirs, files in os.walk("."): -- returns (directory in stroke, 
+    print(current_dir, dirs, files)			   list of subdicts, list of subfiles)
+
+-- . значит текущая дирректория
+
+import os
+import os.path
+import shutil
+
+shutil.copy("tests/test1.txt", "tests/test2.txt")
+shutil.copy("tests", "tests/tests") -- скопировать в другую папку
+
+
 #identify digit/alpha
 
 inf = open('текст.txt', 'r')
