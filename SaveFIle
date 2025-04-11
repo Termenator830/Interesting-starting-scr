@@ -1698,3 +1698,60 @@ a = date(*map(int, input().split())) -- unpack a tuple
 b = timedelta(int(input()))
 c = a + b
 print(c.year, c.month, c.day)
+
+• iterator - определяет порядок обхода элементов коллекции
+  iterable - объект, который может быть передан в функцию iter()
+lst = [1, 2, 3, 4, 5, 6]
+book = {'title:', 'The Langoliers', 'author:', 'year:', 1990}
+string = "Hello, World!"
+
+for i in book:
+  print(i)
+
+iterator = iter(book)
+
+while True:
+  try:
+    i = next(iterator) -- iterate and get next element
+    print(i)
+  except StopIteration:
+    break
+• Iteration is for building custom cycles 
+from random import random
+
+class RandomIterator:
+  def __iter__(self): -- make it iterator
+    return self
+
+  def __init__(self, k):
+    self.k = k
+    self.i = 0
+
+  def __next__(self):    -- x.__next__() <=> x - give possibilities ИТЕРАТОРА
+    if self.i < self.k:
+      self.i += 1
+      return random()
+    else:
+      raise StopIteration
+
+for x in RandomIterator(10):
+  print(x)
+
+•Iteration is NEEDED as a wrapper, bc otherwise list logic would be used as default 
+class DoubleElementIterator:
+  def __init__(self, lst):
+    self.lst = lst
+    self.i = 0
+  def __next__(self):		--make a cycle body for iteration
+    if self.i < len(self.lst):
+      self.i += 2
+      return self.lst[self.i - 2], self.lst[self.i - 1]
+    else:
+      raise StopIteration
+
+class MyList(list):
+  def __iter__(self):			  --use iteration wrapping
+    return DoubleElementListIterator(self)
+
+for pair in MyList([1, 2, 3, 4]):
+  print(pair)
