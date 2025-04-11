@@ -602,13 +602,14 @@ for _ in range(n):
 * inf = open('текст.txt', 'r') - open file
 * s1 = inf.readline() - read 1 line
 * inf.close() - close file
-* s = inf.readline().strip() -- removes \n and etc from start and end
+* s = inf.readline().strip() -- removes \n and etc from start and end ( rstrip + lstrip ) 
 * import os
     os.path.join('.', 'dirname', 'filename.txt') -- Вывод зависит от используемой ОС
 * "\\".join(parts)
 * import exceptions 			-- import file as a module
   print(exceptions.greet("Students'))	-- call function from module
 * s = inf.read.striplines() -- put into a list after removing \n and etc everywhere 
+* s = repr(s) -- convert the whole text into a line 
 
 В:
 * ouf = open('file.txt', 'w')
@@ -617,7 +618,7 @@ for _ in range(n):
 * ouf.close() 
 
 * Auto-close: 
-with open('текст.txt', 'r') as inf: -- with _ as _ конструкция
+with open('текст.txt', 'r') as inf, open('text.txt', 'w') as ouf: -- with _ as _ конструкция
   s2 = inf.readline()
 print(s2)
 
