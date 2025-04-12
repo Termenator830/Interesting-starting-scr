@@ -1897,3 +1897,44 @@ def even(x):
 evens = list(filter(even, xs))
 print(evens)
 • lambda - short function 
+
+#Example
+even = lambda x: x % 2 == 0
+evens = list(filter(even, xs))
+print(evens)
+
+#Key for sort(key) 
+x = [(f"Van, Per, Gil"), (f"Jone, Coll, Hesh"), (f"Lesh, Mesh, Dash")]
+
+x.sort(key=lambda name: len(" ".join(name)))
+print(x)
+
+• operator, itemgetter, attgetter
+import operator as op
+
+print(op.add(4, 5))
+print(op.mul(4, 5))
+print(op.contains([1, 2, 3], 4))
+
+x = [1, 2, 3]
+f1 = op.itemgetter(1)
+f2 = op.attrgetter("sort")   # f2(x) == x.sort
+print(f1(x))
+print(f2([]))
+
+#Example
+x = [(f"Van, Per, Gil"), (f"Jone, Coll, Hesh"), (f"Lesh, Mesh, Dash")]
+
+import operator as op
+x.sort(key=op.itemgetter(-1))
+print(x)
+
+• functools
+* from functools import partial
+
+x = int("1101", base=2)
+print(x)
+
+int_2 = partial(int, base=2) -- partially use, remake a function with different keys 
+x = int_2("1101")
+print(x) 
