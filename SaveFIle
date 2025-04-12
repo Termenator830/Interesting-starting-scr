@@ -676,10 +676,29 @@ import os
 
 import os
 import os.path
-import shutil
+* import shutil
 
-shutil.copy("tests/test1.txt", "tests/test2.txt")
-shutil.copy("tests", "tests/tests") -- скопировать в другую папку
+* shutil.copy("tests/test1.txt", "tests/test2.txt")
+* shutil.copy("tests", "tests/tests") -- скопировать в другую папку
+
+#Zip unpack, os.walk, endswith. 
+import zipfile
+import os
+
+with zipfile.ZipFile("main.zip", "r") as zip_ref:
+  zip_ref.extractall() -- unpack zip
+
+valid_dirs = set()
+
+for root, dirs, files in os.walk("main"):
+  for f in files:
+    if f.endswith(".py"):
+      valid_dirs.add(root)
+      break 
+
+with open("res_file.txt", 'w') as ouf:
+  for path in sorted(valid_dirs):
+    ouf.write(path + '\n')
 
 
 #identify digit/alpha
