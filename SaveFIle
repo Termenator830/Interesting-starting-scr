@@ -1880,3 +1880,20 @@ z = ((x, y) for x in range(3) for. y in range(3) if y >= x)
 print(z)
 print(next(z))
 print(next(z))
+
+			MAP/LAMBDA FUNCTIONS 
+•map - iterator 
+
+n, k = list(map(int, input().split()))
+n, k = ([int(i) for i in input().split()])
+
+• filter(f, a) -- return value if function returns true for it 
+x = input().split()
+xs = (int(i) for i in x)
+
+def even(x):
+  return x % 2 == 0
+
+evens = list(filter(even, xs))
+print(evens)
+• lambda - short function 
