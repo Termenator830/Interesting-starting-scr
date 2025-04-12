@@ -1951,3 +1951,7 @@ print(x)
 
 * reduce applies a function repeatedly, 1 by 1. can have initial value.
 reduce(lambda x, y: x + y, [1, 2, 3], 10) -- 10 + 1 + 2 + 3
+
+#Usage of Lambda
+def mod_checker(x, mod=0):
+  return lambda y: y % x == mod
