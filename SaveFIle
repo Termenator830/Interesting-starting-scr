@@ -1938,3 +1938,16 @@ print(x)
 int_2 = partial(int, base=2) -- partially use, remake a function with different keys 
 x = int_2("1101")
 print(x) 
+
+x = [(f"Van, Per, Gil"), (f"Jone, Coll, Hesh"), (f"Lesh, Mesh, Dash")]
+
+import operator as op
+from functools import partial
+
+sort_by_last = partial(list.sort, key=op.itemgetter(-1)) -- use sort, but change key 
+print(x)
+sort_by_last(x)
+print(x)
+
+* reduce applies a function repeatedly, 1 by 1. can have initial value.
+reduce(lambda x, y: x + y, [1, 2, 3], 10) -- 10 + 1 + 2 + 3
