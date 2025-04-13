@@ -1989,7 +1989,14 @@ print(x)
     string = "babcd"
     match_object = re.search(pattern, string)
   * re.findall -- все строки, подходящие под шаблон
-  * re.sub -- 
+     pattern = r"a[a-z]c" -- любая буква в диапозоне
+     string = "abcaccaacadc"
+     all_inclusions = re.findall(pattern, string) -- находит ВСЕ подход. В ЧЁМ УГОДНО. List. 
+     print(all_inclusions)
+  * re.sub(pattern, "abc", string) -- заменить все подходящие на abc(автозамена) 
+
+
+
 • Метасимволы
    | Метасимвол | Значение                        | Пример                     |
 |------------|----------------------------------|-----------------------------|
@@ -2011,3 +2018,13 @@ print(x)
   pattern = r"a[abc]c"
 string = "acc"
 match_object = re.match(pattern, string)
+2) ^
+  pattern = r"[^a-zA-Z]c" -- все, кроме ^...
+string = "a.c, a-c, a,c"
+Сокращения:
+1) \d - [0-9] -- цифры
+2) \D - [^0-9] -- не цифры.  
+3) \s - [ \t\n\r\f\v ] -- пробельные символы
+4) \S - [ ^\t\n\r\f\v ]
+5) \w - [a-zA-Z0-9_] --буквы + цифры + _
+6) \W - [^a-zA-Z0-9_]
