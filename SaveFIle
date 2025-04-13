@@ -1960,3 +1960,14 @@ def recursive_replace(s, a, b, count=0):
   if a not in b and a in s:
     return recursive_replace(s.replace(a, b), a, b, count + 1)
   return count, s
+
+#count in substring in string
+s = input()
+t = input()
+ans = 0
+for i in range(len(s)):
+    if s[i:].startswith(t):
+        ans += 1
+
+print(ans)
+
