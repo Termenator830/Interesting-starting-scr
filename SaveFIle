@@ -2021,10 +2021,48 @@ match_object = re.match(pattern, string)
 2) ^
   pattern = r"[^a-zA-Z]c" -- все, кроме ^...
 string = "a.c, a-c, a,c"
+3) .
+  pattern = r"a.c" -- что угодно, кроме \n
 Сокращения:
-1) \d - [0-9] -- цифры
+1) \d - [0-9] -- цифры - r"a\dc" <=> r"a[0-9]c"
 2) \D - [^0-9] -- не цифры.  
 3) \s - [ \t\n\r\f\v ] -- пробельные символы
 4) \S - [ ^\t\n\r\f\v ]
 5) \w - [a-zA-Z0-9_] --буквы + цифры + _
 6) \W - [^a-zA-Z0-9_]
+комбинации: r"a[\w.]c", r"a[\w\s]c" ...
+
+Указать группу: ( действуют жадно - по-умолчанию берут самый динный вариант ) 
+1) * -- Любое количество символа от нуля
+  pattern = r"ab*a"
+string = "aa, aba, abba"
+2) + -- Любое количество от 1
+  pattern = r"ab+a"
+string = "aba, abba"
+3) ? -- 0 или 1 вхождение
+  pattern = r"ab?a"
+string = "aa, aba"
+4) {n} -- сколько конкретно интересует 
+  pattern = r"ab{2,4}a"
+string = "abba, abbba, abbbba"
+   Самое короткое выражение:
+	pattern = r"a[ab]+?a"
+5) () -- группировка цуликом
+    Или:
+	pattern = r"(test|text)*" -- | значит или
+	string = "testtest"
+   Или:
+	pattern = r"abc|(test|text)"
+	string = "abc"
+  Или:
+	pattern = r"((abc|(test|text)*))"
+	string = "abc"
+	match = re.match(pattern, string
+	print(match.groups()) -- находит группы (abc, abc, None) - внешние, первые 
+							 внутренние, вторые внутренние,
+							запоминает последнее вхождение 
+	pattern = r"Hello (abc|text)"
+	string = "Hello abc"
+	match = re.match(pattern, string)
+	print(match.group(0)) -- группы можно индексировать 
+	print(match.group(1))
