@@ -1955,3 +1955,8 @@ reduce(lambda x, y: x + y, [1, 2, 3], 10) -- 10 + 1 + 2 + 3
 #Usage of Lambda
 def mod_checker(x, mod=0):
   return lambda y: y % x == mod
+# Example
+def recursive_replace(s, a, b, count=0):
+  if a not in b and a in s:
+    return recursive_replace(s.replace(a, b), a, b, count + 1)
+  return count, s
