@@ -2005,3 +2005,9 @@ print(x)
 | `\s`       | Пробел                          | `\s+` → один или несколько пробелов |
 | `|`        | Или                             | `cat\|dog` → `cat` или `dog` |
 | `()`       | Группа (для логики/захвата)     | `(ab)+` → `ab`, `abab`, ... |
+
+Примеры:
+1) []
+  pattern = r"a[abc]c"
+string = "acc"
+match_object = re.match(pattern, string)
