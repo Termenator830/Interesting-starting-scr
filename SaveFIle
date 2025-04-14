@@ -2142,3 +2142,6 @@ for line in sys.stdin:
 
 			    ОБЗОРНО ОБ ИНТЕРНЕТЕ
 • Url - Uniform Resource Locator
+get, post - самые используемые методы 
+• Html - Hypertext Markup Language
+after tag a is located a link
