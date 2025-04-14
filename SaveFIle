@@ -2319,4 +2319,33 @@ for obj in data:
 for k in sorted(res):
     print(f"{k} : {res[k] + 1}")
 
+					API 
+• API принимает, возвращает, но делает это "неизвестным" образом
+Call API: "http\w?://"something"={APIKEY} -- API key обычно даёт сервис
+ 11c0d3dc6093f7442898ee49d2430d20 - for OpenWeatherMap
+ fe6c9ac08e96ecdd33f559f07bc59da7
 
+#Example(get weather) 
+import requests
+city = input('City?')
+api_url = 'https://api.openweathermap.org/data/2.5/weather'
+
+params = {
+    'q': city, 
+    'appid': 'fe6c9ac08e96ecdd33f559f07bc59da7',
+    'units': 'metric'
+
+}
+
+res = requests.get(api_url, params = params)
+print(res.headers['Content-Type'])
+data = res.json()
+template = 'Current temperature in {} is {}'
+print(template.format (city, data['main']['temp']))
+print(f"Current temperature in {city} is {data['main']['temp']}")
+
+#Interesting or Boring
+with open('dataset_24476_3.txt') as file:
+    for num in file:
+        response = re.get('http://numbersapi.com/{number}/math?json=true'.format( number=num.rstrip() )).json()﻿
+        print('Interesting') if response['found'] else print('Boring')﻿
