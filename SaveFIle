@@ -2237,11 +2237,64 @@ most_common_crime, count = counts.most_common(1)[0]
 print(most_common_crime, count)
 
 • JSON - Javascript Object Notation 
-1) true, false
-2) key is ONLY string
-3) None there is nul
-4) JSON doesnt support sets 
-5) what was tuple, becomes list 
+1) key is ONLY string
+2) JSON doesn't support sets 
 
+Python			JSON
+dict			object
+list, tuple		array
+str			string
+int, long, float	number
+True			true
+False			false
+None			null
+
+JSON			Python
+object			dict
+array			list
+string			str
+number (int)		int
+number (real)		float
+true			True
+false			False
+null			None
+
+
+
+#Example ( dict to JSON )
+import json
+
+student1 = {
+    'first_name': 'Greg',
+    'last_name': 'Dean',
+    'scores': [70, 80, 90],
+    'description': "Good job, Greg",
+    'certificate': True
+}
+
+student2 = {
+    'first_name': 'Wirt',
+    'last_name': 'Wood',
+    'scores': [80, 80.2, 80],
+    'description': "Nicely Done",
+    'certificate': True
+}
+
+data = [student1, student2]
+data_json = json.dumps(data, indent=4, sort_keys=True) -- make json format, use 'dump' if to file(сериализация)
+data_again = json.loads(data_json) -- read json format, use 'load' if from file(десериализация)
+print(sum(data_again[0]["scores"]))
+
+#example of decoding
+blackjack_hand = (8, "Q")
+encoded_hand = json.dumps(blackjack_hand)
+decoded_hand = json.loads(encoded_hand)
+ 
+print(blackjack_hand == decoded_hand) # False
+ 
+print(type(blackjack_hand)) -- <class 'tuple'>
+print(type(decoded_hand)) -- <class 'list'>
+ 
+print(blackjack_hand == tuple(decoded_hand)) # True
 
 
