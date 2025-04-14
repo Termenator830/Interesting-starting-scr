@@ -2156,29 +2156,17 @@ get, post - самые используемые методы
 • Html - Hypertext Markup Language
 after tag a is located a link
 
-#HTML parsing example 
+#HTML link search 
 import requests
 import re
-from urllib.parse import urlparse
 
-url = input().strip()
-html = requests.get(url).text
-
-# Ищем все href="..."/href='...'
-hrefs = re.findall(r'<a[^>]+href=[\'"]?([^\'" >]+)', html)
-
-domains = set()
-
-for href in hrefs:
-    # Пропускаем относительные ссылки
-    if href.startswith('/') or href.startswith('.') or href.startswith('#'):
-        continue
-
-    parsed = urlparse(href if '://' in href else 'http://' + href)
-    domain = parsed.hostname  # вытаскиваем только имя домена
-
-    if domain:
-        domains.add(domain)
-
-for domain in sorted(domains):
-    print(domain)
+sites = []
+link = input().strip()
+file = requests.get(link)
+x = re.findall(r"<a[^>]*href=[\"'][^>]*?([\w-]+\.[^:>\"\?'/]*)[/:]*[^>\"']*[\"'][^>]*>", file.text)
+for i in x:
+    if (i not in sites) and (i[-3:] != "php") and (i[-4:] != "html"):
+        sites.append(i)
+sites.sort()
+for i in sites:
+    print(i)
