@@ -867,9 +867,18 @@ r = requests.get('http://example.com')
 print(r.text)
 
 url = 'http://example.com'
-par = {'key1': 'value1', 'key2': 'value2'} 
-r = requests.get(url, params=par)
+par = {'key1': 'value1', 'key2': 'value2'}, e.j. "text:" "Stepic". 'test:' 'test1', 
+r = requests.get(url, params=par)	   'name': 'Name With Spaces', 'List:' ['test1', 'test2']
 print(r.url)
+
+res = requests.get(url)
+res.status_code
+res.headers['Content-Type'] -- e.j. text/html, image/png
+res.content -- все содержимое(бинарные данные)
+res.text -- весть текст 
+
+with open("python.png", "wb") as f:
+   f.write(res.content)
 
 url = 'http://httpbin.org/cookies'
 cookies = {'cookies_are: 'working'}
@@ -2083,6 +2092,7 @@ string = "abba, abbba, abbbba"
 Примеры:
  [-+]?\d+, [-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?, 
 r'\b(\w+)\1\b' -- \1, чтобы проверить повтор
+pattern = r'https://[^\s"\'>]+' -- для поиска ССЫЛОК на сайте 
 
 import re
 
@@ -2145,3 +2155,30 @@ for line in sys.stdin:
 get, post - самые используемые методы 
 • Html - Hypertext Markup Language
 after tag a is located a link
+
+#HTML parsing example 
+import requests
+import re
+from urllib.parse import urlparse
+
+url = input().strip()
+html = requests.get(url).text
+
+# Ищем все href="..."/href='...'
+hrefs = re.findall(r'<a[^>]+href=[\'"]?([^\'" >]+)', html)
+
+domains = set()
+
+for href in hrefs:
+    # Пропускаем относительные ссылки
+    if href.startswith('/') or href.startswith('.') or href.startswith('#'):
+        continue
+
+    parsed = urlparse(href if '://' in href else 'http://' + href)
+    domain = parsed.hostname  # вытаскиваем только имя домена
+
+    if domain:
+        domains.add(domain)
+
+for domain in sorted(domains):
+    print(domain)
