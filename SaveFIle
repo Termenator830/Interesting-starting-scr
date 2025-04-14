@@ -2290,11 +2290,33 @@ blackjack_hand = (8, "Q")
 encoded_hand = json.dumps(blackjack_hand)
 decoded_hand = json.loads(encoded_hand)
  
-print(blackjack_hand == decoded_hand) # False
+print(blackjack_hand == decoded_hand) -- False
  
 print(type(blackjack_hand)) -- <class 'tuple'>
 print(type(decoded_hand)) -- <class 'list'>
  
-print(blackjack_hand == tuple(decoded_hand)) # True
+print(blackjack_hand == tuple(decoded_hand)) -- True
+
+#Recursion Example(graph) 
+import json
+
+data = json.loads(input())
+res = {}
+
+def tree(name, visited):
+    count = 0
+    for obj in data:
+        if name in obj["parents"] and obj["name"] not in visited:
+            visited.add(obj["name"])
+            count += 1 + tree(obj["name"], visited)
+    return count
+
+for obj in data:
+    name = obj["name"]
+    visited = set()
+    res[name] = tree(name, visited)
+
+for k in sorted(res):
+    print(f"{k} : {res[k] + 1}")
 
 
