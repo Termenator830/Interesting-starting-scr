@@ -2082,6 +2082,7 @@ string = "abba, abbba, abbbba"
 	print(match.group(1))
 Примеры:
  [-+]?\d+, [-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?, 
+r'\b(\w+)\1\b' -- \1, чтобы проверить повтор
 
 import re
 
@@ -2096,3 +2097,48 @@ for i in findall:
 
 match.start(), match.end() -- начала и конец найденной строки 
 pattern = r"(\w+)-\1" -- использовать первую группу, можно использовать r"\1" в sub 
+
+#Example
+import sys
+import re
+
+pattern = r'\b"?a{1,}"?\b' 
+
+def replacer(m):
+    text = m.group(0)
+    if text.startswith('"') and text.endswith('"'):
+        return '"argh"'
+    return 'argh'
+
+for line in sys.stdin:
+    line = line.rstrip()
+    new_line = re.sub(pattern, replacer, line, count=1, flags=re.IGNORECASE)
+    print(new_line)
+
+#Example of using groups
+import sys
+import re
+
+pattern = r'\b(\w)(\w)(\w*)\b'
+
+for line in sys.stdin:
+    line = line.rstrip()
+    line = re.sub(pattern, r'\2\1\3', line)
+    print(line)
+
+#Binary to numbers
+import sys
+import re
+
+for line in sys.stdin:
+    line = line.rstrip()
+    a = 0
+    if re.fullmatch(r'[01]+', line):
+        for i in range(len(line)):
+            a += int(line[i]) * 2**(len(line)-i-1)
+        if a % 3 == 0:
+            print(line)
+
+
+			    ОБЗОРНО ОБ ИНТЕРНЕТЕ
+• Url - Uniform Resource Locator
