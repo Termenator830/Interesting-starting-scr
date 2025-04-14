@@ -2170,3 +2170,78 @@ for i in x:
 sites.sort()
 for i in sites:
     print(i)
+		РАСПРОСТРАНЁННЫЕ ФОРМАТЫ ТЕКСТОВЫХ ФАЙЛОВ: CSV, JSON
+• CSV - Coma Separated Values
+* CSV to Excel: https://tallanto.com/ru/chto-takoe-csv-fayl-i-kak-ego-preobrazovat-v-excel
+import csv 
+
+with open("Example.csv") as f: 		
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
+
+CSV used: first name,last name,module1,module2,module3
+	student,best,100,100,100
+	student,good,90,"90.2",100 -- "val" чтобы изолировать
+
+* To read tsv or other:
+import csv 
+
+with open("Example.tsv") as f:
+    reader = csv.reader(f, delimiter="\t") -- обозначает как разделение элементов 
+    for row in reader:
+        print(row)
+* add new lines to a CSV
+import csv 
+
+students = [['Ben','best',100,100,100,'Excellent score'], 
+            ['Jo','good',90,90.2,100,'Good result']]
+
+with open("Example.csv", 'a', newline='') as f: 
+    writer = csv.writer(f, quoting=csv.QUOTE_ALL(or NONNUMERIC) -- чтобы писать, помещая каждое в кавычки 
+    for student in students: 
+        writer.writerow(student) -- написать как строку
+    OR:
+    writer.writerows(students) -- сразу несколько строк
+
+#Find Crimes
+import csv
+
+res = {}
+s = 0
+dang = None
+
+with open("Crimes.csv") as f:
+    reader = csv.reader(f)
+    next(reader) 
+    for row in reader:
+        crime = row[5]
+        res[crime] = res.get(crime, 0) + 1
+        if res[crime] > s:
+            s = res[crime]
+            dang = crime
+
+print(dang, s)
+
+OR: ( same memory spent, better speed )
+
+import csv
+from collections import Counter
+
+with open("Crimes.csv") as f:
+    reader = csv.reader(f)
+    next(reader)  -- Skip header
+    crime_list = [row[5] for row in reader]
+counts = Counter(crime_list)
+most_common_crime, count = counts.most_common(1)[0]
+print(most_common_crime, count)
+
+• JSON - Javascript Object Notation 
+1) true, false
+2) key is ONLY string
+3) None there is nul
+4) JSON doesnt support sets 
+5) what was tuple, becomes list 
+
+
+
