@@ -2349,3 +2349,29 @@ with open('dataset_24476_3.txt') as file:
     for num in file:
         response = re.get('http://numbersapi.com/{number}/math?json=true'.format( number=num.rstrip() )).json()﻿
         print('Interesting') if response['found'] else print('Boring')﻿
+
+https://developers.artsy.net/v2/start?id=c697f84f-9731-4f74-9e09-5bfd36d3ca35
+Client Id	c4d9f622e182d02b8410
+Client Secret	7abe2d56a4fa1a2069edffbd06827c58
+
+{
+  "id": "4d8b92b34eb68a1b2c0003f4",
+  "slug": "andy-warhol",
+  "created_at": "2010-08-23T14:15:30+00:00",
+  "updated_at": "2025-04-14T23:31:46+00:00",
+  "name": "Andy Warhol",
+  "sortable_name": "Warhol Andy",
+  "gender": "male",
+  "biography": "An American painter, printmaker, sculptor, draughtsman, illustrator, filmmaker, writer and collector, who became one of the most famous artists of the 20th century. Warhol began his career as a successful commercial artist and illustrator for magazines and newspapers but by 1960 was determined to establish his name as a painter. He quickly became renowned for painting everyday advertisements or images from comic strips that looked eerily similar to the originals and contained no traditional marks of an artist. Warhol accentuated this look through the use of silkscreens and by painting in collaboration with a team of assistants in a studio he called \"The Factory.\" In the late sixties, Warhol turned his attention to making experimental films and multimedia events, and in the 1970s, to creating commissioned portraits. During the 1980s Warhol continued to exert an influence on the art world, collaborating with young artists such as Jean-Michel Basquiat and creating a series of paintings, which engaged with Renaissance masterworks.",
+  "birthday": "1928",
+  "deathday": "1987",
+  "hometown": "Pittsburgh, PA, USA",
+  "location": "New York, NY, USA",
+  "nationality": "American",
+  "target_supply": true,
+  "image_versions": [
+    "four_thirds",
+    "large",
+    "square",
+    "tall"
+  ],
