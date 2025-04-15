@@ -2350,8 +2350,9 @@ with open('dataset_24476_3.txt') as file:
         response = re.get('http://numbersapi.com/{number}/math?json=true'.format( number=num.rstrip() )).json()﻿
         print('Interesting') if response['found'] else print('Boring')﻿
 
+#artsy systen
 https://developers.artsy.net/v2/start?id=c697f84f-9731-4f74-9e09-5bfd36d3ca35
-Client Id	c4d9f622e182d02b8410
+Client Id	c4d9f622e182d02b8410 
 Client Secret	7abe2d56a4fa1a2069edffbd06827c58
 
 {
@@ -2375,3 +2376,40 @@ Client Secret	7abe2d56a4fa1a2069edffbd06827c58
     "square",
     "tall"
   ],
+
+#artsy index checking
+import requests
+import json
+
+client_id = 'c4d9f622e182d02b8410'
+client_secret = '7abe2d56a4fa1a2069edffbd06827c58'
+
+- 1. Получение токена
+r = requests.post("https://api.artsy.net/api/tokens/xapp_token", data={
+    "client_id": client_id,
+    "client_secret": client_secret
+})
+token = r.json()["token"]
+
+- 2. Заголовки для последующих запросов
+headers = {"X-Xapp-Token": token}
+
+- 3. Чтение входных ID
+with open("dataset_24476_4 2.txt", encoding='utf-8') as f:
+    ids = [line.strip() for line in f if line.strip()]
+
+- 4. Получение данных
+artists = []
+for artist_id in ids:
+    r = requests.get(f"https://api.artsy.net/api/artists/{artist_id}", headers=headers)
+    data = r.json()
+    name = data["sortable_name"]
+    birthday = data["birthday"]
+    artists.append((int(birthday), name))
+
+- 5. Сортировка
+artists.sort()
+
+- 6. Вывод
+for _, name in artists:
+    print(name)
