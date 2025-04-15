@@ -2413,3 +2413,105 @@ artists.sort()
 - 6. Вывод
 for _, name in artists:
     print(name)
+
+				XML, библиотека ElementTree, библиотека lxml
+* XML - чтобы данные не отображать, а хранить 
+первое слово после < - наш tag, 
+* <tag> -- открывается
+* </tag> -- закрывается				содержимое находится МЕЖДУ тегами
+* <tag/> -- открывается и закрывается
+Атрибуты
+
+#Example
+<studentsList>
+    <student id='1'>
+        <firstName>Greg</firstName>
+        <lastName>Petrov</lastName>
+        <certificate>True</certificate>
+        <scores>
+            <module1>70</module1>
+            <module2>90</module2>
+            <module3>90.2</module3>
+        </scores>
+    </student>
+
+#Code Example
+from xml.etree import ElementTree -- импортировать
+
+tree = ElementTree.parse("Example.xml") -- принять
+root = tree.getroot() -- найти корень
+
+print(root)
+print(root.tag, root.attrib) -- тег, атрибут
+
+for child in root:
+    print(child.tag, child.attrib)
+
+print(root[0][3][1].text) -- найти подэлемент
+
+for element in root.iter("scores"): -- найти все элементы под корнем, где бы они ни были 
+    print(element)
+    score_sum = 0
+    for child in element:
+        score_sum += float(child.text)
+    print(score_sum) 
+
+#Пример изменения 
+from xml.etree import ElementTree
+
+tree = ElementTree.parse("Example.xml") -- принять информация
+root = tree.getroot() -- корень
+
+greg = root[0]
+module1 = next(greg.iter("module1")) -- ищем по Грегу
+print(module1, module1.text) 
+module1.text = str(float(module1.text) + 30) -- изменить текст
+
+certificate = greg[2]
+certificate.set("type", "with distinction") -- добавить атрибут
+
+description = ElementTree.Element("description") -- создать элемент
+description.text = "Showed excellent skills during the course"
+greg.append(description) -- добавить элемент
+
+description = greg.find("description")
+greg.remove(description) -- удалить элемент
+
+tree.write("Example_modified.xml") -- написать файл 
+
+#Build XML from scratch 
+root = ElementTree.Element("student")
+
+first_name = ElementTree.SubElement(root, "firstName")
+first_name.text = "Greg"
+second_name = ElementTree.SubElement(root, "secondName")
+second_name.text = "Dean"
+
+scores = ElementTree.SubElement(root, "scores")
+module1 = ElementTree.SubElement(scores, "module1")
+module1.text = "100"
+module2 = ElementTree.SubElement(scores, "module2")
+module2.text = "80"
+module3 = ElementTree.SubElement(scores, "module3")
+module3.text = "90"
+
+tree = ElementTree.ElementTree(root)
+tree.write("WrittneTree.xml")
+
+#HTML to XML using LXML
+from lxml import etree
+import requests
+
+res = requests.get("https://docs.python.org/3/")
+print(res.status_code)
+print(res.headers["Content-Type"])
+
+parser = etree.HTMLParser()
+root = etree.fromstring(res.text, parser)
+
+for element in root.iter("a"):
+    print(element, element.attrib)
+
+
+
+
