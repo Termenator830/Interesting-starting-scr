@@ -1,3 +1,6 @@
+CourseraBox555
+SuckDiTheif555
+
 #Size coimparison
 type - <class 'dict'>, len - 100, size - 2620         #   {i:i for i in range(100)}
 type - <class 'set'>, len - 100, size - 4212          #   {i for i in range(100)}
