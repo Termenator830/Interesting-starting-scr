@@ -2414,6 +2414,13 @@ artists.sort()
 for _, name in artists:
     print(name)
 
+HTTP Header	Описание
+Accept		Какой тип контента может принять клиент	
+Content-Type	Какой тип контента в ответе сервера
+User-Agent	Какое программное обеспечение клиент использует для связи с сервером
+Server		Какое программное обеспечение сервер использует для связи с клиентом
+Authentication	Кто вызывает API и с какими учетными данными
+
 				XML, библиотека ElementTree, библиотека lxml
 * XML - чтобы данные не отображать, а хранить 
 первое слово после < - наш tag, 
@@ -2512,6 +2519,23 @@ root = etree.fromstring(res.text, parser)
 for element in root.iter("a"):
     print(element, element.attrib)
 
+#Simple graph
+from xml.etree import ElementTree
+res = {'red': 0, 'green': 0, 'blue': 0} 
+root = ElementTree.fromstring(input())
+
+def calc(element, i=1):
+    global res
+    for j in element:
+        if j.attrib:
+            res[j.attrib.get('color')] += 1
+        calc(j, i=i+1)
 
 
+for element in root.iter():
+    if element.attrib:
+        res[element.attrib.get('color')] += 1
+    calc(element)
+for i in res:
+    print(res[i], end=' ')
 
