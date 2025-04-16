@@ -2549,7 +2549,7 @@ Basic concepts of OOP:
 1) Encapsulation
 2) Abstraction
 3) Inheritance
-4) Polymorphism
+4) Polymorphism -- possibility to change a type
 
 
 class Item:
@@ -2636,6 +2636,10 @@ phone1 = Phone("jscPhonev10", 500, 5, 1)
 print(phone1.calculate_total_price())
 print(Item.all)
 print(Phone.all)
+
+You can also add __ before a method
+
+
 --------
 # OR item and phone separated:
 from item import Item
@@ -2651,5 +2655,10 @@ item1.read_only_name = 'BBB' #Error
 * @staticmethod - used when its something related to a class, not anything unique, not
 			passing object reference as the first argument 
 * @classmethod - also related to a class, but used to manipulate different structures to instantiate objects
-* @property - makes it a read_only_attribute
+* @property - makes it a read_only_attribute. Can't change value anywhere, but in the class
+by making a new method to do so
+* @setter
+
+
+
 
