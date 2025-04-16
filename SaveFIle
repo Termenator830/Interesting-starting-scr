@@ -2652,13 +2652,240 @@ print(item1.read_only_name)
 
 item1.read_only_name = 'BBB' #Error
 --------
+
+•How decorators work.
+def decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+def say_whee():
+    print("Whee!")
+
+say_whee = decorator(say_whee) -- we call function inside of a function
+
+OR:
+
+def decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@decorator	-- there its the same as using say_whee = decorator(say_whee) 
+def say_whee():
+    print("Whee!")
+
+#Another example
+def do_twice(func):
+    def wrapper_do_twice():
+        func()
+        func()
+    return wrapper_do_twice
+
+from decorators import do_twice
+
+>>> @do_twice	 -- makes say_whee a subfunction of do_twice
+... def say_whee():
+...     print("Whee!")
+
+#But if we do this:
+>>> from decorators import do_twice
+
+>>> @do_twice
+... def greet(name): 	-- error bc do_twice shouldnt take arguments
+...     print(f"Hello {name}")
+...
+#Fix?
+ do_twice(func):
+    def wrapper_do_twice(*args, **kwargs): -- now takes any amount of arguments
+        func(*args, **kwargs)
+        return func(*args, **kwargs)
+    return wrapper_do_twice
+
+#Now works!
+>>> from decorators import do_twice
+
+>>> @do_twice
+... def say_whee():
+...     print("Whee!")
+...
+
+>>> say_whee()
+Whee!
+Whee!
+
+>>> @do_twice
+... def greet(name):
+...     print(f"Hello {name}")
+...
+
+>>> greet("World")
+Hello World
+Hello World
+
+#After fixing
+ from decorators import do_twice -- our .py with decorators
+
+>>> @do_twice
+... def return_greeting(name):
+...     print("Creating greeting")
+...     return f"Hi {name}"
+...
+
+>>> return_greeting("Adam")
+Creating greeting
+Creating greeting
+'Hi Adam'
+#But it sees itself as a type of its decorator now :(
+>>> say_whee
+<function do_twice.<locals>.wrapper_do_twice at 0x7f43700e52f0>
+
+>>> say_whee.__name__
+'wrapper_do_twice'
+
+>>> help(say_whee)
+Help on function wrapper_do_twice in module decorators:
+
+wrapper_do_twice()
+
+#Fix? use @functools.wraps(func) in do_twice!
+import functools
+
+def do_twice(func):
+    @functools.wraps(func)
+    def wrapper_do_twice(*args, **kwargs):
+        func(*args, **kwargs)
+        return func(*args, **kwargs)
+    return wrapper_do_twice
+
+
+#Example
+import functools
+import time
+
+ ...
+
+def timer(func):
+    """Print the runtime of the decorated function"""
+    @functools.wraps(func)
+    def wrapper_timer(*args, **kwargs):
+        start_time = time.perf_counter()
+        value = func(*args, **kwargs) 	-- do some function
+        end_time = time.perf_counter()
+        run_time = end_time - start_time
+        print(f"Finished {func.__name__}() in {run_time:.4f} secs")
+        return value
+    return wrapper_timer
+
+#Activation example
+>>> from decorators import timer
+
+>>> @timer
+... def waste_some_time(num_times):
+...     for _ in range(num_times):
+...         sum([number**2 for number in range(10_000)])
+...
+
+>>> waste_some_time(1)
+Finished waste_some_time() in 0.0010 secs
+
+>>> waste_some_time(999)
+Finished waste_some_time() in 0.3260 secs
+
+#Another example
+import functools
+
+ ...
+
+def debug(func):
+    """Print the function signature and return value"""
+    @functools.wraps(func)
+    def wrapper_debug(*args, **kwargs):
+        args_repr = [repr(a) for a in args]
+        kwargs_repr = [f"{k}={repr(v)}" for k, v in kwargs.items()]
+        signature = ", ".join(args_repr + kwargs_repr)
+        print(f"Calling {func.__name__}({signature})")
+        value = func(*args, **kwargs)
+        print(f"{func.__name__}() returned {repr(value)}")
+        return value
+    return wrapper_debug
+
+#And here we use
+import math
+from decorators import debug
+
+math.factorial = debug(math.factorial)
+
+def approximate_e(terms=18):
+    return sum(1 / math.factorial(n) for n in range(terms))
+
+• There are also decorators working on classes(cls)
+import functools
+
+def singleton(cls):
+    """Make a class a Singleton class (only one instance)"""
+    @functools.wraps(cls)
+    def wrapper_singleton(*args, **kwargs):
+        if wrapper_singleton.instance is None:
+            wrapper_singleton.instance = cls(*args, **kwargs)
+        return wrapper_singleton.instance
+    wrapper_singleton.instance = None
+    return wrapper_singleton
+
+#Do CACHING!
+import functools
+
+def cache(func):
+    """Keep a cache of previous function calls"""
+    @functools.wraps(func)
+    def wrapper_cache(*args, **kwargs):
+        cache_key = args + tuple(kwargs.items())
+        if cache_key not in wrapper_cache.cache:
+            wrapper_cache.cache[cache_key] = func(*args, **kwargs)
+        return wrapper_cache.cache[cache_key]
+    wrapper_cache.cache = {}
+    return wrapper_cache
+
+@cache		-- gets value from a dictionary if there is 
+def fibonacci(num):
+    if num < 2:
+        return num
+    return fibonacci(num - 1) + fibonacci(num - 2)
+
+print(fibonacci(100))
+
+OR:
+
+from functools import lru_cache -- caching thing
+
+@lru_cache(maxsize=None)  # None = unlimited cache
+def fibonacci(num):
+    if num < 2:
+        return num
+    return fibonacci(num - 1) + fibonacci(num - 2)
+
+print(fibonacci(100))
+
 * @staticmethod - used when its something related to a class, not anything unique, not
 			passing object reference as the first argument 
 * @classmethod - also related to a class, but used to manipulate different structures to instantiate objects
 * @property - makes it a read_only_attribute. Can't change value anywhere, but in the class
 by making a new method to do so
 * @setter
+* @functools.wraps(func) - make an object keep identity on some stage
+* @functools.lru_cache - cache values(least recently used). also there is @cache
+	can now also use fibonacci.cache_info()
 
+•Volume changing library
+import pint
 
+ureg = pint.UnitRegistry()
+ureg.define('cubic_meter = meter ** 3 = m³')
 
-
+volume = 1 * ureg.cubic_meter
+us_gallons = volume.to('gallon')
+print(us_gallons)
