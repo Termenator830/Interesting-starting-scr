@@ -2953,11 +2953,23 @@ Some useful functions:
 5) np.stack((arr, arr1, arr2)) -- stack up a few arrays into another dimension 
 6) arr.flatten(axis=0)
 7) np.sum(res, axis=1) -- make a new matrix, elements are sums (or just get sum) (or nansum) 
-8) np.cumprod(arr) -- get a new array with "factorial logic" of each element 
-9) np.come
+8) np.cumprod(arr, axis=1) -- get a new array with "factorial logic" of each element 
+9) np.cumsum(arr, axis=1) -- get a new array with "sum logic" of each element 
 
+To do iterating:
+for i, val in np.ndenumerate(arr) -- same as enumerate in lists 
 
+To copy:
+* np.copy(arr) -- chyanges in original do not affect the copy 
+* arr.view() -- make a NEW object, at first identical to arr, but properties do not collaborate 
 
+* np.array_split(res, 4, axis=1) -- split into multiple arrays
+* arr.tolist() -- convert array into a list 
 
-
+* np.where(arr == 6) -- returnas an array of indexes 
+* np.searchsorted(arr, 10) -- returns index where a value should be 
+* Another method to select what to choose:
+    arr = np.array([1, 6, 2, 6, 8])
+    fa = [True, False, True, False, False]
+    new = arr[fa] -- apply "mask" of 'fa'
 
