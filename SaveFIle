@@ -2950,4 +2950,14 @@ Some useful functions:
 4) np.sort((arr, arr1, arr2),axis=1) -- sorts elements by axis, e.j. [[1 1 4 9]
 								      [2 3 5 7]
 								      [3 4 5 6]]
+5) np.stack((arr, arr1, arr2)) -- stack up a few arrays into another dimension 
+6) arr.flatten(axis=0)
+7) np.sum(res, axis=1) -- make a new matrix, elements are sums (or just get sum) (or nansum) 
+8) np.cumprod(arr) -- get a new array with "factorial logic" of each element 
+9) np.come
+
+
+
+
+
 
