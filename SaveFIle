@@ -2908,3 +2908,28 @@ ureg.define('cubic_meter = meter ** 3 = m³')
 volume = 1 * ureg.cubic_meter
 us_gallons = volume.to('gallon')
 print(us_gallons)
+
+------------------------------------------------------------------------------------------
+					NUMPY 
+1) arrays consume less memory and work faster than lists
+2) you can only store 1 data type at once
+3) you can do mathematical operations
+4) must have same sizes, example: [1, 2, 3, 4]
+				  [5, 6, 7, 8] 
+
+•Basics 
+import numpy as np
+arr = np.array([[1, "two", 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]) -- matrix
+print(arr)
+print(type(arr)) 
+print(arr[0][0:2]) 	--sequence[start:stop:step] ( slicing logic )
+print(arr[[0, 2], 0:2]) -- select elements from subarray
+print(arr[0:2, 0:2]) -- same(subarray from array) 
+print(np.shape(arr)) -- (rows, elements per 1)
+print(np.size(arr)) -- amount of elements
+print(np.ndim(arr)) -- amount of dimensions
+print(arr.dtype) -- e.j. int64 
+
+Functions:
+1) np.arrange(1, 6, 2, dtype=float) -- make an array and select data type 
+2) np.zeros((3, 2), dtype=int) -- makes an array of zeros, (rows, columns) structure 
