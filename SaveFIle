@@ -2955,6 +2955,11 @@ Some useful functions:
 7) np.sum(res, axis=1) -- make a new matrix, elements are sums (or just get sum) (or nansum) 
 8) np.cumprod(arr, axis=1) -- get a new array with "factorial logic" of each element 
 9) np.cumsum(arr, axis=1) -- get a new array with "sum logic" of each element 
+#) np.astype(dtype, order='K', casting='unsafe', subok=True, copy=True) -- change dtype
+#) np.eye(N, M=None, k=0, dtype=float) -- create identity matrix 
+# np.identity() -- creat eidentity matrix
+#) np.tile(arr, 3) -- create an array of copied arrays
+
 
 To do iterating:
 for i, val in np.ndenumerate(arr) -- same as enumerate in lists 
