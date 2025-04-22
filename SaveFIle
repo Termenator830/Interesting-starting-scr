@@ -2995,8 +2995,10 @@ Some more functions:
 * c = np.insert(arr, 1, (50, 100), axis=0) -- insert a value on some axis on some index 
 * np.delete(arr, ind, val, axis) -- delete a value, but also flatten. mention axis to delete
 										a sub array 
-* arr.T -- transponing matrix 
+* arr.T -- transposing matrix <=> a.transpose()[::-1]
+* arr.transpose
 * np.dot(arr1, arr2) -- matrix multiplication 
+* np.swapaxes(arr, axis1, axis2) -- 'rotate' the matrix
 
 Basic arithmetics:
 arr + arr1 -- returns array with each element as an arithmetic sum. same for each arithmetic.
