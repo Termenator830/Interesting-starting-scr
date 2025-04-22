@@ -2912,7 +2912,7 @@ print(us_gallons)
 ------------------------------------------------------------------------------------------
 					NUMPY 
 1) arrays consume less memory and work faster than lists
-2) you can only store 1 data type at once
+2) you can only store 1 data type at once (or use dtype=object) 
 3) you can do mathematical operations
 4) must have same sizes, example: [1, 2, 3, 4]
 				  [5, 6, 7, 8] 
@@ -2925,6 +2925,9 @@ print(type(arr))
 print(arr[0][0:2]) 	--sequence[start:stop:step] ( slicing logic )
 print(arr[[0, 2], 0:2]) -- select elements from subarray
 print(arr[0:2, 0:2]) -- same(subarray from array) 
+    E.j:
+     matrix[:, ::2] (goes through whole matrix) 
+     tensor[:, 2:, 2:] (takes each element as a 1D array) 
 print(np.shape(arr)) -- (rows, elements per 1)
 print(np.size(arr)) -- amount of elements
 print(np.ndim(arr)) -- amount of dimensions
@@ -2955,11 +2958,11 @@ Some useful functions:
 7) np.sum(res, axis=1) -- make a new matrix, elements are sums (or just get sum) (or nansum) 
 8) np.cumprod(arr, axis=1) -- get a new array with "factorial logic" of each element 
 9) np.cumsum(arr, axis=1) -- get a new array with "sum logic" of each element 
-#) np.astype(dtype, order='K', casting='unsafe', subok=True, copy=True) -- change dtype
+#) arr.astype(dtype, order='K', casting='unsafe', subok=True, copy=True) -- change dtype
 #) np.eye(N, M=None, k=0, dtype=float) -- create identity matrix 
 # np.identity() -- creat eidentity matrix
 #) np.tile(arr, 3) -- create an array of copied arrays
-
+#) np.linspace(1, 2, 3) -- range and amount of values in it 
 
 To do iterating:
 for i, val in np.ndenumerate(arr) -- same as enumerate in lists 
@@ -2977,6 +2980,11 @@ To copy:
     arr = np.array([1, 6, 2, 6, 8])
     fa = [True, False, True, False, False], OR fa = arr>5 ( or something )
     new = arr[fa] -- apply "mask" of 'fa'
+	&, |, ~ are used 
+	e.j: condition = (arr > 2)&(arr<5)
+	e.j: c[c:, 1] > 2, 1] = 99 -- get wanted elements from range 
+* np.any(a, axis=None) -- check if any is True 
+* np.all(a, axis=None)
 
 Some more functions:
 "random" module exists in numpy by default:
