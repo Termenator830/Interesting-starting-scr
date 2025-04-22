@@ -3022,7 +3022,7 @@ For matrixes there is a separated method:
 #Boolean example
 import numpy as np
 
-matrix = np.array([[1, 2, 3],
+maasdastrix = np.array([[1, 2, 3],
                    [4, 5, 6],
                    [7, 8, 9]])
 
@@ -3030,4 +3030,11 @@ result = matrix[np.any(matrix > 7, axis=1)]
 
 print(result)
 
+#Replace in an array
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6])
+arr[arr % 2 == 0] = 0 -- set new value
+        
+print(arr)
 
