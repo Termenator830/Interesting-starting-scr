@@ -2995,6 +2995,8 @@ Some more functions:
 * c = np.insert(arr, 1, (50, 100), axis=0) -- insert a value on some axis on some index 
 * np.delete(arr, ind, val, axis) -- delete a value, but also flatten. mention axis to delete
 										a sub array 
+* arr.T -- transponing matrix 
+* np.dot(arr1, arr2) -- matrix multiplication 
 
 Basic arithmetics:
 arr + arr1 -- returns array with each element as an arithmetic sum. same for each arithmetic.
@@ -3037,4 +3039,12 @@ arr = np.array([1, 2, 3, 4, 5, 6])
 arr[arr % 2 == 0] = 0 -- set new value
         
 print(arr)
+
+#Arithmetic diagonal 
+mask = np.eye(6, dtype=bool) -- make matrix with True on main diagonal 
+mean = np.mean(data[mask]) 
+print(f'Среднее арифметическое элементов на диагоналях: {mean:.2f}')
+
+
+
 
