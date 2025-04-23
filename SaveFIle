@@ -3035,6 +3035,22 @@ np.minimum(arr1, arr2) -- returns minimum for each element
 np.fmin(arr1, arr2) -- returns minimum for each element, ignoring 'nan'
 np.copysign(arr1, arr2) -- copy sign to each elim from arr2 to arr1 
 
+Logical operators:
+np.greater(x, y) -- returns True if x > y
+np.less(x, y) -- returns True if x < y
+np.equal(x, y) -- returns True if x == y
+np.less_equal(x,y) 
+np.greater_equal(x, y)
+np.not_equal(x,y)
+AND:
+np.logical_and(x, y) -- returns True if both True, otherwise False
+np.logical_or(x, y)
+np.logical_xor(x, y) -- returns True if not same
+np.logical_not(x) -- returns True if False
+
+
+
+
 For matrixes there is a separated method:
     E.j.
 	mat = np.matrix([[1,2], [5,6]])
