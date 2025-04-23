@@ -3015,6 +3015,14 @@ np.power(arr, arr1)
 np.floor_divide(arr,arr1) -- same as //, but safer 
 np.absolute(arr) -- make all positive
 np.divmod(arr,arr1) -- returns (a // b, a % b) 
+np.fabs(arr) -- float abs
+np.exp(arr) -- returns an array of e^x(each element of arr) 
+np.log(arr) -- can also be log10, log2, log1p (1+x) 
+np.sign(arr) -- 1 if pos, 0 if 0, -1 if neg 
+np.ceil(arr) -- finds and makes closest bigger number
+np.floor(arr) -- finds and makes closest smaller number
+np.round(arr) -- finds and rounds 
+np.rint(arr) -- round to nearest even number(used in science for less inflation)
 
 For matrixes there is a separated method:
     E.j.
@@ -3047,6 +3055,17 @@ mask = np.eye(6, dtype=bool) -- make matrix with True on main diagonal
 mean = np.mean(data[mask]) 
 print(f'Среднее арифметическое элементов на диагоналях: {mean:.2f}')
 
+#Edit Matrix rows and cols 
+import numpy as np
 
+A = np.array([[ 1,  2,  3,  4],
+              [ 5,  6,  7,  8],
+              [ 9, 10, 11, 12],
+              [13, 14, 15, 16],
+              [17, 18, 19, 20]])
 
+rows = np.where(A[:, 0] > 3)[0] OR: condition = A[:, 0] > 3
+A[rows] = A[rows].T 
 
+print("Матрица A после транспонирования строк с первым элементом больше 3:")
+print(A)
