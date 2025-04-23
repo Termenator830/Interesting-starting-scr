@@ -3014,7 +3014,8 @@ np.add(arr, arr1)
 np.subtract(arr, arr1)
 np.multiply(arr, arr1)
 np.divide(arr, arr1)
-np.remainder(arr, arr1) -- остаток от деления 
+np.remainder(arr, arr1) -- остаток от деления, same sign as a
+np.mod(arr, arr1) -- остаток от деления, same sign as b
 np.power(arr, arr1)
 np.floor_divide(arr,arr1) -- same as //, but safer 
 np.absolute(arr) -- make all positive
@@ -3028,6 +3029,11 @@ np.floor(arr) -- finds and makes closest smaller number
 np.round(arr) -- finds and rounds(without np - 'banking' logic) 
 np.rint(arr) -- round to nearest even number(banking logic(if 0.5))  
 np.modf(arr) -- returns 2 arrays with remainders and integers 
+np.maximum(arr1, arr2) -- returns maximum for each element
+np.fmax(arr1,arr2) -- returns maximum for each element, ignoring 'nan'
+np.minimum(arr1, arr2) -- returns minimum for each element
+np.fmin(arr1, arr2) -- returns minimum for each element, ignoring 'nan'
+np.copysign(arr1, arr2) -- copy sign to each elim from arr2 to arr1 
 
 For matrixes there is a separated method:
     E.j.
