@@ -2985,6 +2985,10 @@ To copy:
 	e.j: c[c:, 1] > 2, 1] = 99 -- get wanted elements from range 
 * np.any(a, axis=None) -- check if any is True 
 * np.all(a, axis=None)
+* np.isin(arr, arry1) -- check if arr is in arr1 
+* np.isnan(arr) -- checks each element for being nan 
+* np.isinf(arr) -- returns True if element is +-infinity(inf) 
+* np.isfinite(arr) -- returns True if elem is a real number 
 
 Some more functions:
 "random" module exists in numpy by default:
@@ -3021,8 +3025,9 @@ np.log(arr) -- can also be log10, log2, log1p (1+x)
 np.sign(arr) -- 1 if pos, 0 if 0, -1 if neg 
 np.ceil(arr) -- finds and makes closest bigger number
 np.floor(arr) -- finds and makes closest smaller number
-np.round(arr) -- finds and rounds 
-np.rint(arr) -- round to nearest even number(used in science for less inflation)
+np.round(arr) -- finds and rounds(without np - 'banking' logic) 
+np.rint(arr) -- round to nearest even number(banking logic(if 0.5))  
+np.modf(arr) -- returns 2 arrays with remainders and integers 
 
 For matrixes there is a separated method:
     E.j.
