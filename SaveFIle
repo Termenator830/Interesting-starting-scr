@@ -2975,6 +2975,9 @@ To copy:
 * arr.tolist() -- convert array into a list 
 
 * np.where(arr == 6) -- returnas an array of indexes 
+     Example:
+	y = np.where(x % 2 == 0, 'четное', 'нечетное') 
+	z = np.where(x > 0, x, y) -- decide from where to take
 * np.searchsorted(arr, 10) -- returns index where a value should be 
 * Another method to select what to choose:
     arr = np.array([1, 6, 2, 6, 8])
@@ -3019,6 +3022,22 @@ np.mod(arr, arr1) -- остаток от деления, same sign as b
 np.power(arr, arr1)
 np.floor_divide(arr,arr1) -- same as //, but safer 
 np.absolute(arr) -- make all positive
+np.sum(arr, axis=None) -- get sum of elements
+np.mean(arr, axis=None)
+np.median(arr, axis=None) -- return middle value from array(logically)
+np.std(a, axis=None, dtype=None, ddof=0, keepdims=<no value>, where=<no value>) --
+	-- calcs mean, subtracts mean from each element, squares each elim, 
+				gets mean, take square roots 
+np.min(arr, axis=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>)
+	-- find min value, can use starting value, keep dimensions 
+np.max(arr, axis=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>)
+np.argmin(arr, , axis=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>) --
+	-- finds index of minimum
+np.argmax(arr, , axis=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>) --
+	-- finds index of maximum
+np.ptp(arr, axis=None, out=None) -- max-min ( out - set where to save ) 
+np.diff(a, n=1, axis=-1, prepend=<no value>, append=<no value>) -- diff for each elim 
+np.bincount(arr) -- find amount of each element (1D, all pos)
 np.divmod(arr,arr1) -- returns (a // b, a % b) 
 np.fabs(arr) -- float abs
 np.exp(arr) -- returns an array of e^x(each element of arr) 
@@ -3094,5 +3113,41 @@ A = np.array([[ 1,  2,  3,  4],
 rows = np.where(A[:, 0] > 3)[0] OR: condition = A[:, 0] > 3
 A[rows] = A[rows].T 
 
+#Bool to num 
+import numpy as np
+
+classification1 = np.array([[1, 0, 1], 
+                            [0, 1, 0]])
+classification2 = np.array([[1, 0, 0], 
+                            [0, 1, 1]])
+
+result = np.equal(classification1, classification2).astype(int)
+
+print(result)
+
 print("Матрица A после транспонирования строк с первым элементом больше 3:")
 print(A)
+
+#find missing codes 
+import numpy as np
+
+secret_codes = np.array([15, 23, 7, 42, 18, 10, 7, 29])
+provided_codes = np.array([23, 7, 18, 7])
+
+mask = ~np.isin(secret_codes, provided_codes)
+missing_codes = secret_codes[mask]
+
+print("Отсутствующие коды:", missing_codes)
+
+#Ruled replacement
+import numpy as np
+
+arr = np.array([3, 8, 1, 6, 0, 7])
+
+result_arr = np.where(arr > 5, 'A', np.where((arr >= 1) & (arr <= 5), 'B', 'C'))
+
+print("Массив arr:")
+print(arr)
+print("Итоговый массив:")
+print(result_arr)
+
