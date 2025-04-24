@@ -3229,3 +3229,35 @@ filtered_arr = np.array([x for x in arr if x not in elements_to_remove])
 
 print("Исходный массив:", arr)
 print("Массив после удаления элементов, встречающихся более одного раза:", filtered_arr)
+
+-------------------------------------------------------------------------------------------------
+					PHYSICS 
+#Motion
+import numpy as np
+
+class Movement:
+    def __init__(self, a, v0, x0=0, y0=0):
+        self.a     = a
+        self.v0    = v0
+        self.x0    = x0
+        self.y0    = y0
+        self.t_max = 2 * v0 / a
+
+    def compute_velocity(self, dt=0.01):
+        ts = np.arange(0, self.t_max, dt)
+        return self.v0 - self.a * ts
+
+    def compute_position(self, dt=0.01):
+        ts = np.arange(0, self.t_max, dt)
+        return self.v0 * ts - 0.5 * self.a * ts**2 + self.x0
+
+a0   = 10
+v00  = 20
+calc = Movement(a0, v00)
+
+velocities = calc.compute_velocity()
+positions  = calc.compute_position()
+
+print("Velocities:", velocities)
+print("Positions: ", positions)
+
