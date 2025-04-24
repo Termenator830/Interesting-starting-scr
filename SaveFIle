@@ -2997,6 +2997,12 @@ Some more functions:
 "random" module exists in numpy by default:
    np.random.shuffle(arr)
 * np.unique(arr) -- only keep unique values. not to modify arr - use inside of a function 
+* np.intersect1d(arr1, arr2, assume_unique=False, return_indices=False) -- find similar elems 
+* np.union1d(arr1, arr2) -- returns arr of unique elims from both arrays 
+* np.setdiff1d(ar1, ar2, assume_unique=False) -- vals from arr1 those are not in arr2 
+* np.setxor1d(ar1, ar2, assume_unique=False) -- all unique values for both arrays 
+* np.in1d(arr1, arr2, assume_unique=False, invert=False) -- bool array, true if 2(elim) in 1 
+
 * arr.resize(2, 3) -- replace current array with a new one 
 * np.ravel(arr) -- flatten, but returns view(), also slower than flatten 
 * c = np.insert(arr, 1, (50, 100), axis=0) -- insert a value on some axis on some index 
@@ -3168,3 +3174,28 @@ worst_day = days[1:][np.argmin(daily_returns)]
 print(f"Изменения цен за день: {daily_returns}")
 print(f"Лучший день: {best_day}")
 print(f"Худший день: {worst_day}")
+
+#Sort example
+import numpy as np
+
+people = np.array([('John', 28), 
+                   ('Sam', 22), 
+                   ('Smith', 25), 
+                   ('Jones', 30)], 
+            dtype=[('name', 'S10'), ('age', int)])
+
+sorted_people_by_name = np.sort(people, order='name')
+sorted_people_by_age = np.sort(people, order='age')
+sorted_people_by_age_desc = np.sort(people, order='age')[::-1]
+
+print("Исходный массив структур:")
+print(people)
+
+print("\nСортировка по полю 'name':")
+print(sorted_people_by_name)
+
+print("\nСортировка по полю 'age' в порядке возрастания:")
+print(sorted_people_by_age)
+
+print("\nСортировка по полю 'age' в порядке убывания:")
+print(sorted_people_by_age_desc)
