@@ -2996,7 +2996,7 @@ To copy:
 Some more functions:
 "random" module exists in numpy by default:
    np.random.shuffle(arr)
-* np.unique(arr) -- only keep unique values. not to modify arr - use inside of a function 
+* np.unique(arr, return_index=False, return_counts=False) -- only keep unique values. not to modify arr - use inside of a function 
 * np.intersect1d(arr1, arr2, assume_unique=False, return_indices=False) -- find similar elems 
 * np.union1d(arr1, arr2) -- returns arr of unique elims from both arrays 
 * np.setdiff1d(ar1, ar2, assume_unique=False) -- vals from arr1 those are not in arr2 
@@ -3199,3 +3199,33 @@ print(sorted_people_by_age)
 
 print("\nСортировка по полю 'age' в порядке убывания:")
 print(sorted_people_by_age_desc)
+
+#delete unwanted 
+import numpy as np
+
+arr = np.array([3, 2, 4, 1, 5, 2, 6, 4, 7])
+threshold = 4
+
+unique_elements = np.unique(arr)
+
+indices_to_remove = np.where(unique_elements > threshold)[0]
+
+filtered_arr = np.delete(unique_elements, indices_to_remove)
+
+print("Исходный массив:", arr)
+print("Уникальные элементы:", unique_elements)
+print("Массив после удаления элементов больше", threshold, ":", filtered_arr)
+
+#Keep one time used
+# put your python code here
+import numpy as np
+
+arr = np.array([3, 2, 4, 1, 5, 2, 6, 4, 7])
+
+unique_elements, counts = np.unique(arr, return_counts=True)
+elements_to_remove = unique_elements[counts > 1]
+
+filtered_arr = np.array([x for x in arr if x not in elements_to_remove])
+
+print("Исходный массив:", arr)
+print("Массив после удаления элементов, встречающихся более одного раза:", filtered_arr)
