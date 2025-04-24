@@ -3047,7 +3047,7 @@ np.log(arr) -- can also be log10, log2, log1p (1+x)
 np.sign(arr) -- 1 if pos, 0 if 0, -1 if neg 
 np.ceil(arr) -- finds and makes closest bigger number
 np.floor(arr) -- finds and makes closest smaller number
-np.round(arr) -- finds and rounds(without np - 'banking' logic) 
+np.round(arr, decimals=0, out=None)) -- finds and rounds(without np - 'banking' logic) 
 np.rint(arr) -- round to nearest even number(banking logic(if 0.5))  
 np.modf(arr) -- returns 2 arrays with remainders and integers 
 np.maximum(arr1, arr2) -- returns maximum for each element
