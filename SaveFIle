@@ -3231,6 +3231,64 @@ print("Исходный массив:", arr)
 print("Массив после удаления элементов, встречающихся более одного раза:", filtered_arr)
 
 -------------------------------------------------------------------------------------------------
+					PANDAS
+•Pandas is used to analyze and manipulate a lot of data 
+•DataFrame in Pandas is a 2D tabular data (like table with rows and cols) 
+1) DataFrame(data, index, columns, dtype, copy) 
+#Format Example
+import numpy as np
+import pandas as pd
+
+data = {
+    'Student': ["Amit", "John", "Jacob", "David", "Steve"],
+    'Rank': [1, 2, 3, 4, 5],
+    'Marks': [95, 70, 80, 60, 90]
+}
+
+df = pd.DataFrame(data, index =['RowA', 'RowB', 'RowC', 'RowD', 'RowE']) -- name indexes
+print("Student Record\n\n", df)
+
+print("\nValue = ", df.loc['RowA', 'Student']) -- name corresponding(0) index as RowA in Student
+print("Value =\n\n", df.iloc[[3, 4]]) -- rows indexed 3 and 4 (also renaimed as wanted). 
+
+We get:
+    student  rank  marks
+0    Amit     1     95
+1    John     2     70
+2   Jacob     3     80
+3   David     4     60
+4   Steve     5     90
+
+
+
+
+-------------------------------------------------------------------------------------------------
+					MATPLOTLIB 
+•Matplotlib lets you load and plot info (can export as PNG, PDF, SVG, etc) 
+
+
+
+•import matplotlib.pyplot as plt
+1) bar() -- a bar plot
+2) hist() -- plot a histogram
+3) pie() -- plot a pie chart
+4) scatter() -- form a scatter plot
+5) stem() -- form a stem plot
+6) step() -- form a step plot 
+7) plt.plot() -- make a graph (y(x))
+      Example:
+	import numpy as np
+	
+	t = np.arange(0., 5., 0.2)
+	plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^') -- x, y, what to use
+	plt.show()
+      Another example:
+	xpts = np.array([0, 10])
+	ypts = np.array([0, 125])
+	plt.plot(xpts, ypts)
+	plt.show()
+
+-------------------------------------------------------------------------------------------------
 					PHYSICS 
 #Motion
 import numpy as np
