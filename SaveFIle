@@ -3283,7 +3283,13 @@ We get:
 	2.6) T -- transpose rows and cols 
 	2.7) head() -- return the first n rows
 	2.8) tail() -- return the last n rows
-3) Unite DataFrames
+	2.9) df.loc[‘c’, ‘Age’] (or [[‘a’, ‘c’], [‘Name’, ‘City’]]) -- find if name
+		OR: print(df.loc[df["Age"] > 23]) -- it understands the table
+		OR: df.loc['b', 'City'] -- <=> [row, col]
+	2.10) df.iloc[2, 1] (or [0:2, 0:2]) -- slicing, but no conditions
+	2.11) selected_cols = [col for col in df.columns if col.startswith('Na')]
+		--.columns is used when we need to check the col's name
+3) Edit DataFrames
 	3.1) resDF = df1.join(df) -- adds columns of df to df1, must have same index= (or Nan)
 		Example of joining Series to df:
 			df = pd.DataFrame({
@@ -3297,6 +3303,7 @@ We get:
 
 	3.2) resDF = pd.concat([df1, df], axis=0) -- unite DataFrames(columns from EVERY df, separated rows)
 		-- axis=0 adds as a row, axis=1 adds as a col 
+	3.2)
 4) Series is a 1D labeled array with any datatype, like a column. pd.Series(data, index=["A"]) method.
     4.1) Params, attributes
 	4.1.1)data -- the data to be stored in Series
@@ -3332,9 +3339,11 @@ We get:
 	5.1.1)s.cat.add_categories('r') -- cat is a namnespace fro cats 
 	5.1.2)s.cat.remove_categories('r') 
 
-6)Read CSV with Pandas
-	df = pd.read_csv("Example.csv")
-
+6)Read .CSV and .XLSX with Pandas
+	6.1) df = pd.read_csv("Example.csv")
+	6.2) pip install openpyxl
+		df.to_excel("example_file.xlsx", index=False) -- convert to excel 
+		df = pd.read_excel("example_file.xlsx")
 
 
 -------------------------------------------------------------------------------------------------
