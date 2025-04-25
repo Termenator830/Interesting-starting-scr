@@ -3313,7 +3313,10 @@ We get:
 	3.2) df.insert(2, 'Ids', [101, 102, 103, 104, 105]) 
 	3.3) df.assign([Ids = [101, 102, 103, 104, 105]) -- insert in the end 
 	3.4) df.drop("City", axis=1) -- axis to show where it is 
-	3.5) df.sort_values(by=['City']) -- sort rows by some attribute
+	3.5) df.sort_values(by=['City'], ascending=True, axis=0) -- sort rows by 1st value
+	3.6) df.sort_index(axis=1) -- sorts by name of col(or row) 
+	3.7) df.duplicated() -- bool if these is a duplicated value
+	3.8) df.drop_duplicates -- delete rows with duplicates
 4) Series is a 1D labeled array with any datatype, like a column. pd.Series(data, index=["A"]) method.
     4.1) Params, attributes
 	4.1.1)data -- the data to be stored in Series
