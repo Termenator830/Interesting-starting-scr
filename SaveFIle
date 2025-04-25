@@ -19,6 +19,19 @@ SuckDiTheif555
 Real Python -- docs
 
 Seaborn
+Scipy
+Sympy
+Numpy
+Panda
+Matplotlib
+Pygame
+Pickle -- deconstruct data 
+Visual Python -- 3D animations
+Turtle -- arts
+Plotly -- data visualization(for website)
+Fast API -- make an API
+Py Win32 -- work with your Windows pc
+py2exe -- convert .py to .exe to make it executable
 
 #Size coimparison
 type - <class 'dict'>, len - 100, size - 2620         #   {i:i for i in range(100)}
@@ -3313,6 +3326,16 @@ We get:
 	2    30
 	3    40
 	Name: MyNumberSeries, dtype: int64
+
+5)Categorical data -- uses WAY less memory and data (98%, x6.8). pd.DataFrame(data, dtype=category)
+   5.1)Working with categories (val
+	5.1.1)s.cat.add_categories('r') -- cat is a namnespace fro cats 
+	5.1.2)s.cat.remove_categories('r') 
+
+6)Read CSV with Pandas
+	df = pd.read_csv("Example.csv")
+
+
 
 -------------------------------------------------------------------------------------------------
 					MATPLOTLIB 
