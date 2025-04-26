@@ -3315,8 +3315,12 @@ We get:
 	3.4) df.drop("City", axis=1) -- axis to show where it is 
 	3.5) df.sort_values(by=['City'], ascending=True, axis=0) -- sort rows by 1st value
 	3.6) df.sort_index(axis=1) -- sorts by name of col(or row) 
-	3.7) df.duplicated() -- bool if these is a duplicated value
-	3.8) df.drop_duplicates -- delete rows with duplicates
+	3.7) df.duplicated() -- bool if there is a duplicated value in a col 
+	3.8) Cleanup
+	     3.8.1) df.drop_duplicates -- delete rows with duplicates
+	     3.8.2) df.isnull() -- checks in each val (or df.notnull())
+	     3.8.3) df.dropna().reset_index(drop=True) -- delete rows with nan 
+	     3.8.4) df.fillna(111) -- fill with something
 4) Series is a 1D labeled array with any datatype, like a column. pd.Series(data, index=["A"]) method.
     4.1) Params, attributes
 	4.1.1)data -- the data to be stored in Series
