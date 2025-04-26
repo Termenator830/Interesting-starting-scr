@@ -3321,6 +3321,27 @@ We get:
 	     3.8.2) df.isnull() -- checks in each val (or df.notnull())
 	     3.8.3) df.dropna().reset_index(drop=True) -- delete rows with nan 
 	     3.8.4) df.fillna(111) -- fill with something
+	3.9) String operations (series.str.)
+	     series.str.lower()
+	     upper()
+	     title() -- convert data to camel case ("Hello World") 
+	     len() -- to get the length of each element (series) 
+	     series.count() -- count non-empty cells from each column or row 
+	     series.str.contains("Amit") -- make series of True and False
+	     series.str.[l, r, None]strip() -- strip the values 
+	3.10) Date and Time (Timestamp)(https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html)
+	      ts = pd.Timestamp(ts_input=<object object>, year=None, month=None, day=None, hour=None,
+					minute=None, second=None, microsecond=None, tzinfo=None, 
+						*, nanosecond=None, tz=None, unit=None, fold=None)
+		ts.dayofweek
+		ts.dayofyear
+		ts.daysinmonth
+		ts.is_leap_year
+		ts.is_month_end
+		ts.is_month_start
+		ts.is_year_end
+		
+
 4) Series is a 1D labeled array with any datatype, like a column. pd.Series(data, index=["A"]) method.
     4.1) Params, attributes
 	4.1.1)data -- the data to be stored in Series
