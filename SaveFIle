@@ -3306,6 +3306,7 @@ We get:
 		50%    170.000000  65.000000
 		75%    175.000000  75.000000
 		max    180.000000  80.000000
+	    df.max(numeric_only=True) -- returns a series with max values for each col
 3) Edit DataFrames
 	3.1) resDF = df1.join(df) -- adds columns of df to df1, must have same index= (or Nan)
 		Example of joining Series to df:
