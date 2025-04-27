@@ -3278,7 +3278,7 @@ We get:
 	2.1) dtypes
 	2.2) ndim
 	2.3) size -- amount of elims in df
-	2.4) shape
+	2.4) shape -- can also be used to find size of a series or group 
 	2.5) index -- returns all rows' indexes 
 	2.6) T -- transpose rows and cols 
 	2.7) head() -- return the first n rows
@@ -3307,6 +3307,7 @@ We get:
 		75%    175.000000  75.000000
 		max    180.000000  80.000000
 	    df.max(numeric_only=True) -- returns a series with max values for each col
+	2.14) df.loc[df['Value'] == 93, 'Char count'].sample() -- random vals
 3) Edit DataFrames
 	3.1) resDF = df1.join(df) -- adds columns of df to df1, must have same index= (or Nan)
 		Example of joining Series to df:
@@ -3378,6 +3379,9 @@ We get:
 		print("\n", res.groups) -- 'elem': [pos_ind] 
 		3.11.2) res.size() -- series of amounts of duplicates 
 		3.11.3) res.count() -- df with vals as times used(from all rows) 
+		3.11.4) df['Player'].value_counts -- a series of each value and its amount
+		3.11.4) df.query('Ratio' == 10).shape -- makes a series, faster than booling
+		3.11.5) df1.query('Rank > @some_value') -- need @ before variable
 4) Series is a 1D labeled array with any datatype, like a column. pd.Series(data, index=["A"]) method.
     4.1) Params, attributes
 	4.1.1)data -- the data to be stored in Series
