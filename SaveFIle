@@ -3352,6 +3352,7 @@ We get:
 		ts.is_month_end
 		ts.is_month_start
 		ts.is_year_end
+	     df['Time'].dt.strftime(" %Y-%m-%d-... ") -- convert string into time
 	3.11) df.groupby('Department')['Salary'].mean() -- make a new df with groups, doesn't keep duplicates
 		separate data by groups, e.j:
 		df1 = pd.DataFrame({
@@ -3424,6 +3425,20 @@ We get:
 		df.to_excel("example_file.xlsx", index=False) -- convert to excel 
 		df = pd.read_excel("example_file.xlsx")
 
+#Example
+import pandas as pd
+
+df1 = pd.DataFrame({
+    "Player": ["Amit", "John", "Amit", "David", "Steve", "John"],
+    "Rank": [1, 4, 3, 5, 2, 6],
+    "Year": [2023, 2022, 2021, 2023, 2019, 2018],
+    "Team": ['Spartak', 'Kusmin', 'Goland', 'Spartak', 'A', 'B']
+})
+
+df1['IsDuplicateTeamYear'] = df1.duplicated(subset=['Team', 'Year'], keep=False) -- multiple duplicates
+
+res = df1.query('IsDuplicateTeamYear')
+print(res)
 
 -------------------------------------------------------------------------------------------------
 					MATPLOTLIB 
