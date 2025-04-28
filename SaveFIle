@@ -3098,6 +3098,16 @@ For matrixes there is a separated method:
 	print(mat * mat1)
 	print(np.dot(mat, mat1))
 
+•Broadcasting = pretend-copying smaller arrays to match bigger ones automatically without real copying.
+A = np.array([[1, 2, 3],
+              [4, 5, 6]])
+
+B = np.array([10, 20, 30])
+C = A + B -- broadcasting
+
+* np.broadcast_to(small, (2, 3)) -- expand an array 
+
+
 #Boolean example
 import numpy as np
 
@@ -3242,6 +3252,17 @@ filtered_arr = np.array([x for x in arr if x not in elements_to_remove])
 
 print("Исходный массив:", arr)
 print("Массив после удаления элементов, встречающихся более одного раза:", filtered_arr)
+
+#Broadcast and replace nan
+result = np.genfromtxt('sensor_readings.csv', delimiter=',', skip_header=1)
+
+miss = np.isnan(result)
+
+col_means = np.nanmean(result, axis=0)
+
+sensor_data_imputed = np.where(miss, np.broadcast_to(col_means, result.shape), result)
+print(res)
+
 
 -------------------------------------------------------------------------------------------------
 					PANDAS
@@ -3452,6 +3473,11 @@ df_clean = df.dropna()
 
 print(df_clean)
 
+#replace nan with mean
+* np.take(a, indices, axis=None, out=None, mode='raise') -- faster than slicing
+arr = np.loadtxt('sensor_readings.csv', delimiter=',', skiprows=1)
+arr[np.isnan(arr)] = np.take(np.nanmean(arr, axis=0), np.where(np.isnan(arr))[1]) -- ignore nan
+print(arr)
 
 -------------------------------------------------------------------------------------------------
 					MATPLOTLIB 
