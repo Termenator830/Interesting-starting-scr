@@ -3263,6 +3263,21 @@ col_means = np.nanmean(result, axis=0)
 sensor_data_imputed = np.where(miss, np.broadcast_to(col_means, result.shape), result)
 print(res)
 
+#Example
+import numpy as np
+
+arr = np.genfromtxt("sensor_readings.csv", delimiter=',', skip_header=1)
+col_means = np.nanmean(arr, axis=0)
+col_stds = np.nanstd(arr, axis=0) 
+-- Normalize
+arr = (arr - col_means) / col_stds
+arr[arr > 3] = 3
+-- prepare for machine learning 
+smal = np.nanmin(arr, axis=0)
+bigl = np.nanmax(arr, axis=0)
+arr = (arr - smal[i]) / (bigl - smal)
+-- save to a CSV
+np.savetxt('sensor_readings_cleaned.csv', arr, delimiter=',', header=header_line, comments='', fmt='%.6f')
 
 -------------------------------------------------------------------------------------------------
 					PANDAS
