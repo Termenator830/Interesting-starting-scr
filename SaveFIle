@@ -3440,6 +3440,10 @@ df1['IsDuplicateTeamYear'] = df1.duplicated(subset=['Team', 'Year'], keep=False)
 res = df1.query('IsDuplicateTeamYear')
 print(res)
 
+#quantile(like median)
+q_val = df['Score'].quantile(0.8) -- value which is at 80%
+res = df.query('Score > @q_val')
+
 -------------------------------------------------------------------------------------------------
 					MATPLOTLIB 
 •Matplotlib lets you load and plot info (can export as PNG, PDF, SVG, etc) 
