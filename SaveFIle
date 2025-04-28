@@ -3444,6 +3444,15 @@ print(res)
 q_val = df['Score'].quantile(0.8) -- value which is at 80%
 res = df.query('Score > @q_val')
 
+#import from CSV to array
+sensor_data = np.genfromtxt('sensor_readings.csv', delimiter=',', skip_header=1)
+  but in pandas:
+df = pd.read_csv('sensor_readings.csv', delimiter=',', skip_blank_lines=True)
+df_clean = df.dropna()
+
+print(df_clean)
+
+
 -------------------------------------------------------------------------------------------------
 					MATPLOTLIB 
 •Matplotlib lets you load and plot info (can export as PNG, PDF, SVG, etc) 
