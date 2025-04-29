@@ -3460,6 +3460,8 @@ We get:
 	6.2) pip install openpyxl
 		df.to_excel("example_file.xlsx", index=False) -- convert to excel 
 		df = pd.read_excel("example_file.xlsx")
+7)df['Goals'].plot(kind='box', vert=False) 
+  plt.show() -- first import matplotlib.pyplot as plt 
 
 #Example
 import pandas as pd
@@ -3517,8 +3519,14 @@ print(arr)
       Another example:
 	xpts = np.array([0, 10])
 	ypts = np.array([0, 125])
-	plt.plot(xpts, ypts)
+	plt.plot(x, y, color='red', linestyle='--', linewidth=2, marker='o', label='Sine wave')
+	* plt.grid() -- use grid on a graph 
+	* plt.xlabel("Bat Price") -- set label
+	* plt.ylabel("Bat Weight") -- set label 
+	* plt.title("Bat Price (weight), loc='left') -- or right or center
+	* plt.legend() -- show legend for each line 
 	plt.show()
+plt.plot([1, 2, 3, 2, 1], [4, 5, 3, 7, 8]) -- plot pair-by-pair 
 
 -------------------------------------------------------------------------------------------------
 					PHYSICS 
