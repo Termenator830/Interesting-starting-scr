@@ -3660,7 +3660,28 @@ plt.grid()
 
 plt.show()
 
+-------------------------------------------------------------------------------------------------
+					Sympy
+Sympy is a library for symbolic mathematics 
 
+Some methods:
+import sympy as sp
+
+sp.sqrt(2) ** 2 -- wouldn't give even small errors 
+x = sp.Symbol("x") -- assign a symbol 
+expr = Add(2*x, x, -5, evaluate=False) -- not to simplify
+sp.simplify(sp.sin(x)**2 + sp.cos(x)**2) -- trig is not autosimplified 
+	sp.trigsimp()
+	sp.expand(expr, trig=True) -- reverse trigsimp(open), also log and etc 
+	expand((x+1)**2) -- reverse to simplify(decombine)  
+	logcombine()
+	ratsimp() -- simpligy fractions(rational expressions) 
+	nsimplify(1.4142, constants=[]) -- approximate irrational constants, 1.5 - Rational(3, 2) 
+	
+	
+
+
+.evalf('n digits') -- convert to numeric
 
 
 -------------------------------------------------------------------------------------------------
