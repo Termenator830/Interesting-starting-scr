@@ -3534,7 +3534,8 @@ You write a script to detect curves and convert them to data (complex but powerf
 	* plt.title("Bat Price (weight), loc='left') -- or right or center
 	* plt.axis(0, 6, 0, 20) -- (xmin, xmax, ymin, ymax), 'equal' to make equal axis 
 	* plt.legend(loc = 'upper center') -- show legend for each line(how it looks like, in a small box) 
-	plt.show() -- different colours if no color selected 
+	* plt.annotate(...) -- make a note, works dynamically plt.annotate('Max Point', xy=(np.pi/2, 1),xytext=(2, 1.5),arrowprops=dict(arrowstyle="->", color='black'))
+	plt.show() -- different colours if no color selected 		  -- text, point(to make arrow), text's coords, arrowprops. 
 plt.plot([1, 2, 3, 2, 1], [4, 5, 3, 7, 8]) -- plot pair-by-pair 
 
 •Subplotting - make separate drawings. has 2 styles.
@@ -3560,7 +3561,56 @@ line.set_antialiased(False) -- disable smooth, make pixel
 plt.setp(line1) -- get list of available params  
 plt.show()
 
-#Advanced example
+•plt.subplots(rows, cols, *kwargs) and plt.axes()
+
+#Multiple figures
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+
+* fig1, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 6)) -- rows, cols(in fig)
+ax1.plot(x, np.sin(x))
+ax1.set_title('Figure 1 - Subplot 1: sin(x)')
+ax2.plot(x, np.cos(x))
+ax2.set_title('Figure 1 - Subplot 2: cos(x)')
+
+fig2, (bx1, bx2) = plt.subplots(2, 1, figsize=(6, 6))
+bx1.plot(x, np.exp(-x))
+bx1.set_title('Figure 2 - Subplot 1: exp(-x)')
+bx2.plot(x, x**2)
+bx2.set_title('Figure 2 - Subplot 2: x²')
+
+* plt.tight_layout() -- so that Titles and etc don't overlap 
+plt.show()
+
+#Index, dynamical subplots, able to iterate 
+fig, axs = plt.subplots(5, figsize=(10, 9))
+
+for i in range(3): -- iterate over rows
+    for j in range(2): -- iterate over cols 
+        axs[i, j].plot(x, x**i)
+        axs[i, j].set_title(f'Plot {i}')
+
+#Place wherever you want
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.figure(
+main_ax = plt.axes((0.1, 0.1, 0.8, 0.8)) -- location 
+main_ax.plot(x, y)
+main_ax.set_title('Main Plot')
+
+inset_ax = plt.axes((0.6, 0.6, 0.25, 0.25))
+inset_ax.plot(x, y**2)
+inset_ax.set_title('Zoom', fontsize=8)
+
+plt.show()
+
+#Advanced example 
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -3589,37 +3639,6 @@ left_inset_ax.plot(t[:len(r)], r)
 left_inset_ax.set(title='Impulse response', xlim=(0, .2), xticks=[], yticks=[])
 
 plt.show()
-
-#Multiple figures
-import matplotlib.pyplot as plt
-import numpy as np
-
-x = np.linspace(0, 10, 100)
-
-* fig1, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 6)) -- rows, cols
-ax1.plot(x, np.sin(x))
-ax1.set_title('Figure 1 - Subplot 1: sin(x)')
-ax2.plot(x, np.cos(x))
-ax2.set_title('Figure 1 - Subplot 2: cos(x)')
-
-fig2, (bx1, bx2) = plt.subplots(2, 1, figsize=(6, 6))
-bx1.plot(x, np.exp(-x))
-bx1.set_title('Figure 2 - Subplot 1: exp(-x)')
-bx2.plot(x, x**2)
-bx2.set_title('Figure 2 - Subplot 2: x²')
-
-* plt.tight_layout() -- so that Titles and etc don't overlap 
-plt.show()
-
-#Index, dynamical subplots, able to iterate 
-fig, axs = plt.subplots(5, figsize=(10, 9))
-
-for i in range(5):
-    axs[i].plot(x, x**i)
-    axs[i].set_title(f'Plot {i}')
-
-•plt.subplots()
-
 
 
 
