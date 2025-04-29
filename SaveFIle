@@ -3596,7 +3596,7 @@ import numpy as np
 
 x = np.linspace(0, 10, 100)
 
-fig1, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 6))
+* fig1, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 6)) -- rows, cols
 ax1.plot(x, np.sin(x))
 ax1.set_title('Figure 1 - Subplot 1: sin(x)')
 ax2.plot(x, np.cos(x))
@@ -3610,6 +3610,13 @@ bx2.set_title('Figure 2 - Subplot 2: x²')
 
 * plt.tight_layout() -- so that Titles and etc don't overlap 
 plt.show()
+
+#Index, dynamical subplots, able to iterate 
+fig, axs = plt.subplots(5, figsize=(10, 9))
+
+for i in range(5):
+    axs[i].plot(x, x**i)
+    axs[i].set_title(f'Plot {i}')
 
 •plt.subplots()
 
