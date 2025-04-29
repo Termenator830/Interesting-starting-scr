@@ -3524,9 +3524,55 @@ print(arr)
 	* plt.xlabel("Bat Price") -- set label
 	* plt.ylabel("Bat Weight") -- set label 
 	* plt.title("Bat Price (weight), loc='left') -- or right or center
-	* plt.legend() -- show legend for each line 
-	plt.show()
+	* plt.axis(0, 6, 0, 20) -- (xmin, xmax, ymin, ymax), 'equal' to make equal axis 
+	* plt.legend(loc = 'upper center') -- show legend for each line(how it looks like, in a small box) 
+	plt.show() -- different colours if no color selected 
 plt.plot([1, 2, 3, 2, 1], [4, 5, 3, 7, 8]) -- plot pair-by-pair 
+
+•Subplotting - make separate drawings. has 2 styles.
+•Style 1:
+names = ['group_a', 'group_b', 'group_c']
+values = [1, 10, 100]
+
+plt.figure(figsize=(9, 3))
+
+plt.subplot(131)
+plt.bar(names, values)
+plt.subplot(132)
+plt.scatter(names, values)
+plt.subplot(133)
+plt.plot(names, values)
+plt.suptitle('Categorical Plotting')
+plt.subplot
+line1, line2 = plt.plot(x, y1, x, y2) -- each line editable
+line1.set_color('red') 
+plt.legend(['sin(x)', 'cos(x)'])
+line.set_antialiased(False) -- disable smooth, make pixel 
+plt.show()
+
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+a = np.arange(5)
+b = [2, 4, 6, 8, 10]
+c = [5, 6, 7, 8, 9]
+
+fig = plt.figure()
+ax = plt.subplots()
+
+ax.plot(a, b, label='Frequency')
+ax.plot(a, c, label='Periods')
+plt.title("Frequency of a signal")
+plt.legend(loc = 'center right').get_frame().set_facecolor('red')
+plt.grid()
+
+plt.show()
+
+
+
 
 -------------------------------------------------------------------------------------------------
 					PHYSICS 
