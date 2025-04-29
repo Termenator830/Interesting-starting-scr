@@ -3499,7 +3499,15 @@ print(arr)
 -------------------------------------------------------------------------------------------------
 					MATPLOTLIB 
 •Matplotlib lets you load and plot info (can export as PNG, PDF, SVG, etc) 
-
+fig1.savefig("figure1.png")
+OR:
+plt.savefig("myplot.png")
+WebPlotDigitizer (free web app) -- get info from a graph 
+You upload an image, click axes, and trace curves — it gives you real data back
+Engauge Digitizer
+Desktop app to extract curves from graphs
+Python OpenCV (advanced)
+You write a script to detect curves and convert them to data (complex but powerful)
 
 
 •import matplotlib.pyplot as plt
@@ -3536,7 +3544,8 @@ values = [1, 10, 100]
 
 plt.figure(figsize=(9, 3))
 
-plt.subplot(131)
+plt.subplot(131) -- rows, cols, plot zone 
+plt.axes([left, bottom, width, height]) -- [0, 0, 1, 1] - make a new plottign area
 plt.bar(names, values)
 plt.subplot(132)
 plt.scatter(names, values)
@@ -3548,7 +3557,7 @@ line1, line2 = plt.plot(x, y1, x, y2) -- each line editable
 line1.set_color('red') 
 plt.legend(['sin(x)', 'cos(x)'])
 line.set_antialiased(False) -- disable smooth, make pixel 
-plt.setp(line1) -- get list of available params 
+plt.setp(line1) -- get list of available params  
 plt.show()
 
 #Advanced example
@@ -3580,6 +3589,31 @@ left_inset_ax.plot(t[:len(r)], r)
 left_inset_ax.set(title='Impulse response', xlim=(0, .2), xticks=[], yticks=[])
 
 plt.show()
+
+#Multiple figures
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+
+fig1, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 6))
+ax1.plot(x, np.sin(x))
+ax1.set_title('Figure 1 - Subplot 1: sin(x)')
+ax2.plot(x, np.cos(x))
+ax2.set_title('Figure 1 - Subplot 2: cos(x)')
+
+fig2, (bx1, bx2) = plt.subplots(2, 1, figsize=(6, 6))
+bx1.plot(x, np.exp(-x))
+bx1.set_title('Figure 2 - Subplot 1: exp(-x)')
+bx2.plot(x, x**2)
+bx2.set_title('Figure 2 - Subplot 2: x²')
+
+* plt.tight_layout() -- so that Titles and etc don't overlap 
+plt.show()
+
+•plt.subplots()
+
+
 
 
 import matplotlib.pyplot as plt
