@@ -3689,6 +3689,12 @@ sp.simplify(sp.sin(x)**2 + sp.cos(x)**2) -- trig is not autosimplified
 	type(sp.Integer(1)) -- sympy.core.numbers.One(or rational)
 	x ** Rational(1, 3) -- same as Integer(1) / 3 
 
+• Solve Equations
+eq = sp.Eq(x**2, 5) -- assign an equation
+sp.solve(f, *symbols, **flags)) -- find unknown variables 
+sp.solveset(eq)
+sp.linsolve(eq)
+
 
 .evalf('n digits') -- convert to numeric
 
