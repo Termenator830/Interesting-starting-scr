@@ -3680,6 +3680,7 @@ sp.simplify(sp.sin(x)**2 + sp.cos(x)**2) -- trig is not autosimplified
 	sp.factor("X**2 + 2xy + y**2) 
 	sp.trigsimp()
 	sp.expand(expr, trig=True) -- reverse trigsimp(open), also log and etc 
+	sp.cancel(expr) -- simplify, used for f(x)/g(x) polynomials or numericals 
 	expand((x+1)**2) -- reverse to simplify(decombine)  
 	logcombine()
 	ratsimp() -- simpligy fractions(rational expressions) 
@@ -3708,6 +3709,9 @@ Returns:
 Union(ImageSet(Lambda(_n, 2*_n*pi + 5*pi/4), Integers), ImageSet(Lambda(_n, 2*_n*pi + pi/4), Integers))
 3) sp.linsolve([eq1, eq2], x,y,z) -- solve systems of linear equations 
 
+Integer() -- numeric things.
+Rational() -- integration, division, etc 
+
 * Watch solution step-by-step
 #Example(Jupiter or sympy online only)
 from sympy import symbols, Eq
@@ -3720,10 +3724,7 @@ steps = manualsolve(eq, x, return_steps=True) -- show steps
 for s in steps:
     print(s)
 
-sp.solveset(eq)
-sp.linsolve(eq)
-
-
+Subs, lambdify
 .evalf('n digits') -- convert to numeric
 
 #Forcing example
