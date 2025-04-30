@@ -18,6 +18,7 @@ SuckDiTheif555
 
 Real Python -- docs
 
+Numba
 Seaborn
 Scipy
 Sympy
@@ -3743,7 +3744,11 @@ Union(ImageSet(Lambda(_n, 2*_n*pi + 5*pi/4), Integers), ImageSet(Lambda(_n, 2*_n
 Integer() -- numeric things.
 Rational() -- integration, division, etc 
 
+•To numerics 
 .evalf(num) <=> sp.N(num, 3) -- expr, decimals 
+f = sp.lambdify(x, expr, modules='numpy') -- set expr as def expr(x) 
+   print(f(x))
+
 
 * Watch solution step-by-step
 #Example(Jupiter or sympy online only)
