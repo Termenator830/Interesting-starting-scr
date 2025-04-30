@@ -3670,7 +3670,7 @@ Some methods and functions:
 import sympy as sp
 
 sp.sqrt(2) ** 2 -- wouldn't give even small errors 
-x = sp.Symbol("x") -- assign a symbol 
+x = sp.Symbol("x", integer=True (or positive=True)) -- assign a symbol 
 s, t = sp.symbols("s t")
 x_v = sp.symbols("x0:3") -- [x1, x2, x3], or x_v= symbols("a:z"), includes 'z' 
 expr = Add(2*x, x, -5, evaluate=False) -- not to simplify
@@ -3681,6 +3681,7 @@ sp.simplify(sp.sin(x)**2 + sp.cos(x)**2) -- trig is not autosimplified
 	sp.trigsimp()
 	sp.expand(expr, trig=True) -- reverse trigsimp(open), also log and etc 
 	sp.cancel(expr) -- simplify, used for f(x)/g(x) polynomials or numericals 
+	sp.apart(expr) -- divide each by each 
 	expand((x+1)**2) -- reverse to simplify(decombine)  
 	logcombine()
 	ratsimp() -- simpligy fractions(rational expressions) 
@@ -3708,9 +3709,15 @@ sp.solveset(eq2)
 Returns:
 Union(ImageSet(Lambda(_n, 2*_n*pi + 5*pi/4), Integers), ImageSet(Lambda(_n, 2*_n*pi + pi/4), Integers))
 3) sp.linsolve([eq1, eq2], x,y,z) -- solve systems of linear equations 
+4) expr.subs(x0, 2) -- set variable in expression (also can assign constants to it) 
+5) Calculus
+	sp.diff(expr, x, 2) -- 2nd derivative of expr by x  
+	.rewrite()
 
 Integer() -- numeric things.
 Rational() -- integration, division, etc 
+
+.evalf(num) <=> sp.N(num, 3) -- expr, decimals 
 
 * Watch solution step-by-step
 #Example(Jupiter or sympy online only)
