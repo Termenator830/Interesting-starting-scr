@@ -3691,7 +3691,7 @@ sp.simplify(sp.sin(x)**2 + sp.cos(x)**2) -- trig is not autosimplified
 
 • Solve Equations
 eq = sp.Eq(x**2, 5) -- assign an equation
-sp.solve(f, *symbols, **flags)) -- find unknown variables 
+1)sp.solve(f, *symbols, **flags) -- find unknown variables 
 	Flags:
 	exclude=[x, y] -- exclude from solutions
 	particular=True -- set unknown values to 0 (linear system)
@@ -3700,9 +3700,15 @@ sp.solve(f, *symbols, **flags)) -- find unknown variables
 	implicit=True -- return the equation at some point if can't solve further 
 	quick=True -- find some solution(linear system)
 	manual=True -- gonna solve and answer more human-like 
-sp.manualsolve
+2) sp.solveset(sin(x) - 1, x, domain=S.Reals, **flags) -- answ in sets, not lists, domain selection available 
+#Example
+eq2 = sp.Eq(sp.cos(x)-sp.sin(x), 0)
+sp.solveset(eq2)
+Returns:
+Union(ImageSet(Lambda(_n, 2*_n*pi + 5*pi/4), Integers), ImageSet(Lambda(_n, 2*_n*pi + pi/4), Integers))
+3) sp.linsolve([eq1, eq2], x,y,z) -- solve systems of linear equations 
 
-•Watch solution step-by-step
+* Watch solution step-by-step
 #Example(Jupiter or sympy online only)
 from sympy import symbols, Eq
 from sympy.solvers.manualsolve import manualsolve -- import
