@@ -3712,7 +3712,28 @@ Union(ImageSet(Lambda(_n, 2*_n*pi + 5*pi/4), Integers), ImageSet(Lambda(_n, 2*_n
 4) expr.subs(x0, 2) -- set variable in expression (also can assign constants to it) 
 5) Calculus
 	sp.diff(expr, x, 2) -- 2nd derivative of expr by x  
-	.rewrite()
+	expr.rewrite(sp.exp).simplify() -- change everything possible to exponential
+		Example:
+		Original: tanh(x)
+		Rewritten: (exp(x) - exp(-x)) / (exp(x) + exp(-x))
+		OR:
+		expr = sin(2*a)
+		expr.rewrite('cos')
+		expr.rewrite('sqrt')
+	sp.integrate(expr) + C -- indefinite integral
+	sp.integrate(expr, x) -- integrate by x
+	sp.integrate(expr, x1, x2) -- definite integral
+		#Example:
+		g = x ** y
+
+		h = sp.integrate(g, x)
+		print(h)
+		print(type(h))
+		print((h * g).simplify())
+		Output:
+		Piecewise((x**(y + 1)/(y + 1), Ne(y, -1)), (log(x), True))
+		Piecewise
+		Piecewise((x**(2*y + 1)/(y + 1), (y > -1) | (y < -1)), (x**y*log(x), True))
 
 Integer() -- numeric things.
 Rational() -- integration, division, etc 
@@ -3731,7 +3752,7 @@ steps = manualsolve(eq, x, return_steps=True) -- show steps
 for s in steps:
     print(s)
 
-Subs, lambdify
+lambdify
 .evalf('n digits') -- convert to numeric
 
 #Forcing example
