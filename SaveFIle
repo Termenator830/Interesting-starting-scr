@@ -3692,11 +3692,47 @@ sp.simplify(sp.sin(x)**2 + sp.cos(x)**2) -- trig is not autosimplified
 • Solve Equations
 eq = sp.Eq(x**2, 5) -- assign an equation
 sp.solve(f, *symbols, **flags)) -- find unknown variables 
+	Flags:
+	exclude=[x, y] -- exclude from solutions
+	particular=True -- set unknown values to 0 (linear system)
+	check=True -- check by placing back(false for complex numbs), might give a mistake  
+	force=True -- solve advanced equations
+	implicit=True -- return the equation at some point if can't solve further 
+	quick=True -- find some solution(linear system)
+	manual=True -- gonna solve and answer more human-like 
+sp.manualsolve
+
+•Watch solution step-by-step
+#Example(Jupiter or sympy online only)
+from sympy import symbols, Eq
+from sympy.solvers.manualsolve import manualsolve -- import
+
+x = symbols('x')
+eq = Eq(x + 1, 3)
+
+steps = manualsolve(eq, x, return_steps=True) -- show steps
+for s in steps:
+    print(s)
+
 sp.solveset(eq)
 sp.linsolve(eq)
 
 
 .evalf('n digits') -- convert to numeric
+
+#Forcing example
+from sympy import Symbol, cos, sin, trigsimp, simplify, expand_trig, expand, symbols, factor, Integer, Rational
+import sympy as sp
+
+x, y, z = symbols("x y z")
+
+eq1 = sp.Eq(x**2, 5)
+eq2 = sp.Eq(x**3 - y + 1, 5)
+eq3 = sp.Eq(x*sp.log(x), 1)
+
+for sol in sp.solve(eq3, x, force=True):
+    print(sol.evalf())
+
 
 
 -------------------------------------------------------------------------------------------------
