@@ -3722,7 +3722,9 @@ Union(ImageSet(Lambda(_n, 2*_n*pi + 5*pi/4), Integers), ImageSet(Lambda(_n, 2*_n
 		expr.rewrite('sqrt')
 	sp.integrate(expr) + C -- indefinite integral
 	sp.integrate(expr, x) -- integrate by x
-	sp.integrate(expr, x1, x2) -- definite integral
+	sp.integrate(expr, (x, 0, 10), ...) -- definite integral
+		sp.integrate(u, (x, 0, sp.oo)) -- 0 to infinity
+		sp.integrate(w, (x, 0, 1), (y, 1, 5)) -- intergarte by x, then by y
 		#Example:
 		g = x ** y
 
@@ -3734,6 +3736,9 @@ Union(ImageSet(Lambda(_n, 2*_n*pi + 5*pi/4), Integers), ImageSet(Lambda(_n, 2*_n
 		Piecewise((x**(y + 1)/(y + 1), Ne(y, -1)), (log(x), True))
 		Piecewise
 		Piecewise((x**(2*y + 1)/(y + 1), (y > -1) | (y < -1)), (x**y*log(x), True))
+	sp.limit(expr, x, 1, dir='+') -- also copy line and use dir='-' for two-sided limit 
+	
+
 
 Integer() -- numeric things.
 Rational() -- integration, division, etc 
