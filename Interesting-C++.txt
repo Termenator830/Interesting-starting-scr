@@ -14,9 +14,15 @@ App architect --> programming --> compilation --> execution --> translation
 1)file with source code(extension .cpp, .c++, .cc, .cxx, .cp, etc)
 2)header files(.hpp, .h)
 
+•Definitions:
+<< <=> Send this value into the output stream.
+flush <=> “Сбрасывает буфер” или “принудительно выводит данные из памяти (RAM) в экран или файл”
 
+#include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
-
-
-
-
+using namespace std; -- standart ns, also can use 'using std::cout'.
+int main() {something} -- start program, send return code as int(to system)
+{
+  cout << "Hello World!" << endl; -- cout <=> output terminal, endl <=> \n
+  return 0;
+}
