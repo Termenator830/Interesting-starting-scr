@@ -265,5 +265,62 @@ switch (currentState) {      -- look at dayNum, and then decide what to do
 }
 
 •While loops 
+int main()
+{
+  int index = 1;
+  while(index <= 5) {
+    cout << "\r" << index; -- rewrite stroke 
+    index++;
+  }
+
+  return 0;
+}
+
+&To survive infinity looping 
+int main()
+{
+  int index = 6;
+  do{                      --do{...}while(...) - do, then check conditions before repeating 
+    cout << "\r" << index;
+    index++;
+  } while(index <= 5);
+
+  return 0;
+}
+
+&Example of while and if 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+
+  int secretNum = 7;
+  int guess = 0;
+  int guessCount = 0;
+  int guessLim = 3;
+  
+  while (secretNum != guess) {
+    if (guessCount < guessLim) {
+      cout << "Enter guess: ";
+      cin >> guess;
+      guessCount++;
+    } else {
+      cout << "Better luck next time!";
+            return 1;}
+  }
+
+  cout << "You guessed!";
+  
+  return 0;
+}
+
+
+
+
+
+
 
 
