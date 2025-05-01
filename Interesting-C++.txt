@@ -19,6 +19,7 @@ App architect --> programming --> compilation --> execution --> translation
 flush <=> “Сбрасывает буфер” или “принудительно выводит данные из памяти (RAM) в экран или файл”
 chart <=> table, graph, сводка 
 ; <=> 'I finished right there, move on' 
+enum <=> enum (сокращение от enumeration — перечисление) — это пользовательский тип данных, который позволяет дать имена наборам целых чисел. -- string-like, used in switching(E.J.) 
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
@@ -232,32 +233,37 @@ int main()
 
 •Switch Statements
 
-&Example
-* switch(dayNum) {      -- look at dayNum, and then decide what to do 
-    case 0:                -- same as if(dayNum ==0) 
-      dayName = "Sunday";
-      break;
-    case 1:
-      dayName = "Monday";
-      break;
-    case 2:
-      dayName = "Tuesday";
-      break;
-    case 3:
-      dayName = "Wednesday";
-      break;
-    case 4:
-      dayName = "Thursday";
-      break;
-    case 5:
-    dayName = "Friday";
-    break;
-    case 6:
-      dayName = "Saturday";
-      break;
-    default:                          -- same as else{} 
-      dayName = "Invalid Day Number"
-  }
 
+&enum example 
+enum Weekday {      -- defines a custom type
+  SUNDAY,    // 0
+  MONDAY,    // 1
+  TUESDAY,   // 2
+  WEDNESDAY, // 3
+  THURSDAY,  // 4
+  FRIDAY,    // 5
+  SATURDAY   // 6
+};
+
+&Example
+enum ReactorState { IDLE, CHARGING, PULSE };
+
+ReactorState currentState = PULSE;
+
+switch (currentState) {      -- look at dayNum, and then decide what to do 
+  case IDLE:                -- same as if(dayNum == 0), must be an int, char, or enum 
+    cout << "Doing nothing";
+    break;
+  case CHARGING:
+    cout << "Applying voltage";
+    break;
+  case PULSE:
+    cout << "ZAP!";
+    break;
+  default:                  -- same as else{} 
+    cout << "Not available";
 }
+
+•While loops 
+
 
