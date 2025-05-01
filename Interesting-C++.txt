@@ -101,7 +101,7 @@ using namespace std;
 
 int main()
 {
-int luckyNums[20] = {4, 8, 15, 16, 23}; -- make an array of size 20 and set some vals 
+* int luckyNums[20] = {4, 8, 15, 16, 23}; -- make an array of size 20 and set some vals 
 int Nums[] = {2, 3, 4}; -- size is always 3 from now 
 int luckNums[20]; -- can make and assign vals later(0-vals array) 
 luckNums[8] = 19
@@ -116,7 +116,7 @@ return 0;
 #include <iostream>
 using namespace std;
 
-void sayHi(string name, int age) -- do without returning anything. 
+* void sayHi(string name, int age) -- do without returning anything. 
 {
 cout << "Hello " << name << " you are " << age;
 }
@@ -137,7 +137,7 @@ cout << "Hello " << name << " you are " << age;
 #include <iostream>
 using namespace std;
 
-int add(int a, int b) {
+* int add(int a, int b) {
     return a + b;
 }
 
@@ -147,5 +147,43 @@ int main() {
 
     return 0;
 }
+
+
+•if statements
+#include <iostream>
+using namespace std;
+
+int main() {
+  bool isMale = false;
+  bool isTall = true;
+  * if(isMale && !isTall) {          ! <=> not, && for bit ops(1.5 times faster, but unstable) 
+    cout << "You are a short male";
+  } else {                          -- can also do else if (...) {...}
+    cout << "You are not male";
+  }
+  return 0;
+}
+
+
+&Comparisons
+#include <iostream>
+using namespace std;
+
+int getMax(int num1, int num2) {
+  int result;
+  
+  if(num1 >= num2) {result = num1;} else {result = num2;}
+  
+  return result;
+}
+
+int main() {
+
+  cout << getMax(5, 10);
+  return 0;
+}
+
+
+
 
 
