@@ -1,1 +1,22 @@
 
+
+C++ - compiling programming language(differce for each OS, low-level language, statistically typed(each entity has it's type), multiparadigm, compiled(do only what was assigned, can catch errors))
+C++ language standart has around 1340 pages 
+Creator of C++ is Бьёрн Страуструп (Bell Labs company) 
+first compilator - cfront
+first name - "C with classes"
+
+Compilator transfers C++ code to a machine code to execute. Compiling is not very reversible 
+App architect --> programming --> compilation --> execution --> translation 
+
+•Division of a program by files(structure, coop compilation, easier recompilation) 
+2 types:
+1)file with source code(extension .cpp, .c++, .cc, .cxx, .cp, etc)
+2)header files(.hpp, .h)
+
+
+
+
+
+
+
