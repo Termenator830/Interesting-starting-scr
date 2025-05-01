@@ -94,4 +94,58 @@ cout << num1 + num2;
 return 0;
 }
 
-•Array - can store multiple vals
+•Array - can store multiple vals, same data type, static
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+int luckyNums[20] = {4, 8, 15, 16, 23}; -- make an array of size 20 and set some vals 
+int Nums[] = {2, 3, 4}; -- size is always 3 from now 
+int luckNums[20]; -- can make and assign vals later(0-vals array) 
+luckNums[8] = 19
+  
+luckyNums[10] = 100;
+cout << luckyNums[10];
+return 0;
+}
+
+•functions
+&Do something without returning val
+#include <iostream>
+using namespace std;
+
+void sayHi(string name, int age) -- do without returning anything. 
+{
+cout << "Hello " << name << " you are " << age;
+}
+
+int main()
+{
+sayHi("Mike");
+return 0;
+}
+
+&Can also assign a function before, but setup it after main
+void sayHi(string name, int age);
+void sayHi(string name, int age) { 
+cout << "Hello " << name << " you are " << age;
+}
+
+&Do something with args
+#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(3, 7);  -- store the returned value
+    cout << "The sum is: " << result << endl;
+
+    return 0;
+}
+
+
