@@ -17,12 +17,16 @@ App architect --> programming --> compilation --> execution --> translation
 •Definitions:
 << <=> Send this value into the output stream.
 flush <=> “Сбрасывает буфер” или “принудительно выводит данные из памяти (RAM) в экран или файл”
+chart <=> table, graph, сводка 
+; <=> 'I finished right there, move on' 
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
 using namespace std; -- standart ns, also can use 'using std::cout'.
 int main() {something} -- start program, send return code as int(to system)
 {
-  cout << "Hello World!" << endl; -- cout <=> output terminal, endl <=> \n
+  cout << "Hello World!" << endl; -- cout <=> output terminal, endl <=> \n and flush
+  cout << "Hello World!" << flush; -- flush without \n
+  cout << "Hello World!\n"; -- \n without flush
   return 0;
 }
