@@ -30,3 +30,36 @@ int main() {something} -- start program, send return code as int(to system)
   cout << "Hello World!\n"; -- \n without flush
   return 0;
 }
+
+&Example
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() 
+{
+string characterName = "John";
+int characterAge = 70;
+int childNum;
+char grade = 'A' -- char object uses 1 byte 
+childNum = 40; -- delay assidning a variable
+float price = 70.5;
+double nums = 7;
+bool isMale = true;
+cout << "There once was a man named " << characterName.length() << "\n";
+cout << "He was " << characterAge << " years old" << endl;
+characterName = "Tom"
+cout << "He likes the name " << characterName << "\n" << flush;
+return 0;
+}
+
+* phrase.length() -- return length of a string
+* phrase[0] = B -- index position, replaces p with B
+* phrase.find("Academy", 0) -- returns inde(if word - of it's first letter), which ind to start from 
+* phrase.substr(8, 7) -- (starting ind, amount of chars), if no amount mentioned - till the end 
+* typeid(phrase).name() -- returns type 
+* wnum += 5 -- just like in python
+
+
+
