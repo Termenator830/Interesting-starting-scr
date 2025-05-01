@@ -34,6 +34,7 @@ int main() {something} -- start program, send return code as int(to system)
 &Example
 #include <iostream>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -60,6 +61,14 @@ return 0;
 * phrase.substr(8, 7) -- (starting ind, amount of chars), if no amount mentioned - till the end 
 * typeid(phrase).name() -- returns type 
 * wnum += 5 -- just like in python
+* sqrt(36), pow(2, 5) -- math funcs are available with cmath
+* double result = round(x * 100.0) / 100.0 -- round with num of decimals, otherwise to int 
+* fmax(10, 11) -- return max val from 2 vals 
+
+&Get user's input 
+
+
+
 
 
 
