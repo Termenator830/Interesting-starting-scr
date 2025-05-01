@@ -1,4 +1,4 @@
-
+"Roses are red, violets are blue, i keep trying to learn more" 
 
 C++ - compiling programming language(differce for each OS, low-level language, statistically typed(each entity has it's type), multiparadigm, compiled(do only what was assigned, can catch errors))
 C++ language standart has around 1340 pages 
@@ -48,7 +48,7 @@ childNum = 40; -- delay assidning a variable
 float price = 70.5;
 double nums = 7;
 bool isMale = true;
-cout << "There once was a man named " << characterName.length() << "\n";
+cout << "There once was a man named " << characterName.length() << "\n"; -- variable separated 
 cout << "He was " << characterAge << " years old" << endl;
 characterName = "Tom"
 cout << "He likes the name " << characterName << "\n" << flush;
@@ -67,8 +67,31 @@ return 0;
 
 &Get user's input 
 
+int main()
+{
+int age;
+cout << "Enter your age: " << endl;
+* cin >> age; -- put input data into a variable, if doesn't meet data type at all - stores 1st char 
+
+cout << "You are " << age << " years old";
+getline(cin, line) -- store input data into line var (spaces, nums, etc) 
+cout << line;
+return 0;
+}
+
+&Example
+int main()
+{
+double num1, num2;
+cout << "Enetr first number: ";
+cin >> num1;
+cout << "Enter second number: ";
+cin >> num2;
+
+cout << num1 + num2;
 
 
-
+return 0;
+}
 
 
