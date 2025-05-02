@@ -23,6 +23,8 @@ enum <=> enum (сокращение от enumeration — перечислени�
 benchmark <=> performance test, эталон, metrics 
 alias <=> псевдоним, E.j. int& p = x 
 ram <=> random access memory
+stack memory(in RAM) <=> handled automatically
+heap memory(in RAM) <=> handled manually
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
@@ -391,19 +393,57 @@ something
 int main() {
 
   int age = 19;
-  int *pAge = &age;     --&var is address, * before var to set as address
+  int * pAge = &age;     --&var is address, * before var to make it a pointer
   double gpa = 2.7;
   string name = "Mike";
-  string *pName = &name;
+  string * pName = &name;
   
   cout << pAge << "\n";
   cout << &gpa << "\n";
   cout << pName << "\n";
-  cout << *pAge;       -- dereference(get val from address)
+  cout << *pAge;       -- dereference(get val by going with pointer) 
   cout << *&gpa; -- same as gpa
   
   return 0;
 }
+
+•Use heap memory with pointers
+int* heapNum = new int(42);  -- simple int in heap
+cout << *heapNum << endl;
+delete heapNum;              -- clean up
+
+&Example
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {       --doesn't consume memory(just a blueprint)
+public:
+    string title;
+    string author;
+    int pages;
+
+    // Constructor with parameters
+    Book(string t, string a, int p) {
+        title = t;
+        author = a;
+        pages = p;
+    }
+
+    void printInfo() {
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Pages: " << pages << endl;
+    }
+};
+
+int main() {
+    Book* myBook = new Book("1984", "George Orwell", 328); -- a pointer
+    myBook->printInfo();
+    delete myBook; -- delete it
+    return 0;
+}
+
 
 •Classes and objects - data types
 &Example
@@ -472,7 +512,7 @@ int main()
   return 0;
 }
 
-•Getters and Setters
+•Getters and Setters - return and modify value 
 &Example
 #include <iostream>
 #include <string>
@@ -507,6 +547,38 @@ public:
         return rating;
     }
 };
+
+•Inheritance
+&Example
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Chef {                          --superclass
+  public:
+    void makeChicken() {
+      cout << "Making chicken" << endl;
+    }
+    void makeSalad() {
+      cout << "Making salad" << endl;
+    }
+    void makeSpecialDish() {
+      cout << "Making bbq" << endl;
+    }
+};
+
+class ItalianChef : public Chef {          --subclass 
+  public:
+    void makePasta() {
+      cout << "Making pasta" << endl;
+    }
+    void makeSpecialDish() {                --override
+      cout << "Making chicken parm" << endl;
+    }
+};
+
+
+
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
