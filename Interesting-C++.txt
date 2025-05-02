@@ -405,6 +405,73 @@ int main() {
   return 0;
 }
 
+•Classes and objects - data types
+&Example
+class Book {
+  public:        --can be accessed diractl(book1.title) 
+    string title;
+    string author;
+    int pages;
+};
+
+int main() 
+{
+  Book book1;                  --make a object of type 'Book'
+  book1.title = "Harry Potter";  --all type's funcs/params are available 
+  book1.author = "JK Rowling";
+  book1.pages = 500;
+  
+  cout << book1.title;
+
+  Book book2; 
+  book2.title = "Lord of the Rings";
+  book2.author = "Tolkein";
+  book2.pages = 700;
+
+  cout << book2.title;
+  return 0;
+}
+
+&Use Constructor, function
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+public:
+  string title;
+  string author;
+  int pages;
+
+  Book() {      --used if no args given(constructor overloading) 
+      title = "no title";
+      author = "no author";
+      pages = 0;
+  }
+  Book(string t, string a, int p) {  --constructor(__init__) (overloading available) 
+    title = t;
+    author = a;
+    pages = p;
+    income = (title.length() * author.length()) / 2;
+  }
+
+  void DisplayIncome() {          --object function 
+    cout << "Income: " << income << endl;
+  }
+
+private:      --unable outside of class
+  int income;
+};
+
+int main() 
+{
+  
+  Book book1("Thermodynamics", "Feynman", 420);
+  book1.DisplayIncome();
+  
+  return 0;
+}
+
 
 
 
