@@ -448,7 +448,7 @@ public:
       author = "no author";
       pages = 0;
   }
-  Book(string t, string a, int p) {  --constructor(__init__) (overloading available) 
+  template <typename T1, typename T2, typename T3> -- any type. Book<int> pages; - if templated class    Book(T1 t, T2 a, T3 p) {  --constructor(__init__) (overloading available) 
     title = t;
     author = a;
     pages = p;
@@ -472,9 +472,41 @@ int main()
   return 0;
 }
 
+•Getters and Setters
+&Example
+#include <iostream>
+#include <string>
+using namespace std;
 
+class Book {
+private:
+    string rating;
 
+public:
+    string title;
+    string author;
+    int pages;
 
+    Book(const string& t, const string& a, int p) {     --unmodifiable, view 
+        title = t;
+        author = a;
+        pages = p;
+        rating = "NR"; 
+    }
+
+    template <typename B>
+    void setRating(B aRating) {
+        if (aRating == "G" || aRating == "PG-13") {
+            rating = aRating;
+        } else {
+            rating = "NR";
+        }
+    }
+
+    string getRating() const {     --const makes var unmodifiable 
+        return rating;
+    }
+};
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
