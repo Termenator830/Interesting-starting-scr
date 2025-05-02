@@ -25,6 +25,7 @@ alias <=> псевдоним, E.j. int& p = x
 ram <=> random access memory
 stack memory(in RAM) <=> handled automatically
 heap memory(in RAM) <=> handled manually
+.inl, .ttp, .cuh 
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
@@ -577,7 +578,7 @@ class ItalianChef : public Chef {          --subclass
     }
 };
 
-
+•Header files - .hpp or .h 
 
 
 ---------------------------------------------------------------------------------------------------
