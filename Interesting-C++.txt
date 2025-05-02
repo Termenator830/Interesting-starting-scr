@@ -21,6 +21,8 @@ chart <=> table, graph, сводка
 ; <=> 'I finished right there, move on' 
 enum <=> enum (сокращение от enumeration — перечисление) — это пользовательский тип данных, который позволяет дать имена наборам целых чисел. -- string-like, used in switching(E.J.) 
 benchmark <=> performance test, эталон, metrics 
+alias <=> псевдоним, E.j. int& p = x 
+ram <=> random access memory
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
@@ -378,10 +380,33 @@ int main() {
   return 0;
 }
 
-&comment cols
+•comment through cols
 /*
 something
 */
+
+•Pointer - a type of information(memory address) 
+
+&Pointer example
+int main() {
+
+  int age = 19;
+  int *pAge = &age;     --&var is address, * before var to set as address
+  double gpa = 2.7;
+  string name = "Mike";
+  string *pName = &name;
+  
+  cout << pAge << "\n";
+  cout << &gpa << "\n";
+  cout << pName << "\n";
+  cout << *pAge;       -- dereference(get val from address)
+  
+  return 0;
+}
+
+
+
+
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
