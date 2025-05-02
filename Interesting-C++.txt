@@ -385,7 +385,7 @@ int main() {
 something
 */
 
-•Pointer - a type of information(memory address) 
+•Pointer - a type of information(memory address) - use for memory optimization 
 
 &Pointer example
 int main() {
@@ -400,6 +400,7 @@ int main() {
   cout << &gpa << "\n";
   cout << pName << "\n";
   cout << *pAge;       -- dereference(get val from address)
+  cout << *&gpa; -- same as gpa
   
   return 0;
 }
