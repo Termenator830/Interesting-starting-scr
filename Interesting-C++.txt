@@ -20,6 +20,7 @@ flush <=> “Сбрасывает буфер” или “принудитель
 chart <=> table, graph, сводка 
 ; <=> 'I finished right there, move on' 
 enum <=> enum (сокращение от enumeration — перечисление) — это пользовательский тип данных, который позволяет дать имена наборам целых чисел. -- string-like, used in switching(E.J.) 
+benchmark <=> performance test, эталон, metrics 
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
@@ -317,10 +318,64 @@ int main()
   return 0;
 }
 
+&change original
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void shout(string& msg) {    --string& mentioning makes changes be applied to original
+  msg += "!!!";
+}
+
+int main() {
+  string phrase = "Hello";
+  shout(phrase);
+  cout << phrase;  // → prints "Hello!!!"
+}
+
+•for (initialization; condition; increment) {// loop body} 
+&Example
+#include <iostream>
+using namespace std;
+
+void int_pow(long long& i, int exp) {  // changed int& to long long&
+  long long odds = 1;                -- up to 64 bytes 
+  long long base = i;  // Use a copy!
+  while (exp > 0) {
+    if (exp % 2 == 1) odds *= base;
+    base *= base;
+    exp /= 2;
+  }
+  i = odds;  // Update i after computing
+}
+
+int main() {
+  long long i = 2;
+  for (; i < 100000000000; int_pow(i, 2)) {
+    cout << i << "\n";
+  }
+
+  return 0;
+}
 
 
 
 
 
+---------------------------------------------------------------------------------------------------
+                                      Performance algorithms
 
-
+&std::Pow() without error(O(log(n))), better than for cycle 
+void int_pow(int& i, int exp) {
+  int odds = 1;
+  int base = i;  // copy of original i(not to overflow the program) 
+  while (exp > 0) {
+    if (exp % 2 == 1) {
+      odds *= base;
+    }
+    base *= base;
+    exp /= 2;
+  }
+  i = odds;
+}
