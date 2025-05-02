@@ -113,6 +113,10 @@ cout << luckyNums[10];
 return 0;
 }
 
+int numberGrid[][] = {{1,2}, {3,4}, {5,6}} -- 2D array
+cout << numberGrid[2][0]
+
+
 •functions
 &Do something without returning val
 #include <iostream>
@@ -359,9 +363,25 @@ int main() {
   return 0;
 }
 
+&Nested loop example 
+int main() {
 
+  int numberGrid[3][2] = {{1,2}, {3,4}, {5,6}};
 
+  for(int i = 0; i < 3; i++) {
+    for(int j = 0; j < 2; j++) {
+      cout << numberGrid[i][j];
+    }
+    cout << "\n";  -- Newline 
+  }
+  
+  return 0;
+}
 
+&comment cols
+/*
+something
+*/
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
