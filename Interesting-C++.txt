@@ -94,6 +94,13 @@ float f = (int)d; --make d int before ops
 int b = ++a --return new a(a + 1) - prefix increment
 int c == a++ --return old a - postfix increment
 
+&Example of ternary expression
+if (d >= 0)   --applied only for the next statement 
+  roots = (d > 0) ? 2 : 1   --2 if true, 1 if false
+OR:
+  (d > 0) ? doPositive() : doZero();
+
+
 &Get user's input 
 
 int main()
@@ -662,5 +669,8 @@ void int_pow(int& i, int exp) {
   }
   i = odds;
 }
+
+
+
 
 
