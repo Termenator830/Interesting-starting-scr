@@ -500,7 +500,7 @@ class Book {
 
 int main() 
 {
-  Book book1;                  --make a object of type 'Book'
+  Book book1;                  --make an object of type 'Book'
   book1.title = "Harry Potter";  --all type's funcs/params are available 
   book1.author = "JK Rowling";
   book1.pages = 500;
@@ -695,7 +695,28 @@ int factorial(int n) {
     return factorial(n - 1) * n;
 }
 
-&Count times used
+&Reversal return recursion
+#include <iostream>
+
+using namespace std;
+
+void rec()
+{
+    int a=0;
+    cin >> a;
+    if ( a ==0 ) return;  --exit
+    rec();
+    cout << a << " ";   --stacks up, then executed in a row 
+   
+}
+
+int main()
+{
+    rec();
+   
+    return 0;
+}
+
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
