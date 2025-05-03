@@ -27,6 +27,7 @@ alias <=> псевдоним, E.j. int& p = x
 ram <=> random access memory
 stack memory(in RAM) <=> handled automatically
 heap memory(in RAM) <=> handled manually
+operand <=> thing, to which operator is used (x, y, etc) 
 .inl, .ttp, .cuh 
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
@@ -73,6 +74,20 @@ return 0;
 * sqrt(36), pow(2, 5) -- math funcs are available with cmath
 * double result = round(x * 100.0) / 100.0 -- round with num of decimals, otherwise to int 
 * fmax(10, 11) -- return max val from 2 vals 
+
+•Literators
+long long x = 1231231LL; -- 64-bit
+unsigned int x = 12U -- gives big number if negative tried to be set 
+long double x = (up to ~10^-4932) -- longest possible 
+unsigned long x = 12UL -- combine 
+float x = 3.0E8 -- exponential 
+short x = 235 -- 2-bit, to 32767 (memory saving purpose) 
+
+•Operators
+1)binarian: + - * / %
+2)unarian: ++ --
+--can be logical, comparison, type, shortened binarian
+float f = (int)d; --make d int before ops 
 
 &Get user's input 
 
@@ -580,13 +595,11 @@ class ItalianChef : public Chef {          --subclass
     }
 };
 
-•Header files - .hpp or .h 
-
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
 •3-file optimization
-&Bar.hpp
+&Bar.hpp 
 #ifndef BAR_HPP     -- check if not used, name can be whatever
 #define BAR_HPP      -- define, whole safety-system better be replaced with #pragma once
 
