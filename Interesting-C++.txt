@@ -615,7 +615,18 @@ class ItalianChef : public Chef {          --subclass
 OR:
 #define f(x) ((x) * (x)) --function
 #define max3(x, y) ((x) > (y) ? (x) : (y))
-*constexp > macros, lets store inclined whole funcs, classes, vars 
+*constexp () {}> macros, lets store inclined whole funcs, classes, vars 
+
+&Example of macros usage
+#define MAX(x, y, r) { \
+    int banana = (x); \       --we assign var so that there is no double functioning 
+    int apple = (y); \
+    int max_value = ((banana) > (apple) ? (banana) : (apple)); \
+    r = max_value; \
+}
+•Uniform initialisation   --gives error if wrong data type used 
+#define MAX(a,b,c){int t1{a},t2{b};c=t1>t2?t1:t2;} -- make vars quickly 
+
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
