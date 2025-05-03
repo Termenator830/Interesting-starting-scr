@@ -583,6 +583,50 @@ class ItalianChef : public Chef {          --subclass
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
+•3-file optimization
+&Bar.hpp
+#ifndef BAR_HPP     -- check if not used, name can be whatever
+#define BAR_HPP      -- define 
+
+#include <string>
+using namespace std;
+
+class Meow {          -- declare class, vars 
+public:
+    enum Meows { Meow1, Meow2, Meow3 };
+
+    Meow(int num);
+    void Ayo(string hi);
+
+private:
+    int number;
+    string message;
+};
+
+#endif            -- end if defined
+
+&Bar.cpp -- for fulfilling things  
+#include "Bar.hpp"    --get vars' identities from header 
+#include <iostream>
+
+Meow::Meow(int num) {    --set vals to vars in constructor
+    number = num;
+}
+
+void Meow::Ayo(string hi) {      --set function's body 
+    message = hi;
+    cout << "Meow says: " << message << " (" << number << ")" << endl;
+}
+
+&main.cpp --launch
+#include "Bar.hpp"
+
+int main() {
+    Meow cat(3);
+    cat.Ayo("I want tuna");
+
+    return 0;
+}
 
 &std::Pow() without error(O(log(n))), better than for cycle 
 void int_pow(int& i, int exp) {
@@ -597,3 +641,5 @@ void int_pow(int& i, int exp) {
   }
   i = odds;
 }
+
+
