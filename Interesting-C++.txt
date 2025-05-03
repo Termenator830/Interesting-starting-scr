@@ -105,6 +105,15 @@ if (d >= 0)   --applied only for the next statement
 OR:
   (d > 0) ? doPositive() : doZero();
 
+•Stack structure(example)
+x = 1, y = 2, false, 2, 1, ret val, ret addr, registers --things get there in reverse order(by chunks)
+frame pointer is moved, when func changed, stack pointer moves upper(deeper) 
+*When summoning func, to stack are put:
+1) args
+2) return address
+3) val of fraim pointer and proceccor's registers
+4) Also, space for returning val is reserved 
+
 
 &Get user's input 
 
@@ -679,7 +688,14 @@ while (cin.get(c)) {       --read char by char
     prev = c;
 }
 
+•Recursion example --C++ is not always Tail Call Optimized(do as a cycle)
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    return factorial(n - 1) * n;
+}
 
+&Count times used
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
@@ -768,5 +784,14 @@ int main()
     return 0;
 }
 
+&GCD
+unsigned gcd(unsigned a, unsigned b) {
+    while (b != 0) {
+        unsigned temp = a % b;
+        a = b;
+        b = temp;
+    }
+    return a;
+}
 
 
