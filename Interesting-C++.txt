@@ -82,6 +82,9 @@ long double x = (up to ~10^-4932) -- longest possible
 unsigned long x = 12UL -- combine 
 float x = 3.0E8 -- exponential 
 short x = 235 -- 2-bit, to 32767 (memory saving purpose) 
+* char   --compiled different way, so use signed or unsigned to be sure 
+char + char = int 
+
 
 •Operators
 1)binary: + - * / %
