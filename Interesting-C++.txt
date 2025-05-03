@@ -84,10 +84,12 @@ float x = 3.0E8 -- exponential
 short x = 235 -- 2-bit, to 32767 (memory saving purpose) 
 
 •Operators
-1)binarian: + - * / %
-2)unarian: ++ --
+1)binary: + - * / %
+2)unary: ++ --
 --can be logical, comparison, type, shortened binarian
 float f = (int)d; --make d int before ops 
+int b = ++a --return new a(a + 1) - prefix increment
+int c == a++ --return old a - postfix increment
 
 &Get user's input 
 
