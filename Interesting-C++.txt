@@ -28,7 +28,9 @@ ram <=> random access memory
 stack memory(in RAM) <=> handled automatically
 heap memory(in RAM) <=> handled manually
 operand <=> thing, to which operator is used (x, y, etc) 
+stored inlined <=> no memory taken, directly to machine code 
 .inl, .ttp, .cuh 
+Ctlr D, Ctrl Z <=> stop cin 
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
@@ -74,6 +76,7 @@ return 0;
 * sqrt(36), pow(2, 5) -- math funcs are available with cmath
 * double result = round(x * 100.0) / 100.0 -- round with num of decimals, otherwise to int 
 * fmax(10, 11) -- return max val from 2 vals 
+* while cin.get() -- read char by char 
 
 •Literators
 long long x = 1231231LL; -- 64-bit
@@ -607,6 +610,12 @@ class ItalianChef : public Chef {          --subclass
     }
 };
 
+•Macro - preprocessor command, done 
+#define pi 3.14159
+OR:
+#define f(x) ((x) * (x)) --function
+#define max3(x, y) ((x) > (y) ? (x) : (y))
+*constexp > macros, lets store inclined whole funcs, classes, vars 
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
