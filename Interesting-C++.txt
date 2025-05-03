@@ -586,7 +586,7 @@ class ItalianChef : public Chef {          --subclass
 •3-file optimization
 &Bar.hpp
 #ifndef BAR_HPP     -- check if not used, name can be whatever
-#define BAR_HPP      -- define 
+#define BAR_HPP      -- define, whole safety-system better be replaced with #pragma once
 
 #include <string>
 using namespace std;
@@ -602,13 +602,14 @@ private:
     int number;
     string message;
 };
-
+* extern int globalSpeed;          -- 'there is a func somewhere', without - mult.def. error 
 #endif            -- end if defined
 
 &Bar.cpp -- for fulfilling things  
 #include "Bar.hpp"    --get vars' identities from header 
 #include <iostream>
 
+globalSpeed = 10
 Meow::Meow(int num) {    --set vals to vars in constructor
     number = num;
 }
