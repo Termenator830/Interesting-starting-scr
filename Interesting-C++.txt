@@ -31,6 +31,8 @@ operand <=> thing, to which operator is used (x, y, etc)
 stored inlined <=> no memory taken, directly to machine code 
 .inl, .ttp, .cuh 
 Ctlr D, Ctrl Z <=> stop cin 
+IP <=> instruction pointer
+vector
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
@@ -627,6 +629,57 @@ OR:
 •Uniform initialisation   --gives error if wrong data type used 
 #define MAX(a,b,c){int t1{a},t2{b};c=t1>t2?t1:t2;} -- make vars quickly 
 
+&Dynamic arrays example(2D-like in 1D memory)
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    int** nums = new int*[T];      --pointer to pointers to int, heap mem used
+    for (int i = 0; i < T; i++) {
+        nums[i] = new int[2];
+        cin >> nums[i][0] >> nums[i][1];
+    }
+
+    for (int i = 0; i < T; i++) {
+        cout << nums[i][0] + nums[i][1] << '\n';
+    }
+
+    // Cleanup (important!)
+    for (int i = 0; i < T; i++)
+        delete[] nums[i];    -- delete each row
+    delete[] nums;           -- delete the row pointers
+
+    return 0;
+}
+
+&Comparance of getline() and get()
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    string c;
+    getline(cin, c);
+    for (int i = 0; i < c.length(); i++) {
+        if (c[i] == ' ' && c[i] == c[i-1])
+            {continue;} else {cout << c[i];} 
+    }
+
+    return 0;
+}
+OR:
+char c, prev = '\0';
+while (cin.get(c)) {       --read char by char
+    if (c == ' ' && c == prev) continue;      --prev is previous element
+    cout << c;
+    prev = c;
+}
+
+
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
@@ -690,7 +743,30 @@ void int_pow(int& i, int exp) {
   i = odds;
 }
 
+&Avoid float(better speed, less memory usage)
+#include <iostream>
+using namespace std;
 
+int intLog2(int a) {
+    int p = 0;
+    while (a > 1) {
+        a >>= 1;  // same as a = a / 2
+        p++;
+    }
+    return p;
+}
+
+int main()
+{
+    int T;
+    cin >> T;
+    int a;
+    for (int i = 0; i < T; i++) {
+        cin >> a;
+        cout << intLog2(a) << "\n";
+    }
+    return 0;
+}
 
 
 
