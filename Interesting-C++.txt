@@ -9,6 +9,8 @@ first name - "C with classes"
 Compilator transfers C++ code to a machine code to execute. Compiling is not very reversible 
 App architect --> programming --> compilation --> execution --> translation 
 
+•linking(componing) -- link multiple files 
+
 •Division of a program by files(structure, coop compilation, easier recompilation) 
 2 types:
 1)file with source code(extension .cpp, .c++, .cc, .cxx, .cp, etc)
@@ -39,7 +41,7 @@ int main() {something} -- start program, send return code as int(to system)
 }
 
 &Example
-#include <iostream>
+#include <iostream>   --preprocessor, lib file (local file if "something") 
 #include <string>
 #include <cmath>
 
@@ -609,7 +611,7 @@ private:
 #include "Bar.hpp"    --get vars' identities from header 
 #include <iostream>
 
-globalSpeed = 10
+int globalSpeed = 10       -- define once 
 Meow::Meow(int num) {    --set vals to vars in constructor
     number = num;
 }
