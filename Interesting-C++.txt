@@ -484,7 +484,8 @@ bool found = contains(arr, arr + 4, 30);   --q = arr + 4
 return 0;
 }
 
-int ** value can be done to make pointer to a pointer, so that you can even check array[0] 
+-- int ** value can be done to make pointer to a pointer, so that you can even check array[0] 
+if (!*char_pointer) <=> if (*char_pointer) --checks if the char pointer is pointing at a null char 
 
 
 •Use heap memory with pointers
