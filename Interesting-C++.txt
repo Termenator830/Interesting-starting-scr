@@ -33,6 +33,7 @@ stored inlined <=> no memory taken, directly to machine code
 Ctlr D, Ctrl Z <=> stop cin 
 IP <=> instruction pointer
 vector
+pre-increment > post-increment, bc not making a copy 
 
 #include <iostream> -- get from standart lib(in/out). use "..." to get from your file 
 
@@ -451,8 +452,27 @@ int main() {
   return 0;
 }
 
+•Move in arrays by pointers - arrays and pointers are VERY close friends in C++ 
+Array passed to a function becomes a pointer 
+int *p = &m[0]   --address of array's starting 
+int *p = &m[9]   --address of array's ending 
+i = p + 2   --move to m[0+2] = m[2]
+q - p   -- amount of cells(both of cells) 
+
+&Example
+int max_element(int *m, int size) {    --first element of m[]
+    int max = *m;        --first assignment 
+    for (int i = 1; i < size; ++i) {   --start from 2nd element 
+        if (m[i] > max)      --m[i] <=> *(m + i) 
+            max = m[i];
+    }
+    return max;
+}
+int* arr = new int[n];      --dynamic array allocation(n-size) 
+
+
 •Use heap memory with pointers
-int* heapNum = new int(42);  -- simple int in heap
+int* heapNum = new int(42);  -- simple int pointer in heap
 cout << *heapNum << endl;
 delete heapNum;              -- clean up
 
