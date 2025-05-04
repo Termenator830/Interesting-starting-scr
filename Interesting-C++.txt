@@ -470,6 +470,8 @@ int max_element(int *m, int size) {    --first element of m[]
 }
 int* arr = new int[n];      --dynamic array allocation(n-size) 
 
+&Move array's elims to the left 
+
 
 •Use heap memory with pointers
 int* heapNum = new int(42);  -- simple int pointer in heap
@@ -737,6 +739,49 @@ int main()
     return 0;
 }
 
+&Move array to the left
+void rotate(int* a, unsigned size, int shift) {
+    shift %= size;
+    for (int s = 0; s < shift; ++s) {
+        int first = a[0];
+        for (int i = 0; i < size - 1; ++i) {
+            a[i] = a[i + 1];
+        }
+        a[size - 1] = first;
+    }
+}
+OR: (more speed and memory optimised)
+#include <iostream>
+using namespace std;
+
+void reverse(int* m, int start, int end) {  --reverse part
+    while (start < end) {
+        int t = m[start];
+        m[start] = m[end];
+        m[end] = t;
+        ++start;
+        --end;
+    }
+}
+
+void rotate(int* m, unsigned size, int shift) {   --reverse by parts 
+    if (size == 0) return;
+    shift %= size;
+    if (shift == 0) return; 
+    reverse(m, 0, shift - 1);
+    reverse(m, shift, size - 1);
+    reverse(m, 0, size - 1); 
+}
+
+
+int main()
+{
+    int m[5] = {1, 2, 3, 4, 5};
+    * unsigned size = sizeof(m) / sizeof(m[0]);  --find byte length and divide 
+    int d = 2;
+    rotate(m, size, d);
+    return 0;
+}
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
