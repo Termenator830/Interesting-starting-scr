@@ -485,7 +485,31 @@ return 0;
 }
 
 -- int ** value can be done to make pointer to a pointer, so that you can even check array[0] 
-if (!*char_pointer) <=> if (*char_pointer) --checks if the char pointer is pointing at a null char 
+if (!*char_pointer) --checks if the char pointer is pointing at a null char 
+if (*char_pointe) -- checks if pointing at a non-null char 
+
+&C-style stroke's length
+unsigned strlen(const char *str)
+{
+    unsigned i = 0;
+    while (*str) {
+        ++i;
+        ++str;
+    }
+    return i;
+}
+
+&Concat 
+void strcat(char *to, const char *from)
+{
+    int len = strlen(to);
+    int i = 0;
+    while (from[i] != '\0') {
+        to[len + i] = from[i];
+        ++i;
+    }
+    to[len + i] = '\0';
+}
 
 
 •Use heap memory with pointers
