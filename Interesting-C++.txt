@@ -29,6 +29,7 @@ stack memory(in RAM) <=> handled automatically
 heap memory(in RAM) <=> handled manually
 operand <=> thing, to which operator is used (x, y, etc) 
 stored inlined <=> no memory taken, directly to machine code 
+Debug and release modes 
 .inl, .ttp, .cuh 
 Ctlr D, Ctrl Z <=> stop cin 
 IP <=> instruction pointer
@@ -470,7 +471,14 @@ int max_element(int *m, int size) {    --first element of m[]
 }
 int* arr = new int[n];      --dynamic array allocation(n-size) 
 
-&Move array's elims to the left 
+&Use pointers in funcs, good for STL
+bool contains(int *p, int *q, int value) {    --use pointer instead of var
+    for (; p != q; ++p)
+        if (*p == value)
+            return true;
+    return false;
+}
+
 
 
 •Use heap memory with pointers
