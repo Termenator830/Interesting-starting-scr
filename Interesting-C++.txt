@@ -472,13 +472,19 @@ int max_element(int *m, int size) {    --first element of m[]
 int* arr = new int[n];      --dynamic array allocation(n-size) 
 
 &Use pointers in funcs, good for STL
-bool contains(int *p, int *q, int value) {    --use pointer instead of var
+bool contains(int *p, int *q, int value) {    --use pointer instead of var size 
     for (; p != q; ++p)
         if (*p == value)
             return true;
     return false;
 }
+int main() {
+int arr[] = {10, 20, 30, 40};
+bool found = contains(arr, arr + 4, 30);   --q = arr + 4
+return 0;
+}
 
+int ** value can be done to make pointer to a pointer, so that you can even check array[0] 
 
 
 •Use heap memory with pointers
