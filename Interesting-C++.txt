@@ -6,6 +6,8 @@ Creator of C++ is Бьёрн Страуструп (Bell Labs company)
 first compilator - cfront
 first name - "C with classes"
 
+FireBase Studio --generate apps with ai 
+
 Compilator transfers C++ code to a machine code to execute. Compiling is not very reversible 
 App architect --> programming --> compilation --> execution --> translation 
 
@@ -116,6 +118,9 @@ frame pointer is moved, when func changed, stack pointer moves upper(deeper)
 3) val of fraim pointer and proceccor's registers
 4) Also, space for returning val is reserved 
 
+•Expressions' types:
+1) lvalue <=> int a, etc
+2) rvalue <=> 10, 20, 'a', etc 
 
 &Get user's input 
 
@@ -580,8 +585,10 @@ int main() {
     return 0;
 }
 
-•References - readable, unchangable, can't have 0 value 
+•References - unchangable, can't have 0 value, double ref doesnt exist,no memo nor math  
 int &val = someArray[index];   -- refer to array's index
+int (&ref)[5] = arr;   --reference to an array 
+int foo(string const &s)   --make unchangable in a func, save memory 
 
 •Classes and objects - data types
 &Example
