@@ -862,6 +862,66 @@ int main()
     return 0;
 }
 
+•Dynamic Memory(mostly cstdlib lib)
+void* p = &x;   --define a reference with no type 
+*((int*)p);    --define type and get val 
+
+sizeof(int) -- a compile-time operator 
+size_t s = sizeof(int); -- type to assign sizeof() 
+
+&Example of using void
+void printData(void* ptr, char type) {
+    if (type == 'i')
+        cout << *((int*)ptr) << endl;
+    else if (type == 'd')
+        cout << *((double*)ptr) << endl;
+    else if (type == 'c')
+        cout << *((char*)ptr) << endl;
+}
+
+Functions:
+Important:
+ if (nums == nullptr) {        --returns nullptr if ran out of memory 
+        std::cout << "Allocation failed!";
+        return 1;
+
+int* arr = new int[100];  -- allocates 100 * sizeof(int) bytes, use delete after 
+1)malloc - memory allocation
+int* nums = (int*)malloc(5 * sizeof(int)); --returns void* type by default
+free(nums);   --must free the memory 
+OR:
+void *raw = malloc(size_t size) --allocate memo for unknown type 
+&Example
+int main() {
+    void* raw = malloc(20);  -- allocate 20 bytes
+
+    if (!raw) {
+        cout << "Allocation failed!" << endl;
+        return 1;
+    }
+
+    int* arr = (int*)raw;  -- cast to proper type
+    arr[0] = 42;
+    arr[1] = 99;
+
+    cout << arr[0] << " " << arr[1] << endl;
+
+    free(arr);  // always free it!
+    return 0;
+}
+
+2)calloc - contiguous allocation
+void *raw = calloc(10, sizeof(int));  --alloc for n elims, initial vals = 0 
+3)realloc(void * ptr, size_t size) --change memory used 
+arr = (int*)realloc(raw1, 50 * sizeof(int))
+
+&Example
+void* ptr = malloc(100);
+ptr = realloc(ptr, 50);  --can resize even void 
+
+4)
+
+
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
 •3-file optimization
