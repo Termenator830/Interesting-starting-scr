@@ -171,6 +171,25 @@ return 0;
 int numberGrid[][] = {{1,2}, {3,4}, {5,6}} -- 2D array
 cout << numberGrid[2][0]
 
+&Example
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int m2d[2][3] = {{1,2,3}, {4,5,6}};
+    for(size_t i = 0; i != 2; ++i) {
+        for (size_t j = 0; j != 3; ++j) {
+            cout << m2d[i][j] << ' ';
+        }
+        cout << endl;
+    }  
+}
+
+m[i][j] <=> *(*(m + i) + j), m[i] - int *.
+m[i] <=> *(m + i), m - int **.
+
+
 
 •functions
 &Do something without returning val
@@ -928,6 +947,40 @@ ptr = realloc(ptr, 50);  --can resize even void
 
 4)
 
+&Example of dynamic getline()
+#include <iostream>
+using namespace std;
+
+char* getline_dynamic() {
+    int n = 10;
+    char* c = new char[n];
+    int i = 0;
+    char ch;
+
+    while (cin.get(ch) && ch != '\n') {
+        if (i >= n - 1) { -- room for '\0'
+            n += 5;     --increase memory opened
+            char* temp = new char[n];
+            for (int j = 0; j < i; ++j) {
+                temp[j] = c[j];     --copy c
+            }
+            delete[] c;
+            c = temp;
+        }
+        c[i++] = ch;  --fill c
+    }
+
+    c[i] = '\0';
+    return c;
+}
+
+int main() {
+    cout << "Enter text: ";
+    char* line = getline_dynamic();
+    cout << "You entered: " << line << endl;
+    delete[] line;
+    return 0;
+}
 
 ---------------------------------------------------------------------------------------------------
                                       Performance algorithms
