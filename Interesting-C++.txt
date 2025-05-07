@@ -785,9 +785,12 @@ OR:
 char c, prev = '\0';
 while (cin.get(c)) {       --read char by char
     if (c == ' ' && c == prev) continue;      --prev is previous element
+    * cin.width(3); -- only takes 3 elements in the next cin
     cout << c;
     prev = c;
 }
+
+* cin.get(ch, 30);   --read only 29 chars 
 
 •Recursion example --C++ is not always Tail Call Optimized(do as a cycle)
 int factorial(int n) {
