@@ -1,6 +1,37 @@
 VPN and etc setup(SSH)
 
-Use Termius ot config(IOS, fully intergrated)
+1) email:
+https://firstmail.ltd/webmail.com
+auroraoutman1972@secadoramail.com
+kbNKv1!bjv!8y!
+
+2) hosting
+htpps://vpsag.com
+auroraoutman1972@secadoramail.com
+njSA(*T&R*D^T)Gvih
+
+3) admin-panel где-то ошибка
+https://212.73.150.8:63944/8itqggm97bs9gp7qzuils01b4pxd7r5g
+ioi&*CH78
+;OC8^Gc54467yGY
+
+4) SSH
+Use Termius for config(IOS, fully intergrated)
 IP - 212.73.150.8
 Name - root
 Password - *V9g7v0HCg75f54^&gbnbx98*H 
+
+• Commands:
+uptime -- returns 00:32:32 up 20 days, 10:39,  1 user,  load average: 0.01, 0.06, 0.02(1min, 5mins, 15mins % of 1 core used)
+df - h -- disk space in human-readable format
+free -m -- available RAM(Mem, Swap) in MB
+top -- Live view of CPU/RAM usage 
+x-ui --
+systemctl status xray --
+ss -tuna -- show active connections (TCP/UDP, IP addresses) 
+netstat -anp | grep xray -- shows connections in process if netstat installed
+x-ui restart -- restart VPN manually if you use X-UI/Xray 
+
+
+
+
