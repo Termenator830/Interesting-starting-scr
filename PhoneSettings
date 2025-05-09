@@ -25,11 +25,14 @@ Password - *V9g7v0HCg75f54^&gbnbx98*H
 * ss stands for “socket statistics” -- modern netstat
 * sudo stands for: “superuser do”, run as a root user 
 * apt - Advanced Package Tool, used on Debian-based Linux systems
+* dpkg - Debian Package Manager
+* iftop - interactive traffic monitor 
 
 • Checking Commands:
 * q to exit on-going process
-uptime -- returns 00:32:32 up 20 days, 10:39,  1 user,  load average: 0.01, 0.06, 0.02(1min, 5mins, 15mins % of 1 core used)
-df -h -- disk space in human-readable format
+uptime -- returns 00:32:32 up 20 days, 10:39,  1 user(shell),  load average: 0.01, 0.06, 0.02(1min, 5mins, 15mins % of 1 core used)
+w -- who and since when uses shell currently
+df -h -- disk space, -h makes human-readable format
 free -m -- available RAM(Mem, Swap) in MB
 top -- Live view of CPU/RAM usage 
 x-ui --
@@ -37,16 +40,24 @@ systemctl status xray --
 ss -tuna -- show active connections (TCP/UDP, IP addresses), tuna= TCP UDP Numeric(dont resolve ips to domain names) All, can be separated
 sudo apt install iftop -- install iftop lib(consumes memory from server)
 sudo tcpdump -n port 53 --
-* sudo apt install dnstop -- Live DNS analytics
-  dpkg -L iftop -- check how much space used by package
-  sudo apt remove iftop  -- uni
-  sudo apt update
-  sudo apt upgrade
-  sudo apt autoremove
+* dpkg --get-selections --get list of all packages 
+* apt list --installed -get list of all packages with more info
+* ip a -- see through what does your traffic go(e.j. eth0)
 netstat -anp | grep xray -- shows connections in process if netstat installed
 x-ui restart -- restart VPN manually if you use X-UI/Xray 
 apt update && apt upgrade -- updates packages(safe once a week) 
 reboot -- reboots the entire server 
 
+Mixing exanmple:
+sudo apt update && sudo apt upgrade 
 
-
+------------------------------------------------------------------------------------------------
+                                      Special packages
+• sudo apt install iftop -- Live signals' analytics 
+  dpkg -L iftop -- list files of a package 
+  sudo apt remove iftop  -- uninstalls binary-only, keeps configs 
+  sudo apt purge iftop -- fully uninstall packages 
+  sudo apt update -- refresh the catalog of available packages
+  sudo apt upgrade iftop -- upgrade package, upgrades all installed if none mentioned
+  sudo apt autoremove -- remove all unused
+  sudo iftop -i eth0 -- check Live DNS with iftop through eth0
