@@ -21,15 +21,24 @@ IP - 212.73.150.8
 Name - root
 Password - *V9g7v0HCg75f54^&gbnbx98*H
 
+•Basic commands for server
+  start
+  stop
+  restart
+  reboot
+  test  --get structure and info about vpn server 
+
 •Definitions
 * ss stands for “socket statistics” -- modern netstat
 * sudo stands for: “superuser do”, run as a root user 
 * apt - Advanced Package Tool, used on Debian-based Linux systems
 * dpkg - Debian Package Manager
 * iftop - interactive traffic monitor 
+* dig - domain information groper
 
 • Checking Commands:
-* q to exit on-going process (Ctrl+c if doesn't work) 
+* q to exit on-going process (Ctrl+c if doesn't work)
+* alias to get a list of all functions/aliases defined 
 uptime -- returns 00:32:32 up 20 days, 10:39,  1 user(shell),  load average: 0.01, 0.06, 0.02(1min, 5mins, 15mins % of 1 core used)
 w -- who and since when uses shell currently
 df -h -- disk space, -h makes human-readable format
@@ -43,13 +52,28 @@ sudo tcpdump -n port 53 --
 * dpkg --get-selections --get list of all packages 
 * apt list --installed -get list of all packages with more info
 * ip a -- see through what does your traffic go(e.j. eth0)
+* dig malware.testing.google.test -- try resolving DNS (e.j. gives youtube.com.   123 IN A 142.250.74.206)
+whoami -- check if root 
 netstat -anp | grep xray -- shows connections in process if netstat installed
 x-ui restart -- restart VPN manually if you use X-UI/Xray 
 apt update && apt upgrade -- updates packages(safe once a week) 
 reboot -- reboots the entire server 
 
-Mixing exanmple:
+• Non-password SSH entrance
+  1) Use already created pair 
+ssh root@212.73.150.8     --login to ssh, then use password
+ssh-keygen -i -f /root/pub >> /root/.ssh/authorized_keys  --setup server to accept pair
+
+ssh-copy-id -i ~/.ssh/my_custom_key root@YOUR.SERVER.IP
+OR:
+cat ~/.ssh/my_custom_key.pub
+
+
+
+Mixing example:
 sudo apt update && sudo apt upgrade 
+sudo tcpdump -n -i eth0 '(tcp port 443) or (udp port 53)' --check 2 ports
+sudo tcpdump -n -i eth0 port 53 | grep quizlet --
 
 ------------------------------------------------------------------------------------------------
                                       Special packages
@@ -68,6 +92,8 @@ sudo apt update && sudo apt upgrade
   q
   q
 
+• sudo apt install tcpdump
+  sudo tcpdump -n -i eth0 port 443  -- get live traffic through VPN port 
 
 
 
