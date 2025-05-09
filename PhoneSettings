@@ -19,7 +19,7 @@ ioi&*CH78
 Use Termius for config(IOS, fully intergrated)
 IP - 212.73.150.8
 Name - root
-Password - *V9g7v0HCg75f54^&gbnbx98*H 
+Password - *V9g7v0HCg75f54^&gbnbx98*H
 
 •Definitions
 * ss stands for “socket statistics” -- modern netstat
@@ -29,7 +29,7 @@ Password - *V9g7v0HCg75f54^&gbnbx98*H
 * iftop - interactive traffic monitor 
 
 • Checking Commands:
-* q to exit on-going process
+* q to exit on-going process (Ctrl+c if doesn't work) 
 uptime -- returns 00:32:32 up 20 days, 10:39,  1 user(shell),  load average: 0.01, 0.06, 0.02(1min, 5mins, 15mins % of 1 core used)
 w -- who and since when uses shell currently
 df -h -- disk space, -h makes human-readable format
@@ -61,3 +61,13 @@ sudo apt update && sudo apt upgrade
   sudo apt upgrade iftop -- upgrade package, upgrades all installed if none mentioned
   sudo apt autoremove -- remove all unused
   sudo iftop -i eth0 -- check Live DNS with iftop through eth0
+
+• sudo apt install dnstop
+  q
+  q
+  q
+  q
+
+
+
+
