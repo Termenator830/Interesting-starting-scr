@@ -38,7 +38,8 @@ Password - *V9g7v0HCg75f54^&gbnbx98*H
 
 • Checking Commands:
 * q to exit on-going process (Ctrl+c if doesn't work)
-* alias to get a list of all functions/aliases defined 
+* alias to get a list of all functions/aliases defined
+* clear -- clear terminal's screen 
 uptime -- returns 00:32:32 up 20 days, 10:39,  1 user(shell),  load average: 0.01, 0.06, 0.02(1min, 5mins, 15mins % of 1 core used)
 w -- who and since when uses shell currently
 df -h -- disk space, -h makes human-readable format
@@ -137,6 +138,7 @@ x="Hello" --set a variable
 x = $((5+3)) -- do math
 echo
   echo Hello --sends to stdout, goes to some file,command or terminal 
+  echo $SHELL -- bash or something 
   echo &x --write a variable
   echo "Done" > file.txt --write to a file 
 unset x --delete variable 
@@ -148,7 +150,9 @@ export x -- make a var accesible to any prog in current shell
     
     export DATA_DIR="/mnt/data"
     python run_analysis.py     # now Python can access it via os.environ["DATA_DIR"]
-
+ps aux | grep firefox --get currently running processes and info(process status), can be filtered 
+| grep firefox -- lines must contain "firefox" (global regular expression print) 
+grep firefox file.txt -- lines from a file those contain firefox 
 
 
 ------------------------------------------------------------------------------------------------
