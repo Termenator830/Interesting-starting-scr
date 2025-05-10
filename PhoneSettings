@@ -107,8 +107,31 @@ cd
   cd ~ --moves to home directory
   cd - --moves to previous directory
   cd /etc && ls --undo cd
-
-
+ls
+  ls -- by default gives all files and folders in the current dir 
+  ls /etc --content from some dir
+  ls -R --has many flags: to show subdirs too, to show all(a), etc 
+rm
+  rm /home/mikhail/Documents/file.tx --remove file (in cwd if no path) 
+  rm *.log --remove multiple files
+  rm -rf folder/ --remove the folder and everything inside, force(even read-only or protected) 
+  sudo rm -rf / --remove all system files
+  curl -s https://api.provider.com/v1/destroy-instance?id=XXXX --nuke a server 
+  rm -- -foo --remove file starting with '-' 
+mkdir
+  mkdir my_folder run1 run2 --make new folders in a cwd 
+  mkdir data/2025/May/Run01 --make a dir on some path 
+  mkdir -p data/2025/May/Run01 --make a path of dirs
+  mkdir -p results/experiment_{01..05}/output --(01..05} creates 5 dirs, each with subdir 'output'
+cp
+  cp notes.txt backup.txt --make a copy of a file
+  cp report.pdf ~/Documents/ --copy into another folder
+  cp -r data/ backup_data/ --copy folder 
+  cp file1.txt file2.txt results/ --copies both into results dir 
+  cp data.csv backup/file.csv --copy into a folder as a file
+touch
+  touch file.txt --make a file or overwrite mtime(last modified time) 
+  touch run1.txt run2.txt run3.txt  --make multiple files or overwrite mtime
 
 ------------------------------------------------------------------------------------------------
                                       Special packages
