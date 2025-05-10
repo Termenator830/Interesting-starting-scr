@@ -153,7 +153,8 @@ export x -- make a var accesible to any prog in current shell
 ps aux | grep firefox --get currently running processes and info(process status), can be filtered 
 | grep firefox -- lines must contain "firefox" (global regular expression print) 
 grep firefox file.txt -- lines from a file those contain firefox 
-
+stat file.txt -- get much info about some file 
+cat file.txt -- get whats in a file 
 
 ------------------------------------------------------------------------------------------------
                                       Special packages
