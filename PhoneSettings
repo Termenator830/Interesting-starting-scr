@@ -163,6 +163,8 @@ echo
   echo $SHELL -- bash or something 
   echo &x --write a variable
   echo "Done" > file.txt --write to a file 
+  echo $$ --get number of current process
+  echo $(whoami) --write command's output 
 unset x --delete variable 
 printenv -- same as echo but with exported vars, env info if none 
 export x -- make a var accesible to any prog in current shell 
@@ -172,7 +174,11 @@ export x -- make a var accesible to any prog in current shell
     export DATA_DIR="/mnt/data"
     python run_analysis.py     # now Python can access it via os.environ["DATA_DIR"]
 
-ps aux | grep firefox --get currently running processes and info(process status), can be filtered 
+ps aux | grep firefox --get currently running processes and info(process status), can be filtered
+  ps -p 2341 --get info about some process 
+  jobs --show all in-terminal jobs 
+  kill %1 --terminate task by num (can just be kill 1231 too) 
+  pkill sleep --terminate by name 
 | grep firefox -- lines must contain "firefox" (global regular expression print) 
 grep firefox file.txt -- lines from a file those contain firefox 
 stat file.txt -- get much info about some file 
@@ -207,8 +213,11 @@ find /etc -type f -size +100M --search for files with over 100Mb weight
   sudo apt update -- refresh the catalog of available packages
   sudo apt upgrade iftop -- upgrade package, upgrades all installed if none mentioned
   sudo apt autoremove -- remove all unused
+  sudo apt full-upgrade --update and upgrade everything 
+  sudo apt search iftop --find info about packet(description, some funcs)
+  sudo apt show iftop --find properties 
   sudo iftop -i eth0 -- check Live DNS with iftop through eth0
-
+  apt-mark showmanual --show manually installed packages
 • sudo apt install dnstop
   q
   q
@@ -218,5 +227,6 @@ find /etc -type f -size +100M --search for files with over 100Mb weight
 • sudo apt install tcpdump
   sudo tcpdump -n -i eth0 port 443  -- get live traffic through VPN port 
 
+• sudo apt install terminator -- use multiple terminals 
 
-
+• sudo apt install htop --upgraded and interactive top
