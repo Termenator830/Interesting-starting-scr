@@ -132,6 +132,24 @@ cp
 touch
   touch file.txt --make a file or overwrite mtime(last modified time) 
   touch run1.txt run2.txt run3.txt  --make multiple files or overwrite mtime
+hostname -- get a host's name 
+x="Hello" --set a variable
+x = $((5+3)) -- do math
+echo
+  echo Hello --sends to stdout, goes to some file,command or terminal 
+  echo &x --write a variable
+  echo "Done" > file.txt --write to a file 
+unset x --delete variable 
+printenv -- same as echo but with exported vars, env info if none 
+export x -- make a var accesible to any prog in current shell 
+  E.j.:
+    DATA_DIR="/mnt/data"
+    python run_analysis.py     # won't see DATA_DIR
+    
+    export DATA_DIR="/mnt/data"
+    python run_analysis.py     # now Python can access it via os.environ["DATA_DIR"]
+
+
 
 ------------------------------------------------------------------------------------------------
                                       Special packages
