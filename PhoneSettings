@@ -10,7 +10,7 @@ htpps://vpsag.com
 auroraoutman1972@secadoramail.com
 njSA(*T&R*D^T)Gvih
 
-3) admin-panel где-то ошибка
+3) admin-panel
 https://212.73.150.8:63944/8itqggm97bs9gp7qzuils01b4pxd7r5g
 ioi&*CH78
 ;OC8^Gc54467yGY
@@ -57,7 +57,16 @@ whoami -- check if root
 netstat -anp | grep xray -- shows connections in process if netstat installed
 x-ui restart -- restart VPN manually if you use X-UI/Xray 
 apt update && apt upgrade -- updates packages(safe once a week) 
-reboot -- reboots the entire server 
+reboot -- reboots the entire server
+
+--course and self-studying
+date -- e.j. Sat May 10 02:12:47 AM CEST 2025
+pwd -- print working directory 
+man uname -- manual page(purpose, flags) about function
+uname --help -- get usage guide for a command
+uname -a -- unix name, get info about current system 
+history -- previously used commands in a terminal 
+!147 -- run command previously used(get num from history) 
 
 • Non-password SSH entrance
   1) Use already created pair 
