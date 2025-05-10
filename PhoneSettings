@@ -40,6 +40,20 @@ Password - *V9g7v0HCg75f54^&gbnbx98*H
 * q to exit on-going process (Ctrl+c if doesn't work)
 * alias to get a list of all functions/aliases defined
 * clear -- clear terminal's screen 
+Ctrl+A -- go to line's start
+Ctrl+E -- go to line's end
+Ctrl+U -- delete all on the left 
+Ctrl+K -- delete all on the right 
+Ctrl+L -- clear the screen 
+Ctrl+Z -- pause a command (fg to unpause, bg to run in background) 
+Ctrl+R -- search recently done thing 
+Ctrl+G --esc searching mode 
+upper/lower arrow -- view recently done command
+Esc+B -- move back by 1 word
+Esc+F -- move forward by 1 word
+
+
+* command & --runs in a background 
 uptime -- returns 00:32:32 up 20 days, 10:39,  1 user(shell),  load average: 0.01, 0.06, 0.02(1min, 5mins, 15mins % of 1 core used)
 w -- who and since when uses shell currently
 df -h -- disk space, -h makes human-readable format
@@ -124,6 +138,11 @@ mkdir
   mkdir data/2025/May/Run01 --make a dir on some path 
   mkdir -p data/2025/May/Run01 --make a path of dirs
   mkdir -p results/experiment_{01..05}/output --(01..05} creates 5 dirs, each with subdir 'output'
+mv
+  mv newfiles/ oldfiles/ --move dir
+  sudo mv file1.txt newfiles/
+  
+  
 cp
   cp notes.txt backup.txt --make a copy of a file
   cp report.pdf ~/Documents/ --copy into another folder
@@ -133,6 +152,9 @@ cp
 touch
   touch file.txt --make a file or overwrite mtime(last modified time) 
   touch run1.txt run2.txt run3.txt  --make multiple files or overwrite mtime
+tree
+  sudo apt install tree --to draw paths to files 
+  tree ~/cert/ --if none, shows all paths(whole tree), can be used to inspect  
 hostname -- get a host's name 
 x="Hello" --set a variable
 x = $((5+3)) -- do math
@@ -146,15 +168,35 @@ printenv -- same as echo but with exported vars, env info if none
 export x -- make a var accesible to any prog in current shell 
   E.j.:
     DATA_DIR="/mnt/data"
-    python run_analysis.py     # won't see DATA_DIR
-    
+    python run_analysis.py     # won't see DATA_DIR    
     export DATA_DIR="/mnt/data"
     python run_analysis.py     # now Python can access it via os.environ["DATA_DIR"]
+
 ps aux | grep firefox --get currently running processes and info(process status), can be filtered 
 | grep firefox -- lines must contain "firefox" (global regular expression print) 
 grep firefox file.txt -- lines from a file those contain firefox 
 stat file.txt -- get much info about some file 
 cat file.txt -- get whats in a file 
+nano file.txt --open as in editor
+less file.txt --read line-by-line(scrolling, e.j. use to get cert)
+more file.txt --read all 
+head -n 7 numbers_en.txt --output 7 upper lines
+tail -n 7 numbers_en.txt --output 7 lower lines
+which ip -- find path to the command 
+ping google.com -- testing availability of a resource
+sudo traceroute -I ya.ru --get full path to
+wget https://google.tar -- download through link(.tar) 
+tar -xf google.tar --extract using filename from .tar, should move using cd
+sh install.sh --add to menu 
+regular expressions:
+  etc/a* --files starting with a
+  etc/[a-h]* --files starting with letter in range
+  etc/a? -- files with a and any other letter 
+  etc/[!a-h]* --files starting with anything but range 
+|| exit 0 --do till first success
+&& echo OK --do till first error
+find /etc -name "*.conf" --search recursively for a file(s) named somehow 
+find /etc -type f -size +100M --search for files with over 100Mb weight 
 
 ------------------------------------------------------------------------------------------------
                                       Special packages
