@@ -59,14 +59,20 @@ x-ui restart -- restart VPN manually if you use X-UI/Xray
 apt update && apt upgrade -- updates packages(safe once a week) 
 reboot -- reboots the entire server
 
---course and self-studying
-date -- e.j. Sat May 10 02:12:47 AM CEST 2025
-pwd -- print working directory 
-man uname -- manual page(purpose, flags) about function
-uname --help -- get usage guide for a command
-uname -a -- unix name, get info about current system 
-history -- previously used commands in a terminal 
-!147 -- run command previously used(get num from history) 
+•Usual flags
+-a <=> all
+-d, --debug <=> debug (e.j. python -d script.py OR python script.py --debug(shows whole logs) 
+-f. --force <=> force
+--json <=> Display JSON output
+-h, --help <=> Help
+--no-input <=> Disable prompt and interactivity
+-o, --output <=> Output file
+-p, --port <=> Port 
+-q, --quiet <=> quiet mode(show only special things)
+-u, --user <=> User
+--version <=> version
+-v <=> verbose(show more)
+-d <=> directory-related things 
 
 • Non-password SSH entrance
   1) Use already created pair 
@@ -83,6 +89,26 @@ Mixing example:
 sudo apt update && sudo apt upgrade 
 sudo tcpdump -n -i eth0 '(tcp port 443) or (udp port 53)' --check 2 ports
 sudo tcpdump -n -i eth0 port 53 | grep quizlet --
+
+www.promptly.fyi/library?
+------------------------------------------------------------------------------------------------
+                                    Course and self-studying
+date -- e.j. Sat May 10 02:12:47 AM CEST 2025
+pwd -- print working directory 
+man uname -- manual page(purpose, flags) about function
+uname --help -- get usage guide for a command
+uname -a -- unix name, get info about current system 
+history -- previously used commands in a terminal 
+!147 -- run command previously used(get num from history) 
+•Shell always stays in some working directory
+cd
+  cd /home/mikhail/projects -- move working directory
+  cd .. -- moves to a parent directory 
+  cd ~ --moves to home directory
+  cd - --moves to previous directory
+  cd /etc && ls --undo cd
+
+
 
 ------------------------------------------------------------------------------------------------
                                       Special packages
