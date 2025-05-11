@@ -1,3 +1,10 @@
+Your name: Termenator830
+Your computer's name: term830
+Your username: termenator830 
+Password: I_am_very_good_boy_555
+
+Battery saving mode, CPU frequency when idle - manual setup
+
 VPN and etc setup(SSH)
 
 1) email:
@@ -115,6 +122,7 @@ uname --help -- get usage guide for a command
 uname -a -- unix name, get info about current system 
 history -- previously used commands in a terminal 
 !147 -- run command previously used(get num from history) 
+whatis test --short description
 •Shell always stays in some working directory
 cd
   cd /home/mikhail/projects -- move working directory
@@ -203,6 +211,9 @@ regular expressions:
 && echo OK --do till first error
 find /etc -name "*.conf" --search recursively for a file(s) named somehow 
 find /etc -type f -size +100M --search for files with over 100Mb weight 
+| tr a-z A-Z --replace letters
+
+
 
 ------------------------------------------------------------------------------------------------
                                       Special packages
@@ -230,3 +241,8 @@ find /etc -type f -size +100M --search for files with over 100Mb weight
 • sudo apt install terminator -- use multiple terminals 
 
 • sudo apt install htop --upgraded and interactive top
+
+• sudo apt install bash-completion --auto-completion 
+
+• cron --schedule doing some task(usually sending to an email) 
+  sudo service cron stop
