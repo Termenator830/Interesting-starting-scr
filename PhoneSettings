@@ -56,6 +56,12 @@ Password - *V9g7v0HCg75f54^&gbnbx98*H
   reboot
   test  --get structure and info about vpn server 
 
+•Use VPN server on a Linux pc
+1) sudo apt install v2rayvless://2ed5cdec-de65-4a98-ff54-cce3960e3a09@212.73.150.8:443?type=tcp&security=reality&pbk=Yj_nwGtqKpJvl28P0k_QQfwl6EPlnrUeqWd1LYDwsDc&fp=chrome&sni=goo
+2)
+
+
+
 •Definitions
 * ss stands for “socket statistics” -- modern netstat
 * sudo stands for: “superuser do”, run as a root user 
