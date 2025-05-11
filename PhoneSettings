@@ -3,7 +3,27 @@ Your computer's name: term830
 Your username: termenator830 
 Password: I_am_very_good_boy_555
 
+1)sudo apt update && sudo apt upgrade -y 
+2) sudo add-apt-repository universe
+   sudo add-apt-repository multiverse
+   sudo apt update 
+3) sudo apt install gnome-tweaks --graphics, widgits and etc 
+4) sudo apt install ubuntu-restricted-extras
+5) sudo apt install openssh-client --for ssh management 
+6) sudo snap install code --classic   --VS code or Sublime Text 
+7) sudo apt install git --to make programming available 
+8) sudo apt install tlp tlp-rdw  --battery saving system
+   sudo systemctl enable tlp
+   sudo systemctl start(or stop) tlp 
+   sudo tlp
+10) sudo apt install gufw
+    sudo ufw enable
+11) sudo apt install flatpak gnome-software-plugin-flatpak 
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+12) sudo dpkg-reconfigure unattended-upgrades
+
 Battery saving mode, CPU frequency when idle - manual setup
+openvpn
 
 VPN and etc setup(SSH)
 
