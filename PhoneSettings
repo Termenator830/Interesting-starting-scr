@@ -21,7 +21,7 @@ Password: I_am_very_good_boy_555
     sudo ufw status
 10) sudo apt install flatpak gnome-software-plugin-flatpak    --a new app store
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-11) sudo dpkg-reconfigure unattended-upgrades      
+11) sudo dpkg-reconfigure unattended-upgrades    --auto security updates 
 
 Battery saving mode, CPU frequency when idle - manual setup
 openvpn
