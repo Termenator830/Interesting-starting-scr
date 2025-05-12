@@ -57,8 +57,27 @@ Password - *V9g7v0HCg75f54^&gbnbx98*H
   test  --get structure and info about vpn server 
 
 •Use VPN server on a Linux pc
-1) sudo apt install v2rayvless://2ed5cdec-de65-4a98-ff54-cce3960e3a09@212.73.150.8:443?type=tcp&security=reality&pbk=Yj_nwGtqKpJvl28P0k_QQfwl6EPlnrUeqWd1LYDwsDc&fp=chrome&sni=goo
-2)
+1) downlaod nekoray from github and unzip
+2) cd ~/Downloads/nekoray-3.21-2023-09-12-linux64/nekoray --migth need to move to another dir
+3) ldd nekoray --check if necessary libs installed 
+on Ubuntu 24.04: sudo apt update && sudo apt install -y \
+libqt5core5a \
+libqt5gui5 \
+libqt5widgets5 \
+libqt5network5 \
+libqt5svg5 \
+libqt5x11extras5 \
+libxcb-xinerama0 \
+libxcb-icccm4 \
+libxcb-image0 \
+libxcb-keysyms1 \
+libxcb-render-util0 \
+libxcb-xfixes0 \
+qt5dxcb-plugin 
+4)open nekoray, in preferences:
+   4.1) routing settings - set DNS to 1.1.1.1
+   4.2) tun mode - set Strict Route
+   4.3) make a new group (subscription)
 
 
 
