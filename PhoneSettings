@@ -77,7 +77,8 @@ qt5dxcb-plugin
 4)open nekoray, in preferences:
    4.1) routing settings - set DNS to 1.1.1.1
    4.2) tun mode - set Strict Route
-   4.3) make a new group (subscription)
+   4.3) right click on main panel and add new profile(from clipboard, the vless:// link must be copied) 
+   4.4) enable system proxy 
 
 
 
