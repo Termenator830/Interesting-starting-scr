@@ -623,6 +623,83 @@ int &val = someArray[index];   -- refer to array's index
 int (&ref)[5] = arr;   --reference to an array 
 int foo(string const &s)   --make unchangable in a func, save memory 
 
+•Structures - group vars
+
+&Example 
+#include <string>
+#include <iostream> 
+#include <cmath>
+using namespace std;
+
+struct Point {
+    double x;
+    double y;
+};
+
+struct Segment {
+    Point p1;
+    Point p2;
+};
+
+double length(Segment s) {
+    double dx = s.p1.x - s.p2.x;    --road, (*s).p1.x or s->p1.x if pointer 
+    double dy = s.p1.y - s.p2.y;
+    return sqrt(pow(dx, 2) + pow(dy, 2));
+}
+
+int main() {
+    setlocale(LC_ALL, "Rus");
+    double x1, y1, x2, y2, x3, y3, x4, y4;
+    cout << "Введите x первой точки первого отрезка=";
+    cin >> x1;
+    cout << "Введите y первой точки первого отрезка=";
+    cin >> y1;
+    cout << "Введите x второй точки первого отрезка=";
+    cin >> x2;
+    cout << "Введите y второй точки первого отрезка=";
+    cin >> y2;
+    cout << "Введите x первой точки второго отрезка=";
+    cin >> x3;
+    cout << "Введите y первой точки второго отрезка=";
+    cin >> y3;
+    cout << "Введите x второй точки второго отрезка=";
+    cin >> x4;
+    cout << "Введите y второй точки второго отрезка=";
+    cin >> y4;
+    Point p1{ x1, y1 }; Point p2{ x2, y2 }; // 1-й отрезок инициализация точек по двум координатам (x, y)
+        Point p3{ x3, y3 }; Point p4{ x4, y4 }; // 2-й отрезок инициализация точек по двум координатам (x, y)
+        Segment s1{ p1, p2 }; // 1-й отрезок инициализация отрезка по двум точкам 
+        Segment s2{ p3, p4 }; // 2-й отрезок инициализация отрезка по двум точкам
+        cout << endl << "Длинна первого отрезка s1=" << length(s1) << endl 
+            << "Длинна второго отрезка s2=" << length(s2) << endl;
+        return 0;
+    }
+
+
+&Example with pointers
+#include <iostream>
+using namespace std;
+
+struct ivector3d {
+    int array[3];
+};
+
+void scale(ivector3d *v, int k) {
+    for (int i = 0; i < 3; ++i)
+        v->array[i] *= k;
+}
+
+int main() {
+    ivector3d iv3d{{1, 1, 1}};
+    scale(&iv3d, 2);
+
+    for (int i = 0; i < 3; ++i)
+        cout << iv3d.array[i] << ' ';
+    cout << endl;
+
+    return 0;
+}
+
 •Classes and objects - data types
 &Example
 class Book {
@@ -994,6 +1071,29 @@ int main() {
     cout << "You entered: " << line << endl;
     delete[] line;
     return 0;
+}
+
+•Read from file
+#include <string>
+#include <fstream>
+#include <iostream> 
+using namespace std;
+
+int main() {
+    string greeting;
+    string text;
+    
+    ofstream output("output.txt");
+    output << "Hi, buddy" << endl;
+    output.close();
+    
+    ifstream input("output.txt");
+    input >> greeting;
+    getline(input, text);
+    input.close();
+    
+    cout << text;
+return 0;
 }
 
 ---------------------------------------------------------------------------------------------------
