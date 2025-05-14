@@ -604,6 +604,20 @@ int main() {
     return 0;
 }
 
+•Multi-dimensional array
+int ** create_array2d(size_t rows, size_t cols) {
+    int ** m = new int *[rows];
+    m[0] = new int[rows * cols];
+    for (size_t i = 1; i != rows; ++i) {
+        m[i] = m[i - 1] + cols;    --access elim m[i-1][cols]
+    return m;
+    }
+
+void free_array2d(int ** m, size_t rows, size_t cols) {
+    delete [] m[0];
+    delete [] m;
+}
+
 •References - unchangable, can't have 0 value, double ref doesnt exist,no memo nor math  
 int &val = someArray[index];   -- refer to array's index
 int (&ref)[5] = arr;   --reference to an array 
