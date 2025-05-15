@@ -164,7 +164,13 @@ services:
    5.2) homeserver for a server's device - http://localhost:8008 
    5.3) Jitsi server
    5.4) ip a | grep inet --get server's ip(changes every 2-3 hours) and enter http://192.168.100.19:8008(e.j.), doesnt work on element X
-
+5.B)
+   5.1) setup matrixchat1.ddnsfree.com(or whatever) on https://www.dynu.com 
+   5.2) in homeserver.yaml change server_name to "matrixchat1.ddnsfree.com" 
+   5.3) sudo docker exec -it <имя_контейнера> \
+  register_new_matrix_user -c /data/homeserver.yaml http://localhost:8008   --make new user
+   5.4) port forwarding (8008): enter router -> Entrance-8008 -> destination-8008 -> ip destination-192.168.100.19(or whatever) 
+   5.5) in SchildiChat: http://matrixchat1.ddnsfree.com:8008, @admin:matrixchat1.ddnsfree.com, password 
 
 
 
