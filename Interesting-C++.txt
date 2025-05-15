@@ -700,6 +700,52 @@ int main() {
     return 0;
 }
 
+&Constructors and deconstructors
+#include <iostream>
+using namespace std;
+
+struct Point {
+    Point() {
+        x = y = 0;   
+    }
+    Point(double x, double y) {
+        this->x = x;    --assign val x to struct's var x 
+        this->y = y;
+    }
+    double x;
+    double y;
+};
+
+int main() {
+    Point p1;
+    Point p2(3,7);  
+    return 0;
+}
+OR:
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+struct Point3D {
+    double x, y, z;
+    double length;
+
+    // Constructor with initializer list AND body
+    Point3D(double x, double y, double z)
+        : x(x), y(y), z(z)  // initialize coordinates
+    {
+        // compute derived quantity: vector length
+        length = sqrt(x * x + y * y + z * z);
+        cout << "Constructed Point3D with length: " << length << endl;
+    }
+};
+
+int main() {
+    Point3D p(3, 4, 0);  // length should be 5
+    cout << "p.x = " << p.x << ", p.length = " << p.length << endl;
+    return 0;
+}
+
 •Classes and objects - data types
 &Example
 class Book {
