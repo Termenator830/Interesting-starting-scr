@@ -104,7 +104,70 @@ sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 -e SYNAPSE_REPORT_STATS=no \
 matrixdotorg/synapse:latest generate
 4) Настройка homeserver.yaml под локальный сервер без федерации 
-   4.1) 
+   4.1) sudo nano ./data/homeserver.yaml
+   4.2) server_name: "localhost"
+pid_file: /data/homeserver.pid
+
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+        compress: false
+
+database:
+  name: sqlite3
+  args:
+    database: /data/homeserver.db
+
+log_config: "/data/localhost.log.config"
+media_store_path: /data/media_store
+
+enable_registration: true
+registration_shared_secret: "MyStrongSecretKey123"
+enable_registration_without_verification: true
+
+report_stats: false
+
+macaroon_secret_key: "MyAnotherSecretKey_456"
+form_secret: "FormSecret987654321"
+signing_key_path: "/data/localhost.signing.key"
+
+trusted_key_servers:
+  - server_name: "matrix.org"
+
+federation_domain_whitelist: []
+allow_public_rooms_over_federation: false
+allow_public_rooms_without_auth: false
+enable_metrics: false
+   4.3) sudo nano docker-compose.yml
+   4.4) version: "3.6"
+
+services:
+  synapse:
+    image: matrixdotorg/synapse:latest
+    container_name: synapse
+    restart: always
+    volumes:
+      - ./data:/data
+    ports:
+      - "8008:8008"
+    environment:
+      - SYNAPSE_SERVER_NAME=localhost
+      - SYNAPSE_REPORT_STATS=no
+   4.5) sudo docker compose up -d
+5.A) создание администратора
+   5.1) sudo docker exec -it synapse register_new_matrix_user -c /data/homeserver.yaml http://localhost:8008
+      --if username is admin1, it would be  @admin1:localhost 
+   5.2) homeserver for a server's device - http://localhost:8008 
+   5.3) Jitsi server
+   5.4) ip a | grep inet --get server's ip(changes every 2-3 hours) and enter http://192.168.100.19:8008(e.j.), doesnt work on element X
+
+
+
+
 
 •Definitions
 * ss stands for “socket statistics” -- modern netstat
