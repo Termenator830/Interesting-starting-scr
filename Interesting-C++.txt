@@ -746,6 +746,33 @@ int main() {
     return 0;
 }
 
+&Example of explicit (avoid implicit(неявный)) 
+#include <iostream>
+using namespace std;
+
+struct Point {
+    Point() {
+        x = y = 0;   
+    }
+    explicit Point(double x, double y) {  otherwise when using func with arg double - would give Point
+        this->x = x;
+        this->y = y;
+    }
+    ~ Point() {      --destructor 
+        delete [] x;
+    }
+    double x;
+    double y;
+};
+
+int main() {
+    Point p1;
+    Point p2(3, 7);
+    Point p3 = 20;  --error!
+    return 0;
+}
+
+
 •Classes and objects - data types
 &Example
 class Book {
