@@ -191,8 +191,35 @@ ingress:
 6) run matrix 
    6.1) cloudflared tunnel run matrix-tunnel    --run matrix-tunnel
    6.2) grep -m1 'hostname:' ~/.cloudflared/config.yml | awk '{print $3}'   --get hostname(run in other terminal) 
+   6.3) change server_name in homeserver.yaml to (from 6.2) "matrix.52f78661.cfargotunnel.com"
+         change public_baseurl to (e.j.) "https://matrix.52f78661.cfargotunnel.com/"
+7) make automaitve turning on
+   7.1) sudo nano /etc/systemd/system/cloudflared.service 
+   COPY-PAST TO IT:
+[Unit]
+Description=Cloudflare Tunnel (matrix-tunnel)
+After=network-online.target docker.service
+Wants=network-online.target
 
+[Service]
+Type=simple
+User=termenator830              # <-- your Linux login
+WorkingDirectory=/home/termenator830
+ExecStart=/usr/local/bin/cloudflared \
+          --no-autoupdate \
+          --config /home/termenator830/.cloudflared/config.yml \
+          tunnel run matrix-tunnel
+Restart=on-failure
+RestartSec=10
 
+[Install]
+WantedBy=multi-user.target
+
+   7.2) sudo systemctl daemon-reload          # read the new unit file
+      sudo systemctl enable  cloudflared    # start on every boot
+      sudo systemctl start   cloudflared    # start it right now     --do any of these 2.
+   7.3) sudo systemctl status cloudflared   --check if active 
+8) 
 
 domain request on nic.eu.org: MA3653-FREE
 Termenator830.cloudflareaccess.com
