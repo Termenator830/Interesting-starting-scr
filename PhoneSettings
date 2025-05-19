@@ -104,7 +104,7 @@ sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 -e SYNAPSE_REPORT_STATS=no \
 matrixdotorg/synapse:latest generate
 4) Настройка homeserver.yaml под локальный сервер без федерации 
-   4.1) sudo nano ./data/homeserver.yaml
+   4.1) sudo nano ~/matrix-server/data/homeserver.yaml    --to edit the file 
    4.2) server_name: "localhost"
 pid_file: /data/homeserver.pid
 
@@ -193,8 +193,8 @@ ingress:
    6.2) grep -m1 'hostname:' ~/.cloudflared/config.yml | awk '{print $3}'   --get hostname(run in other terminal) 
    6.3) change server_name in homeserver.yaml to (from 6.2) "matrix.52f78661.cfargotunnel.com"
          change public_baseurl to (e.j.) "https://matrix.52f78661.cfargotunnel.com/"
-7) make automaitve turning on
-   7.1) sudo nano /etc/systemd/system/cloudflared.service 
+7) make automaitve turning on of a matrix server 
+   7.1) sudo nano /etc/systemd/system/cloudflared-matrix.service 
    COPY-PAST TO IT:
 [Unit]
 Description=Cloudflare Tunnel (matrix-tunnel)
@@ -204,7 +204,6 @@ Wants=network-online.target
 [Service]
 Type=simple
 User=termenator830              # <-- your Linux login
-WorkingDirectory=/home/termenator830
 ExecStart=/usr/local/bin/cloudflared \
           --no-autoupdate \
           --config /home/termenator830/.cloudflared/config.yml \
@@ -218,7 +217,7 @@ WantedBy=multi-user.target
    7.2) sudo systemctl daemon-reload          # read the new unit file
       sudo systemctl enable  cloudflared    # start on every boot
       sudo systemctl start   cloudflared    # start it right now     --do any of these 2.
-   7.3) sudo systemctl status cloudflared   --check if active 
+   7.3) sudo systemctl status cloudflared-matrix   --check if active 
 8) 
 
 domain request on nic.eu.org: MA3653-FREE
