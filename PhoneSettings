@@ -198,12 +198,14 @@ ingress:
    COPY-PAST TO IT:
 [Unit]
 Description=Cloudflare Tunnel (matrix-tunnel)
-After=network-online.target docker.service
+After=network-online.target multi-user.target
 Wants=network-online.target
 
 [Service]
 Type=simple
-User=termenator830              # <-- your Linux login
+User=termenator830
+Environment=HOME=/home/termenator830
+WorkingDirectory=/home/termenator830
 ExecStart=/usr/local/bin/cloudflared \
           --no-autoupdate \
           --config /home/termenator830/.cloudflared/config.yml \
@@ -212,12 +214,15 @@ Restart=on-failure
 RestartSec=10
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 
    7.2) sudo systemctl daemon-reload          # read the new unit file
       sudo systemctl enable  cloudflared    # start on every boot
       sudo systemctl start   cloudflared    # start it right now     --do any of these 2.
    7.3) sudo systemctl status cloudflared-matrix   --check if active 
+   7.3) sudo -u termenator830 /usr/local/bin/cloudflared --config /home/termenator830/.cloudflared/config.yml tunnel run matrix-tunnel    --another variant to check
+8) Make work better(wont have warning anymore) 
+   8.1) 
 8) 
 
 domain request on nic.eu.org: MA3653-FREE
