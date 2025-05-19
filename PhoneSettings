@@ -196,7 +196,7 @@ ingress:
          change public_baseurl to (e.j.) "https://matrix.52f78661.cfargotunnel.com/"
 7) make automaitve turning on of a matrix server 
    7.1) sudo nano /etc/systemd/system/cloudflared-matrix.service 
-   COPY-PAST TO IT:
+   COPY-PASTE TO IT:
 [Unit]
 Description=Cloudflare Tunnel (matrix-tunnel)
 After=network-online.target multi-user.target
@@ -224,7 +224,29 @@ WantedBy=default.target
    7.4) sudo chmod u+x /usr/local/bin/cloudflared
    7.5) sudo systemctl status cloudflared-matrix   --check if active 
    7.5) sudo -u termenator830 /usr/local/bin/cloudflared --config /home/termenator830/.cloudflared/config.yml tunnel run matrix-tunnel    --another variant to check
-8)
+8) Synapse auto-launch
+   8.1) sudo nano /etc/systemd/system/synapse.service
+   COPY-PASTE TO IT:
+[Unit]
+Description=Matrix Synapse Server
+After=network.target
+
+[Service]
+Type=simple
+User=termenator830
+WorkingDirectory=/home/termenator830/matrix-server
+ExecStart=/usr/bin/python3 -m synapse.app.homeserver \
+  --config-path /home/termenator830/matrix-server/data/homeserver.yaml
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+   8.2) sudo systemctl daemon-reload
+         sudo systemctl enable synapse
+         sudo systemctl start synapse       --enter one-by-one 
+         sudo systemctl status synapse
+   8.3) 
 
 domain request on nic.eu.org: MA3653-FREE
 Termenator830.cloudflareaccess.com
