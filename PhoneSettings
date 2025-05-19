@@ -165,9 +165,24 @@ services:
    5.4) wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb --download(manually)
    5.5) cloudflared --version 
 5.B) setup for cloudflared tunnel login
-   5.1) cat /etc/hosts | grep github --if 127.0.0.1 github.com - use sudo nano /etc/hosts 
+   5.1) cat /etc/hosts | grep github    --if 127.0.0.1 github.com - use sudo nano /etc/hosts 
    5.2) unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy --not to have any blocks 
-   5.3) 
+   5.3) On the Account Home page (the “Boost your site’s speed…” screen), look for Enter an existing domain: (matrixchat1.ddnsfree.com) 
+         Pick the Free plan when it asks, then click Confirm.
+         Cloudflare will scan your current DNS records.  When it’s done, click Continue again.
+   5.4) rm -rf ~/.cloudflared
+   5.5) cloudflared tunnel login
+         click on matrixchat1.ddnsfree.com and click authorize 
+   5.6) ls -l ~/.cloudflared/cert.pem    --confirm you got a certificate 
+   5.7) cloudflared tunnel create matrix-tunnel      --save UUID (e.j. abcdef12-3456-7890-abcd-ef1234567890) 
+   5.8) nano ~/.cloudflared/config.yml
+   COPY-PASTE TO IT:
+
+
+
+
+
+
 
 
 domain request on nic.eu.org: MA3653-FREE
