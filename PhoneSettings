@@ -164,7 +164,7 @@ services:
    5.3) cd ~
    5.4) wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb --download(manually)
    5.5) cloudflared --version 
-5.B) setup for cloudflared tunnel login
+5.B) setup for cloudflared tunnel login and do login
    5.1) cat /etc/hosts | grep github    --if 127.0.0.1 github.com - use sudo nano /etc/hosts 
    5.2) unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy --not to have any blocks 
    5.3) On the Account Home page (the “Boost your site’s speed…” screen), look for Enter an existing domain: (matrixchat1.ddnsfree.com) 
@@ -177,11 +177,20 @@ services:
    5.7) cloudflared tunnel create matrix-tunnel      --save UUID (e.j. abcdef12-3456-7890-abcd-ef1234567890) 
    5.8) nano ~/.cloudflared/config.yml
    COPY-PASTE TO IT:
+# ~/.cloudflared/config.yml
+tunnel: 52f78661-f860-43b9-a3e6-a1ef0d5fe3a7
+credentials-file: /home/termenator830/.cloudflared/52f78661-f860-43b9-a3e6-a1ef0d5fe3a7.json
 
+ingress:
+  # any sub-subdomain ending in .cfargotunnel.com works
+  - hostname: matrix.52f78661.cfargotunnel.com
+    service: http://localhost:8008
 
-
-
-
+  # catch-all rule - must be LAST
+  - service: http_status:404
+6) run matrix 
+   6.1) cloudflared tunnel run matrix-tunnel    --run matrix-tunnel
+   6.2) grep -m1 'hostname:' ~/.cloudflared/config.yml | awk '{print $3}'   --get hostname(run in other terminal) 
 
 
 
