@@ -1,3 +1,4 @@
++
 Your name: Termenator830
 Your computer's name: term830
 Your username: termenator830 
@@ -219,11 +220,11 @@ WantedBy=default.target
    7.2) sudo systemctl daemon-reload          # read the new unit file
       sudo systemctl enable  cloudflared    # start on every boot
       sudo systemctl start   cloudflared    # start it right now     --do any of these 2.
-   7.3) sudo systemctl status cloudflared-matrix   --check if active 
-   7.3) sudo -u termenator830 /usr/local/bin/cloudflared --config /home/termenator830/.cloudflared/config.yml tunnel run matrix-tunnel    --another variant to check
-8) Make work better(wont have warning anymore) 
-   8.1) 
-8) 
+   7.3) sudo chown termenator830:termenator830 /usr/local/bin/cloudflared
+   7.4) sudo chmod u+x /usr/local/bin/cloudflared
+   7.5) sudo systemctl status cloudflared-matrix   --check if active 
+   7.5) sudo -u termenator830 /usr/local/bin/cloudflared --config /home/termenator830/.cloudflared/config.yml tunnel run matrix-tunnel    --another variant to check
+8)
 
 domain request on nic.eu.org: MA3653-FREE
 Termenator830.cloudflareaccess.com
