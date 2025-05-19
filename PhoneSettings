@@ -171,7 +171,7 @@ services:
   register_new_matrix_user -c /data/homeserver.yaml http://localhost:8008   --make new user
    5.4) port forwarding (8008): enter router -> Entrance-8008 -> destination-8008 -> ip destination-192.168.100.19(or whatever) 
    5.5) in SchildiChat: http://matrixchat1.ddnsfree.com:8008, @admin:matrixchat1.ddnsfree.com, password 
-
+domain request on nic.eu.org: MA3653-FREE
 
 
 
