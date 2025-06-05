@@ -10,14 +10,39 @@ Round <- Bullet <- Casing(cartridge)
   II) Rifle Round
   III) Pistol Round 
 
+FHP(Full Metal Jacket, 50+ cm penetration)
+JHP(acketed Hollow Point, 25-40 cm penetration) - for hunting, law enforcement, self-defence
+
 Examples of calibers:
   Малые калибры:
-    .22 Long Rifle(LR) - small, used in small guns(22 дюйма), 100-150 J
-    .25 ACP - used in mini-pistols(Colt 1908), 80-100 J
+    .22 Long Rifle(LR) - small, used in different guns(22 дюйма), 100-150 J
+      Caliber: 0.222" (5.6 mm)
+      Case Type: Rimfire, straight-walled
+      Case Length: 15.6 mm (0.613")
+      Bullet Diameter: 5.7 mm (0.224")
+      Bullet Weight: 1.9–3.2 g (30–50 gr)
+      Muzzle Velocity: 300–500 m/s (1,000–1,640 fps)
+      Muzzle Energy: 100–220 J (74–162 ft-lbs)
+      Typical Magazine Capacity: 5–30+ rounds (depending on firearm)
+
+    .25 ACP - used in mini-pistols(Colt 1908), 60-100 J - barely used 
+        Caliber: 0.25" (6.35 mm)
+        Case Type: Semi-rimmed, straight-walled
+        Case Length: 15.6 mm (0.613")
+        Bullet Diameter: 6.35 mm (0.251")
+        Bullet Weight: 1.8–3.2 g (27–50 gr)
+        Muzzle Velocity: 230–315 m/s (750–1,050 fps)
+        Muzzle Energy: 60–100 J (45–75 ft-lbs)
+        Typical Magazine Capacity: 6–9 rounds
+
   Средние калибры:
     9 mm Parabellum - used in most handguns(Makarov, Glock 17, Beretta 92), very balanced, 500-600 J
-    .380 ACP (9×17 мм Short) - compact pistols(Walther PPK, Bersa Thunder), 300 J
-    .40 S&W - wall breaking, 
+    .380 ACP (9×17 мм Short) - compact pistols(Walther PPK, Bersa Thunder), 300 J  
+    .40 S&W - wall breaking, medium recoil, almost dead bc 9mm have 12 units and .40 - only 12, 500-700 
+  Крупные калибры:
+    .45 ACP - used in semi-automatic rifles, in military to conserve ammo(very small) - сильная останавливающая сила, но малая ёмкость магазина и сильная отдача, 500-700 J 
+    .44 Magnum / .357 Magnum - revolvers, strong round - used in hunting, 800-1500 J 
+    .454 CAS(Casull) - sports/hunting, used in revolvers, up to 2.7 KJ 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
                                                             ПИСТОЛЕТЫ
