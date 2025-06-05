@@ -36,9 +36,57 @@ Examples of calibers:
         Typical Magazine Capacity: 6–9 rounds
 
   Средние калибры:
-    9 mm Parabellum - used in most handguns(Makarov, Glock 17, Beretta 92), very balanced, 500-600 J
-    .380 ACP (9×17 мм Short) - compact pistols(Walther PPK, Bersa Thunder), 300 J  
-    .40 S&W - wall breaking, medium recoil, almost dead bc 9mm have 12 units and .40 - only 12, 500-700 
+    9 mm Parabellum(prepare for war) - used in most handguns(Makarov, Glock 17, Beretta 92), the best, used by FBI 
+        Caliber: 0.355" (9 mm)
+        Case Type: Rimless, tapered
+        Case Length: 19.15 mm (0.754")
+        Bullet Weight: 7.5–9.5 g (115–147 gr)
+        Muzzle Velocity: 330–450 m/s (1,100–1,500 fps)
+        Muzzle Energy: 450–650 J (330–480 ft-lbs)
+        Penetration (Ballistic Gel):
+          FMJ: 50–70 cm (20–28") – Overpenetration risk!
+          JHP (Modern): 25–40 cm (10–16") – FBI-compliant expansion
+        Typical Magazine Capacity: 10–20+ rounds
+        Price per Round: $0.25–$0.50 (cheapest centerfire ammo)
+    .380 ACP (9×17 мм Short) - compact pistols(Walther PPK, Bersa Thunder), used as a secondary/spy gun 
+        Caliber: 0.355" (9 mm) (Same bullet diameter as 9mm Luger, but weaker)
+        Case Type: Rimless, straight-walled
+        Case Length: 17.3 mm (0.68") – Shorter than 9mm Luger
+        Bullet Weight: 6–8 g (90–125 gr)
+        Muzzle Velocity: 270–320 m/s (900–1,050 fps)
+        Muzzle Energy: 200–300 J (150–220 ft-lbs) – About half of 9mm Luger
+        Penetration (Ballistic Gel):
+          FMJ: 35–50 cm (14–20") – Overpenetration risk
+          JHP: 20–30 cm (8–12") (Often under-penetrates FBI standards)
+        Typical Magazine Capacity: 6–10 rounds
+        Price per Round: $0.35–$0.60 (cheaper than 9mm, pricier than .22 LR)
+
+    .32 ACP - worse and older than .380 ACP, favored in Italy, France(civilians and assasins) 
+        Caliber: 0.355" (9 mm) (Same bullet diameter as 9mm Luger, but weaker)
+        Case Type: Rimless, straight-walled
+        Case Length: 17.3 mm (0.68") – Shorter than 9mm Luger
+        Bullet Weight: 6–8 g (90–125 gr)
+        Muzzle Velocity: 270–320 m/s (900–1,050 fps)
+        Muzzle Energy: 200–300 J (150–220 ft-lbs) – About half of 9mm Luger
+        Penetration (Ballistic Gel):
+          FMJ: 35–50 cm (14–20") – Overpenetration risk
+          JHP: 20–30 cm (8–12") (Often under-penetrates FBI standards)
+        Typical Magazine Capacity: 6–10 rounds
+        Price per Round: $0.35–$0.60 (cheaper than 9mm, pricier than .22 LR)
+
+    .40 S&W - wall breaking, medium recoil, almost dead bc 9mm improved 
+        Caliber: 0.40" (10.2 mm)
+        Case Type: Rimless, straight-walled
+        Case Length: 21.6 mm (0.85")
+        Bullet Weight: 10–13 g (155–180 gr)
+        Muzzle Velocity: 300–400 m/s (1,000–1,300 fps)
+        Muzzle Energy: 500–700 J (370–520 ft-lbs)
+        Penetration (Ballistic Gel):
+          FMJ: 45–60 cm (18–24")
+          JHP (Modern): 30–45 cm (12–18") with reliable expansion
+        Typical Magazine Capacity: 12–15 rounds (full-size)
+        Price per Round: $0.40–$0.60 (cheaper than .45 ACP, pricier than 9mm)
+
     .357 Magnum - revolvers, defence
         Caliber: 0.357" (9.07 mm)
         Case Length: 33 mm (1.29")
@@ -46,9 +94,23 @@ Examples of calibers:
         Muzzle Velocity: 380–520 m/s (1,250–1,700 fps)
         Muzzle Energy: 700–1,100 J (500–800 ft-lbs)
         Penetration (Ballistic Gel):
-        FMJ: 50–70 cm (20–28")
-        JHP: 35–50 cm (14–20") with expansion
+          FMJ: 50–70 cm (20–28")
+          JHP: 35–50 cm (14–20") with expansion
         Typical Capacity: 6–8 rounds (revolvers)
+
+    .357 SIG - spyer .357 magnum, faster 9mm, but 9mm +P+(plus plus pressure, barrier blind) and .40 S&W outplayed. GREAT barrier beater 
+        Caliber: 0.355" (9 mm) (Same bullet as 9mm, but faster!)
+        Case Type: Bottlenecked (like a rifle round)
+        Case Length: 22 mm (0.865")
+        Bullet Weight: 7–8.5 g (115–125 gr)
+        Muzzle Velocity: 410–490 m/s (1,350–1,600 fps)
+        Muzzle Energy: 650–850 J (480–630 ft-lbs) *(Beats 9mm +P!)*
+        Penetration (Ballistic Gel):
+          FMJ: 50–65 cm (20–26")
+          JHP: 30–45 cm (12–18") with violent expansion
+        Typical Magazine Capacity: 10–15 rounds
+        Price per Round: $0.60–$1.20 (rare, pricier than 9mm)
+
     .44 Magnum - revolvers, king before .454 Casull, used in attacking 
         Caliber: 0.429" (10.9 mm)
         Case Length: 32.6 mm (1.285")
@@ -56,8 +118,8 @@ Examples of calibers:
         Muzzle Velocity: 440–500 m/s (1,450–1,650 fps)
         Muzzle Energy: 1,000–1,600 J (750–1,200 ft-lbs)
         Penetration (Ballistic Gel):
-        FMJ: 60+ cm (24+") – Overkill for humans
-        JHP: 40–55 cm (16–22") with massive expansion
+          FMJ: 60+ cm (24+") – Overkill for humans
+          JHP: 40–55 cm (16–22") with massive expansion
         Typical Capacity: 5–6 rounds (revolvers)
 
   Крупные калибры:
@@ -73,6 +135,7 @@ Examples of calibers:
         FMJ: 45–60 cm (18–24") – Heavy overpenetration risk
         JHP (Modern): 30–45 cm (12–18") with reliable expansion
         Typical Magazine Capacity: 7–10 rounds (standard), up to 15 (extended)
+
     .454 CAS(Casull) - powerful revolvers, can destroy anything 
         Caliber: 0.452" (11.5 mm)
         Case Type: Rimmed, straight-walled
@@ -85,6 +148,7 @@ Examples of calibers:
         JHP: 45–60 cm (18–24") with violent expansion
         Typical Capacity: 5 rounds (revolvers)
         Price per Round: $2.50–$5.00 (cheapest FMJ ~$1.80)
+
     .500 S&W magnum - elephant/bear hunt, wrist-destroying, the most powerful 
         Caliber: 0.500" (12.7 mm)
         Case Type: Rimmed, straight-walled
@@ -97,6 +161,7 @@ Examples of calibers:
         JHP: 50–70 cm (20–28") with massive expansion
         Typical Capacity: 5 rounds (revolvers)
         Price per Round: $3.00–$6.00 (cheapest FMJ ~$2.50)
+
     .460 S&W magnum - deer, elk. .500 but for more distance and less wrist harm(flatter) 
         Caliber: 0.452" (11.5 mm) (Same bullet as .454 Casull)
         Case Type: Rimmed, bottlenecked
