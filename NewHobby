@@ -35,6 +35,20 @@ Examples of calibers:
         Muzzle Energy: 60–100 J (45–75 ft-lbs)
         Typical Magazine Capacity: 6–9 rounds
 
+    5.56x45mm NATO - close combat usage(up to 500m effective distance)
+        Caliber: 0.224" (5.7 mm)
+        Case Type: Rimless, bottlenecked
+        Case Length: 44.7 mm (1.76")
+        Bullet Weight: 3.5–5.8 g (55–77 gr)
+        Muzzle Velocity: 850–940 m/s (2,800–3,100 fps)
+        Muzzle Energy: 1,600–1,900 J (1,200–1,400 ft-lbs)
+        Penetration (Ballistic Gel):
+          M193 (55gr FMJ): 50–60 cm (20–24") – Fragments violently
+          M855 (62gr "Green Tip"): 60+ cm (24+") – Mild steel-penetrating
+          MK318 Mod 0 (Open-Tip): 35–45 cm (14–18") – Optimized for barriers
+        Effective Range: 400–600 m (depending on barrel length)
+        Price per Round: $0.40–$1.00 (cheapest steel-case ~$0.30)
+
   Средние калибры:
     9 mm Parabellum(prepare for war) - used in most handguns(Makarov, Glock 17, Beretta 92), the best, used by FBI 
         Caliber: 0.355" (9 mm)
@@ -122,6 +136,54 @@ Examples of calibers:
           JHP: 40–55 cm (16–22") with massive expansion
         Typical Capacity: 5–6 rounds (revolvers)
 
+    7.62x39 - "won civil war", barrier blind(bricks, car doors), hits harder than 5.56 at close range, worse than 5.56 in combat 
+      Caliber: 0.312" (7.92 mm actual bullet diameter)
+      Case Type: Rimless, tapered bottleneck
+      Case Length: 38.7 mm (1.52")
+      Bullet Weight: 7.9–12.5 g (122–154 gr)
+      Muzzle Velocity: 610–750 m/s (2,000–2,460 fps)
+      Muzzle Energy: 2,000–2,300 J (1,500–1,700 ft-lbs)
+      Penetration (Ballistic Gel):
+        FMJ (122gr): 50–65 cm (20–26") – Tumbles for wounding
+        Hollow Point (HP): 35–45 cm (14–18") – Better expansion
+        AP (7N23): 70+ cm (28+") – Mild steel penetration
+      Effective Range: 300–400 m (practical combat)
+      Price per Round: $0.35–$0.70 (steel-case cheapest)
+
+  .300 BLK - very quiet, optimised for many guns, suppressor 7.62x39
+      Caliber: 0.308" (7.62 mm)
+      Case Type: Rimless, bottleneck (based on 5.56 NATO case, necked up)
+      Case Length: 34.7 mm (1.37")
+      Bullet Weight: 6.5–14.3 g (100–220 gr)
+      Muzzle Velocity:
+      Supersonic (110–125gr): 650–800 m/s (2,100–2,600 fps)
+      Subsonic (190–220gr): 300–320 m/s (~1,050 fps)
+      Muzzle Energy:
+        Supersonic: 1,300–1,800 J (950–1,300 ft-lbs)
+        Subsonic: 500–600 J (370–450 ft-lbs) (Similar to .45 ACP)
+      Penetration (Ballistic Gel):
+        Supersonic FMJ: 50–60 cm (20–24")
+        Subsonic JHP: 30–40 cm (12–16") (Designed for expansion)
+      Effective Range:
+        Supersonic: 400–500 m
+        Subsonic: 150 m (suppressed)
+      Price per Round: $0.60–$2.00 (subsonic costs more)
+
+    300 Win Magnum - great accuracy, long-range, great stopping power 
+        Caliber: 0.308" (7.62 mm)
+        Case Type: Belted, bottlenecked
+        Case Length: 67 mm (2.62")
+        Bullet Weight: 10–14.3 g (150–220 gr)
+        Muzzle Velocity:
+        150gr: 950–1,000 m/s (3,100–3,300 fps)
+        220gr: 750–800 m/s (2,450–2,600 fps)
+        Muzzle Energy: 3,500–4,500 J (2,600–3,300 ft-lbs) (2× .308 Win!)
+        Penetration (Ballistic Gel):
+          FMJ: 80+ cm (30+") – Overkill for most game
+          Hunting JHP: 50–70 cm (20–28") – Massive expansion
+        Effective Range: 1,200–1,500m (with match ammo)
+        Price per Round: $2.00–$5.00 (match ammo >$3/round)
+
   Крупные калибры:
     .45 ACP(Automatic Colt Pistol) - used in semi-automatic rifles, in military to conserve ammo(very small) - сильная останавливающая сила, но малая ёмкость магазина и сильная отдача, 500-700 J 
         Caliber: 0.451" (11.43 mm)
@@ -175,6 +237,7 @@ Examples of calibers:
         Typical Capacity: 5 rounds (revolvers)
         Price per Round: $2.50–$5.00
 
+    .50
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
                                                             ПИСТОЛЕТЫ
