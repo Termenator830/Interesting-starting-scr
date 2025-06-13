@@ -101,7 +101,7 @@ char + char = int
 --can be logical, comparison, type, shortened binarian
 float f = (int)d; --make d int before ops 
 int b = ++a --return new a(a + 1) - prefix increment
-int c == a++ --return old a - postfix increment
+int c == a++ --return old a, make a = a + 1 - postfix increment
 
 &Example of ternary expression
 if (d >= 0)   --applied only for the next statement 
