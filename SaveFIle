@@ -98,6 +98,36 @@ type - <class 'list'>, len - 100, size - 460            #   [i for i in range(10
 type - <class 'tuple'>, len - 100, size - 428         #   tuple((i for i in range(100)))
 type - <class 'generator'>, len - 100, size - 48   #   (i for i in range(100))
 
+Watched:
+That Time I Got Reincarnated as a Slime				(Mariabelle arc ending) 
+Naruto
+One Piece
+Am I the strongest one?						(ongoing) 
+Black Clover(							till kingdom travelling arc) 
+The Seven Deadly Sins						(besides last season) 
+Moolight fantasy						(ongoing) 
+About reincarnation of a demon king as a typical nobody 
+Solo Leveling							(part 1) 
+Elder's grandson 
+Attack On Titan							(besides last episode) 
+Sword Arts Online
+Hunter X Hunter 
+Castlevania
+Arcane 
+Assasination Classroom 						(Mid place) 
+Chainsaw Man							(part 1)
+One Punch Man							(ninja leader fight)
+Tokyo Ghoul
+Kaiju no. 8							(ongoing, 3 eps. left)
+Doctor stone(2 seasons) 
+
+Going to watch:
+Tower of God
+Goblin slayer 
+Arifureta: From Commonplace to World's Strongest 
+Overlord
+Jujutsu Kaisen
+
 | Use case                        | Use this     |
 |----------------------------------|--------------|
 | Ordered simple items             | `list`       |
