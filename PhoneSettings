@@ -81,9 +81,79 @@ qt5dxcb-plugin
    4.3) right click on main panel and add new profile(from clipboard, the vless:// link must be copied) 
    4.4) enable system proxy 
 
+•Windows pc setup
 1) BIOS setup(but before that disable BitLocker via shell)
 2) Get rid of spyware:
 2.1) get script
+# disable_spy_services.ps1
+# ----------------------------------------------------
+# Stops, disables, and hard-locks spyware/telemetry services via registry (Start=4).
+# Allows recovery by manually changing registry values later.
+
+$services = @(
+    # Windows Telemetry & Tracking
+    "DiagTrack",                # Diagnostics Tracking Service
+    "dmwappushservice",         # WAP Push Message Routing
+    "RetailDemo",               # Retail Demo Service
+    "MapsBroker",               # Downloaded Maps Manager
+    "XblGameSave",              # Xbox Live Game Save
+    "XboxGipSvc",               # Xbox Accessory Management
+    "XboxNetApiSvc",            # Xbox Live Networking
+    "WMPNetworkSvc",            # Windows Media Player Sharing (unnecessary)
+    "Fax",                      # Fax Service (obsolete)
+    "RemoteRegistry",           # Remote Registry (security risk)
+    "WbioSrvc",                 # Windows Biometric Service (if unused)
+    "OneSyncSvc",               # Sync Host (part of telemetry)
+    "PcaSvc",                   # Program Compatibility Assistant
+    "WSearch",                  # Windows Search (slows down HDDs)
+    "YandexUpdater",
+    "YandexMusic"
+)
+
+foreach ($svc in $services) {
+    try {
+        Write-Host "[+] Disabling $svc..." -ForegroundColor Yellow
+
+        # Stop if running
+        if (Get-Service $svc -ErrorAction SilentlyContinue) {
+            Stop-Service -Name $svc -Force -ErrorAction Stop
+            Set-Service -Name $svc -StartupType Disabled -ErrorAction Stop
+        }
+
+        # Hard-disable via Registry (Start=4)
+        $regPath = "HKLM:\SYSTEM\CurrentControlSet\Services\$svc"
+        if (Test-Path $regPath) {
+            Set-ItemProperty -Path $regPath -Name "Start" -Value 4 -ErrorAction Stop
+            Write-Host "  → Registry locked (Start=4)" -ForegroundColor Cyan
+        } else {
+            Write-Host "  → Service not found in registry" -ForegroundColor DarkGray
+        }
+
+    } catch {
+        Write-Host "  → Error: $_" -ForegroundColor Red
+    }
+}
+
+Write-Host "`n[✓] Done! All spyware/telemetry services disabled and locked." -ForegroundColor Green"
+
+2.2) use script:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+cd "$env:USERPROFILE\OneDrive\Desktop"
+.\disable_spy_services.ps1
+
+2.3)get Autoruns and disable unnecessary things
+https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns
+2.3.2) if somethings doesn't "exist" nor delete
+    https://download.sysinternals.com/files/PSTools.zip    --download and unzip the tools
+   go to command line(in same section as UEFI)
+   run:
+      C:
+      cd Windows\System32\drivers
+      regedit       --зачистка
+      rmdir /s /q K4W-21-21      --пример удаления
+      dir K4W*         --проверка удалилось ли
+      del /f /q klark.sys     --пример удаления
+   then reboot pc
 
 •Matrix setup
 
