@@ -81,7 +81,7 @@ qt5dxcb-plugin
    4.3) right click on main panel and add new profile(from clipboard, the vless:// link must be copied) 
    4.4) enable system proxy 
 
-•Windows pc setup
+•Windows and linux(dual boot) pc setup 
 1) BIOS setup(but before that disable BitLocker via shell)
 2) Get rid of spyware:
 2.1) get script
@@ -154,9 +154,13 @@ https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns
       dir K4W*         --проверка удалилось ли
       del /f /q klark.sys     --пример удаления
    then reboot pc
+2.4) install ESET Online Scanner
+https://www.eset.com/int/home/online-scanner/      --to sometimes do full anti-malware scan
+
 3) Uninstall Kaspersky, reload(now Windows Defender is installed), download and setup TinyWall(auto-learning)
 4) Setup Dual Boot
-4.1) Allocate disk memory for Linux
+4.1) Unallocate disk memory
+windows -> Disk management, then right click on "C:" and shrink volume
 
 
 •Matrix setup
