@@ -161,7 +161,13 @@ https://www.eset.com/int/home/online-scanner/      --to sometimes do full anti-m
 4) Setup Dual Boot
 4.1) Unallocate disk memory
 windows -> Disk management, then right click on "C:" and shrink volume
-
+4.2) to clean old flash:
+open Windows PowerShell:
+   diskpart
+   list disk
+   select disk 1
+   clean
+then format it and put .iso file to it
 
 •Matrix setup
 
