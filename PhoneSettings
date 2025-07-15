@@ -81,6 +81,10 @@ qt5dxcb-plugin
    4.3) right click on main panel and add new profile(from clipboard, the vless:// link must be copied) 
    4.4) enable system proxy 
 
+1) BIOS setup(but before that disable BitLocker via shell)
+2) Get rid of spyware:
+2.1) get script
+
 •Matrix setup
 
 1) Устанавливаем Docker и Docker Compose
