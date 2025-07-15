@@ -8,7 +8,8 @@ Password: I_am_very_good_boy_555
 2) sudo add-apt-repository universe
    sudo add-apt-repository multiverse
    sudo apt update 
-3) sudo apt install gnome-tweaks --graphics, widgits and etc 
+3) sudo apt install gnome-tweaks --graphics, widgits and etc
+   sudo apt install -y fonts-cascadia-code ttf-mscorefonts-installer
 4) sudo apt install ubuntu-restricted-extras
 5) sudo apt install openssh-client --for ssh management 
 6) sudo snap install code --classic   --VS code or Sublime Text 
