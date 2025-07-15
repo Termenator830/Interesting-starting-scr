@@ -10,6 +10,9 @@ Password: I_am_very_good_boy_555
    sudo apt update 
 3) sudo apt install gnome-tweaks --graphics, widgits and etc
    sudo apt install -y fonts-cascadia-code ttf-mscorefonts-installer
+   sudo systemctl enable fstrim.timer && sudo fstrim -av        --improve filesystem performance
+   sudo systemctl disable NetworkManager-wait-online.service && sudo systemctl mask systemd-networkd-wait-online.service    --lower boot time
+   sudo apt install -y build-essential curl wget
 4) sudo apt install ubuntu-restricted-extras
 5) sudo apt install openssh-client --for ssh management 
 6) sudo snap install code --classic   --VS code or Sublime Text 
@@ -24,6 +27,39 @@ Password: I_am_very_good_boy_555
 10) sudo apt install flatpak gnome-software-plugin-flatpak    --a new app store
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 11) sudo dpkg-reconfigure unattended-upgrades    --auto security updates 
+12) Coding setup:
+      wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+      sudo dpkg -i vscode.deb && rm vscode.deb
+      code --install-extension ms-vscode.cpptools-extension-pack
+      code --install-extension ms-python.python
+      code --install-extension twxs.cmake
+      code --install-extension xaver.clang-format
+      # Temporarily remove the problematic PPA
+      sudo add-apt-repository --remove ppa:linuxuprising/apps
+      sudo apt update
+      # 1. First update package lists
+      sudo apt update
+      
+      # 2. Install absolute essentials
+      sudo apt install -y build-essential curl wget git
+      
+      # 3. Install Python tools
+      sudo apt install -y python3 python3-pip python3-venv python3-dev
+      
+      # 4. Install C++ tools
+      sudo apt install -y g++ clang cmake gdb valgrind
+      
+      # 5. Install VS Code dependencies
+      sudo apt install -y libgtk-3-0 libxss1 libgconf-2-4 libnss3
+      
+      # 6. Now install VS Code properly
+      wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+      sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+      sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+      sudo apt update
+      sudo apt install -y code
+      rm packages.microsoft.gpg
+
 
 Battery saving mode, CPU frequency when idle - manual setup
 openvpn
