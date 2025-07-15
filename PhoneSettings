@@ -154,6 +154,10 @@ https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns
       dir K4W*         --проверка удалилось ли
       del /f /q klark.sys     --пример удаления
    then reboot pc
+3) Uninstall Kaspersky, reload(now Windows Defender is installed), download and setup TinyWall(auto-learning)
+4) Setup Dual Boot
+4.1) Allocate disk memory for Linux
+
 
 •Matrix setup
 
