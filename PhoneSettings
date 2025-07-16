@@ -245,6 +245,9 @@ open Windows PowerShell:
 then format it and put .iso file to it
 4.3) format into FAT32 with Rufus and do linux setup
 4.4) to go to BIOS from linux: systemctl reboot --firmware-setup
+5) on windows:
+https://aka.ms/vs/17/release/vc_redist.x64.exe     --necessary for many prograams to work
+https://github.com/MatsuriDayo/nekoray/releases      --official nekoray
 
 
 •Matrix setup
