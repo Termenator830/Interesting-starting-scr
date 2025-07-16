@@ -243,6 +243,9 @@ open Windows PowerShell:
    select disk 1
    clean
 then format it and put .iso file to it
+4.3) format into FAT32 with Rufus and do linux setup
+4.4) to go to BIOS from linux: systemctl reboot --firmware-setup
+
 
 •Matrix setup
 
