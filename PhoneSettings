@@ -59,7 +59,27 @@ Password: I_am_very_good_boy_555
       sudo apt update
       sudo apt install -y code
       rm packages.microsoft.gpg
-
+13) install arduino
+13.1) install dependencies
+sudo apt update && sudo apt install -y \
+    gcc-avr avr-libc avrdude \           # AVR (Arduino Uno/Nano)
+    gcc-arm-none-eabi \                   # ARM (STM32)
+    python3-serial \                      # Serial monitor
+    libusb-1.0-0 libusb-1.0-0-dev \      # USB access
+    libftdi1 libftdi1-dev \               # FTDI chips
+    udev \                                # Device permissions
+    stlink-tools openocd \                # STM32 debugging
+    esptool                               # ESP8266/ESP32
+13.2) get necessary user groups
+   sudo usermod -a -G dialout $USER
+   sudo usermod -a -G plugdev $USER
+13.3) File -> preferences -> additionl boards manageer URLs:
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json,
+https://arduino.esp8266.com/stable/package_esp8266com_index.json
+13.4) python dependencies
+   pip install pyserial esptool
+13.5) check if microcontroller is acceesible
+   ls -l /dev/ttyACM*
 
 Battery saving mode, CPU frequency when idle - manual setup
 openvpn
