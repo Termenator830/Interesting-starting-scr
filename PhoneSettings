@@ -73,13 +73,31 @@ sudo apt update && sudo apt install -y \
 13.2) get necessary user groups
    sudo usermod -a -G dialout $USER
    sudo usermod -a -G plugdev $USER
+   groups         --check used groups
 13.3) File -> preferences -> additionl boards manageer URLs:
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json,
 https://arduino.esp8266.com/stable/package_esp8266com_index.json,
 13.4) python dependencies
    pip install pyserial esptool
 13.5) check if microcontroller is acceesible
-   ls -l /dev/ttyACM*
+   ls -l /dev/ttyACM*      --might be other
+14) Zoom instalation
+14.1) necessary dependencies
+sudo apt install -y \
+    libxcb-xtest0 libxcb-xfixes0 libxcb-cursor0 \
+    libgl1-mesa-glx libegl1-mesa \
+    pulseaudio pavucontrol \
+    libqt5gui5 libqt5webenginewidgets5
+14.2) install zoom
+   wget https://zoom.us/client/latest/zoom_amd64.deb
+   sudo apt install -y ./zoom_amd64.deb
+   rm zoom_amd64.deb
+14.3) fix common issues
+   pulseaudio -k && pulseaudio --start
+   ls -l /dev/video*  # Ensure camera is accessible
+   sudo nano /etc/gdm3/custom.conf
+   WaylandEnable=false         --better than x11, but zoom screen sharing might break
+
 
 Battery saving mode, CPU frequency when idle - manual setup
 openvpn
