@@ -75,7 +75,7 @@ sudo apt update && sudo apt install -y \
    sudo usermod -a -G plugdev $USER
 13.3) File -> preferences -> additionl boards manageer URLs:
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json,
-https://arduino.esp8266.com/stable/package_esp8266com_index.json
+https://arduino.esp8266.com/stable/package_esp8266com_index.json,
 13.4) python dependencies
    pip install pyserial esptool
 13.5) check if microcontroller is acceesible
