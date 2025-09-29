@@ -4,6 +4,8 @@ x,y - functions
 a-z(except x,y) and A-Z - variables
 "shift" + "-" to write indexes
 (x2,y2) -- to graph a point(can also be done with sets), other way is to use a table
+y1 ~ x1^2 + bx1 + c 	--to draw a function that goes through the exact points
+
 Equals: = and ~(unusable ith infinite variables), variables with ~ are regression equals
 5a + 2 ~ 12 - desmos will solve
 
