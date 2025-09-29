@@ -3,9 +3,14 @@ Desmos tutorial:
 x,y - functions
 a-z(except x,y) and A-Z - variables
 "shift" + "-" to write indexes
+(x2,y2) -- to graph a point(can also be done with sets), other way is to use a table
 Equals: = and ~(unusable ith infinite variables), variables with ~ are regression equals
 5a + 2 ~ 12 - desmos will solve
+
 Variants of writing functions: y^2 - 2 = 1/x; y^2 = 2 + 1/x; f(x) = 2 + 1/x - can use "~" to find a from f(a) ~ 3.
+
+after using a = [1,2,3] (a statistic element list), you can use min(a), max(a), median(a), mean(a), etc
+To solve a system of equations: [a+b,a-b] ~ [10,4]
 
 Приборы:
 Multitester - проверка элементов, калибруется подключением перемычки к 1-2-3.
