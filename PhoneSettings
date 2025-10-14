@@ -229,6 +229,15 @@ ____________
 root
 cD$*bn9v*HJ)$*h7B^V%&X
 
+public key for pasting into OpenSSH authorized_keys file:
+ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAGkWhS2IDZCHoXIeuLPzUJvd0utJ7ik4Wybzg4eNBeqGHvZYt/AEozXYIIXw+SOccIfYS8oORk8k7zsE/h16RAO5ABLei/7Y854pEERxWhCKjHqFEJhUkQflwUrGe7N/sEMSlxw0YvWT5Skgr/b28tArl/Msos44+0XEOfAc+fGGrxHMA== ecdsa-key-20251014
+key fingerprint:
+ecdsa-sha2-nistp521 521 SHA256:Xd/a+6v9tGOiyE3YB3UHE1CATfKyZmwh5Epk1QuKTh4
+key comment:
+ecdsa-key-20251014
+key passphrase: HASKJ8yy8711&(*!@(*0HDSY!*99fhue892
+
+
 ____________
 
 #6 [bridges admins]:
