@@ -243,6 +243,7 @@ ssh commands:
 ssh-keygen -i -f /root/public_key1 >> /root/.ssh/authorized_keys
 nano /etc/ssh/sshd_config
 nano /etc/ssh/sshd_config.d/50-cloud-init.conf
+open/close      --open or close registration
 
 ____________
 
