@@ -351,6 +351,20 @@ sudo rm -f /etc/nginx/sites-enabled/default       --Enable the site
 
 3.5) sudo nginx -t
 sudo systemctl restart nginx    --test and start nginx
+3.6) echo "127.0.0.1 matrix.local.test" | sudo tee -a /etc/hosts     --add to you local hosts file
+3.7) sudo systemctl status nginx     --check status
+3.8) hostname -I       --get local IP
+3.9) sudo nano /etc/hosts     --update file
+127.0.0.1 localhost matrix.local.test    --find line and edit
+3.10) ls -la /etc/nginx/sites-enabled/    --check if there is a default file
+3.11) sudo rm /etc/nginx/sites-enabled/default     --remove default file
+3.12) sudo systemctl restart nginx
+sudo systemctl status nginx     --restart the thing
+3.13) ls -la /etc/nginx/sites-available/      --check if matrix-synapse exists
+3.14) sudo ln -sf /etc/nginx/sites-available/matrix-synapse /etc/nginx/sites-enabled/matrix-synapse     --create symlink
+3.15) ls -la /etc/nginx/sites-enabled/     --verify it worked
+3.16) sudo systemctl restart nginx
+sudo netstat -tlnp | grep -E '80|443'     --restart the thing
 
 
 IV) Usage
