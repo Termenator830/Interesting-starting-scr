@@ -16,6 +16,7 @@ echo "deb [signed-by=/usr/share/keyrings/matrix-org-archive-keyring.gpg] https:/
 sudo apt update
 sudo apt install -y matrix-synapse-py3
 
+3) hostname -I      -- main local network IP(the 1 to use), Docker internal network
 
 +
 Your name: Termenator830
