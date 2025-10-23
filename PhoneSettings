@@ -84,10 +84,24 @@ server_name: matrix.local.test      --for confirmation
 sudo chown -R $USER:$USER ~/matrix-synapse-test/media
 chmod 750 ~/matrix-synapse-test/media          --prepare the media store directory
 
-9) python3 -m synapse.app.homeserver \
+9) python3 -m venv ~/matrix-synapse-test/venv
+source ~/matrix-synapse-test/venv/bin/activate
+pip install matrix-synapse              --use virtual environment
+
+10.1) sed -i '1i server_name: matrix.local.test' ~/matrix-synapse-test/config/homeserver.yaml      --add the server name to homeserver.yaml
+sed -i 's|signing_key_path: "/etc/matrix-synapse/homeserver.signing.key"|signing_key_path: "'"$(pwd)"'/matrix-synapse-test/config/homeserver.signing.key"|g' ~/matrix-synapse-test/config/homeserver.yaml
+sed -i 's|log_config: "/etc/matrix-synapse/log.yaml"|log_config: "'"$(pwd)"'/matrix-synapse-test/config/log.yaml"|g' ~/matrix-synapse-test/config/homeserver.yaml
+grep -E "signing_key_path|log_config" ~/matrix-synapse-test/config/homeserver.yaml
+
+10.2) head -5 ~/matrix-synapse-test/config/homeserver.yaml        --confirm it worked
+
+
+11) source ~/matrix-synapse-test/venv/bin/activate
+synapse_homeserver \
   --config-path ~/matrix-synapse-test/config/homeserver.yaml \
-  --config-path ~/matrix-synapse-test/config/conf.d/ \
-  --generate-keys          --initialize the Synapse database with the new configuration
+  --config-directory ~/matrix-synapse-test/config/conf.d/ \
+  --data-directory ~/matrix-synapse-test/data \
+  --generate-missing-and-run            --initialize the Synapse database with the new configuration
 
 +
 Your name: Termenator830
