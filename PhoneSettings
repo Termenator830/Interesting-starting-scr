@@ -87,7 +87,7 @@ chmod 750 ~/matrix-synapse-test/media          --prepare the media store directo
 9) python3 -m synapse.app.homeserver \
   --config-path ~/matrix-synapse-test/config/homeserver.yaml \
   --config-path ~/matrix-synapse-test/config/conf.d/ \
-  --generate-keys          --initialize Synapse database
+  --generate-keys          --initialize the Synapse database with the new configuration
 
 +
 Your name: Termenator830
