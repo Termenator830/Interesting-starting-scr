@@ -238,6 +238,11 @@ RestartSec=5s
 WantedBy=multi-user.target
 EOF
 
+2.1) sudo systemctl daemon-reload
+sudo systemctl enable matrix-synapse-test
+sudo systemctl start matrix-synapse-test
+2.2) sudo systemctl status matrix-synapse-test      --check status
+
 IV) Usage
 systemctl start matrix-synapse-test    --start service
 systemctl stop matrix-synapse-test
