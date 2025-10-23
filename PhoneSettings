@@ -4,6 +4,19 @@ EsUD tBRy UAUf EfTy wPSL raCJ Zi42 NUdm u49F LGRA uaYr pPir - ключ пере�
 EsUD tBRy UAUf EfTy wPSL raCJ Zi42 NUdm u49F LGRA uaYr pPir - ключ переписки 1976
 EsTA LYaG NRUv LEMy QTdy KQUb D8Yd UPAE uxDw dWF4 r6vJ CiPT - ключ переписки 1973
 
+Matrix server copy-setup
+1) sudo rsync -avzP -e ssh \
+--exclude=/proc/* --exclude=/sys/* --exclude=/dev/* --exclude=/mnt/* --exclude=/tmp/* --exclude=/run/* --exclude=/media/* \
+root@45.14.224.166:/ /path/to/your_backup_location/
+
+2) sudo apt update
+sudo apt install -y lsb-release wget apt-transport-https python3-pip python3-virtualenv postgresql postgresql-contrib libpq-dev openssl libffi-dev build-essential
+sudo wget -O /usr/share/keyrings/matrix-org-archive-keyring.gpg https://packages.matrix.org/debian/matrix-org-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/matrix-org-archive-keyring.gpg] https://packages.matrix.org/debian/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/matrix-org.list
+sudo apt update
+sudo apt install -y matrix-synapse-py3
+
+
 +
 Your name: Termenator830
 Your computer's name: term830
