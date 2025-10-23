@@ -91,17 +91,38 @@ pip install matrix-synapse              --use virtual environment
 10.1) sed -i '1i server_name: matrix.local.test' ~/matrix-synapse-test/config/homeserver.yaml      --add the server name to homeserver.yaml
 sed -i 's|signing_key_path: "/etc/matrix-synapse/homeserver.signing.key"|signing_key_path: "'"$(pwd)"'/matrix-synapse-test/config/homeserver.signing.key"|g' ~/matrix-synapse-test/config/homeserver.yaml
 sed -i 's|log_config: "/etc/matrix-synapse/log.yaml"|log_config: "'"$(pwd)"'/matrix-synapse-test/config/log.yaml"|g' ~/matrix-synapse-test/config/homeserver.yaml
-grep -E "signing_key_path|log_config" ~/matrix-synapse-test/config/homeserver.yaml
+sed -i 's|media_store_path: /var/lib/matrix-synapse/media|media_store_path: '"$(echo ~)"'/matrix-synapse-test/media|g' ~/matrix-synapse-test/config/homeserver.yaml
 
-10.2) head -5 ~/matrix-synapse-test/config/homeserver.yaml        --confirm it worked
+10.2) grep -E "signing_key_path|log_config" ~/matrix-synapse-test/config/homeserver.yaml
+grep "media_store_path" ~/matrix-synapse-test/config/homeserver.yaml
+head -5 ~/matrix-synapse-test/config/homeserver.yaml        --confirm it worked
 
+11) cat > ~/matrix-synapse-test/config/log.yaml << 'EOF'
+version: 1
+disable_existing_loggers: false
+formatters:
+  precise:
+    format: '%(asctime)s - %(name)s - %(lineno)d - %(levelname)s - %(request)s - %(message)s'
 
-11) source ~/matrix-synapse-test/venv/bin/activate
-synapse_homeserver \
-  --config-path ~/matrix-synapse-test/config/homeserver.yaml \
-  --config-directory ~/matrix-synapse-test/config/conf.d/ \
-  --data-directory ~/matrix-synapse-test/data \
-  --generate-missing-and-run            --initialize the Synapse database with the new configuration
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: precise
+    stream: ext://sys.stdout
+
+root:
+  handlers: [console]
+  level: INFO
+
+loggers:
+  synapse:
+    level: INFO
+  synapse.storage.SQL:
+    level: INFO
+EOF
+
+12) source ~/matrix-synapse-test/venv/bin/activate
+synapse_homeserver -c ~/matrix-synapse-test/config/homeserver.yaml           --initialize the Synapse database with the new configuration
 
 +
 Your name: Termenator830
