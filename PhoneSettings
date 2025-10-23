@@ -6,6 +6,68 @@ EsTA LYaG NRUv LEMy QTdy KQUb D8Yd UPAE uxDw dWF4 r6vJ CiPT - ключ пере�
 
 Matrix server copy-setup
 
+FF) List of all needed things
+Pre-Requirements for Production Server (Option B)
+1. Domain Name
+You need a NEW domain (separate from amigor.top to avoid conflicts)
+
+Options:
+
+Buy a new domain on any registrar (Namecheap, Google Domains, etc.)
+
+OR use a subdomain like matrix.yourdomain.com on a new domain you control
+
+Cost: ~$10-15/year
+
+2. DNS Setup
+Point the domain's DNS A record to your public IP address (where you'll host globally)
+
+Add SRV records for Matrix federation (optional but recommended):
+
+text
+_matrix._tcp.yourdomain.com SRV 10 0 8448 yourdomain.com
+3. HTTPS Certificate
+Get a free SSL certificate from Let's Encrypt (automatic with nginx)
+
+OR buy one from a certificate authority
+
+4. Public IP / Port Forwarding
+Your server needs a static public IP or dynamic DNS
+
+Forward ports 80 and 443 to your local server for HTTPS/HTTP
+
+Forward port 8448 for Matrix federation (optional)
+
+5. Database Backup Strategy
+Backup your current PostgreSQL database before migrating globally
+
+Keep separate backups of amigor.top data and new server data
+
+6. Email Configuration (Optional but Recommended)
+For password resets, notifications, etc.
+
+Options:
+
+SendGrid (free tier available)
+
+AWS SES
+
+Your own mail server
+
+Or disable for testing
+
+7. Matrix Accounts
+Create admin account(s) on new server
+
+Create test user accounts
+
+Document credentials securely
+
+8. Federation Configuration
+Set up server federation to allow federation with matrix.org and other servers
+
+Configure trusted key servers (already done in your config)
+
 I) 
 
 1) sudo rsync -avzP -e ssh \
@@ -248,6 +310,7 @@ systemctl start matrix-synapse-test    --start service
 systemctl stop matrix-synapse-test
 systemctl restart matrix-synapse-test
 systemctl status matrix-synapse-test
+systemctl enable/dissable matrix-synapse-test
 journalctl -u matrix-synapse-test -f    --view logs in real time
 
 
