@@ -17,18 +17,37 @@ sudo apt update
 sudo apt install -y matrix-synapse-py3
 
 3) hostname -I      -- main local network IP(the 1 to use), Docker internal network
+
 4.1) sudo -u postgres psql    --create dedicated PostgreSQL
 4.2) CREATE USER synapse_test WITH PASSWORD 'testpassword123';
 CREATE DATABASE synapse_test OWNER synapse_test;
 ALTER ROLE synapse_test WITH CREATEDB;
 \q               --make a user
+
 5.1) mkdir -p ~/matrix-synapse-test/config
 mkdir -p ~/matrix-synapse-test/data
 sudo cp -r /path/to/your_backup_location/mnt/m-container/etc/matrix-synapse/* ~/matrix-synapse-test/config/
 sudo chown -R $USER:$USER ~/matrix-synapse-test/
 5.2) ls -la ~/matrix-synapse-test/config/      --for verification
+
 6.1) nano ~/matrix-synapse-test/config/homeserver.yaml      --change some things
-6.2) database:
+6.2) cat > ~/matrix-synapse-test/config/homeserver.yaml << 'EOF'
+pid_file: "/var/run/matrix-synapse.pid"
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    bind_addresses: ['0.0.0.0', '::']
+    resources:
+      - names: [client, federation]
+        compress: false
+log_config: "/etc/matrix-synapse/log.yaml"
+media_store_path: /var/lib/matrix-synapse/media
+signing_key_path: "/etc/matrix-synapse/homeserver.signing.key"
+trusted_key_servers:
+  - server_name: "matrix.org"
+database:
   name: psycopg2
   args:
     user: synapse_test
@@ -37,7 +56,29 @@ sudo chown -R $USER:$USER ~/matrix-synapse-test/
     host: localhost
     cp_min: 5
     cp_max: 10
-6.3) bind_addresses: ['0.0.0.0', '::']
+registration_shared_secret: ddqNc3EVUx2Czybjo7bCt5Ma2Lf6WbQd
+turn_uris: ["turns:turn.amigor.top?transport=udp", "turns:turn.amigor.top?transport=tcp", "turn:turn.amigor.top?transport=udp", "turn:turn.amigor.top?transport=tcp"]
+turn_shared_secret: "C0uEWuffGKrFwE0gjSLZs7uTn1SPxRAl"
+turn_user_lifetime: 1h
+turn_allow_guests: true
+enable_metrics: false
+report_stats: false
+max_upload_size: 100M
+enable_registration_without_verification: true
+encryption_enabled_by_defaul_for_room_type: all
+suppress_key_server_warning: true
+#app_service_config_files:
+# - /opt/mautrix-whatsapp/registration.yaml
+# - /opt/mautrix-telegram/registration.yaml
+# - /opt/mautrix-signal/registration.yaml
+EOF
+
+7.1) cat > ~/matrix-synapse-test/config/conf.d/server_name.yaml << 'EOF'
+# Test server configuration
+server_name: matrix.local.test
+EOF
+7.2) # Test server configuration
+server_name: matrix.local.test      --for confirmation
 
 
 +
