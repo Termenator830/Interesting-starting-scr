@@ -17,6 +17,17 @@ sudo apt update
 sudo apt install -y matrix-synapse-py3
 
 3) hostname -I      -- main local network IP(the 1 to use), Docker internal network
+4) sudo -u postgres psql    --create dedicated PostgreSQL
+5) CREATE USER synapse_test WITH PASSWORD 'testpassword123';
+CREATE DATABASE synapse_test OWNER synapse_test;
+ALTER ROLE synapse_test WITH CREATEDB;
+\q               --make a user
+6) mkdir -p ~/matrix-synapse-test/config
+mkdir -p ~/matrix-synapse-test/data
+sudo cp -r /path/to/your_backup_location/mnt/m-container/etc/matrix-synapse/* ~/matrix-synapse-test/config/
+sudo chown -R $USER:$USER ~/matrix-synapse-test/
+7) ls -la ~/matrix-synapse-test/config/      --for verification
+
 
 +
 Your name: Termenator830
