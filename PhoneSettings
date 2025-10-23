@@ -122,6 +122,97 @@ loggers:
 EOF
 
 12) source ~/matrix-synapse-test/venv/bin/activate
+pip install psycopg2-binary
+
+13) sudo -u postgres psql << 'EOF'
+DROP DATABASE IF EXISTS synapse_test;
+CREATE DATABASE synapse_test OWNER synapse_test LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0;
+\q
+EOF      --recreate correctly
+
+14) cat > ~/matrix-synapse-test/config/homeserver.yaml << 'EOF'
+server_name: matrix.local.test
+pid_file: "/var/run/matrix-synapse.pid"
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    bind_addresses: ['0.0.0.0', '::']
+    resources:
+      - names: [client, federation]
+        compress: false
+log_config: /home/termenator830/matrix-synapse-test/config/log.yaml
+media_store_path: /home/termenator830/matrix-synapse-test/media
+signing_key_path: /home/termenator830/matrix-synapse-test/config/homeserver.signing.key
+trusted_key_servers:
+  - server_name: "matrix.org"
+database:
+  name: psycopg2
+  args:
+    user: synapse_test
+    password: testpassword123
+    database: synapse_test
+    host: localhost
+    cp_min: 5
+    cp_max: 10
+registration_shared_secret: ddqNc3EVUx2Czybjo7bCt5Ma2Lf6WbQd
+turn_uris: ["turns:turn.amigor.top?transport=udp", "turns:turn.amigor.top?transport=tcp", "turn:turn.amigor.top?transport=udp", "turn:turn.amigor.top?transport=tcp"]
+turn_shared_secret: "C0uEWuffGKrFwE0gjSLZs7uTn1SPxRAl"
+turn_user_lifetime: 1h
+turn_allow_guests: true
+enable_metrics: false
+report_stats: false
+max_upload_size: 100M
+enable_registration_without_verification: true
+encryption_enabled_by_defaul_for_room_type: all
+suppress_key_server_warning: true
+EOF
+
+15) sed -i 's/port: 8008/port: 8009/g' ~/matrix-synapse-test/config/homeserver.yaml      --change port to 8009
+
+16) cat > ~/matrix-synapse-test/config/homeserver.yaml << 'EOF'
+server_name: matrix.local.test
+pid_file: "/var/run/matrix-synapse.pid"
+listeners:
+  - port: 8009
+    tls: false
+    type: http
+    x_forwarded: true
+    bind_addresses: ['127.0.0.1']
+    resources:
+      - names: [client, federation]
+        compress: false
+log_config: /home/termenator830/matrix-synapse-test/config/log.yaml
+media_store_path: /home/termenator830/matrix-synapse-test/media
+signing_key_path: /home/termenator830/matrix-synapse-test/config/homeserver.signing.key
+trusted_key_servers:
+  - server_name: "matrix.org"
+database:
+  name: psycopg2
+  args:
+    user: synapse_test
+    password: testpassword123
+    database: synapse_test
+    host: localhost
+    cp_min: 5
+    cp_max: 10
+registration_shared_secret: ddqNc3EVUx2Czybjo7bCt5Ma2Lf6WbQd
+turn_uris: ["turns:turn.amigor.top?transport=udp", "turns:turn.amigor.top?transport=tcp", "turn:turn.amigor.top?transport=udp", "turn:turn.amigor.top?transport=tcp"]
+turn_shared_secret: "C0uEWuffGKrFwE0gjSLZs7uTn1SPxRAl"
+turn_user_lifetime: 1h
+turn_allow_guests: true
+enable_metrics: false
+report_stats: false
+max_upload_size: 100M
+enable_registration_without_verification: true
+encryption_enabled_by_defaul_for_room_type: all
+suppress_key_server_warning: true
+EOF               --bind only to ipv4
+
+++) source ~/matrix-synapse-test/venv/bin/activate     --get back to venv
+
+17) source ~/matrix-synapse-test/venv/bin/activate
 synapse_homeserver -c ~/matrix-synapse-test/config/homeserver.yaml           --initialize the Synapse database with the new configuration
 
 +
