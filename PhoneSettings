@@ -5,6 +5,9 @@ EsUD tBRy UAUf EfTy wPSL raCJ Zi42 NUdm u49F LGRA uaYr pPir - ключ пере�
 EsTA LYaG NRUv LEMy QTdy KQUb D8Yd UPAE uxDw dWF4 r6vJ CiPT - ключ переписки 1973
 
 Matrix server copy-setup
+
+I) 
+
 1) sudo rsync -avzP -e ssh \
 --exclude=/proc/* --exclude=/sys/* --exclude=/dev/* --exclude=/tmp/* --exclude=/run/* --exclude=/media/* \
 root@45.14.224.166:/ /path/to/your_backup_location/
@@ -214,6 +217,36 @@ EOF               --bind only to ipv4
 
 17) source ~/matrix-synapse-test/venv/bin/activate
 synapse_homeserver -c ~/matrix-synapse-test/config/homeserver.yaml           --initialize the Synapse database with the new configuration
+
+II) starting the server, systemd setup
+
+1) sudo tee /etc/systemd/system/matrix-synapse-test.service > /dev/null << 'EOF'
+[Unit]
+Description=Matrix Synapse Test Server
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=termenator830
+Group=termenator830
+WorkingDirectory=/home/termenator830/matrix-synapse-test
+ExecStart=/home/termenator830/matrix-synapse-test/venv/bin/synapse_homeserver -c /home/termenator830/matrix-synapse-test/config/homeserver.yaml
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+IV) Usage
+systemctl start matrix-synapse-test    --start service
+systemctl stop matrix-synapse-test
+systemctl restart matrix-synapse-test
+systemctl status matrix-synapse-test
+journalctl -u matrix-synapse-test -f    --view logs in real time
+
+
+
 
 +
 Your name: Termenator830
