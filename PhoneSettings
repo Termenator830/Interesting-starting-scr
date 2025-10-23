@@ -80,6 +80,14 @@ EOF
 7.2) # Test server configuration
 server_name: matrix.local.test      --for confirmation
 
+8) mkdir -p ~/matrix-synapse-test/media
+sudo chown -R $USER:$USER ~/matrix-synapse-test/media
+chmod 750 ~/matrix-synapse-test/media          --prepare the media store directory
+
+9) python3 -m synapse.app.homeserver \
+  --config-path ~/matrix-synapse-test/config/homeserver.yaml \
+  --config-path ~/matrix-synapse-test/config/conf.d/ \
+  --generate-keys          --initialize Synapse database
 
 +
 Your name: Termenator830
