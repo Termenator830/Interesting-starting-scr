@@ -445,6 +445,13 @@ sudo chown root:root /var/www/html/matrix-local-nopass.p12
 4.13) sudo cp /home/termenator830/matrix-local-nopass.p12 /var/www/html/
 sudo chmod 644 /var/www/html/matrix-local-nopass.p12
 4.14) curl -I http://127.0.0.1/matrix-local-nopass.p12
+4.15) sudo openssl pkcs12 -export -out /home/termenator830/matrix-local.p12 \
+  -inkey /etc/ssl/private/matrix-local.key \
+  -in /etc/ssl/certs/matrix-local.crt \
+  -nodes                  --press enter when asking for export password
+4.16) sudo cp /home/termenator830/matrix-local.p12 /var/www/html/
+sudo chmod 644 /var/www/html/matrix-local.p12
+curl -I http://127.0.0.1/matrix-local.p12      --must say that everything is OK
 
 4.12) http://192.168.1.111/matrix-local-nopass.p12     --download on ipad and install in files app
 4.13) settings -> general -> VPN and etc -> trust certificate(password: matrix123)
