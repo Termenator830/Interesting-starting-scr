@@ -367,6 +367,18 @@ sudo systemctl status nginx     --restart the thing
 sudo netstat -tlnp | grep -E '80|443'     --restart the thing
 3.17) curl -k https://matrix.local.test/_matrix/client/versions     --check everything
 
+4) IOS setup
+4.1) sudo openssl pkcs12 -export -out /home/termenator830/matrix-local.p12 \
+  -inkey /etc/ssl/private/matrix-local.key \
+  -in /etc/ssl/certs/matrix-local.crt \
+  -passout pass:matrix123
+4.2) sudo chown termenator830:termenator830 /home/termenator830/matrix-local.p12
+4.3) ls -la /home/termenator830/matrix-local.p12     --verify it was created
+4.4)  sudo cp /home/termenator830/matrix-local.p12 /var/www/html/
+sudo chmod 644 /var/www/html/matrix-local.p12
+4.5) ls -la /var/www/html/matrix-local.p12     --verify its accesible
+4.6) http://192.168.1.111/matrix-local.p12     --test if works
+
 III) setup users
 1) find /home/termenator830/matrix-synapse-test -name "register_new_matrix_user*"     --check if it exists
 2) create user(Mikhail, Ivan, Mikhail123, Ivan123)
