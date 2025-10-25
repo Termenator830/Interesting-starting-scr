@@ -453,8 +453,8 @@ sudo chmod 644 /var/www/html/matrix-local-nopass.p12
 sudo chmod 644 /var/www/html/matrix-local.p12
 curl -I http://127.0.0.1/matrix-local.p12      --must say that everything is OK
 
-4.12) http://192.168.1.111/matrix-local-nopass.p12     --download on ipad and install in files app
-4.13) settings -> general -> VPN and etc -> trust certificate(password: matrix123)
+4.17) http://192.168.1.111/matrix-local.p12     --download on ipad and install in files app
+4.18) settings -> general -> VPN and etc -> trust certificate(password: matrix123)
 
 III) setup users
 1) find /home/termenator830/matrix-synapse-test -name "register_new_matrix_user*"     --check if it exists
