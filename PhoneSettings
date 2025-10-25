@@ -377,7 +377,6 @@ sudo netstat -tlnp | grep -E '80|443'     --restart the thing
 4.4)  sudo cp /home/termenator830/matrix-local.p12 /var/www/html/
 sudo chmod 644 /var/www/html/matrix-local.p12
 4.5) ls -la /var/www/html/matrix-local.p12     --verify its accesible
-4.6) http://192.168.1.111/matrix-local.p12     --test if works
 4.7.1) sudo nano /etc/nginx/sites-available/matrix-synapse     --add static location
 4.7.2) 
 server {
@@ -429,6 +428,8 @@ curl -I http://127.0.0.1/matrix-local.p12
 sudo systemctl restart nginx
 curl -I http://127.0.0.1/matrix-local.p12
 
+4.9) http://192.168.1.111/matrix-local.p12     --download on ipad and install in files app
+4.10) settings -> general -> VPN and etc -> trust certificate(password: matrix123)
 
 III) setup users
 1) find /home/termenator830/matrix-synapse-test -name "register_new_matrix_user*"     --check if it exists
