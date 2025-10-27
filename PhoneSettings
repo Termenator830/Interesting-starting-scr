@@ -699,6 +699,9 @@ root
 cD$*bn9v*HJ)$*h7B^V%&X - до
 HASj1989&!!@!()823wd - после
 
+cat /dev/null > ~/.bash_history
+history -c         --to clean history
+
 public key for pasting into OpenSSH authorized_keys file(from putty keygen):
 ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAGkWhS2IDZCHoXIeuLPzUJvd0utJ7ik4Wybzg4eNBeqGHvZYt/AEozXYIIXw+SOccIfYS8oORk8k7zsE/h16RAO5ABLei/7Y854pEERxWhCKjHqFEJhUkQflwUrGe7N/sEMSlxw0YvWT5Skgr/b28tArl/Msos44+0XEOfAc+fGGrxHMA== ecdsa-key-20251014
 key fingerprint:
