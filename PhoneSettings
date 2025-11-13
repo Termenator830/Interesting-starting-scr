@@ -487,8 +487,26 @@ systemctl status matrix-synapse-test
 systemctl enable/dissable matrix-synapse-test
 journalctl -u matrix-synapse-test -f    --view logs in real time
 
+------------------------------------------------------------------------------------------------------------
+
+                          |      ULTRA SECURE PHONE SETUP
+
+Gt2 pro
+2) разблокавировать developer options, отладка по usb, OEM unlock. 
+2.1) отключить аппаратное ускорение модема, включить enable random MAC addresses, 
+включить ограничить поиск сетей вайфай, не отключать мобильный интернет(выключить). 
+3) В system, enable multiple users and make a new user
+3.1) Включить звонки и СМС, перейти на пользователя, настроить профиль
+3.2) ввести пин код 1111, изменить шрифт 
+4) (не на vecino)
+4.1) установить Magisk 27, обновить
+4.2) установить root browser, swift backup
+5) в swift backup: 
+apps, кнопка в правом верхнем углу, параметры системного копирования, show system apps. 
+6) в root browser, переместить папку SwiftBackup(2,12Гб) во внутренний накопитель 
 
 
+------------------------------------------------------------------------------------------------------------
 
 +
 Your name: Termenator830
