@@ -487,6 +487,10 @@ systemctl status matrix-synapse-test
 systemctl enable/dissable matrix-synapse-test
 journalctl -u matrix-synapse-test -f    --view logs in real time
 
+V) globalisation
+1) Domain: domain request on nic.eu.org: MA3653-FREE
+                              password: 17941389Й!
+
 ------------------------------------------------------------------------------------------------------------
 
                           |      ULTRA SECURE PHONE SETUP
@@ -1046,7 +1050,7 @@ WantedBy=multi-user.target
          sudo systemctl status synapse
    8.3) 
 
-domain request on nic.eu.org: MA3653-FREE
+domain request on nic.eu.org: MA3653-FREE password: 17941389Й!
 Termenator830.cloudflareaccess.com
 matrix-server UUID - 52f78661-f860-43b9-a3e6-a1ef0d5fe3a7
 
