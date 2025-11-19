@@ -11,6 +11,9 @@ Ctrl+Shift+P - open a command search menu
 	via command bar Zen-mode ca be opened(no other tabs appearing)
 	Minimap - helps to quickly scroll loads of lines of code
 Ctrl+F - search inside of a file(can also first select the part ad then search)
+Ctrl+tab(Or Ctrl+Shift+tab to go backwards) - switch between files(can select between what files to switch)
+Ctrl+W	- close a file
+Ctrl+P - search for a file
 
 
 | Use case                        | Use this     |
