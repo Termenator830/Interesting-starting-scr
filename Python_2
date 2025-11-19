@@ -8,6 +8,7 @@ Main:
 		Ctrl+Shift+E - go to explorer
 		Ctrl+Shift+F - go to finder
 		Ctrl+Shift+G - go to debugging
+		Ctrl+Coma - go to settings panel
 	Ctrl+Shift+P - open a command search menu
 		via command bar Zen-mode ca be opened(no other tabs appearing)
 		Minimap - helps to quickly scroll loads of lines of code
@@ -21,6 +22,7 @@ Main:
 Navigation:
 	fn(or fn+Shift) - to move by lines
 	Ctrl - to move by words
+Ctrl+coma - go to settings panel
 
 
 | Use case                        | Use this     |
