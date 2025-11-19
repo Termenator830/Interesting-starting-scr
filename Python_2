@@ -1,4 +1,11 @@
 VS Code setup:
+	to calculate code's running time:
+	import time
+	start = time.time()
+	#put your code here
+	end = time.time()
+	
+	print(f"Execution time: {end - start:.3f} seconds")
 1) instal VS code and Git bash
 2) setup theme to Kimbie dark
 3) install language from extensions, create folder and script file(via VS code)
