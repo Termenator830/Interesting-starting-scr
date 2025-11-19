@@ -1,0 +1,3786 @@
+| Use case                        | Use this     |
+|----------------------------------|--------------|
+| Ordered simple items             | `list`       |
+| Unique unordered items           | `set`        |
+| Key → Value mapping              | `dict`       |
+| Need fast lookup                 | `set` / `dict` |
+| Tiny memory budget               | `list`       |
+
+import this
+
+#Calculator 
+
+a = float(input())
+b = float(input())
+act = input()
+
+if (act=="/" or act=="mod" or act=="div") and b==0:
+    c = "Деление на 0!"
+elif act=="+":    c = a + b
+elif act=="-":    c = a - b
+elif act=="/":    c = a / b
+elif act=="*":    c = a * b
+elif act=="mod":  c = a % b
+elif act=="pow":  c = a ** b
+elif act=="div":  c = a // b
+
+print (c) 
+
+#Labeling 
+
+n = int(input()) 
+
+if n % 10 in [1] and not ( n % 100 == 11 ) : 
+  print(n, "программист")
+
+elif n % 10 in [2, 3, 4] and not ( 12 <= n % 100 <= 14 ) :
+  print(n, "программиста") 
+
+else : 
+  print(n, "программистов") 
+
+
+#Lucky Ticket 
+
+n = int(input()) 
+
+a = n // 100000 % 10 
+b = n // 10000 % 10 
+c = n // 1000 % 10 
+d = n // 100 % 10 
+e = n // 10 % 10 
+f = n % 10 
+
+if a + b + c == d + e + f: 
+    print('Счастливый')
+elif a + b + c != d + e + f : 
+    print('Обычный')
+
+#Sum 
+
+a = int(input()) 
+s = a
+while not a == 0 :
+  a = int(input()) 
+  s += a 
+print(s)
+
+#НОД 
+
+a = int(input())
+b = int(input())
+
+d = 2  # начинаем с первого возможного делителя > 1
+
+while d <= a and d <= b:
+    if a % d == 0 and b % d == 0:
+        print("Наименьший общий делитель:", d)
+        break
+    d += 1
+else:
+  print("Нет общих делителей кроме 1") 
+
+#Таблица умножения 
+a = int(input())
+b = int(input())
+
+for i in range(a, b + 1):
+  print('', i, end="\n\n") 
+
+for j in range(c, d+1): 
+  print('\t', j, end='\t') 
+print()
+
+#i for range 
+
+a, b = (int(i) for i in input().split())
+s = 0
+n = 0
+for i in range(a, b + 1):
+  if i % 3 == 0:
+    s += i
+    n += 1
+s = s / n
+print(s)
+
+#indexing 
+
+genome = 'ATGG'
+
+genome[0] = 'A'
+genome[-4] = 'A'
+
+=> genome = 'ATGG'
+for i in range(4):
+  print(genome[i]) 
+
+or
+
+genome = 'ATGG'
+for i in genome:
+  print(i)
+
+genome = 'ATSGD'
+print(genome.count('C')) 
+
+if 'TG' in s: 
+s.upper().count('gt'.upper())
+
+#Slicing
+
+dna = 'ATTCGGAGCT'
+dna[1:4:2] 
+dna[::-1] = TCGAGGCTTA
+
+genom = input()
+n = len(genom)
+
+#Save Memory
+genom = input()
+n = len(genom)
+
+i = 0
+while i < n:
+    s = 1
+    while i + 1 < n and genom[i] == genom[i + 1]:
+        s += 1
+        i += 1
+    print(genom[i] + str(count))
+    i += 1
+
+print('end') 
+
+#Lists 
+
+students = ['Ivan', 'Masha', 'Sasha']
+print(students[1:3]) 
+List1 + List2 = List1, List2
+List * 2 = List, List
+* List elements are CHANGABLE 
+* List.append['Olga'] - add 1 item to the box
+* List += ['Boris'] - expand by range 
+* List.insert(1, 'Olga') - add on place 
+
+* del students[1:3]
+* students.remove('Sasha') 
+
+* if ... (not) in List
+* ind = students.index('Sasha')
+
+* ordered_students = sorted(students)
+* students.sort
+
+* min(students) 
+* max(students) 
+
+* students.reserse() - change List's state
+* reversed(students) <=> students[::-1] - use as reversed 
+
+                    ГЕНЕРАЦИЯ СПИСКОВ 
+
+a = [0]*5 
+a = [0 for i in range(5)]
+a = [i*i for i in range(5)]
+a = [int(i) for i in input().split()] 
+* for i, fruit in enumerate(fruits):
+    print(i, fruit) -- use index and value.
+
+#Сумма
+a = [int(i) for i in input().split()] 
+s = 0
+
+for i in a:
+    s += i
+print(s)
+
+#Alg
+
+a = [int(i) for i in input().split()]
+n = len(a)
+
+for i in range(n):
+    if i == 0:
+        print(a[1] + a[-1], end=' ')
+    elif i == n - 1:
+        print(a[-2] + a[0], end=' ')
+    else:
+        print(a[i - 1] + a[i + 1], end=' ')
+
+#Return same values
+
+a = [int(i) for i in input().split()]
+a.sort()
+n = len(a)
+
+i = 0
+while i < n - 1:
+    if a[i] == a[i + 1]:
+        print(a[i], end=' ')
+        while i < n - 1 and a[i] == a[i + 1]:
+            i += 1
+    i += 1 
+
+    ДВУМЕРНЫЕ СПИСКИ 
+
+a = [[1,2,3],[4,5,6],[7,8,9]] - matrix 3x3
+a[1][1] - stroke number, field number 
+a = [[0]*n]*n
+a[0][0] = 5 - changes all lists as in original stroke
+
+Generators: 
+a = [[0] * n for i in range(n)]
+a = [[0 for j in range(n)] for i in range(n)]
+
+#Count Matrix 
+n = 3
+count = 1
+a = [[0 for j in range(n)] for i in range(n)]
+
+for i in range(n):
+    for j in range(n):
+        a[i][j] = count
+        count += 1
+
+#Edit Matrix
+
+b = [int(y) for y in input().split()]
+
+for i in range(n):
+    for j in range(m):
+        if i == b[0] and j == b[1]:
+            a[b[0] - 1][b[1] - 1] = -1
+        else: a[i][j] = 0
+
+for i in range(n):
+    for j in range(m):
+        print(a[i][j], end='\t')
+    print() 
+
+#Mine FIeld
+
+n, m, k = (int(i) for i in input().split())
+a = [[0 for i in range(m)] for j in range(n)]
+for i in range(k):
+    row, col = [int(i) - 1 for i in input().split()]
+    a[row][col] = -1
+for i in range(n):
+    for j in range(m):
+        if a[i][j] == 0:
+            for di in range(-1, 2):
+                for dj in range(-1, 2):
+                    ai = i + di
+                    aj = j + dj
+                    if 0 <= ai < n and 0 <= aj < m and a[ai][aj] == -1:
+                        a[i][j] += 1
+for i in range(n):
+    for j in range(m):
+        if a[i][j] == -1:
+            print('*', end='')
+        elif a[i][j] == 0:
+            print('.', end='') 
+        else:
+            print(a[i][j], end='')
+    print()
+
+#Run first loop with no req 
+
+s = 0
+d = 0
+first_cycle = True
+
+while d != 0 or first_cycle:
+    first_cycle = False
+    try:
+        k = int(input())
+    except EOFError:
+        break
+    s += k ** 2
+    d += k
+print(s)
+
+#Lists setting
+
+a = int(input())
+res = []
+n = 1
+
+while len(res) < a:
+    for i in range(n):
+        if len(res) >= a:
+            break
+        res.append(n)
+    n += 1
+
+print(*res)
+
+#Remake matrix
+
+a = []
+k = 0
+
+while True:
+    s = input()
+    if s == 'end':
+        break
+    b = [int(i) for i in s.split()]
+    a.append(b)
+    k += 1
+
+n = len(a)
+
+for i in range(k):  # fix here — no need for k+1
+    for j in a[i]:
+        print(j, end=' ')
+    print()
+
+#Edit Matrix
+
+a = []
+k = 0
+
+while True:
+    s = input()
+    if s == 'end':
+        break
+    b = [int(i) for i in s.split()]
+    a.append(b)
+    k += 1
+n = len(a[0])
+
+result = []
+
+for i in range(k):
+    row = []
+    for j in range(n):
+        up = a[i - 1][j] if i > 0 else a[k - 1][j]
+        down = a[i + 1][j] if i < k - 1 else a[0][j]
+        left = a[i][j - 1] if j > 0 else a[i][n - 1]
+        right = a[i][j + 1] if j < n - 1 else a[i][0]
+        row.append(up + down + left + right)
+    result.append(row)
+    
+for row in result:  # fix here — no need for k+1
+    for j in row:
+        print(j, end=' ')
+    print()
+
+#Add Sublist 
+b.append(list(range(k, n + 1)))
+
+#NxN Matrix
+
+n = int(input())
+a = []
+k = 1  # first number
+
+for i in range(n):
+    b = []
+    for j in range(n):
+        b.append(k)
+        k += 1
+    a.append(b)
+
+for row in a:
+    for j in row:
+        print(j, end=' ')
+    print()
+
+#Build 0xN Matrix
+
+n = int(input())
+a = []
+
+a = [[0 for j in range(n)] for i in range(n)]
+
+for i in range(n):
+    for j in range(n):
+        print(a[i][j], end=' ')
+    print()
+
+#Matrix Spiral
+
+n = int(input())
+a = [[0 for _ in range(n)] for _ in range(n)]
+
+top = 0
+bottom = n - 1
+left = 0
+right = n - 1
+k = 1
+
+while k <= n * n:
+    # → Fill top row
+    for j in range(left, right + 1):
+        a[top][j] = k
+        k += 1
+    top += 1
+
+    # ↓ Fill right column
+    for i in range(top, bottom + 1):
+        a[i][right] = k
+        k += 1
+    right -= 1
+
+    # ← Fill bottom row
+    for j in range(right, left - 1, -1):
+        a[bottom][j] = k
+        k += 1
+    bottom -= 1
+
+    # ↑ Fill left column
+    for i in range(bottom, top - 1, -1):
+        a[i][left] = k
+        k += 1
+    left += 1
+
+# Print the matrix
+for row in a:
+    for val in row:
+        print(val, end=' ')
+    print()
+
+                                                ФУНКЦИИ
+
+* def - определить функцию
+* return - закончить и вернуть значение
+• what starts in function stays in function
+•  Списки, словари, множества - это изменяемые объекты
+• Числа, строки, кортежи - это неизменяемые объекты
+
+#example
+a = 0
+
+def init_values(a):
+    a = 100
+    return(a)
+print(init_values(a))
+
+#min
+
+a = [0, 1, 3, 4, -1, -100]
+
+def my_min(*args):
+    m = args[0]
+    for x in args:
+        if m > x:
+            m = x
+    return m
+print(my_min(*a))
+
+#range in list
+
+def my_range(start, stop, step=1):
+    res = []
+    if step > 0:
+        x = start
+        while x < stop:
+            res += [x]
+            x += step
+    elif step < 0:
+        x = start
+        while x > stop:
+            res += [x]
+            x += step
+    return(res)
+print(my_range(stop = 20, start = 5))
+
+#Modify list + safe cycle
+
+def modify_list(l):
+    for i in range(len(l) - 1, -1, -1):
+        if l[i] % 2 != 0:
+            del l[i]
+        else:
+            l[i] //= 2
+
+a = [1, 2, 3, 4, 5, 6]
+modify_list(a)
+print(a)
+
+#In-place assignment
+
+def modify_list(l):
+    l[:] = [i//2 for i in l if i % 2 == 0]1] 
+
+                        МНОЖЕСТВА 
+
+* s = set() - empty set
+* basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+- print(basket) - {'orange', 'banana', 'pear', 'apple'}
+* 'orange' in basket
+* s.add(element)
+* s.remove(element) - error if none
+* s.discard(element) - no error if none
+* s.clear() - clear set
+
+#Example
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+for x in basket:
+  print(x) - outputs banana, apple, orange, pear 
+
+                        СЛОВАРИ 
+
+* d = dict() or d = {} - empty dictionary 
+* d = {'a': 239,10:100}, a - key, 239 - value
+* key in dictionary
+* dictionary[key] = value
+* dictionary[key] - might give error
+* dictionary.get[key] - stable
+* del dictionary[key] 
+• Dictionaries or changable
+• Keys are unchangable 
+
+* Перебрать словарь
+d = {'C':14, 'A':12}
+for key in d:
+    print(key, end=' ') -- C A 
+for key in d.keys():
+    print(key, end=' ') -- C A 
+for value in d.values():
+    print(value, end=' ') -- 14 12
+for key, value in d.items():
+    print(key, value, end=' ') -- C 14; A 12;
+
+#Example of list in dictionary
+example = {'A': [22, 33, 44], 'B': [10, 20]}
+
+print(example['A'][1])
+
+#Example 
+d = {}
+d = {'a': 239,10:100}, a - key, 239 - value
+print(d['a']) -- prints 239
+print(d[10]) -- prints 100
+
+#Loop example
+for key in d:
+    print(key, d[key])
+
+#Build keys 
+def update_dictionary(d, key, value):
+    try:
+        for i in d:
+            if not isinstance(d[i], list):
+                d[i] = [d[i]]
+        if key in d:
+            d[key].append(value)
+        elif 2 * key in d:
+            d[2 * key].append(value)
+        else:
+            d[2 * key] = [value]
+    except TypeError:
+        pass
+
+#Put to dictionary 
+a = [str(i) for i in input().split()]
+key = 1
+d = {key: a}
+for a in d[key]:
+    print(a) 
+
+#Optimized functioning 
+d = {}
+n = int(input())
+
+for _ in range(n):
+    x = int(input())
+    if x in d:
+        print(d[x])
+    else:
+        d[x] = f(x)
+        print(d[x])
+
+                    ФАЙЛЫ/FILES
+ИЗ:
+* inf = open('текст.txt', 'r') - open file
+* s1 = inf.readline() - read 1 line
+* inf.close() - close file
+* s = inf.readline().strip() -- removes \n and etc from start and end ( rstrip + lstrip ) 
+* import os
+    os.path.join('.', 'dirname', 'filename.txt') -- Вывод зависит от используемой ОС
+* "\\".join(parts)
+* import exceptions 			-- import file as a module
+  print(exceptions.greet("Students'))	-- call function from module
+* s = inf.read.striplines() -- put into a list after removing \n and etc everywhere 
+* s = repr(s) -- convert the whole text into a line 
+
+В:
+* ouf = open('file.txt', 'w')
+* ouf.write('Some text\n')
+* ouf.write(str(25))
+* ouf.close() 
+
+* Auto-close: 
+with open('текст.txt', 'r') as inf, open('text.txt', 'w') as ouf: -- with _ as _ конструкция
+  s2 = inf.readline()
+print(s2)
+
+* Построчное чтение файла
+with open('input.txt') as inf:
+    for line in inf:
+        line = line.strip()
+        print(line)
+
+#Example 
+with open('text.txt', 'w') as ouf:
+    ouf.write('Some text\n')
+    ouf.write(str(25))
+
+#Overwriting example
+with open("log.txt", "w") as f:
+    f.write("Log started\n")
+    f.write("User joined\n")
+    f.write("End.\n")
+
+#Format for OS
+
+import os
+
+def build_path(system, *parts):
+    if system.lower() == "windows":
+        return "\\".join(parts)
+    else:
+        return "/".join(parts)
+        
+path_linux = build_path("Linux", "home", "mikhail", "projects", "script.py")
+print("Linux-style path:", path_linux)
+
+path_windows = build_path("Windows", "C:", "Users", "Mikhail", "Desktop", "file.txt")
+print("Windows-style path:", path_windows)
+
+				ПАПКИ/DIRECTORIES 
+import os
+* import os.path
+
+* print(os.getcwd()) -- путь к папке
+* print(os.listdir(".cache"))
+* print(os.path.abspath("main.py")) -- путь и имя папки
+* os.chdir(".cache") -- подняться выше по дирректориям, или по нужному пути
+* print(os.getcwd())
+
+* print(os.path.exists("files.py"))
+* print(os.path.isfile("files.py")) -- проверить существование
+* print(os.path.isdir("files.py"))
+
+* for current_dir, dirs, files in os.walk("."): -- returns (directory in stroke, 
+    print(current_dir, dirs, files)			   list of subdicts, list of subfiles)
+
+-- . значит текущая дирректория
+
+import os
+import os.path
+* import shutil
+
+* shutil.copy("tests/test1.txt", "tests/test2.txt")
+* shutil.copy("tests", "tests/tests") -- скопировать в другую папку
+
+#Zip unpack, os.walk, endswith. 
+import zipfile
+import os
+
+with zipfile.ZipFile("main.zip", "r") as zip_ref:
+  zip_ref.extractall() -- unpack zip
+
+valid_dirs = set()
+
+for root, dirs, files in os.walk("main"):
+  for f in files:
+    if f.endswith(".py"):
+      valid_dirs.add(root)
+      break 
+
+with open("res_file.txt", 'w') as ouf:
+  for path in sorted(valid_dirs):
+    ouf.write(path + '\n')
+
+
+#identify digit/alpha
+
+inf = open('текст.txt', 'r')
+genom = inf.readline().strip().lower()
+inf.close()
+n = len(genom)
+i = 0
+
+with open('текст.txt', 'w') as inf:
+  
+  while i < n:
+    if genom[i].isalpha():
+        letter = genom[i]
+        i += 1
+        number_str = ""
+        while i < n and genom[i].isdigit():
+            number_str += genom[i]
+            i += 1
+  
+        if number_str == "":
+            print(letter, end='')
+            inf.write(letter)
+        else:
+            print(letter * int(number_str), end='')
+            inf.write(letter * int(number_str))
+    else:
+        i += 1
+
+#Count words(Вариант 1 - неэф.)
+
+with open("dataset_3363_3 3.txt", "r") as f:
+  a = f.read().lower().split()
+
+n = len(a)
+
+b = []
+c = []
+for i in range(n):
+  if a[i] in b:
+    continue
+  elif a[i] not in b:
+    k = a.count(a[i])
+    b.append(a[i])
+    c.append(k)
+
+n = len(c)
+
+if not b or not c:
+  print("Файл пуст или не содержит слов.")
+else:
+  d = 0
+  for i in range(n):
+    if c[i] > c[d]:
+      d = i
+    elif c[i] == c[d]:
+      if b[i] < b[d]:
+        d = i
+  print(b[d], c[d], sep=' ')
+
+#Count words(OPTIMIZED)
+s, d, m, w = str(), dict(), 0, str()
+with open("dataset_3363_3.txt", "r") as f:
+    s = f.read().lower().strip().split()
+s.sort()
+for word in s:
+    if word in d:
+        d[word] += 1
+    else:
+        d[word] = 1
+for word in d:
+    if d[word] > m:
+        m = d[word]
+        w = word
+
+#sets usage
+
+with open("dataset_3363_4 3.txt", "r") as file:
+  mat = pys = rus = 0
+  k = []
+  l = []
+  m = []
+  n = []
+
+  for line in file:
+      parts = line.strip().split(';')
+      name = parts[0]
+      scores = parts[1:]
+      c = 0
+      for i, val in enumerate(scores):
+          if val.isdigit():
+              valf = float(val)
+              c += valf
+              if i == 0:
+                  mat += valf
+                  k.append(valf)
+              elif i == 1:
+                  pys += valf
+                  l.append(valf)
+              elif i == 2:
+                  rus += valf
+                  m.append(valf)
+      avg = c / 3
+      n.append(avg)
+
+# Print subject averages
+print(mat / 3, pys / 3, rus / 3)
+print(type(mat/3), type(pys/3), type(rus/3))
+print(repr(f"{mat} {pys} {rus}"))
+
+# Write everything in one go
+with open("dataset_3363_5.txt", "w") as file:
+  for val in n:
+    file.write(f"{val}\n")
+  file.write(f"{mat/s} {pys/s} {rus/s}")
+
+                            МОДУЛИ
+• Модуль - файл с функциями
+• Имя файла = имя модуля + .py
+* import my_module
+    my_module.foo()
+* from my_module import foo -- specific function
+    foo()
+* from my_module import * -- all functions
+    foo()
+* from my_module import foo as my_foo -- name
+    my_foo() 
+
+        ПРИМЕРЫ МОДУЛЕЙ
+• sys
+    * sys.argv -- list of arguments of command line
+- Example:
+* import sys
+* print(len(sys.argv))
+
+#Example
+import sys
+print("Full list:", sys.argv)
+print(*sys.argv[1:])
+
+• subprocess
+    * subprocess.call(args, *,stdin=None,stdout=None,stderr=None,shell=False,timeout=None)
+- Example:
+import subprocess
+subprocess.call(["python", "-h"])
+result = subprocess.run(["python", "-h"], capture_output=True, text=True)
+print("\nOutput captured using run():")
+print(result.stdout)
+
+*Math function
+import math
+pi = math.pi
+r = float(input())
+def circle(r):
+  return pi * r * 2
+print(circle(r))
+
+                        ДОП.БИБЛИОТЕКИ
+• requests
+1) install requests!
+
+import requests
+
+r = requests.get('http://example.com')
+print(r.text)
+
+url = 'http://example.com'
+par = {'key1': 'value1', 'key2': 'value2'}, e.j. "text:" "Stepic". 'test:' 'test1', 
+r = requests.get(url, params=par)	   'name': 'Name With Spaces', 'List:' ['test1', 'test2']
+print(r.url)
+
+res = requests.get(url)
+res.status_code
+res.headers['Content-Type'] -- e.j. text/html, image/png
+res.content -- все содержимое(бинарные данные)
+res.text -- весть текст 
+
+with open("python.png", "wb") as f:
+   f.write(res.content)
+
+url = 'http://httpbin.org/cookies'
+cookies = {'cookies_are: 'working'}
+r = requests.get(url, cookies=cookies)
+print(r.text)
+
+print(r.cookies['example_cookie_name'])
+
+------------------------------------------------------
+
+#Матрёшка файлов
+
+import requests
+
+with open('dataset_3378_3.txt', 'r') as file:
+    a = file.read().strip()
+
+headers = {'User-Agent': 'Mozilla/5.0'}
+r = requests.get(a, headers=headers)
+
+while True:
+    if r.text.startswith('We'):
+        break
+    else:
+      next_url = 'https://stepik.org/media/attachments/course67/3.6.3/' + r.text.strip()
+      r = requests.get(next_url, headers=headers)
+
+print(r.text)
+
+#Football counting 
+n = int(input())
+d = {}
+
+for i in range(n):
+    a = input().split(';')
+    team1, score1, team2, score2 = a[0], int(a[1]), a[2], int(a[3])
+    for team in [team1, team2]:
+      if team not in d:
+          d[team] = [0, 0, 0, 0, 0]
+    if score1 < score2:
+      d[team2][0] += 1
+      d[team2][1] += 1
+      d[team2][4] += 3
+      d[team1][0] += 1
+      d[team1][3] += 1
+    elif score1 > score2:
+      d[team1][0] += 1
+      d[team1][1] += 1
+      d[team1][4] += 3
+      d[team2][0] += 1
+      d[team2][3] += 1
+    else:
+      d[team1][0] += 1
+      d[team2][0] += 1
+      d[team1][2] += 1
+      d[team2][2] += 1
+      d[team1][4] += 1
+      d[team2][4] += 1
+for key in d:
+  print (key, end=':')
+  for i in range(len(d[key])):
+    print(d[key][i], end=' ')
+  print()
+
+#Code/decode using given key
+a = input()
+b = input()
+letters = list(a) -- write by letters
+symbols = list(b)
+
+text = list(input())
+n = len(text)
+g = []
+for i in range(n):
+  if text[i] in letters:
+    g.append(symbols[letters.index(text[i])])
+
+retext = list(input())
+n = len(retext)
+h = []
+for i in range(n):
+  if retext[i] in symbols:
+    h.append(letters[symbols.index(retext[i])])
+
+for val in g:
+  print(val, end='')
+print()
+for val in h:
+  print(val, end='')
+
+#OR
+
+a,b,c,d=input(),input(),input(),input()
+print(''.join(b[a.index(i)] for i in c))
+print(''.join(a[b.index(i)] for i in d))
+
+#Find unused words
+n = int(input())
+k = []
+l = []
+for i in range(n):
+  a = input().lower()
+  k.append(a)
+
+o = int(input())
+for i in range(o):
+  b = input().split()
+  for j in range(len(b)):
+    if b[j].lower() not in k and b[j].lower() not in l:
+      l.append(b[j].lower())
+for i in range(len(l)):
+  print(l[i])
+
+#Root for snake
+NS = 0
+WE = 0
+n = int(input())
+for i in range(n):
+  a = [x.lower() if not x.isdigit() else int(x) for x in input().split()]
+  if a[0] == 'север':
+    NS += a[1]
+  elif a[0] == 'юг':
+    NS -= a[1]
+  elif a[0] == 'запад':
+    WE -= a[1]
+  else:
+    WE += a[1] 
+print(WE, NS)
+
+#Analize table
+heights = {i: [] for i in range(1, 12)}  # классы от 1 до 11 включительно
+
+with open('dataset_3380_5 3.txt', 'r') as file:
+    for line in file:
+        cls, name, height = line.strip().split()
+        cls = int(cls)
+        height = int(height)
+        heights[cls].append(height)
+
+for cls in range(1, 12):
+    if heights[cls]:
+        avg = sum(heights[cls]) / len(heights[cls])
+        print(f"{cls} {avg}")
+    else:
+        print(f"{cls} -")
+
+                        RANDOM MODULE
+* a = random.randint(0, 17) -- random values in range[a, b] 
+* a = random.randrange(0, 101, 10) -- random value in range[a, b)
+* a = random.random() -- возвращает число от 0.0 до 1.0 ( не 1.0 )
+* a = random.uniform(1.5, 17.3) -- случайное float [1.5, 17.3] 
+* random.seed(a=None, version=2) -- будет генерировать одинаково
+* from random import * -- теперь не нужно писать random.
+* random.shuffle(list) -- перетрести список
+* random.choice(list or str) -- выбрать случайный элемент 
+* population = ['a', 'b', 'c']
+    random.sample(population, 3, counts=[2, 1, 3) -- 3 случайных элемента из 6
+* random.triangular(1, 200, 50) -- most likely 50
+			COUNTER MODULE
+• Counter creates a DICTIONARY, where e.j. a is key and 5 is value
+* Counter('abracadabra') -- letters as keys
+* Counter(sentence.split()) -- words as keys
+* Counter('abracadabra').most_common(n) -- returns n most common letters and their
+amounts in a list, e.j. [(a, 5), (b, 2)] 
+* You can correspond to c[i] -- bc its a dictionary 
+* c.update("banana") -- add new keys
+* c.substract("band") -- substract some keys ( negative result possible )
+			TIME MODULE 
+• Предисловие: tuple - кортёж - упорядоченная коллекция элементов
+				как список, но неизменяемая. Заметка: one = (1,)
+• Time module gets time, counting from time which depends on a used function(low-level structures)
+* time.gmtime(0) -- starts counting from epoch time ( January 1, 1970, 00:00:00(UTC) )
+			,returns struct_time(tm_year=2025, tm_mon=4, tm_mday=10, tm_hour=0, 
+				tm_min=13, tm_sec=42, tm_wday=3, tm_yday=100, tm_isdst=0)
+		#Display Method
+		t = time.gmtime()
+		print("Year:", t.tm_year)
+		print("Minute:", t.tm_min)
+		print("Second:", t.tm_sec)
+* time.time() -- gives time passed since epoch time(in seconds)
+* time.localtime() -- check local time (t.tm_isdst )
+* time.sleep() -- freeze cycle, function, program for some time(delay) 
+	#Example
+	print("Loading", end='')
+	for _ in range(3):
+	  time.sleep(0.5)
+	  print('.', end='')
+* time.strftime(format_string, time_struct) -- in (), format string is a string 
+						with special codes like %Y, %m, etc,
+						if 2nd arg is None - checks localtime. 
+#Example of all
+now = time.localtime()
+
+formatted = time.strftime(
+  "%A, %d %B %Y | %I:%M:%S %p | Weekday: %w | Day of year: %j | Time zone: %Z | DST: %z",now)
+	returns: Monday, 08 April 2025 | 02:43:21 PM | Weekday: 1 | Day of year: 098 | 
+								Time zone: MSK | DST: +0300
+* strptime() -- "parse string" into time
+time.strptime(date_string, format_string)
+#example: t = time.strptime(s, "%Y-%m-%d %H:%M:%S")
+•Most info about time: https://docs.python.org/3/library/time.html
+* time.ctime() -- readable time, local if seconds not given. 
+ts = 1765400000  # A future timestamp
+print(time.ctime(ts)) -- convert time.time() into readable
+
+#Example
+import random
+
+for _ in range(10):
+    num = random.randint(0, 1)
+    if num == 0:
+        print('Орел')
+    else:
+        print('Решка')
+
+#Anti-dumb
+def is_valid(a): 
+  if a.isdigit() and 1 <= int(a) <= 100 and float(a) % 1 == 0:
+    return True
+  else:
+    return False
+
+#Шар Судьбы
+import random
+
+answers = ["Бесспорно", "Мне кажется - да", "Пока неясно, попробуй снова", "Даже не думай",
+   "Предрешено", "Вероятнее всего", "Спроси позже", "Мой ответ - нет",
+   "Никаких сомнений", "Хорошие перспективы", "Лучше не рассказывать", "По моим данным - нет",
+   "Можешь быть уверен в этом", "Да", "Сконцентрируйся и спроси опять", "Весьма сомнительно"]
+
+print('Привет Мир, я магический шар, и я знаю ответ на любой твой вопрос.')
+a = input('Введите ваше имя:').split()
+print('Привет,', a)
+while True:
+  b = input('Введите ваш вопрос:')
+  print(random.choice(answers))
+  c = input('Хотите ли вы задать еще один вопрос? (да/нет):')
+  if c.lower() != 'да':
+    print('Возвращайся если возникнут вопросы!')
+    break
+  else:
+    continue
+
+#Generate Password
+import random
+digits = '0123456789'
+lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
+uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+punctuation = '!#$%&*+-=?@^_'
+chars = ''
+
+n = int(input('Количество паролей: '))
+l = int(input('Длина одного пароля: '))
+
+k = input('Включать ли цифры 0123456789? (y/n) ')
+b = input('Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ? (y/n) ')
+s = input('Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz? (y/n) ')
+v = input('Включать ли символы !#$%&*+-=?@^_? (y/n) ')
+w = input('Исключать ли неоднозначные символы il1Lo0O? (y/n) ')
+
+if k.lower() == 'yes':
+  chars += digits
+if b.lower() == 'yes':
+  chars += uppercase_letters
+if s.lower() == 'yes':
+  chars += lowercase_letters
+if v.lower() == 'yes':
+  chars += punctuation
+if w.lower() == 'yes':
+  for c in 'il1Lo0O':
+    chars = chars.replace(c, '')
+
+def generate_password(l, chars):
+  return random.sample(chars, l)
+  
+for i in range(n + 1):
+  a = generate_password(l, chars)
+  for j in range(len(a)): 
+    print(a[j], end='')
+  print()
+
+РАЗНЫЕ ФУНКЦИИ  
+
+* x = [1, 2, 3]
+  print(id(x))
+  print(id([1, 2, 3])) -- different ids 
+* print(type(id(x))) -- Возвращает тип объекта, ТИП ПОСТОЯНЕН, как и Tuple 
+--frozenset -- Неизменяемый set 
+
+#Unique Ids 
+ans = 0
+unique_ids = []
+
+for obj in objects:
+    if not any(obj is other for other in unique_ids):
+        unique_ids.append(obj)
+        ans += 1
+# OR:
+objects = [1, 1, 1, 2, 2, 3, 3]
+print(len(set(map(id, objects)))) 
+
+print(ans)
+
+* list(map(функция, итерируемый_объект)) -- применить функцию к списку и вернуть как объект 
+* lambda x: x**x -- функция без def
+# Example:
+    students = [('Ivan', 90), ('Masha', 85), ('Sasha', 95)]
+    students.sort(key=lambda x: x[1])
+    print(students)
+# Example:
+    lst = [1, 2, 3]
+    z = lambda s: sum(s) -- create a function 
+    print(z(lst))
+
+* push - кладём на стек ( можно брать как из стакана - только то, что сверху
+* pop - забираем некое значение из списка и присваиваем ( anti-append )
+Processing tasks from a list
+tasks = ['clean', 'write', 'sleep']
+
+while tasks:
+    current = tasks.pop() -- substract and use
+    print(f'Doing task: {current}')
+
+* print(10, b=20) -- Сначала передаём позиционные значения 
+* printab(**args) == printab(key1=args[key1],key2=args[key2])
+* def printab(a, b=10) -- Еси ничего, то используем 10, иначе - введённое значение 
+* sort() - по возрастанию, sorted(reverse = true) - по убыванию
+* def function_name(
+    positional_args, positional_args_with_default=default, *args, keyword_only, 
+    keyword_only_with_default=default, **kwargs)
+
+• СТЕК ВЫЗОВОВ хранит функции, которые мы вызвали. Функция началась - кладём на стек,
+функция закончилась - снимаем со стека.
+
+* fib 
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+math.comb(9,2) <=> n! / (k! * (n - k!))
+math.perm(9, 2) -- same but count different orders too 
+* namespaces - абстракция для работы с областями видимости 
+• Область видимоти определяет, какие переменные и функции доступны в данном контексте (scope) - кусок кода
+Области видимости статичны, области действия соответствует её неймспейс.
+Пример:
+def b(): 
+    x = 31
+    def a(): 
+        print(x) -- a scope in b scope in global scope, but exist in namespace 
+    a()
+b() 
+
+Пример:
+def a():
+    print(x)
+def b():
+    x = 31
+    a() -- name error, bc a scope not in b scope
+x = 11 -- no error, found in global scope - taken from global namespace
+
+Difference:
+def outer():
+    a = 'outer'
+    
+    def inner():
+        b = 'inner'
+        print(a)
+        print(b)
+    inner()
+Типы:
+Local
+    Enclosing
+        Global
+            Builtins 
+
+Namespaces:
+	•	a is in the namespace of outer().
+	•	b is in the namespace of inner().
+
+Scopes:
+	•	Inside inner(), the scope includes:
+	•	b (local)
+	•	a (enclosing scope from outer())
+
+
+* builtins > global namespace:
+    int, str, float, bool, max, min, abs, id... 
+  namespace main - верхний, глобальный namespace. Something in function - local namespace 
+
+Для условных операторов local namespace не создаётся 
+for i in range(5):
+	x = i -- попадает в global namespace
+
+* global variable -- take and edit something global using local namespace
+#Example
+ok_status = True
+vowels = ["a", "e", "i", "o", "u"]
+
+def check(word):
+  global ok_status
+  for vowel in vowels:
+    if vowel in word:
+      return True
+  ok_status = False
+  return False
+print(check("hello"))
+print(ok_status)
+print(check('www'))
+print(ok_status)
+
+* globals() returns a DICTIONARY
+
+That dictionary holds variable names as keys, and their actual values as values.
+d = globals()
+d['x']  # => 5
+
+
+* nonlocal variable -- take and edit enclosing variable 
+#Example 
+def f():
+  ok_status = True
+  vowels = ['a', 'u', 'i', 'e', 'o']
+  
+  def check(word):
+    nonlocal ok_status
+    for vowel in vowels:
+	if vowel in word:
+        return True
+    ok_status = False
+    return False
+    
+  print(check('abacaba'))
+  print(ok_status)
+  print(check('www'))
+  print(ok_status)
+f()
+
+#Functions Through Input
+n = int(input())
+
+-- parent[child] = parent_namespace
+parent = {'global': None}
+
+# vars[namespace] = set of variable names
+vars = {'global': set()}
+
+def get(ns, var):
+    if var in vars.get(ns, set()):
+        return ns
+    elif parent[ns] is None:
+        return 'None'
+    else:
+        return get(parent[ns], var)
+
+for _ in range(n):
+    cmd = input().split()
+    if cmd[0] == 'create':
+        namespace, parent_name = cmd[1], cmd[2]
+        parent[namespace] = parent_name
+        vars[namespace] = set()
+    elif cmd[0] == 'add':
+        namespace, var = cmd[1], cmd[2]
+        vars[namespace].add(var)
+    elif cmd[0] == 'get':
+        namespace, var = cmd[1], cmd[2]
+        print(get(namespace, var))
+
+{«Пространство»: [«Родитель», «Множество зависимых пространств»]}
+{«Пространство»: «Множество переменных»}.
+
+* if h and h not in d[val]: -- checks if h is not empty ( is True ) at first 
+*  d[val].append(h.copy()) -- without using copy it would change if we would have changed h 
+
+			КЛАССЫ
+
+• Classes let you make YOUR OWN commands, syntax. list, dict, tuple  - class. 
+class MyClass:
+  #class body -- used only in the moment of defining class
+• names defined in classe's namespace get ANCHORED to the name of CLASS 
+• After class done - object 'MyClass' is created 
+#Example of usage 1:
+class MyClass:
+  a = 10 -- field, property.        
+  def func(self): -- method
+    print('Hello')
+print(MyClass, a)
+print(MyClass.func) -- a и func - атрибуты объекта MyClass 
+
+#Example of usage 2:
+class Counter:
+   pass
+Counter -- class object
+x = Counter() -- x is instance object ( экземпяр класса ) - can only use attributes
+x.count = 0 -- new attribute
+x.count += 1
+
+
+• У классов всегда можно вызвать конструктор 
+* Констрнуктор нужен для того, чтобы создавать объекты класса
+* Конструктор есть у КАЖДОГО объекта в python, и это единственный механизм, в котором 
+  создаются объекты.
+# class Counter:
+   def __init__(self): -- 1. create empty attribute 2. give it to self - so init sets attributes
+	self.count = 0
+Counter
+x = Counter()
+print(x.count) -- 0
+x.count += 1
+
+# class Counter:
+   def __init__(self, start=0): -- inicialisation starts AFTER SELF, other do that BY ARGUMENTS
+	self.count = start		we gve into constructor. self makes it work for word in 
+Counter							THE WHOLE class.
+x1 = Counter(10)
+x = Counter()
+print(x.count)
+x.count += 1
+
+#Example
+class LibraryBook:
+  def __init__(self, title, author):
+    self.title = title
+    self.author = author
+    self.status = 'available'
+    
+  def borrow(self):
+    if self.status == 'available':
+      print(f'borrowing {self.title}')
+      self.status = 'borrowed'
+    else:
+      print(f'Already borrowed')
+    
+  def return_book(self):
+    if self.status == 'borrowed':
+        print(f"Returned {self.title}")
+        self.status = 'available'
+  else:
+      print(f"{self.title} wasn't borrowed")
+    
+  def display_status(self):
+    print(f'{self.title} by {self.author} is {self.status}')
+
+library = []
+for i in range(int(input())):
+  title = f"book #{i+1}"
+  author = f"Author {chr(65 + (i%26))}"
+  book = LibraryBook(title,author)
+  library.append(book)
+
+#Example
+class Counter:
+  def __init__(self):
+    self.count = 0
+  def inc(self):
+    self.count += 1
+  def reset(self):
+    self.count = 0
+
+x = Counter()
+* x.inc() -- Bound Method - find function and link it to an object 
+print(x.count)
+* Counter.inc(x) -- same as x.inc() 
+
+def add(self, v):
+    if self.can_add(v): -- you can call other functions inside of a class 
+      self.a += self.v
+
+#Save in lists
+class Buffer:
+  def __init__(self):
+    self.b = []
+    self.c = []
+
+  def add(self, *a):
+    self.b.extend(a) -- faster than '+' 
+    while len(self.b) >= 5:
+      chunk = self.b[:5]
+      self.c.append(chunk)
+      self.b = self.b[5:]
+
+  def get_current_part(self):
+    print(self.b)
+    return self.b
+
+• НАСЛЕДОВАНИЕ КЛАССОВ - make an object be almost like some class, but with changes 
+* class DerivedClassName(Base1, Base2, Base3): -- inheriting from a class, 
+						   multiple inheritance
+#Example
+class MyList(list): -- MyList is НаследуЮЩИЙ class, list is наследуЕМЫЙ class(Parent)
+  def even_length(self): -- additional method 
+    return len(self) % 2 == 0
+x = MyList()
+print(x)
+x.extend([1, 2, 3, 4, 5])
+print(x)
+print(x.even_length())
+x.append(6)
+print(x.even_length())
+• Mulptiple inheritance checkig structure.
+class D: pass -- inheritance from class 'object' 
+class E: pass			>D
+class B(D, E): pass	     >B>
+class C: pass		   A>	>E
+class A(B, C): pass	     >C
+
+* issubclass(A, D) -- True
+* isinstance(x, D) -- True ( if used something like x = A() and A is an inheritance of D ) 
+* print(B.__mro__) get full tree vein, e.j. (<class '__main__.B'>, <class '__main__.A'>, <class 'object'>)
+				MRO <=> Method Resolution Order
+• Order of multiple inheritance
+class D: pass
+class E: pass
+class B(D, E): pass
+class C: pass
+class A(B, C): pass
+
+print(A.mro()) -- gives first resolution order, then second ( each class once )
+				работает по принципу слева направо.
+
+#Example + *REDEFINE A FUNCTION
+class EvenLengthAddon:
+  def even_length(self):
+    return len(self) % 2 == 0
+
+class MyList(list, EvenLengthAddon):
+  def pop(self): 
+    x = super(MyList, self).pop() -- super(find first class where it exists in subclass, object)
+    print("Last value is", x)			<=> list.pop(self)
+    return x
+
+ml = MyList([1, 2, 4, 17])
+z = ml.pop()
+print(z)
+print(ml)
+
+• Logic Check
+class A:
+   def foo(self):
+      print("A")
+
+class B(A):
+   pass
+
+class C(A):
+   def foo(self):
+      print("C")
+
+class D:
+   def foo(self):
+      print("D")
+
+class E(B, C, D):
+   pass
+
+E().foo()
+
+• What MRO first gets:
+[B, A, object]
+[C, A, object]
+[D, object]
+1) B not tailed(first in list), take it. 2)C not tailed - take it(bc A is tailed in 2nd) 
+3) A not tailed now - take it. 4) D not tailed - take it.
+
+Python picks the first class (head) from these lists 
+that is not present later in any other list.
+
+• ERROR ( rule )
+class A: pass
+class B(A): pass
+class C: pass
+class D(C): pass
+class E(B, C, D): pass  # ← Error happens here
+
+	it cycles, bc builds this:
+	[B, A, object]
+	[C, object]
+	[D, C, object]
+	and [B, C, D] (the direct bases)
+
+#Recursion Example
+def find_path(start, path):
+    path.add(start)
+    for node in graph[start]:
+        if node not in path:
+            find_path(node, path)
+
+graph = {}
+for i in range(int(input())):
+    s = input().split()
+    graph[s[0]] = s[2:] if len(s) > 1 else [s[0]]
+
+for i in range(int(input())):
+    s = input().split()
+    path = set()
+    find_path(s[1], path)
+    print('Yes' if s[0] in path else 'No')
+
+#Extended List Operations Class 
+class ExtendedStack(list):
+  def sum(self):
+    self.append(self.pop() + self.pop()) -- self is out lst!
+
+  def sub(self):
+    self.append(self.pop() - self.pop())
+
+  def mul(self):
+    self.append(self.pop() * self.pop())
+
+  def div(self):
+    self.append(self.pop() // self.pop())
+
+#Another example of remaking functions 
+class LoggableList(list, Loggable):
+  def append(self, val):
+    super(LoggableList, self).append(val)
+    self.log(val)
+
+•Try, Except, Finally -- safely do errors 
+def f(x, y):
+  try:
+    return x / y
+  except (TypeError, ZeroDivisionError) as e: -- can also be except () 
+    print(type(e))
+    print(e) -- division by zero 
+    print(e.args)
+
+•Parenting in try, except
+print(f(5, 0))
+print(f(5, []))
+try:
+  15 / 0
+except ZeroDivisionError:
+  print("Division by zero")
+
+print(ZeroDivisionError.mro()) -- ZeroDivisionError < ArithmeticError, Exception <
+							<BaseException < Object
+• FULL	construction
+def divide(x, y):
+  try:
+    result = x/y
+  except ZeroDivisionError:
+    print("division by zero")
+  else: 			-- if not except
+    print("result is", result)
+  finally:			-- no matter what
+    print("finally")
+
+* assert x > 0 -- if False, then stops the code 
+
+except ZeroDivisionError as e:
+  print(type(e).__name__)	 -- print NAME OF A CLASS 
+
+* Make error where we want
+def greet(name):
+  if name[0].isupper():
+    return "Hello, " + name
+  else:
+    raise ValueError(name + " is inapproptiate name") -- create error
+
+while True:
+  try
+    name = input("Please enter your name")
+    greeting = greet(name)
+    print(greeting)
+  except ValueError:
+    print("Please try again")
+  else:
+    break
+
+* Make new exception classes
+class BadName(Exception):
+  pass
+def greet(name):
+  if name[0].isupper():
+    return "Hello, " + name
+  else:
+    raise BadName(name + " is inapproptiate name") -- returns BadName ERROR!
+
+#Recursion example
+n = int(input())
+parents = {}
+lst = []
+
+for _ in range(n):
+  a = input().split()
+  if a[0] not in parents:
+    parents[a[0]] = []
+  for j in range(2, len(a)):
+    if a[j] not in parents[a[0]]:
+      parents[a[0]].append(a[j])
+
+def collect_ancestors(cls, visited=None):
+  if visited is None:
+    visited = set()
+  if cls not in parents or cls in visited:
+    return set()
+  visited.add(cls)
+  result = set(parents[cls])
+  for parent in parents[cls]:
+    result.update(collect_ancestors(parent, visited))
+  return result
+
+m = int(input())
+for _ in range(m):
+  lst.append(input().strip())
+
+seen = set()
+for cls in lst:
+  ancestors = collect_ancestors(cls)
+  if seen & ancestors:
+    print(cls)
+  seen.add(cls)
+
+#OP RECURSION
+def checkdup(d):
+    return cls[d] is None or any(map(checkdup, cls[d])) -- if any of _ is True,
+								'any' returns true
+cls = {d: set(b[1:]) for _ in range(int(input())) for d, *b in [input().split()]}
+
+for _ in range(int(input())):
+    c = input()
+    if checkdup(c):
+        print(c)
+    cls[c] = None
+
+				ИСПОРТИРОВАНИЕ МОДУЛЕЙ
+• Ищется в sys.modules ( dict )
+
+• Not to run the ENTIRE thing but to use a wanted part 
+def fib(k):
+  if k == 0 or k == 1:
+    return 1
+  else:
+    return fib(k - 1) + fib(k - 2)
+
+print(__name__)
+if __name__ == "Main": 		--check file's name
+  print(fib(31))
+
+• Повторное импортирование НЕВОЗМОЖНО 
+• redefine function locally
+from exceptions import BadName, greet as exc_greet
+import exceptions as exc 
+
+def greet():
+  print("Greetings!")
+greet()
+print(exc_greet("Student")) 
+
+• To import using * add ( to an exporting file ) __all__ = ["BadName", "greet"] - e.j. 
+	o
+
+• Module is searched 
+import sys 
+import numpy
+print(sys.modules)
+print(type(check))a
+• Shows the way it was found ( searches in libraries(in packets - many modules packed))
+import sys
+for i in sys.path:
+  print(i)
+• you can donload many libraries from PyPI - Python Package Index (pypi.python.org) 
+ * pip install numpy -- to install using shell
+
+
+
+* Datetime module example - count date
+from datetime import date, timedelta
+a = date(*map(int, input().split())) -- unpack a tuple 
+b = timedelta(int(input()))
+c = a + b
+print(c.year, c.month, c.day)
+
+
+				ИТЕРАТОРЫ, ГЕНЕРАТОРЫ
+• iterator - определяет порядок обхода элементов коллекции
+  iterable - объект, который может быть передан в функцию iter()
+lst = [1, 2, 3, 4, 5, 6]
+book = {'title:', 'The Langoliers', 'author:', 'year:', 1990}
+string = "Hello, World!"
+
+for i in book:
+  print(i)
+
+iterator = iter(book)
+
+while True:
+  try:
+    i = next(iterator) -- iterate and get next element
+    print(i)
+  except StopIteration:
+    break
+• Iteration is for building custom cycles 
+from random import random
+
+class RandomIterator:
+  def __iter__(self): -- make it iterator
+    return self
+
+  def __init__(self, k):
+    self.k = k
+    self.i = 0
+
+  def __next__(self):    -- x.__next__() <=> x - give possibilities ИТЕРАТОРА
+    if self.i < self.k:
+      self.i += 1
+      return random()
+    else:
+      raise StopIteration
+
+for x in RandomIterator(10):
+  print(x)
+
+•Iteration is NEEDED as a wrapper, bc otherwise list logic would be used as default 
+class DoubleElementIterator:
+  def __init__(self, lst):
+    self.lst = lst
+    self.i = 0
+  def __next__(self):		--make a cycle body for iteration
+    if self.i < len(self.lst):
+      self.i += 2
+      return self.lst[self.i - 2], self.lst[self.i - 1]
+    else:
+      raise StopIteration
+
+class MyList(list):
+  def __iter__(self):			  --use iteration wrapping
+    return DoubleElementListIterator(self)
+
+for pair in MyList([1, 2, 3, 4]):
+  print(pair)
+
+• Generator returns from function multiple times. if 'Yield' is seen in a function -
+						- its counted as a generator
+class RandomIterator:
+  def __iter__(self):
+    return self
+
+  def __init__(self, k):
+    self.k = k
+    self.i = 0
+
+  def __next__(self):
+    if self.i < self.k:
+      self.i += 1 
+      return random()
+    else:
+      raise StopIteration
+
+def random_generator(k):
+  for i in range(k):
+    yield random()        --when we ask generator for the next element, it RERUNS function body,
+gen = random_generator(3)			after yield it RETURNS a value and REMEMBERS
+print(type(gen))				current state of a funsction, so we start from
+							this point when doing again, 
+							afterall 'StopEterationError'. 
+#Example of iteration 
+class multifilter:
+    def judge_half(pos, neg):
+        return pos >= neg
+
+    def judge_any(pos, neg):
+        return pos >= 1
+
+    def judge_all(pos, neg):
+        return neg == 0
+
+    def __init__(self, iterable, *funcs, judge=judge_any):
+        self.iterable = iterable
+        self.funcs = funcs
+        self.judge = judge
+
+    def __iter__(self):
+        for item in self.iterable:
+            pos = 0
+            neg = 0
+            for f in self.funcs:
+                if f(item):
+                    pos += 1
+                else:
+                    neg += 1
+            if self.judge(pos, neg):
+                yield item
+
+#Check if a prime number, also do a range inside lambda
+
+def primes():
+  x = 2
+  while True:
+    for i in range(2, int(x ** 0.5) + 1): -- if has divisors later - has divisors before 
+      if x % i == 0:
+        break
+    else:
+      yield x  -- give x back to a function
+    x += 1
+
+print(list(itertools.takewhile(lambda x : x <= 31, primes()))) --takes from yield while condition. 
+
+• list comprehension:
+z = [(x, y) for x in range(3) for y in range(3) if y >= x][1:] -- check x in y in range(3),
+								   don't take first pare
+• Can be used as generator onject.
+z = ((x, y) for x in range(3) for. y in range(3) if y >= x)
+print(z)
+print(next(z))
+print(next(z))
+
+			MAP/LAMBDA FUNCTIONS 
+•map - iterator 
+
+n, k = list(map(int, input().split()))
+n, k = ([int(i) for i in input().split()])
+
+• filter(f, a) -- return value if function returns true for it 
+x = input().split()
+xs = (int(i) for i in x)
+
+def even(x):
+  return x % 2 == 0
+
+evens = list(filter(even, xs))
+print(evens)
+• lambda - short function 
+
+#Example
+even = lambda x: x % 2 == 0
+evens = list(filter(even, xs))
+print(evens)
+
+#Key for sort(key) 
+x = [(f"Van, Per, Gil"), (f"Jone, Coll, Hesh"), (f"Lesh, Mesh, Dash")]
+
+x.sort(key=lambda name: len(" ".join(name)))
+print(x)
+
+• operator, itemgetter, attgetter
+import operator as op
+
+print(op.add(4, 5))
+print(op.mul(4, 5))
+print(op.contains([1, 2, 3], 4))
+
+x = [1, 2, 3]
+f1 = op.itemgetter(1)
+f2 = op.attrgetter("sort")   # f2(x) == x.sort
+print(f1(x))
+print(f2([]))
+
+#Example
+x = [(f"Van, Per, Gil"), (f"Jone, Coll, Hesh"), (f"Lesh, Mesh, Dash")]
+
+import operator as op
+x.sort(key=op.itemgetter(-1))
+print(x)
+
+• functools
+* from functools import partial
+
+x = int("1101", base=2)
+print(x)
+
+int_2 = partial(int, base=2) -- partially use, remake a function with different keys 
+x = int_2("1101")
+print(x) 
+
+x = [(f"Van, Per, Gil"), (f"Jone, Coll, Hesh"), (f"Lesh, Mesh, Dash")]
+
+import operator as op
+from functools import partial
+
+sort_by_last = partial(list.sort, key=op.itemgetter(-1)) -- use sort, but change key 
+print(x)
+sort_by_last(x)
+print(x)
+
+* reduce applies a function repeatedly, 1 by 1. can have initial value.
+reduce(lambda x, y: x + y, [1, 2, 3], 10) -- 10 + 1 + 2 + 3
+
+#Usage of Lambda
+def mod_checker(x, mod=0):
+  return lambda y: y % x == mod
+# Example
+def recursive_replace(s, a, b, count=0):
+  if a not in b and a in s:
+    return recursive_replace(s.replace(a, b), a, b, count + 1)
+  return count, s
+
+#count in substring in string
+s = input()
+t = input()
+ans = 0
+for i in range(len(s)):
+    if s[i:].startswith(t): -- startswith can be used with words, too 
+        ans += 1
+
+print(ans)
+
+				  РЕГУЛЯРНЫЕ ВЫРАЖЕНИЯ 
+x = "hello\nworld" -- перенос сроки
+y = "hello\"world"
+z = "hello\\world"
+print(x)
+
+•Чтобы читать все символы такими, какие они есть - нужно использовать r"_"
+x = r"hello\n\world"
+print(x)
+•re module <=> regular expressions.
+  * re.match -- ищет совпадение в начале строке, потом возвр. как match
+	#Пример возвращения match
+	<re.Match object; span=(0, 4), match='abcd'> or None, span - range taken
+  * re.search -- найти подходящий диапозон, если есть
+    pattern = r"abcd"
+    string = "babcd"
+    match_object = re.search(pattern, string)
+  * re.findall -- все строки, подходящие под шаблон
+     pattern = r"a[a-z]c" -- любая буква в диапозоне
+     string = "abcaccaacadc"
+     all_inclusions = re.findall(pattern, string) -- находит ВСЕ подход. В ЧЁМ УГОДНО. List. 
+     print(all_inclusions)
+  * re.sub(pattern, "abc", string) -- заменить все подходящие на abc(автозамена) 
+	можно передавать функцию 
+  * re.fullmatch(pattern, string) -- полное вхождение 
+  * re.split(r'\W+', 'Где, скажите мне, мои очки??!' -- возвращает в списке, что нужно 
+
+Полезные константы:
+  * re.ASCII -- только арабские цифры и англ. буквы 
+   пример: findall = re.findall(pattern, string, re.ASCII) -- flag re.ASCII 
+  * re.MULTILINE -- Специальные символы ^ и $ соответствуют началу и концу каждой строки 
+  * re.DOTALL -- все симвоы подходят под точку 
+  * re.IGNORECASE -- не важно, заглавная баква ии строчная 
+
+
+
+• Метасимволы
+   | Метасимвол | Значение                        | Пример                     |
+|------------|----------------------------------|-----------------------------|
+| `.`        | Любой один символ               | `a.b` → `acb`, `a_b`, `a3b` |
+| `^`        | Начало строки                   | `^Hello` → только в начале  |
+| `$`        | Конец строки                    | `world$` → только в конце   |
+| `*`        | 0 или более повторений          | `ab*` → `a`, `ab`, `abb`... |
+| `+`        | 1 или более повторений          | `ab+` → `ab`, `abb`, но не `a` |
+| `?`        | 0 или 1 повторение              | `ab?` → `a` или `ab`        |
+| `[]`       | Набор символов                  | `[abc]` → `a` или `b` или `c` |
+| `\d`       | Цифра (0–9)                     | `\d\d` → две цифры подряд   |
+| `\w`       | Буква, цифра или _              | `\w+` → слово               |
+| `\s`       | Пробел                          | `\s+` → один или несколько пробелов |
+| `|`        | Или                             | `cat\|dog` → `cat` или `dog` |
+| `()`       | Группа (для логики/захвата)     | `(ab)+` → `ab`, `abab`, ... |
+
+Примеры:
+1) []
+  pattern = r"a[abc]c"
+string = "acc"
+match_object = re.match(pattern, string)
+2) ^
+  pattern = r"[^a-zA-Z]c" -- все, кроме ^...
+string = "a.c, a-c, a,c"
+3) .
+  pattern = r"a.c" -- что угодно, кроме \n
+Сокращения:
+1) \d - [0-9] -- цифры - r"a\dc" <=> r"a[0-9]c"
+2) \D - [^0-9] -- не цифры.  
+3) \s - [ \t\n\r\f\v ] -- пробельные символы
+4) \S - [ ^\t\n\r\f\v ]
+5) \w - [a-zA-Z0-9_] --буквы + цифры + _
+6) \W - [^a-zA-Z0-9_]
+7) \b - с одной стороны буква, с другой нет ( граница слова ). \b\w{3}\b
+комбинации: r"a[\w.]c", r"a[\w\s]c" ...
+8) \B -- либо есть 2 границы, либо нету 2 границ
+9) \A -- начало всего текста
+10) \Z -- конец всего текста 
+
+Указать группу: ( действуют жадно - по-умолчанию берут самый динный вариант ) 
+1) * -- Любое количество символа от нуля
+  pattern = r"ab*a"
+string = "aa, aba, abba"
+2) + -- Любое количество от 1
+  pattern = r"ab+a"
+string = "aba, abba"
+3) ? -- 0 или 1 вхождение
+  pattern = r"ab?a"
+string = "aa, aba"
+4) {n} -- сколько конкретно интересует 
+  pattern = r"ab{2,4}a"
+string = "abba, abbba, abbbba"
+   Самое короткое выражение:
+	pattern = r"a[ab]+?a"
+5) () -- группировка цуликом
+    Или:
+	pattern = r"(test|text)*" -- | значит или
+	string = "testtest"
+   Или:
+	pattern = r"abc|(test|text)"
+	string = "abc"
+  Или:
+	pattern = r"((abc|(test|text)*))"
+	string = "abc"
+	match = re.match(pattern, string
+	print(match.groups()) -- находит группы (abc, abc, None) - внешние, первые 
+							 внутренние, вторые внутренние,
+							запоминает последнее вхождение 
+	pattern = r"Hello (abc|text)"
+	string = "Hello abc"
+	match = re.match(pattern, string)
+	print(match.group(0)) -- группы можно индексировать 
+	print(match.group(1))
+Примеры:
+ [-+]?\d+, [-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?, 
+r'\b(\w+)\1\b' -- \1, чтобы проверить повтор
+pattern = r'https://[^\s"\'>]+' -- для поиска ССЫЛОК на сайте 
+
+import re
+
+pattern = r"[^\s@]{1,64}@(?!_)(?:\w+[._]?\w+){1,255}" -- ?: делает, чтобы обращалось не как к группе 
+string = input()
+findall = re.findall(pattern, string, re.ASCII)
+for i in findall:
+    a = i.index("@")
+    b = i
+    c = b[a:].replace("_", '.')
+    print(c)
+
+match.start(), match.end() -- начала и конец найденной строки 
+pattern = r"(\w+)-\1" -- использовать первую группу, можно использовать r"\1" в sub 
+
+#Example
+import sys
+import re
+
+pattern = r'\b"?a{1,}"?\b' 
+
+def replacer(m):
+    text = m.group(0)
+    if text.startswith('"') and text.endswith('"'):
+        return '"argh"'
+    return 'argh'
+
+for line in sys.stdin:
+    line = line.rstrip()
+    new_line = re.sub(pattern, replacer, line, count=1, flags=re.IGNORECASE)
+    print(new_line)
+
+#Example of using groups
+import sys
+import re
+
+pattern = r'\b(\w)(\w)(\w*)\b'
+
+for line in sys.stdin:
+    line = line.rstrip()
+    line = re.sub(pattern, r'\2\1\3', line)
+    print(line)
+
+#Binary to numbers
+import sys
+import re
+
+for line in sys.stdin:
+    line = line.rstrip()
+    a = 0
+    if re.fullmatch(r'[01]+', line):
+        for i in range(len(line)):
+            a += int(line[i]) * 2**(len(line)-i-1)
+        if a % 3 == 0:
+            print(line)
+
+
+			    ОБЗОРНО ОБ ИНТЕРНЕТЕ
+• Url - Uniform Resource Locator
+get, post - самые используемые методы 
+• Html - Hypertext Markup Language
+after tag a is located a link
+
+#HTML link search 
+import requests
+import re
+
+sites = []
+link = input().strip()
+file = requests.get(link)
+x = re.findall(r"<a[^>]*href=[\"'][^>]*?([\w-]+\.[^:>\"\?'/]*)[/:]*[^>\"']*[\"'][^>]*>", file.text)
+for i in x:
+    if (i not in sites) and (i[-3:] != "php") and (i[-4:] != "html"):
+        sites.append(i)
+sites.sort()
+for i in sites:
+    print(i)
+		РАСПРОСТРАНЁННЫЕ ФОРМАТЫ ТЕКСТОВЫХ ФАЙЛОВ: CSV, JSON
+• CSV - Coma Separated Values
+* CSV to Excel: https://tallanto.com/ru/chto-takoe-csv-fayl-i-kak-ego-preobrazovat-v-excel
+import csv 
+
+with open("Example.csv") as f: 		
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
+
+CSV used: first name,last name,module1,module2,module3
+	student,best,100,100,100
+	student,good,90,"90.2",100 -- "val" чтобы изолировать
+
+* To read tsv or other:
+import csv 
+
+with open("Example.tsv") as f:
+    reader = csv.reader(f, delimiter="\t") -- обозначает как разделение элементов 
+    for row in reader:
+        print(row)
+* add new lines to a CSV
+import csv 
+
+students = [['Ben','best',100,100,100,'Excellent score'], 
+            ['Jo','good',90,90.2,100,'Good result']]
+
+with open("Example.csv", 'a', newline='') as f: 
+    writer = csv.writer(f, quoting=csv.QUOTE_ALL(or NONNUMERIC) -- чтобы писать, помещая каждое в кавычки 
+    for student in students: 
+        writer.writerow(student) -- написать как строку
+    OR:
+    writer.writerows(students) -- сразу несколько строк
+
+#Find Crimes
+import csv
+
+res = {}
+s = 0
+dang = None
+
+with open("Crimes.csv") as f:
+    reader = csv.reader(f)
+    next(reader) 
+    for row in reader:
+        crime = row[5]
+        res[crime] = res.get(crime, 0) + 1
+        if res[crime] > s:
+            s = res[crime]
+            dang = crime
+
+print(dang, s)
+
+OR: ( same memory spent, better speed )
+
+import csv
+from collections import Counter
+
+with open("Crimes.csv") as f:
+    reader = csv.reader(f)
+    next(reader)  -- Skip header
+    crime_list = [row[5] for row in reader]
+counts = Counter(crime_list)
+most_common_crime, count = counts.most_common(1)[0]
+print(most_common_crime, count)
+
+• JSON - Javascript Object Notation 
+1) key is ONLY string
+2) JSON doesn't support sets 
+
+Python			JSON
+dict			object
+list, tuple		array
+str			string
+int, long, float	number
+True			true
+False			false
+None			null
+
+JSON			Python
+object			dict
+array			list
+string			str
+number (int)		int
+number (real)		float
+true			True
+false			False
+null			None
+
+
+
+#Example ( dict to JSON )
+import json
+
+student1 = {
+    'first_name': 'Greg',
+    'last_name': 'Dean',
+    'scores': [70, 80, 90],
+    'description': "Good job, Greg",
+    'certificate': True
+}
+
+student2 = {
+    'first_name': 'Wirt',
+    'last_name': 'Wood',
+    'scores': [80, 80.2, 80],
+    'description': "Nicely Done",
+    'certificate': True
+}
+
+data = [student1, student2]
+data_json = json.dumps(data, indent=4, sort_keys=True) -- make json format, use 'dump' if to file(сериализация)
+data_again = json.loads(data_json) -- read json format, use 'load' if from file(десериализация)
+print(sum(data_again[0]["scores"]))
+
+#example of decoding
+blackjack_hand = (8, "Q")
+encoded_hand = json.dumps(blackjack_hand)
+decoded_hand = json.loads(encoded_hand)
+ 
+print(blackjack_hand == decoded_hand) -- False
+ 
+print(type(blackjack_hand)) -- <class 'tuple'>
+print(type(decoded_hand)) -- <class 'list'>
+ 
+print(blackjack_hand == tuple(decoded_hand)) -- True
+
+#Recursion Example(graph) 
+import json
+
+data = json.loads(input())
+res = {}
+
+def tree(name, visited):
+    count = 0
+    for obj in data:
+        if name in obj["parents"] and obj["name"] not in visited:
+            visited.add(obj["name"])
+            count += 1 + tree(obj["name"], visited)
+    return count
+
+for obj in data:
+    name = obj["name"]
+    visited = set()
+    res[name] = tree(name, visited)
+
+for k in sorted(res):
+    print(f"{k} : {res[k] + 1}")
+
+					API 
+• API принимает, возвращает, но делает это "неизвестным" образом
+Call API: "http\w?://"something"={APIKEY} -- API key обычно даёт сервис
+ 11c0d3dc6093f7442898ee49d2430d20 - for OpenWeatherMap
+ fe6c9ac08e96ecdd33f559f07bc59da7
+
+#Example(get weather) 
+import requests
+city = input('City?')
+api_url = 'https://api.openweathermap.org/data/2.5/weather'
+
+params = {
+    'q': city, 
+    'appid': 'fe6c9ac08e96ecdd33f559f07bc59da7',
+    'units': 'metric'
+
+}
+
+res = requests.get(api_url, params = params)
+print(res.headers['Content-Type'])
+data = res.json()
+template = 'Current temperature in {} is {}'
+print(template.format (city, data['main']['temp']))
+print(f"Current temperature in {city} is {data['main']['temp']}")
+
+#Interesting or Boring
+with open('dataset_24476_3.txt') as file:
+    for num in file:
+        response = re.get('http://numbersapi.com/{number}/math?json=true'.format( number=num.rstrip() )).json()﻿
+        print('Interesting') if response['found'] else print('Boring')﻿
+
+#artsy systen
+https://developers.artsy.net/v2/start?id=c697f84f-9731-4f74-9e09-5bfd36d3ca35
+Client Id	c4d9f622e182d02b8410 
+Client Secret	7abe2d56a4fa1a2069edffbd06827c58
+
+{
+  "id": "4d8b92b34eb68a1b2c0003f4",
+  "slug": "andy-warhol",
+  "created_at": "2010-08-23T14:15:30+00:00",
+  "updated_at": "2025-04-14T23:31:46+00:00",
+  "name": "Andy Warhol",
+  "sortable_name": "Warhol Andy",
+  "gender": "male",
+  "biography": "An American painter, printmaker, sculptor, draughtsman, illustrator, filmmaker, writer and collector, who became one of the most famous artists of the 20th century. Warhol began his career as a successful commercial artist and illustrator for magazines and newspapers but by 1960 was determined to establish his name as a painter. He quickly became renowned for painting everyday advertisements or images from comic strips that looked eerily similar to the originals and contained no traditional marks of an artist. Warhol accentuated this look through the use of silkscreens and by painting in collaboration with a team of assistants in a studio he called \"The Factory.\" In the late sixties, Warhol turned his attention to making experimental films and multimedia events, and in the 1970s, to creating commissioned portraits. During the 1980s Warhol continued to exert an influence on the art world, collaborating with young artists such as Jean-Michel Basquiat and creating a series of paintings, which engaged with Renaissance masterworks.",
+  "birthday": "1928",
+  "deathday": "1987",
+  "hometown": "Pittsburgh, PA, USA",
+  "location": "New York, NY, USA",
+  "nationality": "American",
+  "target_supply": true,
+  "image_versions": [
+    "four_thirds",
+    "large",
+    "square",
+    "tall"
+  ],
+
+#artsy index checking
+import requests
+import json
+
+client_id = 'c4d9f622e182d02b8410'
+client_secret = '7abe2d56a4fa1a2069edffbd06827c58'
+
+- 1. Получение токена
+r = requests.post("https://api.artsy.net/api/tokens/xapp_token", data={
+    "client_id": client_id,
+    "client_secret": client_secret
+})
+token = r.json()["token"]
+
+- 2. Заголовки для последующих запросов
+headers = {"X-Xapp-Token": token}
+
+- 3. Чтение входных ID
+with open("dataset_24476_4 2.txt", encoding='utf-8') as f:
+    ids = [line.strip() for line in f if line.strip()]
+
+- 4. Получение данных
+artists = []
+for artist_id in ids:
+    r = requests.get(f"https://api.artsy.net/api/artists/{artist_id}", headers=headers)
+    data = r.json()
+    name = data["sortable_name"]
+    birthday = data["birthday"]
+    artists.append((int(birthday), name))
+
+- 5. Сортировка
+artists.sort()
+
+- 6. Вывод
+for _, name in artists:
+    print(name)
+
+HTTP Header	Описание
+Accept		Какой тип контента может принять клиент	
+Content-Type	Какой тип контента в ответе сервера
+User-Agent	Какое программное обеспечение клиент использует для связи с сервером
+Server		Какое программное обеспечение сервер использует для связи с клиентом
+Authentication	Кто вызывает API и с какими учетными данными
+
+				XML, библиотека ElementTree, библиотека lxml
+* XML - чтобы данные не отображать, а хранить 
+первое слово после < - наш tag, 
+* <tag> -- открывается
+* </tag> -- закрывается				содержимое находится МЕЖДУ тегами
+* <tag/> -- открывается и закрывается
+Атрибуты
+
+#Example
+<studentsList>
+    <student id='1'>
+        <firstName>Greg</firstName>
+        <lastName>Petrov</lastName>
+        <certificate>True</certificate>
+        <scores>
+            <module1>70</module1>
+            <module2>90</module2>
+            <module3>90.2</module3>
+        </scores>
+    </student>
+
+#Code Example
+from xml.etree import ElementTree -- импортировать
+
+tree = ElementTree.parse("Example.xml") -- принять
+root = tree.getroot() -- найти корень
+
+print(root)
+print(root.tag, root.attrib) -- тег, атрибут
+
+for child in root:
+    print(child.tag, child.attrib)
+
+print(root[0][3][1].text) -- найти подэлемент
+
+for element in root.iter("scores"): -- найти все элементы под корнем, где бы они ни были 
+    print(element)
+    score_sum = 0
+    for child in element:
+        score_sum += float(child.text)
+    print(score_sum) 
+
+#Пример изменения 
+from xml.etree import ElementTree
+
+tree = ElementTree.parse("Example.xml") -- принять информация
+root = tree.getroot() -- корень
+
+greg = root[0]
+module1 = next(greg.iter("module1")) -- ищем по Грегу
+print(module1, module1.text) 
+module1.text = str(float(module1.text) + 30) -- изменить текст
+
+certificate = greg[2]
+certificate.set("type", "with distinction") -- добавить атрибут
+
+description = ElementTree.Element("description") -- создать элемент
+description.text = "Showed excellent skills during the course"
+greg.append(description) -- добавить элемент
+
+description = greg.find("description")
+greg.remove(description) -- удалить элемент
+
+tree.write("Example_modified.xml") -- написать файл 
+
+#Build XML from scratch 
+root = ElementTree.Element("student")
+
+first_name = ElementTree.SubElement(root, "firstName")
+first_name.text = "Greg"
+second_name = ElementTree.SubElement(root, "secondName")
+second_name.text = "Dean"
+
+scores = ElementTree.SubElement(root, "scores")
+module1 = ElementTree.SubElement(scores, "module1")
+module1.text = "100"
+module2 = ElementTree.SubElement(scores, "module2")
+module2.text = "80"
+module3 = ElementTree.SubElement(scores, "module3")
+module3.text = "90"
+
+tree = ElementTree.ElementTree(root)
+tree.write("WrittneTree.xml")
+
+#HTML to XML using LXML
+from lxml import etree
+import requests
+
+res = requests.get("https://docs.python.org/3/")
+print(res.status_code)
+print(res.headers["Content-Type"])
+
+parser = etree.HTMLParser()
+root = etree.fromstring(res.text, parser)
+
+for element in root.iter("a"):
+    print(element, element.attrib)
+
+#Simple graph
+from xml.etree import ElementTree
+res = {'red': 0, 'green': 0, 'blue': 0} 
+root = ElementTree.fromstring(input())
+
+def calc(element, i=1):
+    global res
+    for j in element:
+        if j.attrib:
+            res[j.attrib.get('color')] += 1
+        calc(j, i=i+1)
+
+
+for element in root.iter():
+    if element.attrib:
+        res[element.attrib.get('color')] += 1
+    calc(element)
+for i in res:
+    print(res[i], end=' ')
+
+-------------------------------------------------------------------------------------------
+
+			•DEEPER ABOUT OOP•
+Basic concepts of OOP:
+1) Encapsulation
+2) Abstraction
+3) Inheritance
+4) Polymorphism -- possibility to change a type
+
+
+class Item:
+  def __init(self, name: str, price: float, quantity=0) -- only takes required type 
+      assert price >= 0
+      assert quantity >= 0
+print(Item.__dict__) -- all it haves inside 
+
+
+#Example
+import csv
+class Item:
+    pay_rate = 0.8
+    all = []
+
+    def __init__(self, name: str, price: float, quantity=0): 
+        assert price >= 0, f"Price {price} is not greater than or equal to zero!"
+        assert quantity >= 0, f"Quantity {quantity} is not greater or equal to zero!"
+
+        self.__name = name -- so that we are able to use @property (makes it readable only) 
+        self.price = price
+        self.quantity = quantity
+
+        Item.all.append(self) 
+
+    @property
+    def name(self):
+	return self.__name -- so that we are able to use @property
+
+    @name.setter 	-- make it able to set again! able to do whatever we want. 
+    def name(self, value):
+	print("You are trying to set") 
+        if len(value) > 10:
+            raise Exception("The name is too long") 
+        self.__name = value
+
+    def calculate_total_price(self):
+        return self.price * self.quantity
+
+    def apply_discount(self):
+        self.price = self.price * self.pay_rate
+
+    @classmethod -- декоратор
+    def instantiate_from_csv(cls):
+        with open('Shop_storage.csv', 'r') as f:
+            reader = csv.DictReader(f) -- читать как список словарей 
+            items = list(reader)
+
+        for item in items:
+            Item(
+                name=item.get('name'),		-- найти значение имени 
+                price=float(item.get('price')),
+                quantity=int(item.get('quantity')),
+            )
+
+    @staticmethod
+    def is_integer(num):
+        if isinstance(num, float): -- проверка на тип 'float'
+            return num.is_integer() -- проверяет на int.0
+        elif isinstance(num, int):
+            return True
+        else:
+            return False
+     
+    def __repr__(self):		-- формат
+        return f"Item('{self.name}', {self.price}, {self.quantity})"
+
+    @property
+    def read_only_name(self):
+        return "AAA"
+
+class Phone(Item):
+    all = []
+
+    def __init__(self, name, price, quantity=0, broken_phones=0):
+        super().__init__(name, price, quantity) -- get init from inheritance
+
+        assert broken_phones >= 0, f"Quantity {broken_phones} is not greater or equal to zero!"
+
+        self.broken_phones = broken_phones
+        Phone.all.append(self)
+
+phone1 = Phone("jscPhonev10", 500, 5, 1)
+print(phone1.calculate_total_price())
+print(Item.all)
+print(Phone.all)
+
+You can also add __ before a method
+
+
+--------
+# OR item and phone separated:
+from item import Item
+
+item1 = Item("MyItem", 750)
+item1.name = "OtherItem" #not encapsulated
+
+print(item1.name) 
+print(item1.read_only_name)
+
+item1.read_only_name = 'BBB' #Error
+--------
+
+•How decorators work.
+def decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+def say_whee():
+    print("Whee!")
+
+say_whee = decorator(say_whee) -- we call function inside of a function
+
+OR:
+
+def decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@decorator	-- there its the same as using say_whee = decorator(say_whee) 
+def say_whee():
+    print("Whee!")
+
+#Another example
+def do_twice(func):
+    def wrapper_do_twice():
+        func()
+        func()
+    return wrapper_do_twice
+
+from decorators import do_twice
+
+>>> @do_twice	 -- makes say_whee a subfunction of do_twice
+... def say_whee():
+...     print("Whee!")
+
+#But if we do this:
+>>> from decorators import do_twice
+
+>>> @do_twice
+... def greet(name): 	-- error bc do_twice shouldnt take arguments
+...     print(f"Hello {name}")
+...
+#Fix?
+ do_twice(func):
+    def wrapper_do_twice(*args, **kwargs): -- now takes any amount of arguments
+        func(*args, **kwargs)
+        return func(*args, **kwargs)
+    return wrapper_do_twice
+
+#Now works!
+>>> from decorators import do_twice
+
+>>> @do_twice
+... def say_whee():
+...     print("Whee!")
+...
+
+>>> say_whee()
+Whee!
+Whee!
+
+>>> @do_twice
+... def greet(name):
+...     print(f"Hello {name}")
+...
+
+>>> greet("World")
+Hello World
+Hello World
+
+#After fixing
+ from decorators import do_twice -- our .py with decorators
+
+>>> @do_twice
+... def return_greeting(name):
+...     print("Creating greeting")
+...     return f"Hi {name}"
+...
+
+>>> return_greeting("Adam")
+Creating greeting
+Creating greeting
+'Hi Adam'
+#But it sees itself as a type of its decorator now :(
+>>> say_whee
+<function do_twice.<locals>.wrapper_do_twice at 0x7f43700e52f0>
+
+>>> say_whee.__name__
+'wrapper_do_twice'
+
+>>> help(say_whee)
+Help on function wrapper_do_twice in module decorators:
+
+wrapper_do_twice()
+
+#Fix? use @functools.wraps(func) in do_twice!
+import functools
+
+def do_twice(func):
+    @functools.wraps(func)
+    def wrapper_do_twice(*args, **kwargs):
+        func(*args, **kwargs)
+        return func(*args, **kwargs)
+    return wrapper_do_twice
+
+
+#Example
+import functools
+import time
+
+ ...
+
+def timer(func):
+    """Print the runtime of the decorated function"""
+    @functools.wraps(func)
+    def wrapper_timer(*args, **kwargs):
+        start_time = time.perf_counter()
+        value = func(*args, **kwargs) 	-- do some function
+        end_time = time.perf_counter()
+        run_time = end_time - start_time
+        print(f"Finished {func.__name__}() in {run_time:.4f} secs")
+        return value
+    return wrapper_timer
+
+#Activation example
+>>> from decorators import timer
+
+>>> @timer
+... def waste_some_time(num_times):
+...     for _ in range(num_times):
+...         sum([number**2 for number in range(10_000)])
+...
+
+>>> waste_some_time(1)
+Finished waste_some_time() in 0.0010 secs
+
+>>> waste_some_time(999)
+Finished waste_some_time() in 0.3260 secs
+
+#Another example
+import functools
+
+ ...
+
+def debug(func):
+    """Print the function signature and return value"""
+    @functools.wraps(func)
+    def wrapper_debug(*args, **kwargs):
+        args_repr = [repr(a) for a in args]
+        kwargs_repr = [f"{k}={repr(v)}" for k, v in kwargs.items()]
+        signature = ", ".join(args_repr + kwargs_repr)
+        print(f"Calling {func.__name__}({signature})")
+        value = func(*args, **kwargs)
+        print(f"{func.__name__}() returned {repr(value)}")
+        return value
+    return wrapper_debug
+
+#And here we use
+import math
+from decorators import debug
+
+math.factorial = debug(math.factorial)
+
+def approximate_e(terms=18):
+    return sum(1 / math.factorial(n) for n in range(terms))
+
+• There are also decorators working on classes(cls)
+import functools
+
+def singleton(cls):
+    """Make a class a Singleton class (only one instance)"""
+    @functools.wraps(cls)
+    def wrapper_singleton(*args, **kwargs):
+        if wrapper_singleton.instance is None:
+            wrapper_singleton.instance = cls(*args, **kwargs)
+        return wrapper_singleton.instance
+    wrapper_singleton.instance = None
+    return wrapper_singleton
+
+#Do CACHING!
+import functools
+
+def cache(func):
+    """Keep a cache of previous function calls"""
+    @functools.wraps(func)
+    def wrapper_cache(*args, **kwargs):
+        cache_key = args + tuple(kwargs.items())
+        if cache_key not in wrapper_cache.cache:
+            wrapper_cache.cache[cache_key] = func(*args, **kwargs)
+        return wrapper_cache.cache[cache_key]
+    wrapper_cache.cache = {}
+    return wrapper_cache
+
+@cache		-- gets value from a dictionary if there is 
+def fibonacci(num):
+    if num < 2:
+        return num
+    return fibonacci(num - 1) + fibonacci(num - 2)
+
+print(fibonacci(100))
+
+OR:
+
+from functools import lru_cache -- caching thing
+
+@lru_cache(maxsize=None)  # None = unlimited cache
+def fibonacci(num):
+    if num < 2:
+        return num
+    return fibonacci(num - 1) + fibonacci(num - 2)
+
+print(fibonacci(100))
+
+* @staticmethod - used when its something related to a class, not anything unique, not
+			passing object reference as the first argument 
+* @classmethod - also related to a class, but used to manipulate different structures to instantiate objects
+* @property - makes it a read_only_attribute. Can't change value anywhere, but in the class
+by making a new method to do so
+* @setter
+* @functools.wraps(func) - make an object keep identity on some stage
+* @functools.lru_cache - cache values(least recently used). also there is @cache
+	can now also use fibonacci.cache_info()
+
+•Volume changing library
+import pint
+
+ureg = pint.UnitRegistry()
+ureg.define('cubic_meter = meter ** 3 = m³')
+
+volume = 1 * ureg.cubic_meter
+us_gallons = volume.to('gallon')
+print(us_gallons)
+
+------------------------------------------------------------------------------------------
+					NUMPY 
+1) arrays consume less memory and work faster than lists
+2) you can only store 1 data type at once (or use dtype=object) 
+3) you can do mathematical operations
+4) must have same sizes, example: [1, 2, 3, 4]
+				  [5, 6, 7, 8] 
+
+•Basics 
+import numpy as np
+arr = np.array([[1, "two", 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]) -- matrix
+print(arr)
+print(type(arr)) 
+print(arr[0][0:2]) 	--sequence[start:stop:step] ( slicing logic )
+print(arr[[0, 2], 0:2]) -- select elements from subarray
+print(arr[0:2, 0:2]) -- same(subarray from array) 
+    E.j:
+     matrix[:, ::2] (goes through whole matrix) 
+     tensor[:, 2:, 2:] (takes each element as a 1D array) 
+print(np.shape(arr)) -- (rows, elements per 1)
+print(np.size(arr)) -- amount of elements
+print(np.ndim(arr)) -- amount of dimensions
+print(arr.dtype) -- e.j. int64 
+
+Functions:
+1) np.arange(1, 6, 2, dtype=float) -- make an array and select data type 
+2) np.full((3, 2), 3, #dtype=int) -- makes an array of zeros, (rows, columns) structure. also 'onse'
+3) np.full_like(a, 7) -- copy structure for 'full'
+4) np.arange(6).reshape(2, -1) -- -1 means "any suitable shape" 
+5) arr = np.repeat([3], 5, axis = 0) -- repeats in some dimension, if 1 - [[3 3 3 3 3 2 2 2 2 2]]
+6) c = np.concatenate([arr, arr1], axis=0) -- unite some arrays ( same dimensions ) 
+    6.1) np.vstack([arr, arr1]) -- vertical stack, same as concatenate with axis = 0 
+    6.2) np.hstack([arr, arr1]) -- horizontal stack, same as concatenate with axis = 1 
+7) np.r_[arr, arr1] ( or 0:5) -- use along 1st axis, also able to do direct slicing 
+
+Some useful functions:
+1) np.power(arr, [1, 3, 3, 2]) 
+2) np.diff(arr) -- e.j. we get [1,1,1,1] from [1,2,3,4] 
+    OR:
+    np.diff((arr, arr1),axis=0)
+3) np.cross(arr, arr1) -- get cross product of vectors ( first convert into 3D ) 
+4) np.sort((arr, arr1, arr2),axis=1) -- sorts elements by axis, e.j. [[1 1 4 9]
+								      [2 3 5 7]
+								      [3 4 5 6]]
+5) np.stack((arr, arr1, arr2)) -- stack up a few arrays into another dimension 
+6) arr.flatten(axis=0)
+7) np.sum(res, axis=1) -- make a new matrix, elements are sums (or just get sum) (or nansum) 
+8) np.cumprod(arr, axis=1) -- get a new array with "factorial logic" of each element 
+9) np.cumsum(arr, axis=1) -- get a new array with "sum logic" of each element 
+#) arr.astype(dtype, order='K', casting='unsafe', subok=True, copy=True) -- change dtype
+#) np.eye(N, M=None, k=0, dtype=float) -- create identity matrix 
+# np.identity() -- creat eidentity matrix
+#) np.tile(arr, 3) -- create an array of copied arrays
+#) np.linspace(1, 2, 3) -- range and amount of values in it 
+
+To do iterating:
+for i, val in np.ndenumerate(arr) -- same as enumerate in lists 
+
+To copy:
+* np.copy(arr) -- chyanges in original do not affect the copy 
+* arr.view() -- make a NEW object, at first identical to arr, but properties do not collaborate 
+
+* np.array_split(res, 4, axis=1) -- split into multiple arrays
+* arr.tolist() -- convert array into a list 
+
+* np.where(arr == 6) -- returnas an array of indexes 
+     Example:
+	y = np.where(x % 2 == 0, 'четное', 'нечетное') 
+	z = np.where(x > 0, x, y) -- decide from where to take
+* np.searchsorted(arr, 10) -- returns index where a value should be 
+* Another method to select what to choose:
+    arr = np.array([1, 6, 2, 6, 8])
+    fa = [True, False, True, False, False], OR fa = arr>5 ( or something )
+    new = arr[fa] -- apply "mask" of 'fa'
+	&, |, ~ are used 
+	e.j: condition = (arr > 2)&(arr<5)
+	e.j: c[c:, 1] > 2, 1] = 99 -- get wanted elements from range 
+* np.any(a, axis=None) -- check if any is True 
+* np.all(a, axis=None)
+* np.isin(arr, arry1) -- check if arr is in arr1 
+* np.isnan(arr) -- checks each element for being nan 
+* np.isinf(arr) -- returns True if element is +-infinity(inf) 
+* np.isfinite(arr) -- returns True if elem is a real number 
+
+Some more functions:
+"random" module exists in numpy by default:
+   np.random.shuffle(arr)
+* np.unique(arr, return_index=False, return_counts=False) -- only keep unique values. not to modify arr - use inside of a function 
+* np.intersect1d(arr1, arr2, assume_unique=False, return_indices=False) -- find similar elems 
+* np.union1d(arr1, arr2) -- returns arr of unique elims from both arrays 
+* np.setdiff1d(ar1, ar2, assume_unique=False) -- vals from arr1 those are not in arr2 
+* np.setxor1d(ar1, ar2, assume_unique=False) -- all unique values for both arrays 
+* np.in1d(arr1, arr2, assume_unique=False, invert=False) -- bool array, true if 2(elim) in 1 
+
+* arr.resize(2, 3) -- replace current array with a new one 
+* np.ravel(arr) -- flatten, but returns view(), also slower than flatten 
+* c = np.insert(arr, 1, (50, 100), axis=0) -- insert a value on some axis on some index 
+* np.delete(arr, ind, val, axis) -- delete a value, but also flatten. mention axis to delete
+										a sub array 
+* arr.T -- transposing matrix <=> a.transpose()[::-1]
+* arr.transpose
+* np.dot(arr1, arr2) -- matrix multiplication 
+* np.swapaxes(arr, axis1, axis2) -- 'rotate' the matrix
+
+Basic arithmetics:
+arr + arr1 -- returns array with each element as an arithmetic sum. same for each arithmetic.
+				can also be done the same way for multi-dimensional arrays 
+
+Basic arithmetic functions:
+
+np.add(arr, arr1)
+np.subtract(arr, arr1)
+np.multiply(arr, arr1)
+np.divide(arr, arr1)
+np.remainder(arr, arr1) -- остаток от деления, same sign as a
+np.mod(arr, arr1) -- остаток от деления, same sign as b
+np.power(arr, arr1)
+np.floor_divide(arr,arr1) -- same as //, but safer 
+np.absolute(arr) -- make all positive
+np.sum(arr, axis=None) -- get sum of elements
+np.mean(arr, axis=None)
+np.median(arr, axis=None) -- return middle value from array(logically)
+np.std(a, axis=None, dtype=None, ddof=0, keepdims=<no value>, where=<no value>) --
+	-- calcs mean, subtracts mean from each element, squares each elim, 
+				gets mean, take square roots (стандартное отклонение)
+np.var((arr, axis=None, dtype=None, ddof=0, keepdims=<no value>, where=<no value>) --
+	-- find dispertion ( std^2) 
+np.min(arr, axis=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>)
+	-- find min value, can use starting value, keep dimensions 
+np.max(arr, axis=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>)
+np.argmin(arr, , axis=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>) --
+	-- finds index of minimum
+np.argmax(arr, , axis=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>) --
+	-- finds index of maximum
+np.ptp(arr, axis=None, out=None) -- max-min ( out - set where to save ) 
+np.diff(a, n=1, axis=-1, prepend=<no value>, append=<no value>) -- diff for each elim 
+np.bincount(arr) -- find amount of elements 0-∞ (1D, all pos)
+np.divmod(arr,arr1) -- returns (a // b, a % b) 
+np.fabs(arr) -- float abs
+np.exp(arr) -- returns an array of e^x(each element of arr) 
+np.log(arr) -- can also be log10, log2, log1p (1+x) 
+np.sign(arr) -- 1 if pos, 0 if 0, -1 if neg 
+np.ceil(arr) -- finds and makes closest bigger number
+np.floor(arr) -- finds and makes closest smaller number
+np.round(arr, decimals=0, out=None)) -- finds and rounds(without np - 'banking' logic) 
+np.rint(arr) -- round to nearest even number(banking logic(if 0.5))  
+np.modf(arr) -- returns 2 arrays with remainders and integers 
+np.maximum(arr1, arr2) -- returns maximum for each element
+np.fmax(arr1,arr2) -- returns maximum for each element, ignoring 'nan'
+np.minimum(arr1, arr2) -- returns minimum for each element
+np.fmin(arr1, arr2) -- returns minimum for each element, ignoring 'nan'
+np.copysign(arr1, arr2) -- copy sign to each elim from arr2 to arr1 
+
+Logical operators:
+np.greater(x, y) -- returns True if x > y
+np.less(x, y) -- returns True if x < y
+np.equal(x, y) -- returns True if x == y
+np.less_equal(x,y) 
+np.greater_equal(x, y)
+np.not_equal(x,y)
+AND:
+np.logical_and(x, y) -- returns True if both True, otherwise False
+np.logical_or(x, y)
+np.logical_xor(x, y) -- returns True if not same
+np.logical_not(x) -- returns True if False
+
+
+
+
+For matrixes there is a separated method:
+    E.j.
+	mat = np.matrix([[1,2], [5,6]])
+	mat1 = np.matrix([[3,4], [8,9]])
+	print(mat * mat1)
+	print(np.dot(mat, mat1))
+
+•Broadcasting = pretend-copying smaller arrays to match bigger ones automatically without real copying.
+A = np.array([[1, 2, 3],
+              [4, 5, 6]])
+
+B = np.array([10, 20, 30])
+C = A + B -- broadcasting
+
+* np.broadcast_to(small, (2, 3)) -- expand an array 
+
+
+#Boolean example
+import numpy as np
+
+maasdastrix = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+
+result = matrix[np.any(matrix > 7, axis=1)]
+
+print(result)
+
+#Replace in an array
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6])
+arr[arr % 2 == 0] = 0 -- set new value
+        
+print(arr)
+
+#Arithmetic diagonal 
+mask = np.eye(6, dtype=bool) -- make matrix with True on main diagonal 
+mean = np.mean(data[mask]) 
+print(f'Среднее арифметическое элементов на диагоналях: {mean:.2f}')
+
+#Edit Matrix rows and cols 
+import numpy as np
+
+A = np.array([[ 1,  2,  3,  4],
+              [ 5,  6,  7,  8],
+              [ 9, 10, 11, 12],
+              [13, 14, 15, 16],
+              [17, 18, 19, 20]])
+
+rows = np.where(A[:, 0] > 3)[0] OR: condition = A[:, 0] > 3
+A[rows] = A[rows].T 
+
+#Bool to num 
+import numpy as np
+
+classification1 = np.array([[1, 0, 1], 
+                            [0, 1, 0]])
+classification2 = np.array([[1, 0, 0], 
+                            [0, 1, 1]])
+
+result = np.equal(classification1, classification2).astype(int)
+
+print(result)
+
+print("Матрица A после транспонирования строк с первым элементом больше 3:")
+print(A)
+
+#find missing codes 
+import numpy as np
+
+secret_codes = np.array([15, 23, 7, 42, 18, 10, 7, 29])
+provided_codes = np.array([23, 7, 18, 7])
+
+mask = ~np.isin(secret_codes, provided_codes)
+missing_codes = secret_codes[mask]
+
+print("Отсутствующие коды:", missing_codes)
+
+#Ruled replacement
+import numpy as np
+
+arr = np.array([3, 8, 1, 6, 0, 7])
+
+result_arr = np.where(arr > 5, 'A', np.where((arr >= 1) & (arr <= 5), 'B', 'C'))
+
+print("Массив arr:")
+print(arr)
+print("Итоговый массив:")
+print(result_arr)
+
+#Practical
+# put your python code here
+import numpy as np
+
+stock_prices = np.array([50, 55, 60, 52, 48, 65, 70])
+days = np.array(['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'])
+
+daily_returns = np.diff(stock_prices)
+best_day = days[1:][np.argmax(daily_returns)]
+worst_day = days[1:][np.argmin(daily_returns)]
+
+
+print(f"Изменения цен за день: {daily_returns}")
+print(f"Лучший день: {best_day}")
+print(f"Худший день: {worst_day}")
+
+#Sort example
+import numpy as np
+
+people = np.array([('John', 28), 
+                   ('Sam', 22), 
+                   ('Smith', 25), 
+                   ('Jones', 30)], 
+            dtype=[('name', 'S10'), ('age', int)])
+
+sorted_people_by_name = np.sort(people, order='name')
+sorted_people_by_age = np.sort(people, order='age')
+sorted_people_by_age_desc = np.sort(people, order='age')[::-1]
+
+print("Исходный массив структур:")
+print(people)
+
+print("\nСортировка по полю 'name':")
+print(sorted_people_by_name)
+
+print("\nСортировка по полю 'age' в порядке возрастания:")
+print(sorted_people_by_age)
+
+print("\nСортировка по полю 'age' в порядке убывания:")
+print(sorted_people_by_age_desc)
+
+#delete unwanted 
+import numpy as np
+
+arr = np.array([3, 2, 4, 1, 5, 2, 6, 4, 7])
+threshold = 4
+
+unique_elements = np.unique(arr)
+
+indices_to_remove = np.where(unique_elements > threshold)[0]
+
+filtered_arr = np.delete(unique_elements, indices_to_remove)
+
+print("Исходный массив:", arr)
+print("Уникальные элементы:", unique_elements)
+print("Массив после удаления элементов больше", threshold, ":", filtered_arr)
+
+#Keep one time used
+# put your python code here
+import numpy as np
+
+arr = np.array([3, 2, 4, 1, 5, 2, 6, 4, 7])
+
+unique_elements, counts = np.unique(arr, return_counts=True)
+elements_to_remove = unique_elements[counts > 1]
+
+filtered_arr = np.array([x for x in arr if x not in elements_to_remove])
+
+print("Исходный массив:", arr)
+print("Массив после удаления элементов, встречающихся более одного раза:", filtered_arr)
+
+#Broadcast and replace nan
+result = np.genfromtxt('sensor_readings.csv', delimiter=',', skip_header=1)
+
+miss = np.isnan(result)
+
+col_means = np.nanmean(result, axis=0)
+
+sensor_data_imputed = np.where(miss, np.broadcast_to(col_means, result.shape), result)
+print(res)
+
+#Example
+import numpy as np
+
+arr = np.genfromtxt("sensor_readings.csv", delimiter=',', skip_header=1)
+col_means = np.nanmean(arr, axis=0)
+col_stds = np.nanstd(arr, axis=0) 
+-- Normalize
+arr = (arr - col_means) / col_stds
+arr[arr > 3] = 3
+-- prepare for machine learning 
+smal = np.nanmin(arr, axis=0)
+bigl = np.nanmax(arr, axis=0)
+arr = (arr - smal[i]) / (bigl - smal)
+-- save to a CSV
+np.savetxt('sensor_readings_cleaned.csv', arr, delimiter=',', header=header_line, comments='', fmt='%.6f')
+
+-------------------------------------------------------------------------------------------------
+					PANDAS
+•Pandas is used to analyze and manipulate a lot of data 
+•DataFrame in Pandas is a 2D tabular data (like table with rows and cols) 
+1) DataFrame(data, index, columns, dtype, copy) 
+#Format Example
+import numpy as np
+import pandas as pd
+
+data = {
+    'Student': ["Amit", "John", "Jacob", "David", "Steve"],
+    'Rank': [1, 2, 3, 4, 5],
+    'Marks': [95, 70, 80, 60, 90]
+}
+
+df = pd.DataFrame(data, index =['RowA', 'RowB', 'RowC', 'RowD', 'RowE']) -- name indexes
+print("Student Record\n\n", df)
+
+print("\nValue = ", df.loc['RowA', 'Student']) -- name corresponding(0) index as RowA in Student
+print("Value =\n\n", df.iloc[[3, 4]]) -- rows indexed 3 and 4 (also renaimed as wanted). 
+for col in df:
+    print(col) -- col names can be mentioned the same way like in dict 
+
+We get:
+    student  rank  marks
+0    Amit     1     95
+1    John     2     70
+2   Jacob     3     80
+3   David     4     60
+4   Steve     5     90
+
+2) DataFrame methods and attributes(slicing, info) 
+	2.1) dtypes
+	2.2) ndim
+	2.3) size -- amount of elims in df
+	2.4) shape -- can also be used to find size of a series or group 
+	2.5) index -- returns all rows' indexes 
+	2.6) T -- transpose rows and cols 
+	2.7) head() -- return the first n rows
+	2.8) tail() -- return the last n rows
+	2.9) df.loc[‘c’, ‘Age’] (or [[‘a’, ‘c’], [‘Name’, ‘City’]]) -- find if name
+		OR: print(df.loc[df["Age"] > 23]) -- it understands the table
+		OR: df.loc['b', 'City'] -- <=> [row, col]
+	2.10) df.iloc[2, 1] (or [0:2, 0:2]) -- slicing, but no conditions
+	2.11) selected_cols = [col for col in df.columns if col.startswith('Na')]
+		--.columns is used when we need to check the col's name
+	2.12) Iterate methods: (used bc faster and memory-saving) 
+		2.12.1) for row in df.iterrows(): -- returns row as a series 
+			   print(row)
+		2.12.2) for row in df.itertuples(): -- returns tuple, fastest 
+		2.12.3) for key, value in data.items(): -- get bunch of tuples(key-vals)
+		           new_data[key] = value + 10 -- use it 
+	2.13) df.describe() (also methods like sum, min, mean, std, etc)
+		e.j:
+		          Height     Weight
+		count    5.000000   5.000000
+		mean   170.000000  67.000000
+		std      7.905694   9.354143
+		min    160.000000  55.000000
+		25%    165.000000  60.000000
+		50%    170.000000  65.000000
+		75%    175.000000  75.000000
+		max    180.000000  80.000000
+	    df.max(numeric_only=True) -- returns a series with max values for each col
+	2.14) df.loc[df['Value'] == 93, 'Char count'].sample() -- random vals
+3) Edit DataFrames
+	3.1) resDF = df1.join(df) -- adds columns of df to df1, must have same index= (or Nan)
+		Example of joining Series to df:
+			df = pd.DataFrame({
+			    "Name": ["Anna", "Ben", "Cara"],
+			    "Score": [85, 90, 95]
+			}, index=["a", "b", "c"])
+			
+			extra = pd.Series(["Math", "Physics", "Bio"], index=["a", "b", "c"], name="Subject")
+			result = df.join(extra)
+			print(result)
+
+	3.2) resDF = pd.concat([df1, df], axis=0) -- unite DataFrames(columns from EVERY df, separated rows)
+		-- axis=0 adds as a row, axis=1 adds as a col 
+	3.2) df.insert(2, 'Ids', [101, 102, 103, 104, 105]) 
+	3.3) df.assign([Ids = [101, 102, 103, 104, 105]) -- insert in the end 
+	3.4) df.drop("City", axis=1) -- axis to show where it is 
+	3.5) df.sort_values(by=['City'], ascending=True, axis=0) -- sort rows by 1st value
+	3.6) df.sort_index(axis=1) -- sorts by name of col(or row) 
+	3.7) df.duplicated() -- bool if there is a duplicated value in a col 
+	3.8) Cleanup
+	     3.8.1) df.drop_duplicates -- delete rows with duplicates
+	     3.8.2) df.isnull() -- checks in each val (or df.notnull())
+	     3.8.3) df.dropna().reset_index(drop=True) -- delete rows with nan 
+	     3.8.4) df.fillna(111) -- fill with something
+	3.9) String operations (series.str.)
+	     series.str.lower()
+	     upper()
+	     title() -- convert data to camel case ("Hello World") 
+	     len() -- to get the length of each element (series) 
+	     series.count() -- count non-empty cells from each column or row 
+	     series.str.contains("Amit") -- make series of True and False
+	     series.str.[l, r, None]strip() -- strip the values 
+	3.10) Date and Time (Timestamp)(https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html)
+	      ts = pd.Timestamp(ts_input=<object object>, year=None, month=None, day=None, hour=None,
+					minute=None, second=None, microsecond=None, tzinfo=None, 
+						*, nanosecond=None, tz=None, unit=None, fold=None)
+		ts.dayofweek
+		ts.dayofyear
+		ts.daysinmonth
+		ts.is_leap_year
+		ts.is_month_end
+		ts.is_month_start
+		ts.is_year_end
+	     df['Time'].dt.strftime(" %Y-%m-%d-... ") -- convert string into time
+	3.11) df.groupby('Department')['Salary'].mean() -- make a new df with groups, doesn't keep duplicates
+		separate data by groups, e.j:
+		df1 = pd.DataFrame({
+		    "Player": ["Amit", "John", "Amit", "David", "Steve", "John"],
+		    "Rank": [1, 4, 3, 5, 2, 6],
+		    "Year": [2023, 2022, 2021, 2020, 2019, 2018]
+		})
+		
+		res = df1.groupby("Player").mean() -- players as ind, means other vals
+		print(res)
+
+		3.11.1) df1.groupby('Player').agg({'Rank': 'mean', 'Year': 'first'}) -- 
+			-- agg applies different funcs to different cols
+		OR:
+			res = df1.groupby('Player').agg({
+			    'Rank': ['mean', 'std', 'min', 'max'], -- col for each func
+			    'Year': ['first', 'last']
+			})
+			
+			print(res)
+		Iterate:
+		for name, group in res
+		   print(name)
+    		   print(group) 
+		print("\n", res.groups) -- 'elem': [pos_ind] 
+		3.11.2) res.size() -- series of amounts of duplicates 
+		3.11.3) res.count() -- df with vals as times used(from all rows) 
+	3.12) df['Player'].value_counts -- a series of each value and its amount
+	3.13) df.query('Ratio' == 10).shape -- makes a series, faster than booling
+	3.14) df1.query('Rank > @some_value') -- need @ before variable
+	3.15) .nsmallest(3, 'Defense') -- n rows with smallest param, also nlargest 
+4) Series is a 1D labeled array with any datatype, like a column. pd.Series(data, index=["A"]) method.
+    4.1) Params, attributes
+	4.1.1)data -- the data to be stored in Series
+	4.1.2)index -- returns Index([i1, i2, i3], dtype=object) 
+	4.1.3)dtype -- datatype for output series
+	4.1.4)name -- set the series name
+	4.1.5)copy -- copy input data
+	dtype
+	ndim	--Series is an array => has it's params 
+	size
+	hasnans
+	4.1.6)head
+	4.1.7)tail
+	4.1.8)info
+    4.2) Unite Series
+	4.2.1)s1.combine(s2, demo) -- combine a pair of series with logic of a func 
+		Example of a function:
+			def demo(x1, x2):
+			    if x1 > x2:
+			        return x1
+			    else:
+			        return x2
+	4.2.2)pd.concat([s1, s2], axis=0) 
+    #Example of Series output(can be sliced, if 1 index - only value). print(s["Row4"]) - named ind 
+	0    10
+	1    20
+	2    30
+	3    40
+	Name: MyNumberSeries, dtype: int64
+
+5)Categorical data -- uses WAY less memory and data (98%, x6.8). pd.DataFrame(data, dtype=category)
+   5.1)Working with categories (val
+	5.1.1)s.cat.add_categories('r') -- cat is a namnespace for cats 
+	5.1.2)s.cat.remove_categories('r') 
+
+6)Read .CSV and .XLSX with Pandas
+	6.1) df = pd.read_csv("Example.csv")
+	6.2) pip install openpyxl
+		df.to_excel("example_file.xlsx", index=False) -- convert to excel 
+		df = pd.read_excel("example_file.xlsx")
+7)df['Goals'].plot(kind='box', vert=False) 
+  plt.show() -- first import matplotlib.pyplot as plt 
+
+#Example
+import pandas as pd
+
+df1 = pd.DataFrame({
+    "Player": ["Amit", "John", "Amit", "David", "Steve", "John"],
+    "Rank": [1, 4, 3, 5, 2, 6],
+    "Year": [2023, 2022, 2021, 2023, 2019, 2018],
+    "Team": ['Spartak', 'Kusmin', 'Goland', 'Spartak', 'A', 'B']
+})
+
+df1['IsDuplicateTeamYear'] = df1.duplicated(subset=['Team', 'Year'], keep=False) -- multiple duplicates
+
+res = df1.query('IsDuplicateTeamYear')
+print(res)
+
+#quantile(like median)
+q_val = df['Score'].quantile(0.8) -- value which is at 80%
+res = df.query('Score > @q_val')
+
+#import from CSV to array
+sensor_data = np.genfromtxt('sensor_readings.csv', delimiter=',', skip_header=1)
+  but in pandas:
+df = pd.read_csv('sensor_readings.csv', delimiter=',', skip_blank_lines=True)
+df_clean = df.dropna()
+
+print(df_clean)
+
+#replace nan with mean
+* np.take(a, indices, axis=None, out=None, mode='raise') -- faster than slicing
+arr = np.loadtxt('sensor_readings.csv', delimiter=',', skiprows=1)
+arr[np.isnan(arr)] = np.take(np.nanmean(arr, axis=0), np.where(np.isnan(arr))[1]) -- ignore nan
+print(arr)
+
+-------------------------------------------------------------------------------------------------
+					MATPLOTLIB 
+•Matplotlib lets you load and plot info (can export as PNG, PDF, SVG, etc) 
+fig1.savefig("figure1.png")
+OR:
+plt.savefig("myplot.png")
+WebPlotDigitizer (free web app) -- get info from a graph 
+You upload an image, click axes, and trace curves — it gives you real data back
+Engauge Digitizer
+Desktop app to extract curves from graphs
+Python OpenCV (advanced)
+You write a script to detect curves and convert them to data (complex but powerful)
+
+
+•import matplotlib.pyplot as plt
+1) bar() -- a bar plot
+2) hist() -- plot a histogram
+3) pie() -- plot a pie chart
+4) scatter() -- form a scatter plot
+5) stem() -- form a stem plot
+6) step() -- form a step plot 
+7) plt.plot() -- make a graph (y(x))
+      Example:
+	import numpy as np
+	
+	t = np.arange(0., 5., 0.2)
+	plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^') -- x, y, what to use
+	plt.show()
+      Another example:
+	xpts = np.array([0, 10])
+	ypts = np.array([0, 125])
+	plt.plot(x, y, color='red', linestyle='--', linewidth=2, marker='o', label='Sine wave')
+	* plt.grid() -- use grid on a graph 
+	* plt.xlabel("Bat Price") -- set label
+	* plt.ylabel("Bat Weight") -- set label 
+	* plt.title("Bat Price (weight), loc='left') -- or right or center
+	* plt.axis(0, 6, 0, 20) -- (xmin, xmax, ymin, ymax), 'equal' to make equal axis 
+	* plt.legend(loc = 'upper center') -- show legend for each line(how it looks like, in a small box) 
+	* plt.annotate(...) -- make a note, works dynamically plt.annotate('Max Point', xy=(np.pi/2, 1),xytext=(2, 1.5),arrowprops=dict(arrowstyle="->", color='black'))
+	plt.show() -- different colours if no color selected 		  -- text, point(to make arrow), text's coords, arrowprops. 
+plt.plot([1, 2, 3, 2, 1], [4, 5, 3, 7, 8]) -- plot pair-by-pair 
+
+•Subplotting - make separate drawings. has 2 styles.
+•Style 1:
+names = ['group_a', 'group_b', 'group_c']
+values = [1, 10, 100]
+
+plt.figure(figsize=(9, 3))
+
+plt.subplot(131) -- rows, cols, plot zone 
+plt.axes([left, bottom, width, height]) -- [0, 0, 1, 1] - make a new plottign area
+plt.bar(names, values)
+plt.subplot(132)
+plt.scatter(names, values)
+plt.subplot(133)
+plt.plot(names, values)
+plt.suptitle('Categorical Plotting')
+plt.subplot()
+line1, line2 = plt.plot(x, y1, x, y2) -- each line editable
+line1.set_color('red') 
+plt.legend(['sin(x)', 'cos(x)'])
+line.set_antialiased(False) -- disable smooth, make pixel 
+plt.setp(line1) -- get list of available params  
+plt.show()
+
+•plt.subplots(rows, cols, *kwargs) and plt.axes()
+
+#Multiple figures
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+
+* fig1, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 6)) -- rows, cols(in fig)
+ax1.plot(x, np.sin(x))
+ax1.set_title('Figure 1 - Subplot 1: sin(x)')
+ax2.plot(x, np.cos(x))
+ax2.set_title('Figure 1 - Subplot 2: cos(x)')
+
+fig2, (bx1, bx2) = plt.subplots(2, 1, figsize=(6, 6))
+bx1.plot(x, np.exp(-x))
+bx1.set_title('Figure 2 - Subplot 1: exp(-x)')
+bx2.plot(x, x**2)
+bx2.set_title('Figure 2 - Subplot 2: x²')
+
+* plt.tight_layout() -- so that Titles and etc don't overlap 
+plt.show()
+
+#Index, dynamical subplots, able to iterate 
+fig, axs = plt.subplots(5, figsize=(10, 9))
+
+for i in range(3): -- iterate over rows
+    for j in range(2): -- iterate over cols 
+        axs[i, j].plot(x, x**i)
+        axs[i, j].set_title(f'Plot {i}')
+
+#Place wherever you want
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.figure(
+main_ax = plt.axes((0.1, 0.1, 0.8, 0.8)) -- location 
+main_ax.plot(x, y)
+main_ax.set_title('Main Plot')
+
+inset_ax = plt.axes((0.6, 0.6, 0.25, 0.25))
+inset_ax.plot(x, y**2)
+inset_ax.set_title('Zoom', fontsize=8)
+
+plt.show()
+
+#Advanced example 
+import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(19680801)
+
+dt = 0.001
+t = np.arange(0.0, 10.0, dt)
+r = np.exp(-t[:1000] / 0.05)  -- impulse response
+x = np.random.randn(len(t))
+s = np.convolve(x, r)[:len(x)] * dt  -- colored noise
+
+fig, main_ax = plt.subplots()
+main_ax.plot(t, s)
+main_ax.set_xlim(0, 1)
+main_ax.set_ylim(1.1 * np.min(s), 2 * np.max(s))
+main_ax.set_xlabel('time (s)')
+main_ax.set_ylabel('current (nA)')
+main_ax.set_title('Gaussian colored noise')
+
+right_inset_ax = fig.add_axes([.65, .6, .2, .2], facecolor='k')
+right_inset_ax.hist(s, 400, density=True)
+right_inset_ax.set(title='Probability', xticks=[], yticks=[])
+
+left_inset_ax = fig.add_axes([.2, .6, .2, .2], facecolor='k')
+left_inset_ax.plot(t[:len(r)], r)
+left_inset_ax.set(title='Impulse response', xlim=(0, .2), xticks=[], yticks=[])
+
+plt.show()
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+a = np.arange(5)
+b = [2, 4, 6, 8, 10]
+c = [5, 6, 7, 8, 9]
+
+fig = plt.figure()
+ax = plt.subplots()
+
+ax.plot(a, b, label='Frequency')
+ax.plot(a, c, label='Periods')
+plt.title("Frequency of a signal")
+plt.legend(loc = 'center right').get_frame().set_facecolor('red')
+plt.grid()
+
+plt.show()
+
+-------------------------------------------------------------------------------------------------
+					Sympy
+Sympy is a library for symbolic mathematics 
+sp.oo -- infinity \
+sp.I ** 2 -- -i(imaginary number)
+
+Some methods and functions: 
+import sympy as sp
+
+sp.sqrt(2) ** 2 -- wouldn't give even small errors 
+x = sp.Symbol("x", integer=True (or positive=True)) -- assign a symbol 
+s, t = sp.symbols("s t")
+x_v = sp.symbols("x0:3") -- [x1, x2, x3], or x_v= symbols("a:z"), includes 'z' 
+expr = Add(2*x, x, -5, evaluate=False) -- not to simplify
+expr.evalf() -- approximately count to numeric 
+sp.simplify(sp.sin(x)**2 + sp.cos(x)**2) -- trig is not autosimplified 
+	sp.sympify(5)  -- → Integer(5)[5][7]
+	sp.factor("X**2 + 2xy + y**2) 
+	sp.trigsimp()
+	sp.expand(expr, trig=True) -- reverse trigsimp(open), also log and etc 
+	sp.cancel(expr) -- simplify, used for f(x)/g(x) polynomials or numericals 
+	sp.apart(expr) -- divide each by each 
+	expand((x+1)**2) -- reverse to simplify(decombine)  
+	logcombine()
+	ratsimp() -- simpligy fractions(rational expressions) 
+	nsimplify(1.4142, constants=[]) -- approximate irrational constants, 1.5 - Rational(3, 2) 
+• Integer works with SymPy's type system (e.g., Rational(1,2) + Integer(1) = Rational(3,2))
+	sp.Integer(a) / 5 - okay!
+	type(sp.Integer(1)) -- sympy.core.numbers.One(or rational)
+	x ** Rational(1, 3) -- same as Integer(1) / 3 
+
+• Solve Equations
+eq = sp.Eq(x**2, 5) -- assign an equation
+1)sp.solve(f, *symbols, **flags) -- find unknown variables 
+	Flags:
+	exclude=[x, y] -- exclude from solutions
+	particular=True -- set unknown values to 0 (linear system)
+	check=True -- check by placing back(false for complex numbs), might give a mistake  
+	force=True -- solve advanced equations
+	implicit=True -- return the equation at some point if can't solve further 
+	quick=True -- find some solution(linear system)
+	manual=True -- gonna solve and answer more human-like 
+2) sp.solveset(sin(x) - 1, x, domain=S.Reals, **flags) -- answ in sets, not lists, domain selection available 
+#Example
+eq2 = sp.Eq(sp.cos(x)-sp.sin(x), 0)
+sp.solveset(eq2)
+Returns:
+Union(ImageSet(Lambda(_n, 2*_n*pi + 5*pi/4), Integers), ImageSet(Lambda(_n, 2*_n*pi + pi/4), Integers))
+3) sp.linsolve([eq1, eq2], x,y,z) -- solve systems of linear equations 
+4) expr.subs(x0, 2) -- set variable in expression (also can assign constants to it) 
+5) Calculus
+	sp.diff(expr, x, 2) -- 2nd derivative of expr by x  
+	expr.rewrite(sp.exp).simplify() -- change everything possible to exponential
+		Example:
+		Original: tanh(x)
+		Rewritten: (exp(x) - exp(-x)) / (exp(x) + exp(-x))
+		OR:
+		expr = sin(2*a)
+		expr.rewrite('cos')
+		expr.rewrite('sqrt')
+	sp.integrate(expr) + C -- indefinite integral
+	sp.integrate(expr, x) -- integrate by x
+	sp.integrate(expr, (x, 0, 10), ...) -- definite integral
+		sp.integrate(u, (x, 0, sp.oo)) -- 0 to infinity
+		sp.integrate(w, (x, 0, 1), (y, 1, 5)) -- intergarte by x, then by y
+		#Example:
+		g = x ** y
+
+		h = sp.integrate(g, x)
+		print(h)
+		print(type(h))
+		print((h * g).simplify())
+		Output:
+		Piecewise((x**(y + 1)/(y + 1), Ne(y, -1)), (log(x), True))
+		Piecewise
+		Piecewise((x**(2*y + 1)/(y + 1), (y > -1) | (y < -1)), (x**y*log(x), True))
+	sp.limit(expr, x, 1, dir='+') -- also copy line and use dir='-' for two-sided limit 
+	
+
+
+Integer() -- numeric things.
+Rational() -- integration, division, etc 
+
+•To numerics 
+.evalf(num) <=> sp.N(num, 3) -- expr, decimals 
+f = sp.lambdify(x, expr, modules='numpy') -- set expr as def expr(x) 
+   print(f(x))
+
+
+* Watch solution step-by-step
+#Example(Jupiter or sympy online only)
+from sympy import symbols, Eq
+from sympy.solvers.manualsolve import manualsolve -- import
+
+x = symbols('x')
+eq = Eq(x + 1, 3)
+
+steps = manualsolve(eq, x, return_steps=True) -- show steps
+for s in steps:
+    print(s)
+
+lambdify
+.evalf('n digits') -- convert to numeric
+
+#Forcing example
+from sympy import Symbol, cos, sin, trigsimp, simplify, expand_trig, expand, symbols, factor, Integer, Rational
+import sympy as sp
+
+x, y, z = symbols("x y z")
+
+eq1 = sp.Eq(x**2, 5)
+eq2 = sp.Eq(x**3 - y + 1, 5)
+eq3 = sp.Eq(x*sp.log(x), 1)
+
+for sol in sp.solve(eq3, x, force=True):
+    print(sol.evalf())
+
+
+
+-------------------------------------------------------------------------------------------------
+					PHYSICS 
+#Motion
+import numpy as np
+
+class Movement:
+    def __init__(self, a, v0, x0=0, y0=0):
+        self.a     = a
+        self.v0    = v0
+        self.x0    = x0
+        self.y0    = y0
+        self.t_max = 2 * v0 / a
+
+    def compute_velocity(self, dt=0.01):
+        ts = np.arange(0, self.t_max, dt)
+        return self.v0 - self.a * ts
+
+    def compute_position(self, dt=0.01):
+        ts = np.arange(0, self.t_max, dt)
+        return self.v0 * ts - 0.5 * self.a * ts**2 + self.x0
+
+a0   = 10
+v00  = 20
+calc = Movement(a0, v00)
+
+velocities = calc.compute_velocity()
+positions  = calc.compute_position()
+
+print("Velocities:", velocities)
+print("Positions: ", positions)
+
+#Plasma plotting example
+import matplotlib.pyplot as plt
+import numpy as np
+
+r = np.linspace(0, 1, 100)  # Radius from center (normalized from 0 to 1 meter)
+n_e = 1e20 * (1 - r**2)**1.5  # Plasma density profile formula
+fig, ax = plt.subplots()
+ax.plot(r, n_e, label='Electron Density Profile', color='blue')
+ax.set_title('Plasma Density Profile in Tokamak')
+ax.set_xlabel('Radius (m)')
+ax.set_ylabel('Density (particles/m³)')
+ax.grid(True)
+ax.legend()
+
+plt.tight_layout()
+plt.show()
