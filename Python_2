@@ -23,6 +23,7 @@ Navigation:
 	fn(or fn+Shift) - to move by lines
 	Ctrl - to move by words
 Ctrl+coma - go to settings panel
+5) change font to 17, turn word wrap on, turn auto-save on, exclude the folders/files you dont want to see, turn on "Prettier" extension
 
 
 | Use case                        | Use this     |
