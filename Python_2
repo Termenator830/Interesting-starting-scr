@@ -12,6 +12,7 @@ Main:
 	Ctrl+Shift+P - open a command search menu
 		via command bar Zen-mode ca be opened(no other tabs appearing)
 		Minimap - helps to quickly scroll loads of lines of code
+		New file
 	Ctrl+F - search inside of a file(can also first select the part ad then search)
 	Ctrl+tab(Or Ctrl+Shift+tab to go backwards) - switch between files(can select between what files to switch)
 	Ctrl+W	- close a file
@@ -24,6 +25,27 @@ Navigation:
 	Ctrl - to move by words
 Ctrl+coma - go to settings panel
 5) change font to 17, turn word wrap on, turn auto-save on, exclude the folders/files you dont want to see, turn on "Prettier" extension
+	make comments' font semi-transparent:
+editor.token color customisation
+			{
+			  "workbench.colorTheme": "Kimbie Dark",
+			  "editor.minimap.enabled": false,
+			  "editor.fontSize": 17,
+			  "editor.wordWrap": "on",
+			  "files.autoSave": "afterDelay",
+			  "editor.formatOnSave": true,
+			  "editor.tokenColorCustomizations": {
+			    "textMateRules": [
+			      {
+			        "scope": "comment",
+			        "settings": {
+			          "foreground": "#8b8b8b99"
+			        }
+			      }
+			    ]
+			  }
+			}
+
 
 
 | Use case                        | Use this     |
