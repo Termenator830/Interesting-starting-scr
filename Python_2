@@ -2,6 +2,8 @@ VS Code setup:
 1) instal VS code and Git bash
 2) setup theme to Kimbie dark
 3) install language from extensions, create folder and script file(via VS code)
+	turn on "Prettier" extension
+	use Polacode extension for beautiful code sharing
 4) shortcuts:
 Main:
 	Ctrl+B - open/close sidebar
@@ -24,7 +26,7 @@ Navigation:
 	fn(or fn+Shift) - to move by lines
 	Ctrl - to move by words
 Ctrl+coma - go to settings panel
-5) change font to 17, turn word wrap on, turn auto-save on, exclude the folders/files you dont want to see, turn on "Prettier" extension
+5) change font to 17, turn word wrap on, turn auto-save on, exclude the folders/files you dont want to see
 	make comments' font semi-transparent:
 editor.token color customisation
 			{
