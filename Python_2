@@ -4,6 +4,7 @@ VS Code setup:
 3) install language from extensions, create folder and script file(via VS code)
 	turn on "Prettier" extension
 	use Polacode extension for beautiful code sharing
+	use Bookmarks to save shortcuts to some important places in the code
 4) shortcuts:
 Main:
 	Ctrl+B - open/close sidebar
@@ -17,6 +18,7 @@ Main:
 		New file
 	Ctrl+F - search inside of a file(can also first select the part ad then search)
 	Ctrl+tab(Or Ctrl+Shift+tab to go backwards) - switch between files(can select between what files to switch)
+	Ctrl+N - create a new file
 	Ctrl+W	- close a file
 	Ctrl+P - search for a file
 	Ctrl+Z - undo
