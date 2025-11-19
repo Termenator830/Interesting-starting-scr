@@ -507,8 +507,9 @@ Gt2 pro
 4.2) установить root browser, swift backup
 5) в swift backup: 
 apps, кнопка в правом верхнем углу, параметры системного копирования, show system apps. 
-6) в root browser, переместить папку SwiftBackup(2,12Гб) во внутренний накопитель 
-
+6) в root browser, переместить папку SwiftBackup(2,12Гб) во внутренний накопитель(из bsplfn_0.4)
+7) Установить модули магиск: bootloop(из modules), 1, 2, 3 из bespalfn_0.4. 
+8) в swift backup нажать Restore, выбрать Apks, Data, Expansion, Media. 
 
 ------------------------------------------------------------------------------------------------------------
 
