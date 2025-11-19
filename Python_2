@@ -12,6 +12,9 @@ Main:
 		Ctrl+Shift+F - go to finder
 		Ctrl+Shift+G - go to debugging
 		Ctrl+Coma - go to settings panel
+	Ctrl+`(also Shift for opening a new tab) - hide or open terminal
+		Ctrl+L - to clean terminal
+		Ctrl+Alt+T to run file in terminal
 	Ctrl+Shift+P - open a command search menu
 		via command bar Zen-mode ca be opened(no other tabs appearing)
 		Minimap - helps to quickly scroll loads of lines of code
