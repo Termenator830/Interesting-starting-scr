@@ -3,17 +3,24 @@ VS Code setup:
 2) setup theme to Kimbie dark
 3) install language from extensions, create folder and script file(via VS code)
 4) shortcuts:
-Ctrl+B - open/close sidebar
-	Ctrl+Shift+E - go to explorer
-	Ctrl+Shift+F - go to finder
-	Ctrl+Shift+G - go to debugging
-Ctrl+Shift+P - open a command search menu
-	via command bar Zen-mode ca be opened(no other tabs appearing)
-	Minimap - helps to quickly scroll loads of lines of code
-Ctrl+F - search inside of a file(can also first select the part ad then search)
-Ctrl+tab(Or Ctrl+Shift+tab to go backwards) - switch between files(can select between what files to switch)
-Ctrl+W	- close a file
-Ctrl+P - search for a file
+Main:
+	Ctrl+B - open/close sidebar
+		Ctrl+Shift+E - go to explorer
+		Ctrl+Shift+F - go to finder
+		Ctrl+Shift+G - go to debugging
+	Ctrl+Shift+P - open a command search menu
+		via command bar Zen-mode ca be opened(no other tabs appearing)
+		Minimap - helps to quickly scroll loads of lines of code
+	Ctrl+F - search inside of a file(can also first select the part ad then search)
+	Ctrl+tab(Or Ctrl+Shift+tab to go backwards) - switch between files(can select between what files to switch)
+	Ctrl+W	- close a file
+	Ctrl+P - search for a file
+	Ctrl+Z - undo
+	Ctrl+C - can copy a line without selecting the words
+	Ctrl+D - select a word that you are on
+Navigation:
+	fn(or fn+Shift) - to move by lines
+	Ctrl - to move by words
 
 
 | Use case                        | Use this     |
