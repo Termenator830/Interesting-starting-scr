@@ -2007,6 +2007,18 @@ print(x)
 
 x = [(f"Van, Per, Gil"), (f"Jone, Coll, Hesh"), (f"Lesh, Mesh, Dash")]
 
+# Class of functions example
+class mod_checker:
+    def __call__(self, y):
+        return self.x % y == self.mod
+
+    def __init__(self, x, mod=0):
+        self.x = x
+        self.mod = mod
+
+mod_3 = mod_checker(3)
+print(mod_3(3))
+
 import operator as op
 from functools import partial
 
