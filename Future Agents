@@ -1,3 +1,32 @@
 https://new.futureagents.tpu.ru/ru/campaign
 https://new.futureagents.tpu.ru/ru/login
 
+
+
+1) Lsum = Rsum sequence
+  def solver(q):
+      m = q
+      while m % 2 == 0:
+          m //= 2
+  
+      divisors_count = 1
+      d = 2
+      temp = m
+      while d * d <= temp:
+          if temp % d == 0:
+              exponent = 0
+              while temp % d == 0:
+                  exponent += 1
+                  temp //= d
+              divisors_count *= (2 * exponent + 1)
+          d += 1
+      if temp > 1:
+          divisors_count *= (2 * 1 + 1)
+          
+      return divisors_count
+  
+  q = int(input())
+  result = solver(q)
+  print(result)
+
+
