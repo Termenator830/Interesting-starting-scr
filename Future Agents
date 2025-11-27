@@ -29,4 +29,23 @@ https://new.futureagents.tpu.ru/ru/login
   result = solver(q)
   print(result)
 
+2) Washes in order
+N, k = map(int, input().split())
 
+wash_count = 0
+prev = set('0')
+was_washed = False
+
+for _ in range(N):
+    current = set(map(int, input().split()[1:]))
+    if not prev.issubset(current):
+        wash_count += 1
+        was_washed = True
+    else:
+        was_washed = False
+    prev = current
+
+if not was_washed:
+    wash_count += 1
+
+print(wash_count)
