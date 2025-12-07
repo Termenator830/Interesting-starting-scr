@@ -504,7 +504,7 @@ Gt2 pro
 3.2) ввести пин код 1111, изменить шрифт 
 4) (не на vecino)
 4.1) установить Magisk 27, обновить
-4.2) установить root browser, swift backup
+4.2) установить root browser, swift backup (1apk, 2apk from instal)
 5) в swift backup: 
 apps, кнопка в правом верхнем углу, параметры системного копирования, show system apps. 
 6) в root browser, переместить папку SwiftBackup(2,12Гб) во внутренний накопитель(из bsplfn_0.4)
