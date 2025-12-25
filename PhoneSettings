@@ -796,6 +796,11 @@ nano /etc/ssh/sshd_config
 nano /etc/ssh/sshd_config.d/50-cloud-init.conf
 open/close      --open or close registration
 
+После перезагрузки использовать:
+stage1
+stage1 passphrase
+stage2
+
 ____________
 
 #6 [bridges admins]:
