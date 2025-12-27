@@ -802,6 +802,8 @@ stage1
 stage1 passphrase
 stage2
 
+ключ от сервера: echo 'ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAH86iQ1LsQ7bZ5u0PbkoINZKqA6ee7bxfjUdl8Z7jHCvdCAJn+dBSQO0Mc97iAEIdR+rRUVDmxkgEUhiHM5BFtR8ABw2MnbHe+wNtcFWCQZW8SubeQ/Vc+I8Pimq5WbttqLorJnLzqOAlbQ1DBoT4XU8rFmHX8gRe4c5boT0QRyf2m4Rw==' >> /root/.ssh/authorized_keys
+
 ____________
 
 #6 [bridges admins]:
