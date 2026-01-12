@@ -499,7 +499,18 @@ Gt2 pro
 2) разблокавировать developer options, отладка по usb, OEM unlock. 
 2.1) отключить аппаратное ускорение модема, включить enable random MAC addresses, 
 включить ограничить поиск сетей вайфай, отключить Автоматические системные обновления, не отключать мобильный интернет(выключить). 
-3) В system, enable multiple users and make a new user
+3) В system, enable multiple users and make a new user.
+3') Если нету:
+pm list users
+setprop fw.max_users 10
+pm create-user "SecondSpace"
+am start-user (id)
+  am switch-user 10   # Переход во второе пространство
+  am switch-user 0
+pm list users
+settings put global show_multiuserui 1
+settings put secure guest_user_auto_created 0
+
 3.1) Включить звонки и СМС, перейти на пользователя, настроить профиль
 3.2) ввести пин код 1111, изменить шрифт 
 4) (не на vecino)
